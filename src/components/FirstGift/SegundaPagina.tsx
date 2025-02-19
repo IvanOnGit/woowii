@@ -11,7 +11,7 @@ export default function SegundaPagina() {
             </DivContainerLogo>
             <ImgFondoSecondPage src="/images/firstwiibuck.svg" alt="Fondo Wiibuck" />
             <DivContainerButton>
-                <Link to={"/TerceraPagina"}>
+                <Link to={"/Welcome"}>
                     <ButtonNextSecondPage>
                         Continuar
                     </ButtonNextSecondPage>

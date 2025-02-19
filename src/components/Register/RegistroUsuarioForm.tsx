@@ -38,7 +38,7 @@ export default function RegistroUsuarioForm() {
                         <input type="text" name="name" id="name" placeholder="Introduzca nombre y apellido" />
                         <label htmlFor="pass">CONTRASEÑA</label>
                         <input type="password" name="pass" id="pass" placeholder="Elija contraseña " />
-                        <Link to={`/SegundaPagina`}>
+                        <Link to={`/FirstGift`}>
                             <input type="submit" value="CREAR CUENTA" />
                         </Link>
                     </FormRegistroUsuario>
