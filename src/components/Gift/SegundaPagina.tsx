@@ -7,9 +7,9 @@ export default function SegundaPagina() {
       <>
           <ContainerWrapper>
             <DivContainerLogo>
-                <LogoSecondPageStyled src="./public/images/GreenLogoDemo.svg" />
+                <LogoSecondPageStyled src="/images/GreenLogoDemo.svg" />
             </DivContainerLogo>
-            <ImgFondoSecondPage src="./public/images/firstwiibuck.svg" alt="Fondo Wiibuck" />
+            <ImgFondoSecondPage src="/images/firstwiibuck.svg" alt="Fondo Wiibuck" />
             <DivContainerButton>
                 <Link to={"/TerceraPagina"}>
                     <ButtonNextSecondPage>

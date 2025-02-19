@@ -21,7 +21,7 @@ export default function RegistroUsuarioForm() {
         <SemiCircleStyled>
                 <DivContainerStyled>
                     <LogoAndTitleWrapper>
-                        <LogoRegistroUsuarioStyled src="./public/images/GreenLogoDemo.svg" />
+                        <LogoRegistroUsuarioStyled src="/images/GreenLogoDemo.svg" />
                         <TxtInfoRegistroUsuarioStyled>
                             CREA UN USUARIO O INGRESA A TU CUENTA
                         </TxtInfoRegistroUsuarioStyled>
@@ -47,10 +47,10 @@ export default function RegistroUsuarioForm() {
                     </IniciaSesionStyled>
                     <Popup isOpen={isPopupOpen} onClose={closePopup} />
                     <BtnLinksSocialStyled>
-                        <img id="one" src="./public/images/linkedinGrey.svg" alt="Linkedin icon" />
-                        <img id="two" src="./public/images/instagramgrey.svg" alt="Instagram icon" />
-                        <img id="three" src="./public/images/twittergrey.svg" alt="Twitter icon" />
-                        <img id="four" src="./public/images/spotifygrey.svg" alt="Spotify icon" />
+                        <img id="one" src="/images/linkedinGrey.svg" alt="Linkedin icon" />
+                        <img id="two" src="/images/instagramgrey.svg" alt="Instagram icon" />
+                        <img id="three" src="/images/twittergrey.svg" alt="Twitter icon" />
+                        <img id="four" src="/images/spotifygrey.svg" alt="Spotify icon" />
                     </BtnLinksSocialStyled>
                     <TextoMiniInfoRegUser>
                         By tapping “Create account or “Sign in”, you agree to our Terms. Learn how we process your data in our Privacy Policy and Cookies Policy

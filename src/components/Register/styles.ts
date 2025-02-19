@@ -159,7 +159,7 @@ export const WrapperImage = styled.img`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url("/public/images/fondo_lila.svg");
+  background-image: url("/images/fondo_lila.svg");
   background-size: cover;
   background-position: center;
   z-index: -1;  

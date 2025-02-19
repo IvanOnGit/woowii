@@ -5,9 +5,9 @@ export default function TerceraPagina() {
       <>
           <ContainerWrapper>
                 <DivContainerLogoTerPage>
-                    <LogoTerceraPageStyled src="./public/images/GreenLogoDemo.svg" />
+                    <LogoTerceraPageStyled src="/images/GreenLogoDemo.svg" />
                 </DivContainerLogoTerPage>
-                    <ImgFondoTerceraPage src="./public/images/imgtercerapagina.svg" alt="Fondo Tercera Pagina" />
+                    <ImgFondoTerceraPage src="/images/imgtercerapagina.svg" alt="Fondo Tercera Pagina" />
                 <ButtonNextTerceraPage>
                     Continuar
                 </ButtonNextTerceraPage>
