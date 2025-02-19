@@ -1,0 +1,23 @@
+import { Link } from "react-router-dom"
+import { ButtonNextSecondPage, ContainerWrapper, DivContainerButton, DivContainerLogo,   ImgFondoSecondPage,   LogoSecondPageStyled } from "./styles"
+
+
+export default function SegundaPagina() {
+  return (
+      <>
+          <ContainerWrapper>
+            <DivContainerLogo>
+                <LogoSecondPageStyled src="./src/images/GreenLogoDemo.svg" />
+            </DivContainerLogo>
+            <ImgFondoSecondPage src="./src/images/firstwiibuck.svg" alt="Fondo Wiibuck" />
+            <DivContainerButton>
+                <Link to={"/TerceraPagina"}>
+                    <ButtonNextSecondPage>
+                        Continuar
+                    </ButtonNextSecondPage>
+                </Link>
+            </DivContainerButton>
+        </ContainerWrapper>
+    </>
+  )
+}
