@@ -5,6 +5,7 @@ import SegundaPagina from './components/UserFirstGift/SegundaPagina'
 import TerceraPagina from './components/UserWelcome/TerceraPagina'
 import RegistroUsuarioForm from './components/UserRegister/RegistroUsuarioForm'
 import SelectAvatar from './components/UserSelectAvatar/SelectAvatar'
+import UserHome from './components/UserHome/UserHome';
 
 
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/FirstGift" element={<SegundaPagina />} />
         <Route path="/Welcome" element={<TerceraPagina />} />
         <Route path="/SelectAvatar" element={<SelectAvatar />} />
+        <Route path="/UserHome" element={<UserHome />} />
       </Routes>
       
     </Router>

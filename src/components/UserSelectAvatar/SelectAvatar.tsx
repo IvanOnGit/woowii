@@ -12,6 +12,7 @@ import {
   ButtonNextTerceraPage
 } from "./styles";
 import { ChevronLeft, ChevronRight, Key } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const avatars = [
   { id: 1, src: "/images/Avatar1.png" },
@@ -74,9 +75,11 @@ export default function SelectAvatar() {
           <p><Key />Recuerda mantener el anonimato.</p>
           <p><Key />Sugerimos elegir un alias profesional.</p>
       </UsernameInput>
+      <Link to={"/UserHome"}>
         <ButtonNextTerceraPage>
             Continuar
         </ButtonNextTerceraPage>
+      </Link>
     </ContainerWrapper>
   );
 }
