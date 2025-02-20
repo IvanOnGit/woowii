@@ -2,6 +2,7 @@ import { Bell, Bookmark, BriefcaseBusiness, Mail, Menu } from "lucide-react";
 import { ContainerWrapper, Header, SearchContainer, HeaderItems } from "./styles";
 import NewPost from "../NewPost/NewPost";
 import MotivationText from "../MotivationText/MotivationText";
+import StepsProfileCreation from "../StepsProfileCreation/StepsProfileCreation";
 
 export default function UserHome() {
   return (
@@ -23,6 +24,7 @@ export default function UserHome() {
       </ContainerWrapper>
       <NewPost />
       <MotivationText />
+      <StepsProfileCreation />
     </>
   );
 }
