@@ -1,10 +1,10 @@
 
 import './App.css'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
-import SegundaPagina from './components/FirstGift/SegundaPagina'
-import TerceraPagina from './components/Welcome/TerceraPagina'
-import RegistroUsuarioForm from './components/Register/RegistroUsuarioForm'
-import SelectAvatar from './components/SelectAvatar/SelectAvatar'
+import SegundaPagina from './components/UserFirstGift/SegundaPagina'
+import TerceraPagina from './components/UserWelcome/TerceraPagina'
+import RegistroUsuarioForm from './components/UserRegister/RegistroUsuarioForm'
+import SelectAvatar from './components/UserSelectAvatar/SelectAvatar'
 
 
 
