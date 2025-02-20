@@ -9,7 +9,6 @@ export default function UserHome() {
       <ContainerWrapper>
         <Header>
           <SearchContainer>
-            <input type="text" placeholder="Búsqueda" />
           </SearchContainer>
           <HeaderItems>
             <p><img src="/images/wiibucks.png" alt="wiibucks" />50</p>
