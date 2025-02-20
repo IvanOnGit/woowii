@@ -6,7 +6,7 @@ export const ContainerWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   height: 100vh;
-  gap: 3rem;
+  gap: 1rem;
 
   h2 {
     font-family: 'Roboto', sans-serif;
@@ -77,3 +77,62 @@ export const Thumbnail = styled.img<{ isSelected: boolean }>`
     opacity: 0.8;
   }
 `;
+
+export const UsernameInput = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  h3 {
+    justify-content: flex-start;
+    width: 11%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  input {
+    padding: 0.3rem;
+    border-radius: 8px;
+    outline: none;
+    border: 1px solid black;
+    margin-bottom: 1rem;
+  }
+
+  input::placeholder {
+    padding-left: 0.5rem;
+  }
+
+  p {
+    margin: 0.1rem;
+    width: 20rem;
+    margin-left: 10rem;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.7rem;
+
+    svg {
+      height: 0.8rem;
+      width: 0.8rem;
+      margin-right: 0.5rem;
+    }
+  }
+`
+
+export const ButtonNextTerceraPage = styled.button`
+    width: 182px;
+    height: 37px;
+    background: #8FFF00;
+    color: #000;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    border-radius: 45px;
+    border: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+`

@@ -7,9 +7,11 @@ import {
   AvatarImage,
   Button,
   ThumbnailsContainer,
-  Thumbnail
+  Thumbnail,
+  UsernameInput,
+  ButtonNextTerceraPage
 } from "./styles";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Key } from "lucide-react";
 
 const avatars = [
   { id: 1, src: "/images/Avatar1.png" },
@@ -64,6 +66,17 @@ export default function SelectAvatar() {
           />
         ))}
       </ThumbnailsContainer>
+        <UsernameInput>
+          <h3>Elige tu usuario:</h3>
+          <input type="text" placeholder="Prueba tu @" />
+          <p><Key />Entre 8 y 20 caracteres.</p>
+          <p><Key />Debe contener letras minúsculas, mayúsculas y números.</p>
+          <p><Key />Recuerda mantener el anonimato</p>
+          <p><Key />Sugerimos elegir un alias profesional</p>
+      </UsernameInput>
+        <ButtonNextTerceraPage>
+            Continuar
+        </ButtonNextTerceraPage>
     </ContainerWrapper>
   );
 }
