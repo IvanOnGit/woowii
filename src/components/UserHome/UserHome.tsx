@@ -1,6 +1,7 @@
 import { Bell, Bookmark, BriefcaseBusiness, Mail, Menu } from "lucide-react";
 import { ContainerWrapper, Header, SearchContainer, HeaderItems } from "./styles";
 import NewPost from "../NewPost/NewPost";
+import MotivationText from "../MotivationText/MotivationText";
 
 export default function UserHome() {
   return (
@@ -22,6 +23,7 @@ export default function UserHome() {
         </Header>
       </ContainerWrapper>
       <NewPost />
+      <MotivationText />
     </>
   );
 }
