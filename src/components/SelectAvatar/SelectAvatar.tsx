@@ -72,7 +72,7 @@ export default function SelectAvatar() {
           <p><Key />Entre 8 y 20 caracteres.</p>
           <p><Key />Debe contener letras minúsculas, mayúsculas y números.</p>
           <p><Key />Recuerda mantener el anonimato.</p>
-          <p><Key />Sugerimos elegir un alias profesional.</p>
+          <p><Key />Sugerimos elegir un alias profesional</p>
       </UsernameInput>
         <ButtonNextTerceraPage>
             Continuar
