@@ -7,6 +7,8 @@ import RegistroUsuarioForm from './components/UserRegister/RegistroUsuarioForm'
 import SelectAvatar from './components/UserSelectAvatar/SelectAvatar'
 import UserHome from './components/UserHome/UserHome';
 import RegisterCompanyForm from './components/CompanyRegister/RegisterCompanyForm'
+import SecondPage from './components/CompanyFirstGift/SecondPage'
+import ThirdPage from './components/CompanyWelcome/ThirdPage'
 
 
 
@@ -23,6 +25,8 @@ function App() {
         <Route path="/SelectAvatar" element={<SelectAvatar />} />
         <Route path="/UserHome" element={<UserHome />} />
         <Route path="/RegisterCompanyForm" element={<RegisterCompanyForm />} />
+        <Route path="/SecondPage" element={<SecondPage />} />
+        <Route path="/ThirdPage" element={<ThirdPage />} />
       </Routes>
       
     </Router>
