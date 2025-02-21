@@ -6,6 +6,7 @@ import TerceraPagina from './components/UserWelcome/TerceraPagina'
 import RegistroUsuarioForm from './components/UserRegister/RegistroUsuarioForm'
 import SelectAvatar from './components/UserSelectAvatar/SelectAvatar'
 import UserHome from './components/UserHome/UserHome';
+import RegisterCompanyForm from './components/CompanyRegister/RegisterCompanyForm'
 
 
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/Welcome" element={<TerceraPagina />} />
         <Route path="/SelectAvatar" element={<SelectAvatar />} />
         <Route path="/UserHome" element={<UserHome />} />
+        <Route path="/RegisterCompanyForm" element={<RegisterCompanyForm />} />
       </Routes>
       
     </Router>
