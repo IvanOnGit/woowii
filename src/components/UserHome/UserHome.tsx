@@ -1,5 +1,5 @@
 import { Bell, Bookmark, BriefcaseBusiness, Mail, Menu } from "lucide-react";
-import { ContainerWrapper, Header, SearchContainer, HeaderItems } from "./styles";
+import { ContainerWrapper, Header, SearchContainer, HeaderItems, MenuAside } from "./styles";
 import NewPost from "../NewPost/NewPost";
 import MotivationText from "../MotivationText/MotivationText";
 import StepsProfileCreation from "../StepsProfileCreation/StepsProfileCreation";
@@ -7,6 +7,12 @@ import StepsProfileCreation from "../StepsProfileCreation/StepsProfileCreation";
 export default function UserHome() {
   return (
     <>
+      <MenuAside>
+        <div>
+          <img src="/images/GreenLogoDemo.svg" />
+                
+        </div>
+      </MenuAside>
       <ContainerWrapper>
         <Header>
           <SearchContainer>
