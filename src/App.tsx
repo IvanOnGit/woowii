@@ -6,6 +6,7 @@ import TerceraPagina from './components/UserWelcome/TerceraPagina'
 import RegistroUsuarioForm from './components/UserRegister/RegistroUsuarioForm'
 import SelectAvatar from './components/UserSelectAvatar/SelectAvatar'
 import UserHome from './components/UserHome/UserHome';
+import Hardset from './components/Hardset/Hardset'
 
 
 
@@ -21,8 +22,8 @@ function App() {
         <Route path="/Welcome" element={<TerceraPagina />} />
         <Route path="/SelectAvatar" element={<SelectAvatar />} />
         <Route path="/UserHome" element={<UserHome />} />
-      </Routes>
-      
+        <Route path="/Hardset" element={<Hardset />} />
+      </Routes>    
     </Router>
   )
 }

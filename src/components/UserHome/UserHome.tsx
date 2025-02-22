@@ -13,6 +13,7 @@ import {
 import NewPost from "../NewPost/NewPost";
 import MotivationText from "../MotivationText/MotivationText";
 import StepsProfileCreation from "../StepsProfileCreation/StepsProfileCreation";
+import { Link } from "react-router-dom";
 
 export default function UserHome() {
   return (
@@ -26,7 +27,11 @@ export default function UserHome() {
           </UserAndImageCombo>
         </FirstMenuAsideItem>
         <ThirdMenuAsideItem>
-          <MenuItem><p>Hardset</p> <ChevronDown size={16} /></MenuItem>
+        <MenuItem>
+          <Link to="/Hardset">
+            <p>Hardset</p> <ChevronDown size={16} />
+          </Link>
+        </MenuItem>
           <MenuItem><p>Softset</p> <ChevronDown size={16} /></MenuItem>
           <MenuItem><p>Toolset</p> <ChevronDown size={16} /></MenuItem>
           <MenuItem><p>Superpower</p> <ChevronDown size={16} /></MenuItem>
