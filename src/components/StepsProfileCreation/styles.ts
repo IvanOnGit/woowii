@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 export const ContainerWrapper = styled.div`
   text-align: center;
+  margin-right: 12rem;
   font-family: 'Roboto', sans-serif;
-
   h2 {
     margin-bottom: 0;
     margin-left: 1rem;
     padding-bottom: 0;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #75B300;
   }
 `;

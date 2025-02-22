@@ -11,7 +11,7 @@ export const StyledMotivationText = styled.div`
   margin-left: 7rem;
 
   h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     width: 60%;
     text-align: left;
     color: #75B300;
@@ -21,5 +21,6 @@ export const StyledMotivationText = styled.div`
     width: 60%; 
     text-align: left;
     margin: 0;
+    font-size: 0.8rem;
   }
 `;

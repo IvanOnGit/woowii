@@ -57,14 +57,78 @@ export const MenuAside = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  width: 20rem;
+  width: 19rem;
   height: 100vh;
   background-color: white;
   border-right: 1px solid black;
-  color: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: 'Roboto', sans-serif;
+  span {
+    height: 1px;
+    width: 100%;
+    border-bottom: 1px solid black;
+  }
+`;
+
+export const FirstMenuAsideItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: 'Roboto', sans-serif;
+  border-bottom: 1px solid black;
+  width: 100%;
+  text-align: center;
+
+  img {
+    width: 10rem;
+    height: 4rem;}
+
+  h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+`;
+
+
+export const ThirdMenuAsideItem = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 70%;
+
+  button {
+    width: 80%;
+    padding: 0.75rem;
+    border: 1px solid black;
+    background-color: transparent;
+    border-radius: 1rem;
+    color: black;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  button:hover {
+    background-color: #f0f0f0;
+  }
+`;
+
+export const ChevronIcon = styled.div`
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const MenuItem = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  width: 80%;
 `;
