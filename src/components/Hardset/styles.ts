@@ -14,26 +14,6 @@ export const Header = styled.header`
   justify-content: flex-end;
 `;
 
-export const SearchContainer = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: center; 
-  
-  input {
-    height: 2rem; 
-    width: 30%; 
-    margin-top: 1rem;
-    padding: 0rem;
-    margin-left: 10rem;
-    border-radius: 1rem;
-    border: 1px solid black;
-  }
-
-  input::placeholder {
-    padding-left: 1rem;
-  }
-`;
-
 export const HeaderItems = styled.div`
   display: flex;
   align-items: center;
@@ -64,12 +44,37 @@ export const MenuAside = styled.div`
   color: black;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: start;
   font-family: 'Roboto', sans-serif;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  /* Estilizar el scrollbar */
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
   span {
-    height: 1px;
     width: 100%;
-    border-bottom: 1px solid black;
+    background-color: #75B300;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    padding: 0.3rem;
   }
 
   a {
@@ -87,19 +92,23 @@ export const FirstMenuAsideItem = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid black;
   width: 100%;
   text-align: center;
-  height: 25%;
+  height: 12rem;
 
   img {
     width: 10rem;
-    height: 4rem;}
+    height: 4rem;
+  }
 
   h3 {
     margin: 0;
     font-size: 1rem;
     font-weight: 500;
+  }
+
+  span {
+    margin-top: 1rem;
   }
 `;
 
@@ -117,7 +126,7 @@ export const UserAndImageCombo = styled.div`
   h3 {
     font-size: 1.3rem;
   }
-`
+`;
 
 export const ThirdMenuAsideItem = styled.div`
   width: 100%;
@@ -142,18 +151,96 @@ export const ThirdMenuAsideItem = styled.div`
   }
 `;
 
-export const ChevronIcon = styled.div`
-  width: 1rem;
+export const DropdownContainer = styled.div`
+  width: 80%;
+  margin: 1rem auto;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  font-weight: bold;
 `;
 
-export const MenuItem = styled.div`
+export const DropdownButton = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0.8rem;
+  font-size: 1rem;
+  background: transparent;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
+`;
+
+export const DropdownList = styled.div`
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  border-radius: 5px;
+  margin-top: 5px;
+  gap: 1rem;
+  font-weight: initial;
+`;
+
+export const DropdownItem = styled.div`
+  padding: 0.5rem;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 1rem;
+
+  &:hover {
+    background: #f0f0f0;
+  }
+`;
+
+export const SecondDropdownContainer = styled.div`
   width: 80%;
-  height: 25%;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+`;
+
+export const SecondDropdownButton = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+  font-size: 1rem;
+  background: transparent;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+`;
+
+export const SecondDropdownList = styled.div`
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  border-radius: 5px;
+  margin-top: 5px;
+  gap: 1rem;
+  font-weight: initial;
+`;
+
+export const SecondDropdownItem = styled.div`
+  padding: 0.5rem;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 1rem;
+
+  &:hover {
+    background: #f0f0f0;
+  }
+`;
+
+export const HelpButton = styled.button`
+    background-color: transparent;
+    width: 50%;
+    margin-left: 5rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    border-color: #385500;
+    color: #385500;
 `;
