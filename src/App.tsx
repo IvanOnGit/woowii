@@ -9,6 +9,8 @@ import UserHome from './components/UserHome/UserHome';
 import RegisterCompanyForm from './components/CompanyRegister/RegisterCompanyForm'
 import SecondPage from './components/CompanyFirstGift/SecondPage'
 import ThirdPage from './components/CompanyWelcome/ThirdPage'
+import InitFirst from './components/WoowiiInitFirst/InitFirst'
+import InitSecond from './components/WoowiiInitSecond/InitSecond'
 
 
 
@@ -27,6 +29,8 @@ function App() {
         <Route path="/RegisterCompanyForm" element={<RegisterCompanyForm />} />
         <Route path="/SecondPage" element={<SecondPage />} />
         <Route path="/ThirdPage" element={<ThirdPage />} />
+        <Route path="/InitFirst" element={<InitFirst />} />
+        <Route path="/InitSecond" element={<InitSecond />} />
       </Routes>
       
     </Router>
