@@ -12,6 +12,7 @@ export const Header = styled.header`
   width: 100%;
   height: 10%;
   padding: 1rem;
+  justify-content: flex-end;
 `;
 
 export const SearchContainer = styled.div`

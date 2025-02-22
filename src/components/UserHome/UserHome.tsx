@@ -2,7 +2,6 @@ import { Bell, Bookmark, BriefcaseBusiness, Mail, Menu, ChevronDown } from "luci
 import { 
   ContainerWrapper, 
   Header, 
-  SearchContainer, 
   HeaderItems, 
   MenuAside, 
   FirstMenuAsideItem, 
@@ -53,9 +52,6 @@ export default function UserHome() {
       </MenuAside>
       <ContainerWrapper>
         <Header>
-          <SearchContainer>
-            <input type="text" placeholder="Buscar..." />
-          </SearchContainer>
           <HeaderItems>
             <p><img src="/images/wiibucks.png" alt="wiibucks" />50</p>
             <p><img src="/images/wiibucks.png" alt="wiibucks" />00</p>
