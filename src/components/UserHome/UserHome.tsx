@@ -7,7 +7,8 @@ import {
   MenuAside, 
   FirstMenuAsideItem, 
   ThirdMenuAsideItem, 
-  MenuItem 
+  MenuItem, 
+  UserAndImageCombo
 } from "./styles";
 import NewPost from "../NewPost/NewPost";
 import MotivationText from "../MotivationText/MotivationText";
@@ -19,10 +20,10 @@ export default function UserHome() {
       <MenuAside>
         <FirstMenuAsideItem>
           <img src="/images/GreenLogoDemo.svg" alt="Avatar" />
-          <h3>@User_23</h3>
-          <div className="onboarding">
-            <h3>Onboarding</h3>
-          </div>
+          <UserAndImageCombo>
+            <img src="/images/Avatar6.png" alt="" />
+            <h3>@User_23</h3>
+          </UserAndImageCombo>
         </FirstMenuAsideItem>
         <ThirdMenuAsideItem>
           <MenuItem><p>Hardset</p> <ChevronDown size={16} /></MenuItem>

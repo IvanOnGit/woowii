@@ -81,6 +81,7 @@ export const FirstMenuAsideItem = styled.div`
   border-bottom: 1px solid black;
   width: 100%;
   text-align: center;
+  height: 25%;
 
   img {
     width: 10rem;
@@ -93,23 +94,38 @@ export const FirstMenuAsideItem = styled.div`
   }
 `;
 
+export const UserAndImageCombo = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+`
 
 export const ThirdMenuAsideItem = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 70%;
+  height: 25%;
 
   button {
     width: 80%;
-    padding: 0.75rem;
+    padding: 0.5rem;
     border: 1px solid black;
     background-color: transparent;
     border-radius: 1rem;
     color: black;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 
   button:hover {
@@ -119,7 +135,6 @@ export const ThirdMenuAsideItem = styled.div`
 
 export const ChevronIcon = styled.div`
   width: 1rem;
-  height: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -131,4 +146,5 @@ export const MenuItem = styled.div`
   align-items: center;
   cursor: pointer;
   width: 80%;
+  height: 25%;
 `;
