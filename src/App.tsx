@@ -11,6 +11,7 @@ import SecondPage from './components/CompanyFirstGift/SecondPage'
 import ThirdPage from './components/CompanyWelcome/ThirdPage'
 import InitFirst from './components/WoowiiInitFirst/InitFirst'
 import InitSecond from './components/WoowiiInitSecond/InitSecond'
+import SelectAvatarComp from './components/CompanySelectAvatar/SelectAvatarComp'
 
 
 
@@ -31,6 +32,7 @@ function App() {
         <Route path="/ThirdPage" element={<ThirdPage />} />
         <Route path="/InitFirst" element={<InitFirst />} />
         <Route path="/InitSecond" element={<InitSecond />} />
+        <Route path="/SelectAvatarComp" element={<SelectAvatarComp />} />
       </Routes>
       
     </Router>

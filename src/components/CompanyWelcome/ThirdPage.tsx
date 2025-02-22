@@ -9,10 +9,10 @@ export default function ThirdPage() {
                     <LogoTerceraPageStyled src="/images/LogoBlue.svg" />
                 </DivContainerLogoTerPage>
               <ImgFondoTerceraPage src="/images/welcomeBlue.svg" alt="Fondo Tercera Pagina" />
-              <Link to={"/SelectAvatar"}>
+              <Link to={"/SelectAvatarComp"}>
                 <ButtonNextTerceraPage>
                     Continuar
-                  </ButtonNextTerceraPage>
+                </ButtonNextTerceraPage>
               </Link>
         </ContainerWrapper>
     </>
