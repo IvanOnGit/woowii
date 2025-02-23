@@ -1,4 +1,11 @@
-import { BackSecondScreen, ButtonNextInitSecond, DivContainerButton, DivContainerLogo, LateralBlueCover, LogoInitSecondStyled, WrapperImageSecond } from "./styles";
+import { Link } from "react-router-dom";
+import { BackSecondScreen, 
+    ButtonNextInitSecond, 
+    DivContainerButton, 
+    DivContainerLogo, 
+    LateralBlueCover, 
+    LogoInitSecondStyled, 
+    WrapperImageSecond } from "./styles";
 
 
 export default function InitSecond() {
@@ -12,9 +19,11 @@ export default function InitSecond() {
             <LogoInitSecondStyled src="/images/greenLogoLittle.svg" />
         </DivContainerLogo>
         <DivContainerButton>
+            <Link to={"/ChooseTalentCompany"}>
             <ButtonNextInitSecond>
                 ¡Comencemos!
             </ButtonNextInitSecond>
+            </Link>
         </DivContainerButton>
     </>
   )

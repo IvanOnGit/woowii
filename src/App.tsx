@@ -12,6 +12,7 @@ import ThirdPage from './components/CompanyWelcome/ThirdPage'
 import InitFirst from './components/WoowiiInitFirst/InitFirst'
 import InitSecond from './components/WoowiiInitSecond/InitSecond'
 import SelectAvatarComp from './components/CompanySelectAvatar/SelectAvatarComp'
+import ChooseTalentCompany from './components/WoowiiChoose/ChooseTalentCompany'
 
 
 
@@ -22,7 +23,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/"element={<RegistroUsuarioForm />} />
+        <Route path="/RegistroUsuarioForm"element={<RegistroUsuarioForm />} />
         <Route path="/FirstGift" element={<SegundaPagina />} />
         <Route path="/Welcome" element={<TerceraPagina />} />
         <Route path="/SelectAvatar" element={<SelectAvatar />} />
@@ -30,9 +31,10 @@ function App() {
         <Route path="/RegisterCompanyForm" element={<RegisterCompanyForm />} />
         <Route path="/SecondPage" element={<SecondPage />} />
         <Route path="/ThirdPage" element={<ThirdPage />} />
-        <Route path="/InitFirst" element={<InitFirst />} />
+        <Route path="/" element={<InitFirst />} />
         <Route path="/InitSecond" element={<InitSecond />} />
         <Route path="/SelectAvatarComp" element={<SelectAvatarComp />} />
+        <Route path="/ChooseTalentCompany" element={<ChooseTalentCompany/>} />
       </Routes>
       
     </Router>
