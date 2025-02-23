@@ -35,7 +35,7 @@ export default function CongratulationsStepByStep() {
                 <p>Publica tu perfil, e <br /> inicia tus primeras <br /> búsquedas</p>
             </ContainerProgressBarText>
             <DivContainerButton>
-                <Link to={"/Welcome"}>
+                <Link to={"/JobFinder"}>
                     <ButtonNextSecondPage>
                         Continuar
                     </ButtonNextSecondPage>
