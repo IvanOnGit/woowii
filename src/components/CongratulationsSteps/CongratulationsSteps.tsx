@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
-import { ButtonNextSecondPage, ContainerProgressBar, ContainerProgressBarBucks, ContainerProgressBarText, ContainerText, ContainerWrapper, DivContainerButton, DivContainerLogo,   ImgFondoSecondPage,   LogoSecondPageStyled } from "./Styles";
+import { ButtonNextSecondPage, ContainerProgressBar, ContainerProgressBarBucks, ContainerProgressBarText, ContainerText, ContainerWrapper, DivContainerButton, DivContainerLogo,   ImgFondoSecondPage,   LogoSecondPageStyled } from "./styles";
 
-export default function CongratulationsStepByStep() {
+export default function CongratulationsSteps() {
   return (
       <>
           <ContainerWrapper>

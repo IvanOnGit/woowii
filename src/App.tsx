@@ -10,7 +10,7 @@ import Hardset from './components/Hardset/Hardset'
 import UserSecondGift from './components/UserSecondGift/UserSecondGift'
 import PersonalityTest from './components/PersonalityTest/PersonalityTest'
 import PersonalityTestQuestions from './components/PersonalityTestQuestions/PersonalityTestQuestions'
-import CongratulationsStepByStep from './components/CongratulationsStepByStep/CongratulationsStepByStep'
+import CongratulationsSteps from './components/CongratulationsSteps/CongratulationsSteps'
 
 
 
@@ -30,7 +30,7 @@ function App() {
         <Route path="/SecondGift" element={<UserSecondGift />} />
         <Route path="/PersonalityTest" element={<PersonalityTest />} />
         <Route path="/PersonalityTestQuestions" element={<PersonalityTestQuestions />} />
-        <Route path="/CongratulationsStepByStep" element={<CongratulationsStepByStep />} />
+        <Route path="/CongratulationsSteps" element={<CongratulationsSteps />} />
       </Routes>    
     </Router>
   )

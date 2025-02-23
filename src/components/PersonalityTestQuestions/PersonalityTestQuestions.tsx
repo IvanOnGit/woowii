@@ -32,7 +32,7 @@ export default function PersonalityTestQuestions() {
   const navigate = useNavigate();
 
   const handleContinueClick = () => {
-    navigate("/CongratulationsStepByStep");
+    navigate("/CongratulationsSteps");
   };
 
   const renderRatingButtons = (questionIndex: number) => {
