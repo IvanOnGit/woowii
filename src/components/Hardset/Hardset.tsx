@@ -21,7 +21,12 @@ import {
   Checkbox,
   Container,
   OptionLabel,
-  MainContainer
+  MainContainer,
+  AboutHardset,
+  AboutLines,
+  AboutButtons,
+  TalkWithWoody,
+  ContinueButton
 } from "./styles";
 
 export default function Hardset() {
@@ -278,6 +283,46 @@ export default function Hardset() {
                 No quiero roles donde tener gente a cargo.
             </OptionLabel>
         </Container>
+        <AboutHardset>
+            <h2>Sobre tus HARDSET:</h2>
+            <AboutLines>
+                <AboutButtons>Análisis de Datos</AboutButtons><AboutButtons>Ciberseguridad</AboutButtons><AboutButtons>Desarrollo Web</AboutButtons>
+            </AboutLines>
+            <AboutLines>
+                <AboutButtons>Soporte técnico</AboutButtons><AboutButtons>Testing de Software</AboutButtons><AboutButtons>Infraestructura</AboutButtons>
+            </AboutLines>
+            <AboutLines>
+                <AboutButtons>Diseño UX | UI</AboutButtons><AboutButtons>Soporte técnico</AboutButtons><AboutButtons>Gestión de Proyectos</AboutButtons>
+            </AboutLines>
+        </AboutHardset>
+        
+        <AboutHardset>
+            <h2>Sobre tus SOFTSET:</h2>
+            <AboutLines>
+                <AboutButtons>Comunicación efectiva</AboutButtons><AboutButtons>Trabajo en equipo</AboutButtons><AboutButtons>Gestión del tiempo</AboutButtons>
+            </AboutLines>
+            <AboutLines>
+                <AboutButtons>Creatividad</AboutButtons><AboutButtons>Resolución de problemas</AboutButtons><AboutButtons>Empatía</AboutButtons>
+            </AboutLines>
+            <AboutLines>
+                <AboutButtons>Liderazgo</AboutButtons><AboutButtons>Adaptabilidad</AboutButtons><AboutButtons>Responsabilidad</AboutButtons>
+            </AboutLines>
+        </AboutHardset>
+        
+        <AboutHardset>
+            <h2>Sobre tus TOOLSET:</h2>
+            <AboutLines>
+                <AboutButtons>Python</AboutButtons><AboutButtons>C++</AboutButtons><AboutButtons>SQL</AboutButtons>
+            </AboutLines>
+            <AboutLines>
+                <AboutButtons>JavaScript</AboutButtons><AboutButtons>Ruby</AboutButtons><AboutButtons>PHP</AboutButtons>
+            </AboutLines>
+            <AboutLines>
+                <AboutButtons>.NET</AboutButtons><AboutButtons>HTML/CSS</AboutButtons><AboutButtons>Trello</AboutButtons>
+            </AboutLines>
+        </AboutHardset>
+              <TalkWithWoody>¡Chatea con Woody! </TalkWithWoody>
+              <ContinueButton>Continue</ContinueButton>
     </MainContainer>
     </>
   );

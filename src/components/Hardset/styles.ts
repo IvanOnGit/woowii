@@ -336,3 +336,45 @@ export const Checkbox = styled.input`
   margin-right: 8px;
   cursor: pointer;
 `;
+
+export const AboutHardset = styled.div`
+  width: 100%;
+  margin-left: 25rem;
+  margin-top: 2rem;
+  font-family: 'Roboto', sans-serif;
+`;
+
+export const AboutLines = styled.div`
+  display: flex;
+  margin: 1rem;
+  margin-left: 0;
+  gap: 1rem;
+`;
+
+export const AboutButtons = styled.button`
+width: 13rem;
+background-color: #8FFF00;
+border-radius: 1rem;
+padding: 0.5rem;
+border: 1px solid black;
+cursor: pointer;
+`;
+
+export const TalkWithWoody = styled.p`
+width: 100%;
+display: flex;
+margin-left: 85rem;
+color: #75B300;
+`;
+
+export const ContinueButton = styled.button`
+width: 13rem;
+margin-left: 39rem;
+margin-bottom: 2rem;
+background-color: #75B300;
+border-radius: 1rem;
+color: white;
+border: none;
+padding: 0.6rem;
+cursor: pointer;
+`;
