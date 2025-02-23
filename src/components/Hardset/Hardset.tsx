@@ -120,7 +120,7 @@ export default function Hardset() {
           )}
         </SecondDropdownContainer>
         
-        {/* Sexto Dropdown */}
+        {/* Sextto Dropdown */}
         <SecondDropdownContainer>
           <SecondDropdownButton onClick={() => setIsSixthDropdownOpen(!isSixthDropdownOpen)}>
             Idiomas y nivel {isSixthDropdownOpen ? <ChevronUp /> : <ChevronDown />}
