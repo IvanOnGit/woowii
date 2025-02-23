@@ -253,6 +253,10 @@ export const SecondDropdownItem = styled.div`
   border: 1px solid #ddd;
   border-radius: 1rem;
 
+  input {
+    border: none;
+  }
+
   &:hover {
     background: #f0f0f0;
   }
