@@ -30,7 +30,7 @@ export default function CongratulationsStepByStep() {
             </ContainerProgressBar>
             <ContainerProgressBarText>
                 <p>Crea tu perfil</p>
-                <p>Historias en <br /> lugar de CV</p>
+                <p>Historias en <br />lugar de CV</p>
                 <p>Assessment</p>
                 <p>Publica tu perfil, e <br /> inicia tus primeras <br /> búsquedas</p>
             </ContainerProgressBarText>
