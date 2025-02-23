@@ -277,7 +277,7 @@ export default function Hardset() {
                 />
                 No quiero roles donde tener gente a cargo.
             </OptionLabel>
-              </Container>
+        </Container>
     </MainContainer>
     </>
   );
