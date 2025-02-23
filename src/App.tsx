@@ -9,6 +9,7 @@ import UserHome from './components/UserHome/UserHome';
 import Hardset from './components/Hardset/Hardset'
 import UserSecondGift from './components/UserSecondGift/UserSecondGift'
 import PersonalityTest from './components/PersonalityTest/PersonalityTest'
+import PersonalityTestQuestions from './components/PersonalityTestQuestions/PersonalityTestQuestions'
 
 
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/Hardset" element={<Hardset />} />
         <Route path="/SecondGift" element={<UserSecondGift />} />
         <Route path="/PersonalityTest" element={<PersonalityTest />} />
+        <Route path="/PersonalityTestQuestions" element={<PersonalityTestQuestions />} />
       </Routes>    
     </Router>
   )
