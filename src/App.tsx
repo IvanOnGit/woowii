@@ -8,6 +8,7 @@ import SelectAvatar from './components/UserSelectAvatar/SelectAvatar'
 import UserHome from './components/UserHome/UserHome';
 import Hardset from './components/Hardset/Hardset'
 import UserSecondGift from './components/UserSecondGift/UserSecondGift'
+import PersonalityTest from './components/PersonalityTest/PersonalityTest'
 
 
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/UserHome" element={<UserHome />} />
         <Route path="/Hardset" element={<Hardset />} />
         <Route path="/SecondGift" element={<UserSecondGift />} />
+        <Route path="/PersonalityTest" element={<PersonalityTest />} />
       </Routes>    
     </Router>
   )
