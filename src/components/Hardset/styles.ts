@@ -1,5 +1,28 @@
 import styled from "styled-components";
 
+export const MainContainer = styled.div`
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100vh;
+
+    &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+`;
+
 export const ContainerWrapper = styled.div`
   display: flex;
   width: 100%;
@@ -243,4 +266,73 @@ export const HelpButton = styled.button`
     border-radius: 1rem;
     border-color: #385500;
     color: #385500;
+`;
+
+export const StoryExplanation = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 25rem;
+  font-family: 'Roboto', sans-serif;
+
+  h2 {
+    font-size: 2rem;
+    color: #75B300;
+    margin: 0;
+  }
+`;
+
+export const StoryForm = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 25rem;
+  font-family: 'Roboto', sans-serif;
+
+  h3 {
+    color: #75B300;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+  }
+
+  input:last-of-type, textarea {
+  height: 9rem;
+  width: 35%;
+  resize: none;
+  white-space: pre-line;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: 1px solid black;
+  margin-top: 1rem;
+}
+
+input:first-of-type {
+  width: 35%;
+  padding: 0;
+  height: 1rem;
+  padding: 0.5rem;
+  margin-top: 0;
+}
+`;
+
+export const Container = styled.div`
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-left: 25rem;
+  margin-top: 2rem;
+`;
+
+export const OptionLabel = styled.label`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+`;
+
+export const Checkbox = styled.input`
+  margin-right: 8px;
+  cursor: pointer;
 `;
