@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   ButtonNextSecondPage,
   ContainerWrapper,
@@ -28,9 +29,11 @@ export default function PersonalityTestQuestions() {
     setShowCongratulations(true);
   };
 
+  const navigate = useNavigate();
 
-    const handleContinueClick = () => {
-    };
+  const handleContinueClick = () => {
+    navigate("/CongratulationsStepByStep");
+  };
 
   const renderRatingButtons = (questionIndex: number) => {
     return (
