@@ -12,7 +12,7 @@ export default function RegistroUsuarioForm() {
   const closePopup = () => setIsPopupOpen(false)
   
   const handleSocialLogin = () => {
-    navigate("/SegundaPagina");
+    navigate("/UserFirstGift");
   }
 
     return (

@@ -28,6 +28,7 @@ import {
   TalkWithWoody,
   ContinueButton
 } from "./styles";
+import { Link } from "react-router-dom";
 
 export default function Hardset() {
   const [isFirstDropdownOpen, setIsFirstDropdownOpen] = useState(false);
@@ -322,7 +323,9 @@ export default function Hardset() {
             </AboutLines>
         </AboutHardset>
               <TalkWithWoody>¡Chatea con Woody! </TalkWithWoody>
+              <Link to="/SecondGift">
               <ContinueButton>Continue</ContinueButton>
+              </Link>
     </MainContainer>
     </>
   );

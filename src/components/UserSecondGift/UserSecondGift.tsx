@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { ButtonNextSecondPage, ContainerWrapper, DivContainerButton, DivContainerLogo,   ImgFondoSecondPage,   LogoSecondPageStyled } from "./styles"
 
 
-export default function SegundaPagina() {
+export default function UserSecondGift() {
   return (
       <>
           <ContainerWrapper>
@@ -11,7 +11,7 @@ export default function SegundaPagina() {
             </DivContainerLogo>
             <ImgFondoSecondPage src="/images/firstwiibuck.svg" alt="Fondo Wiibuck" />
             <DivContainerButton>
-                <Link to={"/Welcome"}>
+                <Link to={"/PersonalityTest"}>
                     <ButtonNextSecondPage>
                         Continuar
                     </ButtonNextSecondPage>
