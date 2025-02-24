@@ -1,0 +1,62 @@
+import styled from "styled-components";
+
+export const StyledMotivationText = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  text-align: center;
+  margin-left: 7rem;
+
+  h2 {
+    font-size: 2rem;
+    width: 98%;
+    text-align: left;
+    color: #460BFF;
+  }
+
+  span{
+    margin-top: 1.6rem;
+    padding-right: 0.5rem;
+    background: transparent;
+    img{
+        width: 2rem;
+        height: 2rem;
+    }
+  }
+
+  p {
+    width: 60%; 
+    text-align: left;
+    margin: 0;
+  }
+
+  .firstLine{
+    display: flex;
+  }
+`;
+
+export const StyledInformationText = styled.div`
+  display: flex;
+  margin-left: 26.25rem;
+  .left{
+    display: block;
+    width: 33vw;
+    height: 20vh;
+  }
+  .right{
+    display: block;
+    width: 33vw;
+    height: 20vh;
+  }
+  #magia{
+    margin-top: -0.625rem;
+  }
+  .combinator{
+    display: flex;
+    gap: 0.313rem;
+    margin-bottom: -1.25rem;
+  }
+`

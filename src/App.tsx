@@ -13,6 +13,8 @@ import InitFirst from './components/WoowiiInitFirst/InitFirst'
 import InitSecond from './components/WoowiiInitSecond/InitSecond'
 import SelectAvatarComp from './components/CompanySelectAvatar/SelectAvatarComp'
 import ChooseTalentCompany from './components/WoowiiChoose/ChooseTalentCompany'
+import CompanyHome from './components/CompanyHome/CompanyHome'
+import CompanyOverviewPage from './components/CompanyOverview/CompanyOverviewPage'
 
 
 
@@ -35,6 +37,8 @@ function App() {
         <Route path="/InitSecond" element={<InitSecond />} />
         <Route path="/SelectAvatarComp" element={<SelectAvatarComp />} />
         <Route path="/ChooseTalentCompany" element={<ChooseTalentCompany/>} />
+        <Route path="/CompanyHome" element={<CompanyHome />} />
+        <Route path="/CompanyOverview" element={<CompanyOverviewPage />} />
       </Routes>
       
     </Router>

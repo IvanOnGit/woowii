@@ -144,7 +144,7 @@ export default function SelectAvatarComp() {
                 <input type="text" name="web" id="web" placeholder="Copia tu link aquí" />
             </div>
             
-            <Link to={"/UserHome"}>
+            <Link to={"/CompanyHome"}>
                 <div className="inputsForm">
                     <label htmlFor=""></label>
                     <ButtonNextTerceraPage>
