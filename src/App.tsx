@@ -11,6 +11,7 @@ import UserSecondGift from './components/UserSecondGift/UserSecondGift'
 import PersonalityTest from './components/PersonalityTest/PersonalityTest'
 import PersonalityTestQuestions from './components/PersonalityTestQuestions/PersonalityTestQuestions'
 import CongratulationsSteps from './components/CongratulationsSteps/CongratulationsSteps'
+import JobFinder from './components/JobFinder/JobFinder'
 
 
 
@@ -31,6 +32,8 @@ function App() {
         <Route path="/PersonalityTest" element={<PersonalityTest />} />
         <Route path="/PersonalityTestQuestions" element={<PersonalityTestQuestions />} />
         <Route path="/CongratulationsSteps" element={<CongratulationsSteps />} />
+        <Route path="/JobFinder" element={<JobFinder />} />
+
       </Routes>    
     </Router>
   )
