@@ -15,6 +15,7 @@ import SelectAvatarComp from './components/CompanySelectAvatar/SelectAvatarComp'
 import ChooseTalentCompany from './components/WoowiiChoose/ChooseTalentCompany'
 import CompanyHome from './components/CompanyHome/CompanyHome'
 import CompanyOverviewPage from './components/CompanyOverview/CompanyOverviewPage'
+import CompanyOffer from './components/CompanyOfferPage/CompanyOffer'
 
 
 
@@ -39,6 +40,7 @@ function App() {
         <Route path="/ChooseTalentCompany" element={<ChooseTalentCompany/>} />
         <Route path="/CompanyHome" element={<CompanyHome />} />
         <Route path="/CompanyOverview" element={<CompanyOverviewPage />} />
+        <Route path="/CompanyOfferPage" element={<CompanyOffer />} />
       </Routes>
       
     </Router>

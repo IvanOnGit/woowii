@@ -195,9 +195,11 @@ export default function StepsProfileCompany() {
                 <option value="value10">Servicio al Cliente</option>
             </select>
         </ContainerThirdThreeSelects>
-        <BtnChatColumnSelects>
-            Chat de Ayuda
-        </BtnChatColumnSelects>
+        
+          <BtnChatColumnSelects>
+              Chat de Ayuda
+          </BtnChatColumnSelects>
+        
     </ContainerColumnSelects>
     <ContainerColumnBody>
     <ContainerWrapper>
@@ -248,10 +250,10 @@ export default function StepsProfileCompany() {
       </div>
     </ContainerWrapper>
     <div className="divLastButton">
-        <span></span>
-        <Link to={"/CompanyOverview"}>
+        <Link to={"/CompanyOverviewPage"}>
           <BtnNextPage>Continuar</BtnNextPage>
         </Link>
+        <span></span>
     </div>
     </ContainerColumnBody>
     </ContainerDivisionColumns>

@@ -91,7 +91,6 @@ export const Header = styled.header`
   height: 10%;
   padding: 1rem;
   margin: -1rem 0 0 -10rem;
-
 `;
 
 export const DivOverviewAll = styled.div`

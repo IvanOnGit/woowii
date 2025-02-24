@@ -2,6 +2,7 @@ import { ContainerColumnBody } from "../StepsProfileCompany/styles";
 import { ColumnHirings, ColumnOverview, ContainerColumnSelects, ContainerFirstSelects, ContainerLogoColumnOverview, ContainerOverviewPage, ContainerSecondSelects, DivComment, DivHirings, DivOverview, DivOverviewAll, Header, LogoColumnOverview, WoodyChat } from "./styles";
 import { HeaderItems, SearchContainer } from "../CompanyHome/styles";
 import { Bell, Bookmark, BriefcaseBusiness, Mail, Menu } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function CompanyOverviewPage() {
   return (
@@ -120,7 +121,9 @@ export default function CompanyOverviewPage() {
                         <option value="value5">Ritmo Acelerado</option>
                     </select>
             </ContainerSecondSelects>
-            <WoodyChat src="/images/woodyChat.svg" alt="Image Woody Chat" />
+            <Link to={"/CompanyOfferPage"}>
+              <WoodyChat src="/images/woodyChat.svg" alt="Image Woody Chat" />
+            </Link>
           </ContainerColumnSelects>
           <ContainerColumnBody>
           <Header>
