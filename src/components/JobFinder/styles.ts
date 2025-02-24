@@ -91,12 +91,12 @@ export const MenuAside = styled.div`
 
   span {
     width: 100%;
-    background-color: #75B300;
+    background-color: #C0C0C0;
     color: white;
     text-align: center;
     justify-content: center;
     align-content: center;
-    padding: 0.3rem;
+    padding: 0.02rem;
   }
 
   a {
@@ -265,4 +265,162 @@ export const Published = styled.div`
      p {
         margin: 0;
      }
+`;
+
+export const SearchBar = styled.div`
+    display: flex;
+    width: 100%;
+    margin-left: 45rem;
+    position: absolute;
+    margin-top: 2rem;
+    
+    input {
+      border-radius: 1rem;
+      border: 1px solid black;
+      padding: 0.5rem;
+      width: 20rem;
+      text-align: center;
+    }
+`;
+
+export const MainTitleAndSubtitle = styled.div`
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    margin-top: 1rem;
+    margin-left: 25rem;
+    gap: 1rem;
+
+    h1 {
+      font-size: 3rem;
+      margin: 0;
+      background: linear-gradient(90deg, #6ABF4B, #37A139);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p {
+      font-size: 1.3rem;
+      margin: 0;
+    }
+`;
+
+export const GreenCentralContainer = styled.div`
+    display: flex;
+    margin-left: 25rem;
+    margin-top: 2rem;
+    gap: 5rem;
+    font-family: 'Roboto', sans-serif;
+    background-color: #B4EC51;
+    border: none;
+    border-radius: 1rem;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    width: 40%;
+
+    h2 {
+      font-size: 2rem;
+      line-height: 2rem;
+    }
+
+    h3 {
+      margin: 0;
+    }
+`;
+
+export const LastParragraph = styled.div`
+  display: flex;
+  margin-left: 25rem;
+  margin-top: 1rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+
+  p {
+    font-weight: 500;
+  }
+`;
+
+export const LastThreeItems = styled.div`
+  display: flex;
+  margin-left: 25rem;
+  font-family: 'Roboto', sans-serif;
+  gap: 2rem;
+`;
+
+export const LastThreeGreenImages = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+  gap: 2.3rem;
+`;
+
+export const LastThreeTexts = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.2rem;
+  gap: 0.6rem;
+
+  h2 {
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+  }
+`;
+
+export const GreenPeople = styled.div``;
+
+export const JobsContainer = styled.div`
+  position: fixed;
+  top: 10%;
+  right: 0;
+  width: 20rem;
+  height: calc(100vh - 10%);
+  background-color: transparent;
+  border-left: 1px solid #ccc;
+  padding: 1rem;
+  font-family: 'Roboto', sans-serif;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #75B300;
+  }
+
+  p {
+    margin: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  span {
+    width: 100%;
+    background-color: grey;
+    padding: 0.05rem;
+    position: absolute;
+  }
+
+  hr {
+    opacity: 0;
+  }
 `;
