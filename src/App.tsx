@@ -22,6 +22,7 @@ import CompanyFirstGift from './components/CompanyFirstGift/CompanyFirstGift'
 import CompanyWelcome from './components/CompanyWelcome/CompanyWelcome'
 import RegisterCompanyProfile from './components/RegisterCompanyProfile/RegisterCompanyProfile'
 import CompanyHome from './components/CompanyHome/CompanyHome'
+import AboutYourDNA from './components/AboutYourDNA/AboutYourDNA'
 
 
 
@@ -40,6 +41,7 @@ function App() {
         <Route path="/CompanyWelcome" element={<CompanyWelcome />} />
         <Route path="/RegisterCompanyProfile" element={<RegisterCompanyProfile />} />
         <Route path="/CompanyHome" element={<CompanyHome />} />
+        <Route path="/AboutYourDNA" element={<AboutYourDNA />} />
         <Route path="/RegisterUserForm"element={<RegistroUsuarioForm />} />
         <Route path="/FirstGift" element={<UserFirstGift />} />
         <Route path="/Welcome" element={<TerceraPagina />} />
