@@ -12,6 +12,7 @@ import PersonalityTest from './components/PersonalityTest/PersonalityTest'
 import PersonalityTestQuestions from './components/PersonalityTestQuestions/PersonalityTestQuestions'
 import CongratulationsSteps from './components/CongratulationsSteps/CongratulationsSteps'
 import JobFinder from './components/JobFinder/JobFinder'
+import JobOpportunity from './components/JobOpportunity/JobOpportunity'
 
 
 
@@ -33,7 +34,7 @@ function App() {
         <Route path="/PersonalityTestQuestions" element={<PersonalityTestQuestions />} />
         <Route path="/CongratulationsSteps" element={<CongratulationsSteps />} />
         <Route path="/JobFinder" element={<JobFinder />} />
-
+        <Route path="/JobOpportunity" element={<JobOpportunity />} />
       </Routes>    
     </Router>
   )

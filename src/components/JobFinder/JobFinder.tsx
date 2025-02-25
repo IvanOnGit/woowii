@@ -27,6 +27,7 @@ import {
   GreenPeople,
   MainContainer,
   JobsContainer,
+  StyledLink,
 } from "./styles";
 
 export default function JobFinder() {
@@ -162,7 +163,7 @@ export default function JobFinder() {
         <ContainerWrapper>
             <Header>
             <HeaderItems>
-                <p><img src="/images/wiibucks.png" alt="wiibucks" />50</p>
+                <p><img src="/images/wiibucks.png" alt="wiibucks" />400</p>
                 <p><img src="/images/wiibucks.png" alt="wiibucks" />00</p>
                 <Bell />
                 <Mail />
@@ -223,9 +224,14 @@ export default function JobFinder() {
             <hr />
             <span></span>
             <hr />
-            <h2>Desarrollador Web</h2>
-            <h3>Madrid, España | HomeOffice</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur <br /> adipiscing elit, sed do eiusmod tempor incididunt <br /> ut labore et dolore magna aliqua.</p>
+            <StyledLink to="/JobOpportunity">
+                <h2>Desarrollador Web</h2>
+                <h3>Madrid, España | HomeOffice</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur <br /> adipiscing elit, sed do
+                    eiusmod tempor incididunt <br /> ut labore et dolore magna aliqua.
+                </p>
+            </StyledLink>
             <hr />
             <span></span>
             <hr />

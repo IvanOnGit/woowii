@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const MainContainer = styled.div`
@@ -423,4 +424,9 @@ export const JobsContainer = styled.div`
   hr {
     opacity: 0;
   }
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
 `;
