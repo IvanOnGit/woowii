@@ -21,6 +21,7 @@ import RegisterCompanyForm from './components/RegisterCompanyForm/RegisterCompan
 import CompanyFirstGift from './components/CompanyFirstGift/CompanyFirstGift'
 import CompanyWelcome from './components/CompanyWelcome/CompanyWelcome'
 import RegisterCompanyProfile from './components/RegisterCompanyProfile/RegisterCompanyProfile'
+import CompanyHome from './components/CompanyHome/CompanyHome'
 
 
 
@@ -38,6 +39,7 @@ function App() {
         <Route path="/CompanyFirstGift" element={<CompanyFirstGift />} />
         <Route path="/CompanyWelcome" element={<CompanyWelcome />} />
         <Route path="/RegisterCompanyProfile" element={<RegisterCompanyProfile />} />
+        <Route path="/CompanyHome" element={<CompanyHome />} />
         <Route path="/RegisterUserForm"element={<RegistroUsuarioForm />} />
         <Route path="/FirstGift" element={<UserFirstGift />} />
         <Route path="/Welcome" element={<TerceraPagina />} />
