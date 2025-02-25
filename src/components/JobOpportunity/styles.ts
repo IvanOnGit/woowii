@@ -1,7 +1,31 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.div`
     justify-content: center;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+
+    
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 `
 
 export const HeaderContainerWrapper = styled.div`
@@ -66,40 +90,22 @@ export const BackgroundImage = styled.div`
                       url(/images/JobOpportunityBackground.png);
     background-size: cover;
     background-position: center;
-    width: 100vw;
-    height: 50rem;
-    position: fixed;
+    width: 100%;
+    height: 50rem; // Cambiado a 100% para que coincida con el Wrapper
+    position: absolute; // Cambiado a absolute para que se superponga al contenido
     top: 0;
     left: 0;
-    z-index: -1;
+    z-index: -1; // Asegúrate de que esté detrás del contenido
 `;
 
+
+
 export const MainContainer = styled.div`
-    height: 100vh;
     width: 100%;
     display: flex;
     margin-top: 5rem;
     margin-left: 10rem;
     gap: 3rem;
-    overflow-y: auto;
-    overflow-x: hidden;
-
-  &::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 3px;
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
 `;
 
 export const MainContainerImage = styled.div`
@@ -159,4 +165,219 @@ export const MainContainerSecondText = styled.div`
         font-size: 1.5rem;
         font-weight: 300;
     }
+`;
+
+export const MatchDetailsContainer = styled.div`
+    display: flex;
+    margin-top: 2rem;
+    margin-left: 15rem;
+
+    img {
+        width: 7rem;
+        height: 7rem;
+    }
+`;
+
+export const MatchDetailsText = styled.div`
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    margin-left: 9rem;
+`;
+
+export const MatchDetailsTextItems = styled.div`
+    display: flex;
+    gap: 3rem;
+
+    p {
+        font-size: 1.2rem;
+        margin: 0;
+    }
+
+    img {
+        height: 0.5rem;
+    }
+`;
+
+export const CompatibilityContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    margin-top: 1rem;
+    margin-left: 5rem;
+
+    h2 {
+        margin: 0;
+        margin-bottom: 1rem;
+    }
+
+    img {
+        width: 12rem;
+        height: 2rem;
+    }
+`;
+
+export const WhatWillYouDoContainer = styled.div`
+    width: 100%;
+    margin-left: 44rem;
+    margin-top: 3rem;
+    font-family: 'Roboto', sans-serif;
+    h2 {
+        margin: 0;
+        font-size: 2rem;
+    }
+
+    p {
+        margin: 0;
+        margin-top: 4rem;
+        margin-left: -12rem;
+    }
+`;
+
+export const WhoWillYouWorkWithContainer = styled.div`
+     width: 100%;
+    margin-left: 40rem;
+    margin-top: 3rem;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    h2 {
+        margin: 0;
+        font-size: 2rem;
+    }
+
+    img:first-of-type {
+        margin-top: 0.5rem;
+        width: 5rem;
+        height: 0.5rem;
+    }
+
+    img:last-of-type {
+        margin-top: 2rem;
+        width: 19rem;
+        height: 19rem;
+    }
+`;
+
+export const SurvivalKit = styled.div`
+    width: 100%;
+    margin-left: 32rem;
+    margin-top: 3rem;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    h2 {
+        margin: 0;
+        font-size: 2rem;
+    }
+
+    img:first-of-type {
+        margin-top: 3rem;
+        width: 35rem;
+    }
+`;
+
+export const OurSelectionProcess = styled.div`
+    width: 100%;
+    margin-left: 35rem;
+    margin-top: 3rem;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    h2 {
+        margin: 0;
+        font-size: 2rem;
+    }
+
+    img:first-of-type {
+        margin-top: 0.5rem;
+        width: 5rem;
+        height: 0.5rem;
+    }
+
+    img:last-of-type {
+        margin-top: 2rem;
+        margin-left: -8rem;
+        width: 45rem;
+    }
+`;
+
+export const ResponsabilitiesContainer = styled.div`
+    width: 100%;
+    margin-left: 40rem;
+    margin-top: 3rem;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    h2 {
+        margin: 0;
+        font-size: 2rem;
+    }
+`;
+
+export const GreenUnderline = styled.img`
+    margin-top: 0.5rem;
+    width: 5rem;
+    height: 0.5rem;
+`;
+
+export const ResponsabilitiesItems = styled.div`
+    p img {
+        margin-top: 2rem;
+        margin-left: -8rem;
+        margin-right: 1rem;
+        width: 1rem;
+        height: 1rem;
+    }
+`;
+
+export const WhatAreWeLookingFor = styled.div`
+    width: 100%;
+    margin-left: 40rem;
+    margin-top: 3rem;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    h2 {
+        margin: 0;
+        font-size: 2rem;
+    }
+
+    img:last-of-type {
+        margin-top: 2rem;
+        width: 45rem;
+        margin-left: -15rem;
+    }
+`;
+
+export const IfYouGotHere = styled.img`
+    width: 35rem;
+    margin-left: 30rem;
+    margin-top: 3rem;
+`;
+
+export const ApplyNowButton = styled.button`
+    margin-left: 43rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    border-radius: 2rem;
+    background-color: #8FFF00;
+    
+    button {
+        color: black;
+        background-color: #8FFF00;
+        padding: 0.5rem;
+        border-radius: 2rem;
+        border: none;
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
 `;
