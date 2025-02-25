@@ -17,6 +17,10 @@ import MatchFound from './components/MatchFound/MatchFound'
 import StartingPoint from './components/StartingPoint/StartingPoint'
 import TransformationWelcome from './components/TransformationWelcome/TransformationWelcom'
 import ChooseTalentCompany from './components/ChooseTalentCompany/ChooseTalentCompany'
+import RegisterCompanyForm from './components/RegisterCompanyForm/RegisterCompanyForm'
+import CompanyFirstGift from './components/CompanyFirstGift/CompanyFirstGift'
+import CompanyWelcome from './components/CompanyWelcome/CompanyWelcome'
+import RegisterCompanyProfile from './components/RegisterCompanyProfile/RegisterCompanyProfile'
 
 
 
@@ -30,6 +34,10 @@ function App() {
         <Route path="/" element={<StartingPoint />} />
         <Route path="/TransformationWelcome" element={<TransformationWelcome />} />
         <Route path="/ChooseTalentCompany" element={<ChooseTalentCompany />} />
+        <Route path="/RegisterCompanyForm" element={<RegisterCompanyForm />} />
+        <Route path="/CompanyFirstGift" element={<CompanyFirstGift />} />
+        <Route path="/CompanyWelcome" element={<CompanyWelcome />} />
+        <Route path="/RegisterCompanyProfile" element={<RegisterCompanyProfile />} />
         <Route path="/RegisterUserForm"element={<RegistroUsuarioForm />} />
         <Route path="/FirstGift" element={<UserFirstGift />} />
         <Route path="/Welcome" element={<TerceraPagina />} />
