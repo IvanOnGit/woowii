@@ -152,7 +152,7 @@ export default function CompanyOverview() {
               </DivComment>
             </ColumnOverview>
             <ColumnHirings>
-                    <StyledLink to={'/Hirings'}> 
+                    <StyledLink to={'/JobCreation'}> 
                         <h3>Hirings in Progress </h3>
                     </StyledLink>
               <DivHirings>

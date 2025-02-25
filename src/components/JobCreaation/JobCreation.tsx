@@ -1,14 +1,14 @@
 import { Bell, Bookmark, BriefcaseBusiness, Mail, Menu } from "lucide-react";
 import {  BackgroundImage, Container, ContainerLogo, HeaderContainerWrapper, Header, HeaderItems, SearchBar, MainContainer, MainContainerImage, MainContainerText, MainContainerFirstText, MainContainerSecondText, MatchDetailsContainer, MatchDetailsText, MatchDetailsTextItems, CompatibilityContainer, WhatWillYouDoContainer, WhoWillYouWorkWithContainer, SurvivalKit, OurSelectionProcess, ResponsabilitiesContainer, ResponsabilitiesItems, GreenUnderline, WhatAreWeLookingFor, IfYouGotHere, ApplyNowButton, StyledLink } from "./styles";
 
-export default function JobOpportunity() {
+export default function JobCreation() {
     return (
         <>
         <Container>
             <HeaderContainerWrapper>
                 <BackgroundImage />
                 <ContainerLogo>
-                    <img src="/images/GreenLogoDemo.svg" alt="" />
+                    <img src="/images/LogoBlue.svg" alt="" />
                 </ContainerLogo>
                 <SearchBar>
                 <input type="text" name="" id="" placeholder="Búsqueda"/>
@@ -30,28 +30,28 @@ export default function JobOpportunity() {
                     <img src="/images/JobOpportunityBackground.png" alt="" />
                     </MainContainerImage>
                     <MainContainerText>
-                        <h1>Desarrollador Web</h1>
+                        <h1>Nombre de la solicitud</h1>
                         <MainContainerFirstText>
                             <div>
                                 <h3>Salario</h3>
-                                <p>40 - 50 K</p>
+                                <p>_________</p>
                             </div>
                             <div>
                                 <h3>Variable</h3>
-                                <p>5K</p>
+                                <p>_________</p>
                             </div>
                             <div>
                                 <h3>Presencial</h3>
-                                <p>Madrid</p>
+                                <p>_________</p>
                             </div>
                             <div>
                                 <h3>Remoto</h3>
-                                <p>75%</p>
+                                <p>_________</p>
                             </div>
                         </MainContainerFirstText>
                         <MainContainerSecondText>
                             <h2>Sobre nosotros</h2>
-                            <p>Somos un equipo que rompe moldes en el mundo del desarrollo web.<br /> Creemos en la innovación, el trabajo en equipo y las ideas frescas. Si te<br />gusta desafiar lo establecido y construir código que marque la diferencia,<br /> este es tu sitio.</p>
+                            <p>Cuenta sobre tu empresa sin dar datos específicos....</p>
                         </MainContainerSecondText>
                     </MainContainerText>
                 </MainContainer>
@@ -140,7 +140,7 @@ export default function JobOpportunity() {
                 <IfYouGotHere src="/images/IfYouGotHere.png" alt="" />
                 <ApplyNowButton>
                     <StyledLink to="/MatchFound">
-                        <button>¡Aplicar ahora!</button>
+                        <button>Publicar solicitud</button>
                     </StyledLink>
                 </ApplyNowButton>
         </Container>

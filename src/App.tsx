@@ -24,6 +24,7 @@ import RegisterCompanyProfile from './components/RegisterCompanyProfile/Register
 import CompanyHome from './components/CompanyHome/CompanyHome'
 import AboutYourDNA from './components/AboutYourDNA/AboutYourDNA'
 import CompanyOverview from './components/CompanyOverview/CompanyOverview'
+import JobCreation from './components/JobCreaation/JobCreation'
 
 
 
@@ -44,6 +45,7 @@ function App() {
         <Route path="/CompanyHome" element={<CompanyHome />} />
         <Route path="/AboutYourDNA" element={<AboutYourDNA />} />
         <Route path="/CompanyOverview" element={<CompanyOverview />} />
+        <Route path="/JobCreation" element={<JobCreation />} />
         <Route path="/RegisterUserForm"element={<RegistroUsuarioForm />} />
         <Route path="/FirstGift" element={<UserFirstGift />} />
         <Route path="/Welcome" element={<TerceraPagina />} />
