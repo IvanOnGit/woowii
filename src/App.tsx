@@ -13,6 +13,7 @@ import PersonalityTestQuestions from './components/PersonalityTestQuestions/Pers
 import CongratulationsSteps from './components/CongratulationsSteps/CongratulationsSteps'
 import JobFinder from './components/JobFinder/JobFinder'
 import JobOpportunity from './components/JobOpportunity/JobOpportunity'
+import MatchFound from './components/MatchFound/MatchFound'
 
 
 
@@ -35,6 +36,7 @@ function App() {
         <Route path="/CongratulationsSteps" element={<CongratulationsSteps />} />
         <Route path="/JobFinder" element={<JobFinder />} />
         <Route path="/JobOpportunity" element={<JobOpportunity />} />
+        <Route path="/MatchFound" element={<MatchFound />} />
       </Routes>    
     </Router>
   )
