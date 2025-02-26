@@ -29,6 +29,7 @@ import {
   ContinueButton
 } from "./styles";
 import { Link } from "react-router-dom";
+import VoiceTextInput from "../VoiceTextInput/VoiceTextInput";
 
 export default function AboutYourDNA() {
   const [isFirstDropdownOpen, setIsFirstDropdownOpen] = useState(false);
@@ -248,7 +249,7 @@ export default function AboutYourDNA() {
         <p>✍️ Cuenta tu historia de forma clara dentro de los caracteres permitidos.</p>
         <p>✍️ Puedes compartir varias experiencias sobre tu trabajo y formación, así <br /> que analiza tu recorrido y usa la imaginación.</p>
         <p>🚀 ¿Necesitas ayuda? Nuestra IA está lista para potenciar tu texto.</p>
-        <textarea placeholder={"Aquí la palabra lunes no es un insulto. Empezamos la semana con café e ideas, no con reuniones eternas. Creemos en la autonomía, la flexibilidad y en disfrutar lo que hacemos. Si buscas un lugar donde trabajar bien no signifique contar horas, esta es tu tribu."} />
+        <VoiceTextInput />
         </StoryForm>
         <Container>
             <OptionLabel>
