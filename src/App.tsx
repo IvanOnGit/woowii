@@ -28,6 +28,8 @@ import JobCreation from './components/JobCreaation/JobCreation'
 import CompanyMatchFound from './components/CompanyMatchFound/CompanyMatchFound'
 import CompanyCandidatesView from './components/CompanyCandidatesView/CompanyCandidatesView'
 import CompanyCandidatesViewContact from './components/CompanyCandidatesViewContact/CompanyCandidatesViewContact'
+import CandidateDetail from './components/CandidateDetail/CandidateDetail'
+import CompanyInterviewPage from './components/CompanyInterviewPage/CompanyInterviewPage'
 
 
 
@@ -52,6 +54,8 @@ function App() {
         <Route path="/CompanyMatchFound" element={<CompanyMatchFound />} />
         <Route path="/CompanyCandidatesView" element={<CompanyCandidatesView />} />
         <Route path="/CompanyCandidatesViewContact" element={<CompanyCandidatesViewContact />} />
+        <Route path="/CandidateDetail" element={<CandidateDetail />} />
+        <Route path="/CompanyInterviewPage" element={<CompanyInterviewPage />} />
         <Route path="/RegisterUserForm"element={<RegistroUsuarioForm />} />
         <Route path="/FirstGift" element={<UserFirstGift />} />
         <Route path="/Welcome" element={<TerceraPagina />} />
