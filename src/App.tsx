@@ -30,6 +30,7 @@ import CompanyCandidatesView from './components/CompanyCandidatesView/CompanyCan
 import CompanyCandidatesViewContact from './components/CompanyCandidatesViewContact/CompanyCandidatesViewContact'
 import CandidateDetail from './components/CandidateDetail/CandidateDetail'
 import CompanyInterviewPage from './components/CompanyInterviewPage/CompanyInterviewPage'
+import VoiceTextInput from './components/VoiceTextInput/VoiceTextInput'
 
 
 
@@ -62,6 +63,7 @@ function App() {
         <Route path="/SelectAvatar" element={<SelectAvatar />} />
         <Route path="/UserHome" element={<UserHome />} />
         <Route path="/Hardset" element={<Hardset />} />
+        <Route path="/VoiceTextInput" element={<VoiceTextInput />} />
         <Route path="/SecondGift" element={<UserSecondGift />} />
         <Route path="/PersonalityTest" element={<PersonalityTest />} />
         <Route path="/PersonalityTestQuestions" element={<PersonalityTestQuestions />} />

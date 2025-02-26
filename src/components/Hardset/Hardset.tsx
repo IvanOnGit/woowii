@@ -29,6 +29,7 @@ import {
   ContinueButton
 } from "./styles";
 import { Link } from "react-router-dom";
+import VoiceTextInput from "../VoiceTextInput/VoiceTextInput";
 
 export default function Hardset() {
   const [isFirstDropdownOpen, setIsFirstDropdownOpen] = useState(false);
@@ -248,7 +249,7 @@ export default function Hardset() {
         <p>✍️ Cuenta tu historia de forma clara dentro de los caracteres permitidos.</p>
         <p>✍️ Puedes compartir varias experiencias sobre tu trabajo y formación, así <br /> que analiza tu recorrido y usa la imaginación.</p>
         <p>🚀 ¿Necesitas ayuda? Nuestra IA está lista para potenciar tu texto.</p>
-        <textarea placeholder={"Mi relación con JavaScript va más allá del simple uso de ES6. Hemos vivido juntos todos los cambios del ecosistema web: desde la época de jQuery hasta los días dorados de React y Node.js. ¿Asincronía? Lo manejo sin pestañear con promesas y async/await. ¿Diseño modular? Webpack y Babel son mis mejores amigos. Y si hablamos de front y back, con Node.js hago magia. Me encanta transformar esa confusión de lenguajes de cliente y servidor en algo tan simple como una taza de café. Vamos, déjame que te lleve por el lado oscuro y el claro del código; con JavaScript, todo es posible."} />
+        <VoiceTextInput />
         </StoryForm>
         <Container>
             <OptionLabel>
