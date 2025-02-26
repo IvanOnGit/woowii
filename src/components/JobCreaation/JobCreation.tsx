@@ -139,7 +139,7 @@ export default function JobCreation() {
                 </WhatAreWeLookingFor>
                 <IfYouGotHere src="/images/IfYouGotHere.png" alt="" />
                 <ApplyNowButton>
-                    <StyledLink to="/MatchFound">
+                    <StyledLink to="/CompanyCandidatesView">
                         <button>Publicar solicitud</button>
                     </StyledLink>
                 </ApplyNowButton>

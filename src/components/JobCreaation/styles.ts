@@ -367,7 +367,7 @@ export const IfYouGotHere = styled.img`
 `;
 
 export const ApplyNowButton = styled.button`
-    margin-left: 43rem;
+    margin-left: 39rem;
     margin-top: 2rem;
     margin-bottom: 3rem;
     border-radius: 2rem;

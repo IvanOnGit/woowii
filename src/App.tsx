@@ -26,6 +26,8 @@ import AboutYourDNA from './components/AboutYourDNA/AboutYourDNA'
 import CompanyOverview from './components/CompanyOverview/CompanyOverview'
 import JobCreation from './components/JobCreaation/JobCreation'
 import CompanyMatchFound from './components/CompanyMatchFound/CompanyMatchFound'
+import CompanyCandidatesView from './components/CompanyCandidatesView/CompanyCandidatesView'
+import CompanyCandidatesViewContact from './components/CompanyCandidatesViewContact/CompanyCandidatesViewContact'
 
 
 
@@ -48,6 +50,8 @@ function App() {
         <Route path="/CompanyOverview" element={<CompanyOverview />} />
         <Route path="/JobCreation" element={<JobCreation />} />
         <Route path="/CompanyMatchFound" element={<CompanyMatchFound />} />
+        <Route path="/CompanyCandidatesView" element={<CompanyCandidatesView />} />
+        <Route path="/CompanyCandidatesViewContact" element={<CompanyCandidatesViewContact />} />
         <Route path="/RegisterUserForm"element={<RegistroUsuarioForm />} />
         <Route path="/FirstGift" element={<UserFirstGift />} />
         <Route path="/Welcome" element={<TerceraPagina />} />
