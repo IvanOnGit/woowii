@@ -6,9 +6,9 @@ import { BtnInterviewPage,
 export default function InterviewPage() {
   return (
     <ContainerBackInterview>
-        <PercentageMatchImage src="/public/images/percentageImage.svg" alt="Match Image"/>
+        <PercentageMatchImage src="/images/percentageImage.svg" alt="Match Image"/>
         <Link to={'/'}>
-          <BtnInterviewPage src="/public/images/btnInterview.svg" alt="Interview Button" />
+          <BtnInterviewPage src="/images/btnInterview.svg" alt="Interview Button" />
         </Link>
     </ContainerBackInterview>
   )
