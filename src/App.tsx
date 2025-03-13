@@ -31,6 +31,7 @@ import CompanyCandidatesViewContact from './components/CompanyCandidatesViewCont
 import CandidateDetail from './components/CandidateDetail/CandidateDetail'
 import CompanyInterviewPage from './components/CompanyInterviewPage/CompanyInterviewPage'
 import VoiceTextInput from './components/VoiceTextInput/VoiceTextInput'
+import UserLogin from './components/UserLogin/UserLogin'
 
 
 
@@ -57,7 +58,8 @@ function App() {
         <Route path="/CompanyCandidatesViewContact" element={<CompanyCandidatesViewContact />} />
         <Route path="/CandidateDetail" element={<CandidateDetail />} />
         <Route path="/CompanyInterviewPage" element={<CompanyInterviewPage />} />
-        <Route path="/RegisterUserForm"element={<RegistroUsuarioForm />} />
+        <Route path="/RegisterUserForm" element={<RegistroUsuarioForm />} />
+        <Route path="/UserLogin" element={<UserLogin />} />
         <Route path="/FirstGift" element={<UserFirstGift />} />
         <Route path="/Welcome" element={<TerceraPagina />} />
         <Route path="/SelectAvatar" element={<SelectAvatar />} />

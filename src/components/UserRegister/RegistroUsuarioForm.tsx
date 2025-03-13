@@ -1,19 +1,18 @@
-import { useState } from "react"
 import { useNavigate } from "react-router-dom";
-import Popup from "../Popup/Popup"
 import { Link } from "react-router-dom";
 import { BtnLinksSocialStyled, Buttons, DivContainerStyled, FormRegistroUsuario, IniciaSesionStyled, LinkAccountButtons, LogoAndTitleWrapper, LogoRegistroUsuarioStyled, SemiCircleStyled, StyledSpan, TextoMiniInfoRegUser, TxtInfoRegistroUsuarioStyled, WrapperImage} from "./styles";
 
 export default function RegistroUsuarioForm() {
-  const [isPopupOpen, setIsPopupOpen] = useState(false)
   const navigate = useNavigate();
   
-  const openPopup = () => setIsPopupOpen(true)
-  const closePopup = () => setIsPopupOpen(false)
   
   const handleSocialLogin = () => {
     navigate("/UserFirstGift");
-  }
+    }
+    
+  const handleUserLogin = () => {
+    navigate("/UserLogin");
+    }
 
     return (
         <>
@@ -43,9 +42,8 @@ export default function RegistroUsuarioForm() {
                         </Link>
                     </FormRegistroUsuario>
                     <IniciaSesionStyled>
-                        ¿Ya tienes cuenta?  <a id="inicio" onClick={openPopup} href="#">Inicia sesión</a>
+                        ¿Ya tienes cuenta?  <a onClick={handleUserLogin}>Inicia sesión</a>
                     </IniciaSesionStyled>
-                    <Popup isOpen={isPopupOpen} onClose={closePopup} />
                     <BtnLinksSocialStyled>
                         <img id="one" src="/images/linkedinGrey.svg" alt="Linkedin icon" />
                         <img id="two" src="/images/instagramgrey.svg" alt="Instagram icon" />
