@@ -32,6 +32,7 @@ import CandidateDetail from './components/CandidateDetail/CandidateDetail'
 import CompanyInterviewPage from './components/CompanyInterviewPage/CompanyInterviewPage'
 import VoiceTextInput from './components/VoiceTextInput/VoiceTextInput'
 import UserLogin from './components/UserLogin/UserLogin'
+import CompanyLogin from './components/CompanyLogin/CompanyLogin'
 
 
 
@@ -46,6 +47,7 @@ function App() {
         <Route path="/TransformationWelcome" element={<TransformationWelcome />} />
         <Route path="/ChooseTalentCompany" element={<ChooseTalentCompany />} />
         <Route path="/RegisterCompanyForm" element={<RegisterCompanyForm />} />
+        <Route path="/CompanyLogin" element={<CompanyLogin />} />
         <Route path="/CompanyFirstGift" element={<CompanyFirstGift />} />
         <Route path="/CompanyWelcome" element={<CompanyWelcome />} />
         <Route path="/RegisterCompanyProfile" element={<RegisterCompanyProfile />} />

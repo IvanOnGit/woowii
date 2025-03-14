@@ -98,6 +98,7 @@ export const IniciaSesionStyled = styled.p`
     padding-top: 3rem;
     a{
         text-decoration: none ;
+        cursor: pointer;
     }
     a:hover{
         color: #FF00CD;
