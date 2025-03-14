@@ -36,8 +36,15 @@ export const Button = styled.button`
   font-size: 1rem;
   cursor: pointer;
   transition: background 0.3s;
+  width: 45%;
 
   &:hover {
     background: #0056b3;
   }
+`;
+
+export const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
 `;
