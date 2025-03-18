@@ -16,13 +16,21 @@ import StepsProfileCreation from "../StepsProfileCreation/StepsProfileCreation";
 import { Bell, Bookmark, BriefcaseBusiness, Mail, Menu, ChevronDown } from "lucide-react";
 
 export default function UserHome() {
-  const [profilePicture, setProfilePicture] = useState<string | null>(null);
-  const [username, setUsername] = useState<string | null>(null);
+  const userId = localStorage.getItem("userId");
+const [userData, setUserData] = useState<{ username: string; profile_picture: string } | null>(null);
 
   useEffect(() => {
-    setProfilePicture(localStorage.getItem("profile_picture"));
-    setUsername(localStorage.getItem("username"));
-  }, []);
+    const fetchUserData = async () => {
+      if (!userId) return;
+  
+      const response = await fetch(`http://localhost:3000/api/auth/get-user?userId=${userId}`);
+      const data = await response.json();
+      setUserData(data);
+    };
+  
+    fetchUserData();
+  }, [userId]);
+  
 
   return (
     <>
@@ -30,8 +38,8 @@ export default function UserHome() {
         <FirstMenuAsideItem>
           <img src="/images/GreenLogoDemo.svg" alt="Logo" />
           <UserAndImageCombo>
-            <img src={profilePicture || "/images/Avatar1.png"} alt="Avatar" />
-            <h3>{username || "Usuario"}</h3>
+            <img src={userData?.profile_picture || "/images/Avatar1.png"} alt="Avatar" />
+            <h3>@{userData?.username || "Usuario"}</h3>
           </UserAndImageCombo>
         </FirstMenuAsideItem>
         <ThirdMenuAsideItem>

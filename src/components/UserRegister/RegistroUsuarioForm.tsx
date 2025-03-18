@@ -10,7 +10,7 @@ import {
 export default function RegistroUsuarioForm() {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
-    const [username, setUsername] = useState("");
+    const [fullname, setFullname] = useState(""); // Cambié 'username' a 'fullname'
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
@@ -23,7 +23,7 @@ export default function RegistroUsuarioForm() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ email, username, password }),
+                body: JSON.stringify({ email, fullname, password }), // Ahora se envía fullname
             });
 
             const data = await response.json();
@@ -68,14 +68,14 @@ export default function RegistroUsuarioForm() {
                             onChange={(e) => setEmail(e.target.value)}
                             required 
                         />
-                        <label htmlFor="name">NOMBRE COMPLETO</label>
+                        <label htmlFor="fullname">NOMBRE COMPLETO</label>
                         <input 
                             type="text" 
-                            name="name" 
-                            id="name" 
+                            name="fullname"  // Cambié 'name' a 'fullname'
+                            id="fullname" 
                             placeholder="Introduzca nombre y apellido"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
+                            value={fullname} // Ahora se guarda 'fullname' en lugar de 'username'
+                            onChange={(e) => setFullname(e.target.value)} // Actualizado para 'fullname'
                             required 
                         />
                         <label htmlFor="pass">CONTRASEÑA</label>

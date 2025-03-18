@@ -40,19 +40,13 @@ export default function SelectAvatar() {
 
   const userId = localStorage.getItem("userId");
 
-  const validateUsername = (username: string) => {
-    const usernameRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{4,20}$/;
-    return usernameRegex.test(username);
-  };
-
   const saveAvatarAndUsername = async () => {
     if (!userId) {
       setError("Error: Usuario no identificado.");
       return;
     }
-
-    if (!validateUsername(username)) {
-      setError("El nombre de usuario debe tener entre 8 y 20 caracteres, incluyendo mayúsculas, minúsculas y números.");
+    if (!username || username.length < 4 || username.length > 20) {
+      setError("El usuario debe tener entre 8 y 20 caracteres.");
       return;
     }
 
@@ -60,24 +54,18 @@ export default function SelectAvatar() {
     setError("");
 
     try {
-      const selectedAvatar = avatars[selectedIndex].src;
       const response = await fetch(`http://localhost:3000/api/auth/update-avatar`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ userId, profile_picture: selectedAvatar, username }),
+        body: JSON.stringify({ userId, username, profile_picture: avatars[selectedIndex].src }),
       });
 
       const data = await response.json();
-
       if (!response.ok) {
         throw new Error(data.message || "Error al guardar el avatar y usuario.");
       }
-
-      // Guardar en localStorage para UserHome
-      localStorage.setItem("profile_picture", selectedAvatar);
-      localStorage.setItem("username", username);
 
       setSaving(false);
       navigate("/UserHome");
@@ -125,14 +113,12 @@ export default function SelectAvatar() {
         <h3>Elige tu usuario:</h3>
         <input
           type="text"
-          placeholder="Prueba tu @"
+          placeholder="Ejemplo: ProUser23"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         <p><Key />Entre 8 y 20 caracteres.</p>
-        <p><Key />Debe contener letras minúsculas, mayúsculas y números.</p>
-        <p><Key />Recuerda mantener el anonimato.</p>
-        <p><Key />Sugerimos elegir un alias profesional.</p>
+        <p><Key />Debe contener letras y números.</p>
       </UsernameInput>
 
       {error && <p style={{ color: "red" }}>{error}</p>}
