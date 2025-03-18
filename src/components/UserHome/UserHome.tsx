@@ -17,19 +17,20 @@ import { Bell, Bookmark, BriefcaseBusiness, Mail, Menu, ChevronDown } from "luci
 
 export default function UserHome() {
   const userId = localStorage.getItem("userId");
-const [userData, setUserData] = useState<{ username: string; profile_picture: string } | null>(null);
+  const [userData, setUserData] = useState<{ username: string; profile_picture: string } | null>(null);
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      if (!userId) return;
-  
-      const response = await fetch(`http://localhost:3000/api/auth/get-user?userId=${userId}`);
-      const data = await response.json();
-      setUserData(data);
-    };
-  
-    fetchUserData();
-  }, [userId]);
+    useEffect(() => {
+      const fetchUserData = async () => {
+          if (!userId) return;
+
+          const response = await fetch(`http://localhost:3000/api/auth/get-user?userId=${userId}`);
+          const data = await response.json();
+          console.log(data);  // Verifica qué datos estás recibiendo
+          setUserData(data);
+      };
+
+      fetchUserData();
+    }, [userId]);
   
 
   return (
@@ -38,8 +39,8 @@ const [userData, setUserData] = useState<{ username: string; profile_picture: st
         <FirstMenuAsideItem>
           <img src="/images/GreenLogoDemo.svg" alt="Logo" />
           <UserAndImageCombo>
-            <img src={userData?.profile_picture || "/images/Avatar1.png"} alt="Avatar" />
-            <h3>@{userData?.username || "Usuario"}</h3>
+              <img src={userData?.profile_picture || "/images/Avatar1.png"} alt="Avatar" />
+              <h3>@{userData?.username || "Usuario"}</h3>
           </UserAndImageCombo>
         </FirstMenuAsideItem>
         <ThirdMenuAsideItem>
