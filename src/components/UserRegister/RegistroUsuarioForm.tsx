@@ -1,23 +1,49 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { BtnLinksSocialStyled, Buttons, DivContainerStyled, FormRegistroUsuario, IniciaSesionStyled, LinkAccountButtons, LogoAndTitleWrapper, LogoRegistroUsuarioStyled, SemiCircleStyled, StyledSpan, TextoMiniInfoRegUser, TxtInfoRegistroUsuarioStyled, WrapperImage} from "./styles";
+import { 
+    BtnLinksSocialStyled, Buttons, DivContainerStyled, FormRegistroUsuario, 
+    IniciaSesionStyled, LinkAccountButtons, LogoAndTitleWrapper, 
+    LogoRegistroUsuarioStyled, SemiCircleStyled, StyledSpan, 
+    TextoMiniInfoRegUser, TxtInfoRegistroUsuarioStyled, WrapperImage 
+} from "./styles";
 
 export default function RegistroUsuarioForm() {
-  const navigate = useNavigate();
-  
-  
-  const handleSocialLogin = () => {
-    navigate("/UserFirstGift");
-    }
-    
-  const handleUserLogin = () => {
-    navigate("/UserLogin");
-    }
+    const navigate = useNavigate();
+    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+
+    const handleRegister = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        try {
+            const response = await fetch("http://localhost:3000/api/auth/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email, username, password }),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                setError(data.message);
+                return;
+            }
+
+            navigate("/UserLogin");
+        } catch (err) {
+            console.error(err);
+            setError("Error al conectar con el servidor");
+        }
+    };
 
     return (
         <>
             <WrapperImage />
-        <SemiCircleStyled>
+            <SemiCircleStyled>
                 <DivContainerStyled>
                     <LogoAndTitleWrapper>
                         <LogoRegistroUsuarioStyled src="/images/GreenLogoDemo.svg" />
@@ -26,23 +52,46 @@ export default function RegistroUsuarioForm() {
                         </TxtInfoRegistroUsuarioStyled>
                     </LogoAndTitleWrapper>
                     <LinkAccountButtons>
-                        <Buttons onClick={handleSocialLogin}>Conectar con Google</Buttons>
-                        <Buttons onClick={handleSocialLogin}>Conectar con LinkedIn</Buttons>
+                        <Buttons>Conectar con Google</Buttons>
+                        <Buttons>Conectar con LinkedIn</Buttons>
                     </LinkAccountButtons>
                     <StyledSpan></StyledSpan>
-                    <FormRegistroUsuario>
+                    <FormRegistroUsuario onSubmit={handleRegister}>
+                        {error && <p style={{ color: "red" }}>{error}</p>}
                         <label htmlFor="mail">EMAIL DE USUARIO</label>
-                        <input type="email" name="mail" id="mail" placeholder="Introduzca su email " />
+                        <input 
+                            type="email" 
+                            name="mail" 
+                            id="mail" 
+                            placeholder="Introduzca su email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required 
+                        />
                         <label htmlFor="name">NOMBRE COMPLETO</label>
-                        <input type="text" name="name" id="name" placeholder="Introduzca nombre y apellido" />
+                        <input 
+                            type="text" 
+                            name="name" 
+                            id="name" 
+                            placeholder="Introduzca nombre y apellido"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            required 
+                        />
                         <label htmlFor="pass">CONTRASEÑA</label>
-                        <input type="password" name="pass" id="pass" placeholder="Elija contraseña " />
-                        <Link to={`/FirstGift`}>
-                            <input type="submit" value="CREAR CUENTA" />
-                        </Link>
+                        <input 
+                            type="password" 
+                            name="pass" 
+                            id="pass" 
+                            placeholder="Elija contraseña"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required 
+                        />
+                        <input type="submit" value="CREAR CUENTA" />
                     </FormRegistroUsuario>
                     <IniciaSesionStyled>
-                        ¿Ya tienes cuenta?  <a onClick={handleUserLogin}>Inicia sesión</a>
+                        ¿Ya tienes cuenta? <a onClick={() => navigate("/UserLogin")}>Inicia sesión</a>
                     </IniciaSesionStyled>
                     <BtnLinksSocialStyled>
                         <img id="one" src="/images/linkedinGrey.svg" alt="Linkedin icon" />
@@ -51,10 +100,10 @@ export default function RegistroUsuarioForm() {
                         <img id="four" src="/images/spotifygrey.svg" alt="Spotify icon" />
                     </BtnLinksSocialStyled>
                     <TextoMiniInfoRegUser>
-                        By tapping “Create account or “Sign in”, you agree to our Terms. Learn how we process your data in our Privacy Policy and Cookies Policy
+                        By tapping “Create account” or “Sign in”, you agree to our Terms. Learn how we process your data in our Privacy Policy and Cookies Policy.
                     </TextoMiniInfoRegUser>
-            </DivContainerStyled>
+                </DivContainerStyled>
             </SemiCircleStyled>
         </>
-  )
+    );
 }
