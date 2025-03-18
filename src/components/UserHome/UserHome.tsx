@@ -1,4 +1,5 @@
-import { Bell, Bookmark, BriefcaseBusiness, Mail, Menu, ChevronDown } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { 
   ContainerWrapper, 
   Header, 
@@ -12,25 +13,33 @@ import {
 import NewPost from "../NewPost/NewPost";
 import MotivationText from "../MotivationText/MotivationText";
 import StepsProfileCreation from "../StepsProfileCreation/StepsProfileCreation";
-import { Link } from "react-router-dom";
+import { Bell, Bookmark, BriefcaseBusiness, Mail, Menu, ChevronDown } from "lucide-react";
 
 export default function UserHome() {
+  const [profilePicture, setProfilePicture] = useState<string | null>(null);
+  const [username, setUsername] = useState<string | null>(null);
+
+  useEffect(() => {
+    setProfilePicture(localStorage.getItem("profile_picture"));
+    setUsername(localStorage.getItem("username"));
+  }, []);
+
   return (
     <>
       <MenuAside>
         <FirstMenuAsideItem>
-          <img src="/images/GreenLogoDemo.svg" alt="Avatar" />
+          <img src="/images/GreenLogoDemo.svg" alt="Logo" />
           <UserAndImageCombo>
-            <img src="/images/Avatar6.png" alt="" />
-            <h3>@User_23</h3>
+            <img src={profilePicture || "/images/Avatar1.png"} alt="Avatar" />
+            <h3>{username || "Usuario"}</h3>
           </UserAndImageCombo>
         </FirstMenuAsideItem>
         <ThirdMenuAsideItem>
-        <MenuItem>
-          <Link to="/Hardset">
-            <p>Hardset</p> <ChevronDown size={16} />
-          </Link>
-        </MenuItem>
+          <MenuItem>
+            <Link to="/Hardset">
+              <p>Hardset</p> <ChevronDown size={16} />
+            </Link>
+          </MenuItem>
           <MenuItem><p>Softset</p> <ChevronDown size={16} /></MenuItem>
           <MenuItem><p>Toolset</p> <ChevronDown size={16} /></MenuItem>
           <MenuItem><p>Superpower</p> <ChevronDown size={16} /></MenuItem>

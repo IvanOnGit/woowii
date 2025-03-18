@@ -33,15 +33,26 @@ const avatars = [
 
 export default function SelectAvatar() {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [username, setUsername] = useState("");
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const userId = localStorage.getItem("userId"); // Asegúrate de almacenar userId al iniciar sesión
+  const userId = localStorage.getItem("userId");
 
-  const saveAvatar = async (avatarUrl: string) => {
+  const validateUsername = (username: string) => {
+    const usernameRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{4,20}$/;
+    return usernameRegex.test(username);
+  };
+
+  const saveAvatarAndUsername = async () => {
     if (!userId) {
       setError("Error: Usuario no identificado.");
+      return;
+    }
+
+    if (!validateUsername(username)) {
+      setError("El nombre de usuario debe tener entre 8 y 20 caracteres, incluyendo mayúsculas, minúsculas y números.");
       return;
     }
 
@@ -49,19 +60,24 @@ export default function SelectAvatar() {
     setError("");
 
     try {
+      const selectedAvatar = avatars[selectedIndex].src;
       const response = await fetch(`http://localhost:3000/api/auth/update-avatar`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ userId, profile_picture: avatarUrl }),
+        body: JSON.stringify({ userId, profile_picture: selectedAvatar, username }),
       });
 
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.message || "Error al guardar el avatar.");
+        throw new Error(data.message || "Error al guardar el avatar y usuario.");
       }
+
+      // Guardar en localStorage para UserHome
+      localStorage.setItem("profile_picture", selectedAvatar);
+      localStorage.setItem("username", username);
 
       setSaving(false);
       navigate("/UserHome");
@@ -75,19 +91,6 @@ export default function SelectAvatar() {
     }
   };
 
-  const handleNext = () => {
-    setSelectedIndex((prev) => (prev + 1) % avatars.length);
-  };
-
-  const handlePrev = () => {
-    setSelectedIndex((prev) => (prev - 1 + avatars.length) % avatars.length);
-  };
-
-  const handleSaveAvatar = () => {
-    const selectedAvatar = avatars[selectedIndex].src;
-    saveAvatar(selectedAvatar);
-  };
-
   return (
     <ContainerWrapper>
       <DivContainerLogoTerPage>
@@ -97,9 +100,13 @@ export default function SelectAvatar() {
       <h2>Elige tu Avatar:</h2>
 
       <AvatarWrapper>
-        <Button onClick={handlePrev}><ChevronLeft /></Button>
+        <Button onClick={() => setSelectedIndex((prev) => (prev - 1 + avatars.length) % avatars.length)}>
+          <ChevronLeft />
+        </Button>
         <AvatarImage src={avatars[selectedIndex].src} alt="Selected Avatar" />
-        <Button onClick={handleNext}><ChevronRight /></Button>
+        <Button onClick={() => setSelectedIndex((prev) => (prev + 1) % avatars.length)}>
+          <ChevronRight />
+        </Button>
       </AvatarWrapper>
 
       <ThumbnailsContainer>
@@ -116,7 +123,12 @@ export default function SelectAvatar() {
 
       <UsernameInput>
         <h3>Elige tu usuario:</h3>
-        <input type="text" placeholder="Prueba tu @" />
+        <input
+          type="text"
+          placeholder="Prueba tu @"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
         <p><Key />Entre 8 y 20 caracteres.</p>
         <p><Key />Debe contener letras minúsculas, mayúsculas y números.</p>
         <p><Key />Recuerda mantener el anonimato.</p>
@@ -125,7 +137,7 @@ export default function SelectAvatar() {
 
       {error && <p style={{ color: "red" }}>{error}</p>}
 
-      <ButtonNextTerceraPage onClick={handleSaveAvatar} disabled={saving}>
+      <ButtonNextTerceraPage onClick={saveAvatarAndUsername} disabled={saving}>
         {saving ? "Guardando..." : "Continuar"}
       </ButtonNextTerceraPage>
     </ContainerWrapper>
