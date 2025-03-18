@@ -33,6 +33,14 @@ export const LinkAccountButtons = styled.div`
     width: 100%;
     height: 10%;
     gap: 1rem;
+
+    @media (max-width: 768px){
+        display: block;
+        margin: 2rem;
+    
+    }
+
+   
 `
 
 export const Buttons = styled.button`
@@ -44,6 +52,12 @@ export const Buttons = styled.button`
     margin-bottom: 1rem;
     color: blue;
     cursor: pointer;
+
+    @media (max-width: 768px){
+        width: 90%;
+        margin: 1rem;
+    
+    }
 `
 
 export const StyledSpan = styled.span`
@@ -51,6 +65,13 @@ export const StyledSpan = styled.span`
     width: 20rem;
     background-color: black;
     margin-bottom: 1rem;
+
+    @media (max-width: 768px){
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+
+    
+    }
 `
 export const FormRegistroUsuario = styled.form`
     display: flex;
@@ -152,7 +173,18 @@ export const SemiCircleStyled = styled.div`
     background: #FFF;
     border-radius: 50% 0 0 50%;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+
+    @media (max-width: 768px){
+        overflow: hidden;
+        width: 100%;
+        border-radius: 0%;
+    
+    }
+    
+
 `
+
+
 
 export const WrapperImage = styled.img`
   position: fixed;
@@ -164,4 +196,6 @@ export const WrapperImage = styled.img`
   background-size: cover;
   background-position: center;
   z-index: -1;  
+
+
 `
