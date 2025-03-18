@@ -107,7 +107,7 @@ export default function RegisterCompanyProfile() {
             <div className="inputsForm">
                 <label htmlFor="employ">Cantidad de empleados:</label>
                 <select name="employ" id="employ">
-                    <option value="value1" selected>0 to 10 employees</option>
+                    <option value="value1" selected>1 to 10 employees</option>
                     <option value="value2">10 to 50 employees</option>
                     <option value="value3">50 to 500 employees</option>
                     <option value="value4">500 to 1000 employees</option>
@@ -121,7 +121,7 @@ export default function RegisterCompanyProfile() {
                 <input type="text" name="address" id="address" placeholder="Escribe la dirección de la empresa" />
             </div>
             <div className="inputsForm">
-                <label htmlFor="industry">Dirección de las oficinas:</label>
+                <label htmlFor="industry">Industria:</label>
                 <select name="industry" id="industry">
                     <option value="value1" selected>Computing</option>
                     <option value="value2">Health</option>
