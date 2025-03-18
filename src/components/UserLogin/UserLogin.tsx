@@ -1,22 +1,65 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, ButtonsContainer, Container, Input, LoginForm } from "./styles";
 
 export default function UserLogin() {
     const navigate = useNavigate();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+
+    const handleLogin = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        try {
+            const response = await fetch("http://localhost:3000/api/auth/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email, password }),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                setError(data.message);
+                return;
+            }
+
+            localStorage.setItem("token", data.token);
+
+            navigate("/FirstGift");
+        } catch (err) {
+            console.error(err);
+            setError("Error al conectar con el servidor");
+        }
+    };
 
     return (
-        <>
         <Container>
-            <LoginForm>
+            <LoginForm onSubmit={handleLogin}>
                 <h2>Login</h2>
-                <Input type="email" placeholder="Email" required />
-                    <Input type="password" placeholder="Password" required />
+                {error && <p style={{ color: "red" }}>{error}</p>}
+                <Input
+                    type="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                />
+                <Input
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                />
                 <ButtonsContainer>
                     <Button type="submit">Sign In</Button>
-                    <Button type="submit" onClick={() => navigate(-1)}>Go Back</Button>
+                    <Button type="button" onClick={() => navigate(-1)}>Go Back</Button>
                 </ButtonsContainer>
             </LoginForm>
         </Container>
-        </>
-  );
+    );
 }
