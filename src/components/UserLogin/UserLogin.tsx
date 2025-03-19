@@ -10,7 +10,7 @@ export default function UserLogin() {
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
-
+    
         try {
             const response = await fetch("http://localhost:3000/api/auth/login", {
                 method: "POST",
@@ -19,18 +19,23 @@ export default function UserLogin() {
                 },
                 body: JSON.stringify({ email, password }),
             });
-
+    
             const data = await response.json();
-
+    
             if (!response.ok) {
                 setError(data.message);
                 return;
             }
-
+    
             localStorage.setItem("token", data.token);
-            localStorage.setItem("userId", data.userId); 
-
-            navigate("/FirstGift");
+            localStorage.setItem("userId", data.userId);
+    
+            // Verifica si el username está presente y no está vacío
+            if (data.username && data.username.trim() !== "") {
+                navigate("/UserHome");
+            } else {
+                navigate("/UserFirstGift");
+            }
         } catch (err) {
             console.error(err);
             setError("Error al conectar con el servidor");
