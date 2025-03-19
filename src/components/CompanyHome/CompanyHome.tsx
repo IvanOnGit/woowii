@@ -13,7 +13,7 @@ export default function CompanyHome() {
       <ContainerWrapper>
         <Header>
           <SearchContainer>
-            BÃºsqueda
+            Búsqueda
           </SearchContainer>
           <HeaderItems>
             <p><img src="/images/wiibucks.png" alt="wiibucks" />50</p>

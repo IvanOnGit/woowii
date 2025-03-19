@@ -4,21 +4,54 @@ import step2 from "/images/twoCompany.svg";
 import step3 from "/images/threeCompany.svg";
 import { Avatar } from "../NewPost/styles";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function StepsProfileCompany() {
+  const id = localStorage.getItem("id");
+  const [companyData, setCompanyData] = useState<{ Company_username: string; Company_avatar: string } | null>(null);
+
+  useEffect(() => {
+    const fetchCompanyData = async () => {
+      if (!id) {
+        console.error("ID is missing or invalid.");
+        return; // No hacemos la solicitud si la id es inválida
+      }
+
+      const numericId = Number(id);
+      if (isNaN(numericId) || numericId <= 0) {
+        console.error("ID is not a valid number.");
+        return; // Si no es un número válido, no hacemos la solicitud
+      }
+
+      // Cambié 'companyId' por 'id' en la URL
+      const url = `http://localhost:3000/api/auth/get-company?id=${numericId}`;
+      console.log("Requesting URL:", url); // Verifica si la URL es correcta
+
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        setCompanyData(data);
+      } catch (error) {
+        console.error("Error fetching company data:", error);
+      }
+    };
+
+    fetchCompanyData();
+  }, [id]);
+
   return (
     <>
-    <ContainerDivisionColumns>
-    <ContainerColumnSelects>
-        <ContainerLogoColumnSelects>
+      <ContainerDivisionColumns>
+        <ContainerColumnSelects>
+          <ContainerLogoColumnSelects>
             <LogoColumnSelects />
-        </ContainerLogoColumnSelects>
-        <ContainerLogoCompAndUser>
+          </ContainerLogoColumnSelects>
+          <ContainerLogoCompAndUser>
             <Avatar>
-                <img src="/images/avatarCompany1.svg" alt="Company Avatar" />
+            <img src={companyData?.Company_avatar || "/images/defaultCompanyAvatar.svg"} alt="Company Avatar" />
             </Avatar>
-            <p>@UserEmpresa</p>
-        </ContainerLogoCompAndUser>
+            <p>@{companyData?.Company_username || "Empresa"}</p>
+    </ContainerLogoCompAndUser>
         <ContainerFirstThreeSelects> 
             <label htmlFor="culture">Cultura y Valores</label>
             <select name="culture">
