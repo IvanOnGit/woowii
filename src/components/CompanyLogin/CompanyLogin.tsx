@@ -22,12 +22,14 @@ export default function CompanyLogin() {
           password,
         }),
       });
-
+  
       const data = await response.json();
-
+  
       if (response.status === 200) {
-        // Si el login es exitoso, almacena el token
+        // Guarda el token y el id en localStorage
         localStorage.setItem("companyToken", data.token);
+        localStorage.setItem("id", data.id); // Guardando exactamente "id"
+        console.log('id guardado en localStorage:', data.id);
         // Redirige a la página de "CompanyFirstGift"
         navigate("/CompanyFirstGift");
       } else {

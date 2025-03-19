@@ -77,12 +77,12 @@ export const ThumbnailsContainer = styled.div`
   gap: 0.5rem;
 `;
 
-export const Thumbnail = styled.img<{ isSelected: boolean }>`
+export const Thumbnail = styled.img<{ $isSelected: boolean }>`
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
   cursor: pointer;
-  border: ${({ isSelected }) => (isSelected ? "4px solid #460BFF" : "none")};
+  border: ${({ $isSelected }) => ($isSelected ? "4px solid #460BFF" : "none")};
 
   &:hover {
     opacity: 0.8;
