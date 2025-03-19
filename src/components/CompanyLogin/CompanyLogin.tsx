@@ -28,10 +28,16 @@ export default function CompanyLogin() {
       if (response.status === 200) {
         // Guarda el token y el id en localStorage
         localStorage.setItem("companyToken", data.token);
-        localStorage.setItem("id", data.id); // Guardando exactamente "id"
+        localStorage.setItem("id", data.id);
+        
         console.log('id guardado en localStorage:', data.id);
-        // Redirige a la página de "CompanyFirstGift"
-        navigate("/CompanyFirstGift");
+  
+        // Verifica si company_username está presente
+        if (data.company_username) {
+          navigate("/CompanyHome");
+        } else {
+          navigate("/CompanyFirstGift");
+        }
       } else {
         setError(data.message); // Muestra el error en caso de credenciales inválidas
       }
