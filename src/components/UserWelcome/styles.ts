@@ -7,6 +7,11 @@ export const ContainerWrapper = styled.div`
     flex-direction: column;
     height: 100vh;
     gap: 3rem;
+
+    @media (max-width: 768px){
+        gap: 9rem;
+    }
+
 `
 
 export const DivContainerLogoTerPage = styled.div`
@@ -30,6 +35,10 @@ export const DivImagenFondoTerPage = styled.div`
 
 export const ImgFondoTerceraPage = styled.img`
     width: 50%;
+
+    @media (max-width: 768px){
+        width: 90%;
+    }
 `
 
 export const ButtonNextTerceraPage = styled.button`

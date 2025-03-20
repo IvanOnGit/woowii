@@ -8,6 +8,11 @@ export const ContainerWrapper = styled.div`
   height: 100vh;
   gap: 1rem;
 
+
+  @media (max-width: 768px){
+    overflow: hidden;
+  }
+
   h2 {
     font-family: 'Roboto', sans-serif;
   }
@@ -64,6 +69,11 @@ export const Button = styled.button`
 export const ThumbnailsContainer = styled.div`
   display: flex;
   gap: 8px;
+
+  @media (max-width: 768px){
+    gap: 0rem;
+    margin: 1rem;
+  }
 `;
 
 export const Thumbnail = styled.img<{ isSelected: boolean }>`
@@ -85,6 +95,10 @@ export const UsernameInput = styled.div`
   align-items: center;
   width: 100%;
 
+  @media (max-width: 768px){
+    margin-bottom: 4rem;
+  }
+
   h3 {
     justify-content: flex-start;
     width: 11%;
@@ -92,6 +106,11 @@ export const UsernameInput = styled.div`
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     margin-bottom: 0.5rem;
+
+
+    @media (max-width: 768px){
+      width: auto;
+    }
   }
 
   input {
@@ -114,6 +133,10 @@ export const UsernameInput = styled.div`
     align-items: center;
     font-family: 'Roboto', sans-serif;
     font-size: 0.7rem;
+
+    @media (max-width: 768px){
+      margin-left: 0rem;
+    }
 
     svg {
       height: 0.8rem;
