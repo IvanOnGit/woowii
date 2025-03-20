@@ -11,7 +11,6 @@ import {
   PersonalityQuestions,
   PersonalityQuestionsItems,
   PersonalityText,
-  StyledLink,
 } from "./styles";
 
 // Lista de 88 preguntas (las primeras 22 originales, las demás numeradas del 23 al 88)
@@ -121,6 +120,14 @@ export default function PersonalityTestQuestions() {
     setSelectedRatings(newRatings);
   };
 
+  const handleBackClick = () => {
+    if (currentStep === 0) {
+      navigate(-1); // Vuelve a la página anterior en el historial de navegación
+    } else {
+      setCurrentStep(currentStep - 1);
+    }
+  };
+
   const handleSendClick = () => {
     if (currentStep === 3) {
       setShowCongratulations(true);
@@ -173,9 +180,8 @@ export default function PersonalityTestQuestions() {
         ))}
       </PersonalityQuestions>
       <DivContainerButton>
-        <StyledLink to={"/PersonalityTest"}>
-          <ButtonNextSecondPage>Volver atrás</ButtonNextSecondPage>
-        </StyledLink>
+        
+          <ButtonNextSecondPage onClick={handleBackClick}>Volver atrás</ButtonNextSecondPage>
         <ButtonNextSecondPage onClick={handleSendClick}>Continuar</ButtonNextSecondPage>
       </DivContainerButton>
 
