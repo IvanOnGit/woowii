@@ -5,13 +5,14 @@ export const ContainerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* 🔥 Asegura que el contenido comience arriba */
   width: 100%;
   height: 100vh;
-  overflow-y: auto;
-    overflow-x: hidden;
+  overflow-y: auto; /* Mantiene el scroll */
+  overflow-x: hidden;
+  padding-top: 2rem; /* Ajuste opcional para separar del borde superior */
 
-    &::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     width: 6px;
   }
 
@@ -27,7 +28,6 @@ export const ContainerWrapper = styled.div`
   &::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
-
 `;
 
 export const DivContainerLogo = styled.div`
@@ -35,7 +35,6 @@ export const DivContainerLogo = styled.div`
   justify-content: center;
   width: 100%;
   margin-bottom: 1rem;
-  margin-top: 25rem;
 `;
 
 export const LogoSecondPageStyled = styled.img`
@@ -121,6 +120,7 @@ export const DivContainerButton = styled.div`
   max-width: 600px;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  padding-bottom: 2rem;
 `;
 
 export const ButtonNextSecondPage = styled.button`

@@ -68,10 +68,27 @@ export default function PersonalityTestQuestions() {
       </PersonalityText>
       <PersonalityQuestions>
         {["Tiendes a tomar la iniciativa en eventos sociales.",
+          "Para ti, ver una película en casa, leer un libro o escuchar música es más interesante que un evento social.",
+          "Eres más espontáneo en lugar de crear un plan de forma minuciosa.",
+          "Sueles fundamentar tu punto de vista razonando en vez dejarte llevar por las emociones.",
+          "A menudo te cuesta comprender como se sientes los demás.",
+          "Generalmente te convencen más las ideas que conectan con tus sentimientos que las basadas en hechos concretos.",
+          " La clave principal de cualquier proyecto es elaborar un plan y seguirlo paso a paso.",
+          "Tiendes más a improvisar que a planificar.",
+          "A menudo sientes la necesidad de explicar tus acciones a los demás.",
+          "Sientes ansiedad en situaciones de estresantes.",
           "Te adaptas rápidamente y te involucras en actividades sociales en un nuevo entorno laboral.",
-          "Tus amigos te cuentan algo emocionante en cuanto se enteran.",
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-          "Tienes tendencias a explorar nuevas ideas y experiencias emocionales.",
+          "Tiendes a ser una persona discreta y de pocas palabras.",
+          "Cuando alguien desafía tus ideas, te resulta sencillo poner en duda las suyas.",
+          "Cuando estás afuera, prestas atención a tu entorno en lugar de quedarte ensimismado.",
+          "Rara vez te inquieta el impacto que tus decisiones tienen en los demás.",
+          "Te conectas más con los relatos y sentimientos de las personas que con los datos o cifras.",
+          "Casi siempre te sientes confiado.",
+          "Prefieres conservar la flexibilidad en tus decisiones.",
+          "Te incomoda no responder a todos los correos que recibes en la bandeja de entrada y ordenarlos.",
+          "Tiendes a ser cauteloso y no asumir riesgos innecesarios.",
+          "Tus amigos siempre te cuentan algo emocionante en cuanto se enteran.",
+          "En un evento social con bastante gente intentas ser el centro de atención.",
         ].map((question, index) => (
           <PersonalityQuestionsItems key={index}>
             <h2>{question}</h2>

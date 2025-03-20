@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Bell, Bookmark, BriefcaseBusiness, ChevronDown, ChevronUp,  Mail, Menu } from "lucide-react";
 import { 
   ContainerWrapper, 
@@ -39,15 +39,28 @@ export default function Hardset() {
   const [isFifthDropdownOpen, setIsFifthDropdownOpen] = useState(false);
   const [isSixthDropdownOpen, setIsSixthDropdownOpen] = useState(false);
   const [isSeventhDropdownOpen, setIsSeventhDropdownOpen] = useState(false);
-
+  const userId = localStorage.getItem("userId");
+  const [userData, setUserData] = useState<{ username: string; profile_picture: string } | null>(null);
+      useEffect(() => {
+        const fetchUserData = async () => {
+            if (!userId) return;
+  
+            const response = await fetch(`http://localhost:3000/api/auth/get-user?userId=${userId}`);
+            const data = await response.json();
+            console.log(data);  // Verifica qué datos estás recibiendo
+            setUserData(data);
+        };
+  
+        fetchUserData();
+      }, [userId]);
   return (
     <>
       <MenuAside>
         <FirstMenuAsideItem>
           <img src="/images/GreenLogoDemo.svg" alt="Avatar" />
           <UserAndImageCombo>
-            <img src="/images/Avatar6.png" alt="" />
-            <h3>@User_23</h3>
+          <img src={userData?.profile_picture || "/images/Avatar1.png"} alt="Avatar" />
+          <h3>@{userData?.username || "Usuario"}</h3>
           </UserAndImageCombo>  
         </FirstMenuAsideItem>
         <span>COMPLETA TUS DATOS BÁSICOS</span>
