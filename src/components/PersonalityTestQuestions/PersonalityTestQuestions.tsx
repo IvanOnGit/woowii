@@ -13,7 +13,6 @@ import {
   PersonalityText,
 } from "./styles";
 
-// Lista de 88 preguntas (las primeras 22 originales, las demás numeradas del 23 al 88)
 const allQuestions = [
   "Tiendes a tomar la iniciativa en eventos sociales.",
   "Para ti, ver una película en casa, leer un libro o escuchar música es más interesante que un evento social.",
