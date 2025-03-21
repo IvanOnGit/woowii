@@ -31,10 +31,10 @@ export default function UserLogin() {
             localStorage.setItem("userId", data.userId);
     
             // Verifica si el username está presente y no está vacío
-            if (data.username && data.username.trim() !== "") {
+            if (data.username?.trim()) {
                 navigate("/UserHome");
             } else {
-                navigate("/UserFirstGift");
+                navigate("/FirstGift");
             }
         } catch (err) {
             console.error(err);

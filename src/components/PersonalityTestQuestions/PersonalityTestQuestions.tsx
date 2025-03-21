@@ -109,6 +109,7 @@ export default function PersonalityTestQuestions() {
   const [selectedRatings, setSelectedRatings] = useState(Array(88).fill(null));
   const [showCongratulations, setShowCongratulations] = useState(false);
   const [showIntermediatePopup, setShowIntermediatePopup] = useState(false);
+  const [showValidationMessage, setShowValidationMessage] = useState(false);
   const navigate = useNavigate();
   const titleRef = useRef<HTMLDivElement>(null);
 
@@ -122,12 +123,16 @@ export default function PersonalityTestQuestions() {
         block: 'start'
       });
     }
+    // Hide validation message when changing steps
+    setShowValidationMessage(false);
   }, [currentStep]);
 
   const handleRatingClick = (questionIndex: number, value: number) => {
     const newRatings = [...selectedRatings];
     newRatings[questionIndex + currentStep * 22] = value;
     setSelectedRatings(newRatings);
+    // Hide validation message once the user starts responding
+    setShowValidationMessage(false);
   };
 
   const handleBackClick = () => {
@@ -138,7 +143,26 @@ export default function PersonalityTestQuestions() {
     }
   };
 
+  // Check if all questions in the current step are answered
+  const areAllQuestionsAnswered = () => {
+    const currentQuestionIndexes = Array.from(
+      { length: 22 }, 
+      (_, i) => i + currentStep * 22
+    );
+    
+    return currentQuestionIndexes.every(
+      index => selectedRatings[index] !== null
+    );
+  };
+
   const handleSendClick = () => {
+    // Check if all questions have been answered
+    if (!areAllQuestionsAnswered()) {
+      setShowValidationMessage(true);
+      return;
+    }
+
+    // Proceed as normal if all questions are answered
     if (currentStep < 2) {
       setShowIntermediatePopup(true);
     } else if (currentStep === 2) {
@@ -186,6 +210,22 @@ export default function PersonalityTestQuestions() {
           <strong>1</strong> Totalmente en desacuerdo | <strong>7</strong> Totalmente de acuerdo.
         </p>
       </PersonalityText>
+      
+      {/* Validation message */}
+      {showValidationMessage && (
+        <div style={{ 
+          color: '#ff0000', 
+          textAlign: 'center', 
+          margin: '10px 0',
+          padding: '10px',
+          backgroundColor: '#ffe6e6',
+          borderRadius: '5px',
+          fontWeight: 'bold'
+        }}>
+          Por favor responde todas las preguntas antes de continuar.
+        </div>
+      )}
+      
       <PersonalityQuestions>
         {questionsToShow.map((question, index) => (
           <PersonalityQuestionsItems key={index}>
