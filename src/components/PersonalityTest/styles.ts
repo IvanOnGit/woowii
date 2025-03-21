@@ -7,6 +7,11 @@ export const ContainerWrapper = styled.div`
     justify-content: center;
     flex-direction: column;
     height: 100vh;
+
+    @media (max-width: 768px){
+        overflow: hidden;
+    
+    }
 `
 export const DivContainerLogo = styled.div`
     display: flex;
@@ -18,12 +23,32 @@ export const LogoSecondPageStyled = styled.img`
     height: 5.25rem;
     position: absolute;
     margin-bottom: 35rem;
+
+
+    @media(max-width: 768px){
+        margin-bottom: 20rem;
+        margin-left: 20rem;
+        height: 10rem;
+        width: 30rem;
+
+    }
 `
 
 export const ImgFondoSecondPage = styled.img`
     width: 100%;
     height: 100%;
     position: absolute;
+
+    @media(max-width: 768px){
+        position: fixed;
+        margin-top: 165rem;
+        height: 90%;
+        width: 180%;
+
+
+    }
+
+
 `
 export const DivContainerButton = styled.div`
     display: flex;
@@ -31,6 +56,16 @@ export const DivContainerButton = styled.div`
     justify-content: center;
     position: absolute;
     margin-top: 25rem;
+
+
+    @media(max-width: 768px){
+        margin-top: 250rem;
+        margin-left: 100rem;
+
+    }
+
+
+
 `
 export const ButtonNextSecondPage = styled.button`
     width: 15rem;
@@ -49,6 +84,15 @@ export const ButtonNextSecondPage = styled.button`
     text-decoration: none;
     align-items: center;
     padding-left: 1rem;
+
+    @media(max-width: 768px){
+        font-size: 40px;
+        padding: 4rem;
+        width: 40rem;
+
+
+    }
+
 `;
 
 export const StyledLink = styled(Link)`
@@ -62,23 +106,50 @@ flex-direction: column;
 font-family: 'Roboto', sans-serif;
 margin-right: 40rem;
 
+
+@media(max-width: 768px){
+    margin-right: 0rem;
+    margin-top: 70rem;
+    margin-left:70rem;
+}
+
 h1 {
     font-size: 3rem;
     margin: 0;
+
+    @media(max-width: 768px){
+        font-size: 9rem;
+        margin-right: 30rem;
+    }
 }
 
 p {
     font-size: 2rem;
     margin: 0;
+
+    @media(max-width: 768px){
+        font-size: 4rem;
+    }
 }
 
 img {
     position: absolute;
     margin-left: 50rem;
+
+
+    @media(max-width: 768px){
+        margin-left: 60rem;
+
+    }
 }
 
 img:last-of-type {
     margin-left: 0;
     position: absolute;
+
+    @media(max-width: 768px){
+        height:370vh;
+
+    }
 }
 `;

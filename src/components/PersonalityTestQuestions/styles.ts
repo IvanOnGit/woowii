@@ -83,6 +83,12 @@ export const PersonalityQuestionsItems = styled.div`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
 
+  @media(max-width: 768px){
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+
+  }
+
   h2 {
     font-size: 1.2rem;
     color: #333;
@@ -121,6 +127,13 @@ export const DivContainerButton = styled.div`
   max-width: 600px;
   margin-top: 2rem;
   margin-bottom: 2rem;
+
+  @media(max-width: 768px){
+    margin-left: 1rem;
+    width: 80%;
+
+
+  }
 `;
 
 export const ButtonNextSecondPage = styled.button`
@@ -133,6 +146,11 @@ export const ButtonNextSecondPage = styled.button`
   border-radius: 1rem;
   cursor: pointer;
   transition: background 0.3s;
+
+  @media(max-width: 768px){
+    width: 9rem;
+
+  }
   
   &:hover {
     background: #219150;
@@ -169,8 +187,19 @@ padding: 2rem;
 border-radius: 2rem;
 font-family: 'Roboto', sans-serif;
 
+@media(max-width: 768px){
+  width: 70%;
+
+}
+
+
 img {
     width: 20rem;
+
+    @media(max-width: 768px){
+      width: 15rem;
+    
+    }
 }
 
 h2 {
