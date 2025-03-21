@@ -108,9 +108,9 @@ export default function PersonalityTestQuestions() {
   const [currentStep, setCurrentStep] = useState(0);
   const [selectedRatings, setSelectedRatings] = useState(Array(88).fill(null));
   const [showCongratulations, setShowCongratulations] = useState(false);
+  const [showIntermediatePopup, setShowIntermediatePopup] = useState(false);
   const navigate = useNavigate();
 
-  // Obtener el conjunto de preguntas correspondiente al paso actual
   const questionsToShow = allQuestions.slice(currentStep * 22, (currentStep + 1) * 22);
 
   const handleRatingClick = (questionIndex: number, value: number) => {
@@ -121,42 +121,47 @@ export default function PersonalityTestQuestions() {
 
   const handleBackClick = () => {
     if (currentStep === 0) {
-      navigate(-1); // Vuelve a la página anterior en el historial de navegación
+      navigate(-1);
     } else {
       setCurrentStep(currentStep - 1);
     }
   };
 
   const handleSendClick = () => {
-    if (currentStep === 3) {
+    if (currentStep < 2) {
+      setShowIntermediatePopup(true);
+    } else if (currentStep === 2) {
+      setShowIntermediatePopup(true);
+    } else if (currentStep === 3) {
       setShowCongratulations(true);
-    } else {
-      setCurrentStep(currentStep + 1);
     }
+  };
+
+  const handleClosePopup = () => {
+    setShowIntermediatePopup(false);
+    setCurrentStep(currentStep + 1);
   };
 
   const handleContinueClick = () => {
     navigate("/CongratulationsSteps");
   };
 
-  const renderRatingButtons = (questionIndex: number) => {
-    return (
-      <>
-        {[1, 2, 3, 4, 5, 6, 7].map((value) => (
-          <LevelSelector
-            key={value}
-            onClick={() => handleRatingClick(questionIndex, value)}
-            style={{
-              backgroundColor: selectedRatings[questionIndex + currentStep * 22] === value ? "#8FFF00" : "#fff",
-              color: selectedRatings[questionIndex + currentStep * 22] === value ? "#000" : "#555",
-            }}
-          >
-            {value}
-          </LevelSelector>
-        ))}
-      </>
-    );
-  };
+  const renderRatingButtons = (questionIndex: number) => (
+    <>
+      {[1, 2, 3, 4, 5, 6, 7].map((value) => (
+        <LevelSelector
+          key={value}
+          onClick={() => handleRatingClick(questionIndex, value)}
+          style={{
+            backgroundColor: selectedRatings[questionIndex + currentStep * 22] === value ? "#8FFF00" : "#fff",
+            color: selectedRatings[questionIndex + currentStep * 22] === value ? "#000" : "#555",
+          }}
+        >
+          {value}
+        </LevelSelector>
+      ))}
+    </>
+  );
 
   return (
     <ContainerWrapper>
@@ -179,11 +184,21 @@ export default function PersonalityTestQuestions() {
         ))}
       </PersonalityQuestions>
       <DivContainerButton>
-        
-          <ButtonNextSecondPage onClick={handleBackClick}>Volver atrás</ButtonNextSecondPage>
+        <ButtonNextSecondPage onClick={handleBackClick}>Volver atrás</ButtonNextSecondPage>
         <ButtonNextSecondPage onClick={handleSendClick}>Continuar</ButtonNextSecondPage>
       </DivContainerButton>
 
+      {/* Popup para los primeros 3 pasos */}
+      {showIntermediatePopup && (
+        <GoToNextSection style={{ textAlign: "center", marginTop: "20px" }}>
+          <h2>¡Felicitaciones!</h2>
+          <img src="/images/WiibuckCurrency.png" alt="" style={{ width: "120px", height: "120px" }} />
+          <p>Has recibido 50 Wiibucks</p>
+          <ButtonNextSecondPage onClick={handleClosePopup}>Cerrar</ButtonNextSecondPage>
+        </GoToNextSection>
+      )}
+
+      {/* Popup final */}
       {showCongratulations && (
         <GoToNextSection style={{ textAlign: "center", marginTop: "20px" }}>
           <img src="/images/GreenLogoDemo.svg" alt="" />
