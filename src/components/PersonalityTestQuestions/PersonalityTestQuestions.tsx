@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   ButtonNextSecondPage,
@@ -110,8 +110,19 @@ export default function PersonalityTestQuestions() {
   const [showCongratulations, setShowCongratulations] = useState(false);
   const [showIntermediatePopup, setShowIntermediatePopup] = useState(false);
   const navigate = useNavigate();
+  const titleRef = useRef<HTMLDivElement>(null);
 
   const questionsToShow = allQuestions.slice(currentStep * 22, (currentStep + 1) * 22);
+
+  // Add effect to scroll to title when step changes
+  useEffect(() => {
+    if (titleRef.current) {
+      titleRef.current.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  }, [currentStep]);
 
   const handleRatingClick = (questionIndex: number, value: number) => {
     const newRatings = [...selectedRatings];
@@ -168,7 +179,7 @@ export default function PersonalityTestQuestions() {
       <DivContainerLogo>
         <LogoSecondPageStyled src="/images/GreenLogoDemo.svg" />
       </DivContainerLogo>
-      <PersonalityText>
+      <PersonalityText ref={titleRef}>
         <h1>Test de personalidad</h1>
         <p>
           Valora cada formación del <strong>1</strong> al <strong>7</strong> dónde:<br />
