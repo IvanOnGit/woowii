@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { 
   ContainerWrapper, 
   Header, 
@@ -8,7 +7,9 @@ import {
   FirstMenuAsideItem, 
   ThirdMenuAsideItem, 
   MenuItem, 
-  UserAndImageCombo
+  UserAndImageCombo,
+  StyledButton,
+  StyledLink
 } from "./styles";
 import NewPost from "../NewPost/NewPost";
 import MotivationText from "../MotivationText/MotivationText";
@@ -44,11 +45,7 @@ export default function UserHome() {
           </UserAndImageCombo>
         </FirstMenuAsideItem>
         <ThirdMenuAsideItem>
-          <MenuItem>
-            <Link to="/Hardset">
-              <p>Hardset</p> <ChevronDown size={16} />
-            </Link>
-          </MenuItem>
+          <MenuItem><p>Hardset</p> <ChevronDown size={16} /></MenuItem>
           <MenuItem><p>Softset</p> <ChevronDown size={16} /></MenuItem>
           <MenuItem><p>Toolset</p> <ChevronDown size={16} /></MenuItem>
           <MenuItem><p>Superpower</p> <ChevronDown size={16} /></MenuItem>
@@ -84,6 +81,9 @@ export default function UserHome() {
       <NewPost />
       <MotivationText />
       <StepsProfileCreation />
+      <StyledLink to="/Hardset">
+        <StyledButton>Continuar</StyledButton>
+      </StyledLink>
     </>
   );
 }

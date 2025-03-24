@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const ContainerWrapper = styled.div`
@@ -157,4 +158,27 @@ export const MenuItem = styled.div`
   cursor: pointer;
   width: 80%;
   height: 25%;
+`;
+
+export const StyledButton = styled.button`
+  border: none;
+  background-color: #75B300;
+  color: white;
+  width: 8rem;
+  height: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+  margin-left: 25.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  position: absolute;
+  margin-top: -1rem;
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
 `;
