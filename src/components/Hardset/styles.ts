@@ -364,22 +364,6 @@ export const AboutHardset = styled.div`
   font-family: 'Roboto', sans-serif;
 `;
 
-export const AboutLines = styled.div`
-  display: flex;
-  margin: 1rem;
-  margin-left: 0;
-  gap: 1rem;
-`;
-
-export const AboutButtons = styled.button`
-width: 13rem;
-background-color: #8FFF00;
-border-radius: 1rem;
-padding: 0.5rem;
-border: 1px solid black;
-cursor: pointer;
-`;
-
 export const TalkWithWoody = styled.p`
 width: 100%;
 display: flex;
