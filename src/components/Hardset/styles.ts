@@ -334,6 +334,7 @@ export const AboutYou = styled.div`
     padding: 1rem;
     border-radius: 1rem;
     background-color: transparent;
+    cursor: pointer;
   }
 `;
 

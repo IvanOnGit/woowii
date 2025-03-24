@@ -67,7 +67,7 @@ export default function Hardset() {
         Superpower: { title: 'Historia sobre tu Superpower', about: 'Sobre tu Superpower' },
       };
       
-      const [selectedOption, setSelectedOption] = useState<string | null>(null);
+      const [selectedOptions, setSelectedOptions] = useState<{ [key: string]: string[] }>({});
       
       const sectionOptions: { [key: string]: string[] } = {
         Hardset: [
@@ -373,15 +373,38 @@ export default function Hardset() {
         <AboutHardset>
         <h2>{sectionContent[selectedSection].about}</h2>
         <select 
-          onChange={(e) => setSelectedOption(e.target.value)} 
-          value={selectedOption || ""}
-        >
+        onChange={(e) => {
+          const option = e.target.value;
+          setSelectedOptions((prev) => {
+            const currentOptions = prev[selectedSection] || [];
+            return {
+              ...prev,
+              [selectedSection]: currentOptions.includes(option) 
+                ? currentOptions.filter(item => item !== option) 
+                : [...currentOptions, option]
+            };
+          });
+        }} 
+        value=""
+      >
           <option value="" disabled>Selecciona una opción</option>
           {sectionOptions[selectedSection]?.map((option) => (
             <option key={option} value={option}>{option}</option>
           ))}
         </select>
-        {selectedOption && <p>Has seleccionado: {selectedOption}</p>}
+        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginTop: "10px" }}>
+          {selectedOptions[selectedSection]?.map((option) => (
+            <div key={option} style={{ 
+              padding: "5px 10px", 
+              backgroundColor: "#4CAF50", 
+              color: "white", 
+              borderRadius: "8px",
+              fontSize: "14px"
+            }}>
+              {option}
+            </div>
+          ))}
+        </div>
       </AboutHardset>
               <TalkWithWoody>¡Chatea con Woody! </TalkWithWoody>
               <Link to="/SecondGift">
