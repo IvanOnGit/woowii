@@ -29,6 +29,7 @@ import {
   JobsContainer,
   StyledLink,
 } from "./styles";
+import NewPost from "../NewPost/NewPost";
 
 export default function JobFinder() {
   const [isFirstDropdownOpen, setIsFirstDropdownOpen] = useState(false);
@@ -189,6 +190,7 @@ export default function JobFinder() {
             <input type="text" name="" id="" placeholder="Búsqueda"/>
         </SearchBar>
         </ContainerWrapper>
+        <NewPost />
         <MainTitleAndSubtitle>
             <h1>¡Encontramos tu siguiente<br /> experiencia profesional!</h1>
             <p>Tu futuro profesional comienza aquí. Descubre ofertas de empleo <br /> personalizadas y herramientas para impulsar tu carrera.</p>

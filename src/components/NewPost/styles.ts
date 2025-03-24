@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const Container = styled.div`
     display: flex;
     justify-content: center;
+    margin-top: 3rem;
+
 `
 
 export const NewPostContainer = styled.div`
@@ -11,7 +13,7 @@ export const NewPostContainer = styled.div`
   background: white;
   border-radius: 1rem;
   padding: 1rem;
-  width: 50%;
+  width: 45%;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   gap: 1rem;
 `;
