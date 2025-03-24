@@ -321,6 +321,22 @@ input:first-of-type {
 }
 `;
 
+export const AboutYou = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  margin-top: -30rem;
+  margin-left: 89rem;
+  gap: 0.2rem;
+
+  button {
+    width: 8rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: transparent;
+  }
+`;
+
 export const Container = styled.div`
   font-family: Arial, sans-serif;
   display: flex;

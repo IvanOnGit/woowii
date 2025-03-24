@@ -23,10 +23,9 @@ import {
   OptionLabel,
   MainContainer,
   AboutHardset,
-  AboutLines,
-  AboutButtons,
   TalkWithWoody,
-  ContinueButton
+  ContinueButton,
+  AboutYou
 } from "./styles";
 import { Link } from "react-router-dom";
 import VoiceTextInput from "../VoiceTextInput/VoiceTextInput";
@@ -53,6 +52,72 @@ export default function Hardset() {
   
         fetchUserData();
       }, [userId]);
+  
+      const [selectedSection, setSelectedSection] = useState("Hardset");
+
+      interface SectionContent {
+        [key: string]: { title: string } & { about: string };
+      }
+      
+      const sectionContent: SectionContent = {
+        Analysis: { title: 'Historia sobre tu Analysis', about: 'Sobre tu Analysis' },
+        Hardset: { title: 'Historia sobre tu Hardset', about: 'Sobre tu Hardset' },
+        Softset: { title: 'Historia sobre tu Softset', about: 'Sobre tu Softset' },
+        Toolset: { title: 'Historia sobre tu Toolset', about: 'Sobre tu Toolset' },
+        Superpower: { title: 'Historia sobre tu Superpower', about: 'Sobre tu Superpower' },
+      };
+      
+      const [selectedOption, setSelectedOption] = useState<string | null>(null);
+      
+      const sectionOptions: { [key: string]: string[] } = {
+        Hardset: [
+          "Análisis de Datos",
+          "Ciberseguridad",
+          "Desarrollo Web",
+          "Soporte Técnico",
+          "Testing de Software",
+          "Infraestructura",
+          "Diseño UX | UI",
+          "Gestión de Proyectos",
+        ],
+        Toolset: [
+          "React",
+          "Node.js",
+          "Figma",
+          "Docker",
+          "AWS",
+          "Python",
+          "Kubernetes",
+          "SQL",
+        ],
+        Softset: [
+          "Trabajo en equipo",
+          "Comunicación efectiva",
+          "Resolución de problemas",
+          "Liderazgo",
+          "Gestión del tiempo",
+          "Empatía",
+          "Pensamiento crítico",
+          "Creatividad",
+        ],
+        Superpower: [
+          "Pensamiento analítico",
+          "Aprendizaje rápido",
+          "Adaptabilidad",
+          "Innovación",
+          "Atención al detalle",
+          "Resiliencia",
+          "Habilidades de negociación",
+        ],
+        Analysis: [
+          "Análisis de tendencias",
+          "Visualización de datos",
+          "Predicción de mercado",
+          "Segmentación de clientes",
+          "Optimización de procesos",
+          "Estrategia de negocio",
+        ],
+      };
   return (
     <>
       <MenuAside>
@@ -253,7 +318,7 @@ export default function Hardset() {
         </Header>
       </ContainerWrapper>
       <StoryExplanation>
-            <h2>Historias sobre tu HARDSET:</h2>
+            <h2>{sectionContent[selectedSection].title}</h2>
             <p>Aquí explicarás como tu formación o experiencia, definen tus habilidades <br /> duras mediante ejemplos que tu CV no puede contar sólo en bullet points.</p>
       </StoryExplanation>
         <StoryForm>
@@ -264,6 +329,13 @@ export default function Hardset() {
         <p>🚀 ¿Necesitas ayuda? Nuestra IA está lista para potenciar tu texto.</p>
         <VoiceTextInput />
         </StoryForm>
+        <AboutYou>
+          {Object.keys(sectionContent).map((section) => (
+            <button key={section} onClick={() => setSelectedSection(section)}>
+              {section}
+            </button>
+          ))}
+        </AboutYou>
         <Container>
             <OptionLabel>
                 <Checkbox
@@ -299,43 +371,18 @@ export default function Hardset() {
             </OptionLabel>
         </Container>
         <AboutHardset>
-            <h2>Sobre tus HARDSET:</h2>
-            <AboutLines>
-                <AboutButtons>Análisis de Datos</AboutButtons><AboutButtons>Ciberseguridad</AboutButtons><AboutButtons>Desarrollo Web</AboutButtons>
-            </AboutLines>
-            <AboutLines>
-                <AboutButtons>Soporte técnico</AboutButtons><AboutButtons>Testing de Software</AboutButtons><AboutButtons>Infraestructura</AboutButtons>
-            </AboutLines>
-            <AboutLines>
-                <AboutButtons>Diseño UX | UI</AboutButtons><AboutButtons>Soporte técnico</AboutButtons><AboutButtons>Gestión de Proyectos</AboutButtons>
-            </AboutLines>
-        </AboutHardset>
-        
-        <AboutHardset>
-            <h2>Sobre tus SOFTSET:</h2>
-            <AboutLines>
-                <AboutButtons>Comunicación efectiva</AboutButtons><AboutButtons>Trabajo en equipo</AboutButtons><AboutButtons>Gestión del tiempo</AboutButtons>
-            </AboutLines>
-            <AboutLines>
-                <AboutButtons>Creatividad</AboutButtons><AboutButtons>Resolución de problemas</AboutButtons><AboutButtons>Empatía</AboutButtons>
-            </AboutLines>
-            <AboutLines>
-                <AboutButtons>Liderazgo</AboutButtons><AboutButtons>Adaptabilidad</AboutButtons><AboutButtons>Responsabilidad</AboutButtons>
-            </AboutLines>
-        </AboutHardset>
-        
-        <AboutHardset>
-            <h2>Sobre tus TOOLSET:</h2>
-            <AboutLines>
-                <AboutButtons>Python</AboutButtons><AboutButtons>C++</AboutButtons><AboutButtons>SQL</AboutButtons>
-            </AboutLines>
-            <AboutLines>
-                <AboutButtons>JavaScript</AboutButtons><AboutButtons>Ruby</AboutButtons><AboutButtons>PHP</AboutButtons>
-            </AboutLines>
-            <AboutLines>
-                <AboutButtons>.NET</AboutButtons><AboutButtons>HTML/CSS</AboutButtons><AboutButtons>Trello</AboutButtons>
-            </AboutLines>
-        </AboutHardset>
+        <h2>{sectionContent[selectedSection].about}</h2>
+        <select 
+          onChange={(e) => setSelectedOption(e.target.value)} 
+          value={selectedOption || ""}
+        >
+          <option value="" disabled>Selecciona una opción</option>
+          {sectionOptions[selectedSection]?.map((option) => (
+            <option key={option} value={option}>{option}</option>
+          ))}
+        </select>
+        {selectedOption && <p>Has seleccionado: {selectedOption}</p>}
+      </AboutHardset>
               <TalkWithWoody>¡Chatea con Woody! </TalkWithWoody>
               <Link to="/SecondGift">
               <ContinueButton>Continue</ContinueButton>
