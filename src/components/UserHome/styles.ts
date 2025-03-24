@@ -126,7 +126,7 @@ export const ThirdMenuAsideItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 25%;
+  height: 100%;
 
   button {
     width: 80%;
@@ -137,6 +137,7 @@ export const ThirdMenuAsideItem = styled.div`
     color: black;
     cursor: pointer;
     font-size: 0.8rem;
+    margin-bottom: 1rem;
   }
 
   button:hover {

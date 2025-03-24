@@ -45,23 +45,19 @@ export default function UserHome() {
           </UserAndImageCombo>
         </FirstMenuAsideItem>
         <ThirdMenuAsideItem>
-          <MenuItem><p>Hardset</p> <ChevronDown size={16} /></MenuItem>
-          <MenuItem><p>Softset</p> <ChevronDown size={16} /></MenuItem>
-          <MenuItem><p>Toolset</p> <ChevronDown size={16} /></MenuItem>
-          <MenuItem><p>Superpower</p> <ChevronDown size={16} /></MenuItem>
-        </ThirdMenuAsideItem>
-        <span></span>
-        <ThirdMenuAsideItem>
           <MenuItem><p>Consejos</p> <ChevronDown size={16} /></MenuItem>
           <MenuItem><p>Contactos</p> <ChevronDown size={16} /></MenuItem>
           <MenuItem><p>Proyectos</p> <ChevronDown size={16} /></MenuItem>
+          <MenuItem><p>Talent Data</p> <ChevronDown size={16} /></MenuItem>
           <MenuItem><p>Tutoriales</p> <ChevronDown size={16} /></MenuItem>
+          <MenuItem><p>Alerts</p> <ChevronDown size={16} /></MenuItem>
         </ThirdMenuAsideItem>
         <span></span>
         <ThirdMenuAsideItem>
-          <MenuItem><p>Mis datos</p> <ChevronDown size={16} /></MenuItem>
-          <MenuItem><p>Cuenta</p> <ChevronDown size={16} /></MenuItem>
           <MenuItem><p>Preguntas</p> <ChevronDown size={16} /></MenuItem>
+          <MenuItem><p>Settings</p> <ChevronDown size={16} /></MenuItem>
+          <MenuItem><p>Terms and Agreements</p> <ChevronDown size={16} /></MenuItem>
+          <MenuItem><p>Testimonials</p> <ChevronDown size={16} /></MenuItem>
           <button>Chat de ayuda</button>
         </ThirdMenuAsideItem>
       </MenuAside>
