@@ -145,6 +145,22 @@ export const ThirdMenuAsideItem = styled.div`
   }
 `;
 
+export const WelcomeContainer = styled.div`
+  background-color: #75B300;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 72rem;
+  margin-left: 22rem;
+  padding-left: 4rem;
+
+  h1 {
+    color: white;
+    font-size: 1.5rem;
+  }
+`;
+
 export const ChevronIcon = styled.div`
   width: 1rem;
   display: flex;

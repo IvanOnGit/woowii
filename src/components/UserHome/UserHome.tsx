@@ -9,9 +9,9 @@ import {
   MenuItem, 
   UserAndImageCombo,
   StyledButton,
-  StyledLink
+  StyledLink,
+  WelcomeContainer
 } from "./styles";
-import NewPost from "../NewPost/NewPost";
 import MotivationText from "../MotivationText/MotivationText";
 import StepsProfileCreation from "../StepsProfileCreation/StepsProfileCreation";
 import { Bell, Bookmark, BriefcaseBusiness, Mail, Menu, ChevronDown } from "lucide-react";
@@ -74,7 +74,9 @@ export default function UserHome() {
           </HeaderItems>
         </Header>
       </ContainerWrapper>
-      <NewPost />
+      <WelcomeContainer>
+        <h1>¡BIENVENIDO! <br />TU PRÓXIMO EMPLEO ESTÁ A SOLO TRES PASOS</h1>
+      </WelcomeContainer>
       <MotivationText />
       <StepsProfileCreation />
       <StyledLink to="/Hardset">
