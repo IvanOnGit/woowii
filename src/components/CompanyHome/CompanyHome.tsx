@@ -1,6 +1,5 @@
 import { Bell, Bookmark, BriefcaseBusiness, Mail, Menu } from "lucide-react";
 import { ContainerWrapper, Header, SearchContainer, HeaderItems, ContainerDivisionColumns, ContainerColumnSelects, ContainerColumnBody } from "./styles";
-import NewPost from "../NewPost/NewPost";
 import CompanyMotivationText from "../CompanyMotivationText/CompanyMotivationText";
 import StepsProfileCompany from "../StepsProfileCompany/StepsProfileCompany";
 
@@ -26,7 +25,6 @@ export default function CompanyHome() {
           </HeaderItems>
         </Header>
       </ContainerWrapper>
-      <NewPost />
       <CompanyMotivationText />
       <StepsProfileCompany />
       </ContainerColumnBody>
