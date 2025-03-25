@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Bell, Bookmark, BriefcaseBusiness, ChevronDown, ChevronUp,  Mail, Menu } from "lucide-react";
 import { 
   ContainerWrapper, 
@@ -23,15 +23,16 @@ import {
   OptionLabel,
   MainContainer,
   AboutHardset,
-  AboutLines,
-  AboutButtons,
   TalkWithWoody,
-  ContinueButton
+  ContinueButton,
+  AboutYou,
+  SelectContainer,
+  SelectOption
 } from "./styles";
 import { Link } from "react-router-dom";
 import VoiceTextInput from "../VoiceTextInput/VoiceTextInput";
 
-export default function AboutYourDNA() {
+export default function Hardset() {
   const [isFirstDropdownOpen, setIsFirstDropdownOpen] = useState(false);
   const [isSecondDropdownOpen, setIsSecondDropdownOpen] = useState(false);
   const [isThirdDropdownOpen, setIsThirdDropdownOpen] = useState(false);
@@ -39,15 +40,130 @@ export default function AboutYourDNA() {
   const [isFifthDropdownOpen, setIsFifthDropdownOpen] = useState(false);
   const [isSixthDropdownOpen, setIsSixthDropdownOpen] = useState(false);
   const [isSeventhDropdownOpen, setIsSeventhDropdownOpen] = useState(false);
+  const userId = localStorage.getItem("userId");
+  const [userData, setUserData] = useState<{ username: string; profile_picture: string } | null>(null);
+      useEffect(() => {
+        const fetchUserData = async () => {
+            if (!userId) return;
+  
+            const response = await fetch(`http://localhost:3000/api/auth/get-user?userId=${userId}`);
+            const data = await response.json();
+            console.log(data);  // Verifica qué datos estás recibiendo
+            setUserData(data);
+        };
+  
+        fetchUserData();
+      }, [userId]);
+  
+      const [selectedSection, setSelectedSection] = useState<keyof SectionContent>("Cultura");
 
+      interface SectionContent {
+        [key: string]: { title: string } & { about: string };
+      }
+      
+      const sectionContent: SectionContent = {
+        Cultura: { title: "Historia sobre tu Cultura", about: "Sobre tu Cultura" },
+        Liderazgo: { title: "Historia sobre tu Liderazgo", about: "Sobre tu Liderazgo" },
+        Propósito: { title: "Historia sobre tu Propósito", about: "Sobre tu Propósito" },
+        Innovación: { title: "Historia sobre tu Innovación", about: "Sobre tu Innovación" },
+        Ambiente: { title: "Historia sobre tu Ambiente", about: "Sobre tu Ambiente" },
+        Crecimiento: { title: "Historia sobre tu Crecimiento", about: "Sobre tu Crecimiento" },
+        Errores: { title: "Historia sobre tus Errores", about: "Sobre tus Errores" },
+        Talento: { title: "Historia sobre tu Talento", about: "Sobre tu Talento" },
+      };
+      
+      const [selectedOptions, setSelectedOptions] = useState<{ [key: string]: string[] }>({});
+      
+      const sectionOptions: { [key: string]: string[] } = {
+        Cultura: [
+          "Diversidad e inclusión",
+          "Trabajo en equipo",
+          "Respeto y valores",
+          "Ética profesional",
+          "Flexibilidad laboral",
+          "Transparencia",
+          "Comunicación abierta",
+          "Colaboración",
+        ],
+        Liderazgo: [
+          "Inspirador",
+          "Transformacional",
+          "Autocrático",
+          "Democrático",
+          "Coaching",
+          "Liderazgo servicial",
+          "Visionario",
+          "Delegativo",
+        ],
+        Propósito: [
+          "Impacto social",
+          "Cambio positivo",
+          "Sostenibilidad",
+          "Innovación con sentido",
+          "Crecimiento personal",
+          "Educación y desarrollo",
+          "Empoderamiento",
+          "Justicia e igualdad",
+        ],
+        Innovación: [
+          "Tecnología emergente",
+          "Disrupción",
+          "Creatividad aplicada",
+          "Transformación digital",
+          "Experimentación",
+          "Agilidad",
+          "Mentalidad abierta",
+          "Investigación y desarrollo",
+        ],
+        Ambiente: [
+          "Trabajo remoto",
+          "Espacios colaborativos",
+          "Cultura de confianza",
+          "Bienestar laboral",
+          "Ambiente relajado",
+          "Sinergia entre equipos",
+          "Política de puertas abiertas",
+          "Diversidad generacional",
+        ],
+        Crecimiento: [
+          "Plan de carrera",
+          "Capacitación constante",
+          "Mentoría",
+          "Nuevas oportunidades",
+          "Ascensos internos",
+          "Feedback constructivo",
+          "Desarrollo personal",
+          "Habilidades en evolución",
+        ],
+        Errores: [
+          "Aprendizaje del error",
+          "Cultura de experimentación",
+          "Flexibilidad ante fallos",
+          "Tolerancia al riesgo",
+          "Iteración constante",
+          "Mentalidad de mejora",
+          "Errores como oportunidades",
+          "Resiliencia organizacional",
+        ],
+        Talento: [
+          "Atracción de talento",
+          "Gestión del talento",
+          "Fidelización de empleados",
+          "Desarrollo de habilidades",
+          "Equipos de alto rendimiento",
+          "Evaluaciones de desempeño",
+          "Reconocimiento y motivación",
+          "Diversidad de talentos",
+        ],
+      };
   return (
     <>
       <MenuAside>
         <FirstMenuAsideItem>
           <img src="/images/GreenLogoDemo.svg" alt="Avatar" />
           <UserAndImageCombo>
-            <img src="/images/Avatar6.png" alt="" />
-            <h3>@User_23</h3>
+          <img src={userData?.profile_picture || "/images/Avatar1.png"} alt="Avatar" />
+          <h3>@{userData?.username || "Usuario"}</h3>
           </UserAndImageCombo>  
         </FirstMenuAsideItem>
         <span>COMPLETA TUS DATOS BÁSICOS</span>
@@ -240,7 +356,7 @@ export default function AboutYourDNA() {
         </Header>
       </ContainerWrapper>
       <StoryExplanation>
-            <h2>Historias sobre tu ADN:</h2>
+            <h2>{sectionContent[selectedSection].title}</h2>
             <p>Aquí explicarás como tu formación o experiencia, definen tus habilidades <br /> duras mediante ejemplos que tu CV no puede contar sólo en bullet points.</p>
       </StoryExplanation>
         <StoryForm>
@@ -251,6 +367,13 @@ export default function AboutYourDNA() {
         <p>🚀 ¿Necesitas ayuda? Nuestra IA está lista para potenciar tu texto.</p>
         <VoiceTextInput />
         </StoryForm>
+        <AboutYou>
+          {Object.keys(sectionContent).map((section) => (
+            <button key={section} onClick={() => setSelectedSection(section)}>
+              {section}
+            </button>
+          ))}
+        </AboutYou>
         <Container>
             <OptionLabel>
                 <Checkbox
@@ -286,45 +409,37 @@ export default function AboutYourDNA() {
             </OptionLabel>
         </Container>
         <AboutHardset>
-            <h2>RECONOCIMIENTO:</h2>
-            <AboutLines>
-                <AboutButtons>Trabajo en equipo</AboutButtons><AboutButtons>Innovación</AboutButtons><AboutButtons>Ámbito laboral</AboutButtons>
-            </AboutLines>
-            <AboutLines>
-                <AboutButtons>Medalla de mérito</AboutButtons><AboutButtons>Empleado del mes</AboutButtons><AboutButtons>Organización</AboutButtons>
-            </AboutLines>
-            <AboutLines>
-                <AboutButtons>Mejor servicio al cliente</AboutButtons><AboutButtons>Años de servicio</AboutButtons><AboutButtons>Gestión de equipo</AboutButtons>
-            </AboutLines>
-        </AboutHardset>
-        
-        <AboutHardset>
-            <h2>INCENTIVOS MONETARIOS:</h2>
-            <AboutLines>
-                <AboutButtons>Bonos por desempeño</AboutButtons><AboutButtons>Objetivos trimestrales</AboutButtons><AboutButtons>Lorem ipsum</AboutButtons>
-            </AboutLines>
-            <AboutLines>
-                <AboutButtons>Comisiones</AboutButtons><AboutButtons>Bonos por patentes</AboutButtons><AboutButtons>Lorem ipsum</AboutButtons>
-            </AboutLines>
-            <AboutLines>
-                <AboutButtons>Incentivos referidos</AboutButtons><AboutButtons>Premios de productividad</AboutButtons><AboutButtons>Lorem ipsum</AboutButtons>
-            </AboutLines>
-        </AboutHardset>
-        
-        <AboutHardset>
-            <h2>BENEFICIOS:</h2>
-            <AboutLines>
-                <AboutButtons>Días libre extra</AboutButtons><AboutButtons>Seguro médico</AboutButtons><AboutButtons>Gimnasio</AboutButtons>
-            </AboutLines>
-            <AboutLines>
-                <AboutButtons>Horarios flexibles</AboutButtons><AboutButtons>Plan de pensiones</AboutButtons><AboutButtons>Desarrollo personal</AboutButtons>
-            </AboutLines>
-            <AboutLines>
-                <AboutButtons>Home Office</AboutButtons><AboutButtons>Beca de estudio</AboutButtons><AboutButtons>Mentorias</AboutButtons>
-            </AboutLines>
-        </AboutHardset>
+        <h2>{sectionContent[selectedSection].about}</h2>
+        <select 
+        onChange={(e) => {
+          const option = e.target.value;
+          setSelectedOptions((prev) => {
+            const currentOptions = prev[selectedSection] || [];
+            return {
+              ...prev,
+              [selectedSection]: currentOptions.includes(option) 
+                ? currentOptions.filter(item => item !== option) 
+                : [...currentOptions, option]
+            };
+          });
+        }} 
+        value=""
+      >
+          <option value="" disabled>Selecciona una opción</option>
+          {sectionOptions[selectedSection]?.map((option) => (
+            <option key={option} value={option}>{option}</option>
+          ))}
+        </select>
+        <SelectContainer>
+          {selectedOptions[selectedSection]?.map((option) => (
+            <SelectOption key={option}>
+              {option}
+            </SelectOption>
+          ))}
+        </SelectContainer>
+      </AboutHardset>
               <TalkWithWoody>¡Chatea con Woody! </TalkWithWoody>
-              <Link to="/CompanyOverview">
+              <Link to="/SecondGift">
               <ContinueButton>Continue</ContinueButton>
               </Link>
     </MainContainer>

@@ -92,7 +92,7 @@ export const MenuAside = styled.div`
 
   span {
     width: 100%;
-    background-color:rgb(9, 0, 179);
+    background-color: #460BFF;
     color: white;
     text-align: center;
     justify-content: center;
@@ -281,7 +281,7 @@ export const StoryExplanation = styled.div`
 
   h2 {
     font-size: 2rem;
-    color:rgb(9, 0, 179);
+    color: #460BFF;
     margin: 0;
   }
 `;
@@ -294,7 +294,7 @@ export const StoryForm = styled.div`
   font-family: 'Roboto', sans-serif;
 
   h3 {
-    color:rgb(9, 0, 179);
+    color: #460BFF;
   }
 
   p {
@@ -319,6 +319,23 @@ input:first-of-type {
   padding: 0.5rem;
   margin-top: 0;
 }
+`;
+
+export const AboutYou = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  margin-top: -30rem;
+  margin-left: 89rem;
+  gap: 0.2rem;
+
+  button {
+    width: 8rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: transparent;
+    cursor: pointer;
+  }
 `;
 
 export const Container = styled.div`
@@ -348,38 +365,38 @@ export const AboutHardset = styled.div`
   font-family: 'Roboto', sans-serif;
 `;
 
-export const AboutLines = styled.div`
-  display: flex;
-  margin: 1rem;
-  margin-left: 0;
-  gap: 1rem;
-`;
-
-export const AboutButtons = styled.button`
-width: 13rem;
-background-color: blue;
-border-radius: 1rem;
-padding: 0.5rem;
-border: 1px solid black;
-cursor: pointer;
-color: white;
-`;
-
 export const TalkWithWoody = styled.p`
 width: 100%;
 display: flex;
 margin-left: 85rem;
-color: rgb(9, 0, 179);
+color: #460BFF;
 `;
 
 export const ContinueButton = styled.button`
 width: 13rem;
 margin-left: 39rem;
 margin-bottom: 2rem;
-background-color:rgb(9, 0, 179);
+background-color: #460BFF;
 border-radius: 1rem;
 color: white;
 border: none;
 padding: 0.6rem;
 cursor: pointer;
+`;
+
+export const SelectContainer = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  width: 40%;
+`;
+
+export const SelectOption = styled.div`
+  background-color: #460BFF;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1rem;
+  padding: 5px 10px;
+  cursor: pointer;
 `;
