@@ -25,7 +25,9 @@ import {
   AboutHardset,
   TalkWithWoody,
   ContinueButton,
-  AboutYou
+  AboutYou,
+  SelectContainer,
+  SelectOption
 } from "./styles";
 import { Link } from "react-router-dom";
 import VoiceTextInput from "../VoiceTextInput/VoiceTextInput";
@@ -392,19 +394,13 @@ export default function Hardset() {
             <option key={option} value={option}>{option}</option>
           ))}
         </select>
-        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginTop: "10px" }}>
+        <SelectContainer>
           {selectedOptions[selectedSection]?.map((option) => (
-            <div key={option} style={{ 
-              padding: "5px 10px", 
-              backgroundColor: "#4CAF50", 
-              color: "white", 
-              borderRadius: "8px",
-              fontSize: "14px"
-            }}>
+            <SelectOption key={option}>
               {option}
-            </div>
+            </SelectOption>
           ))}
-        </div>
+        </SelectContainer>
       </AboutHardset>
               <TalkWithWoody>¡Chatea con Woody! </TalkWithWoody>
               <Link to="/SecondGift">

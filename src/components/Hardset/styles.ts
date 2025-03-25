@@ -383,3 +383,20 @@ border: none;
 padding: 0.6rem;
 cursor: pointer;
 `;
+
+export const SelectContainer = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  width: 40%;
+`;
+
+export const SelectOption = styled.div`
+  background-color: #75B300;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1rem;
+  padding: 5px 10px;
+  cursor: pointer;
+`;
