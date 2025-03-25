@@ -277,7 +277,6 @@ export default function StepsProfileCompany() {
         </StepCard>
       </StepsContainer>
       <div className="divLastButton">
-        <span></span>
         <Link to={"/AboutYourDNA"}>
           <BtnNextPage>Continuar</BtnNextPage>
         </Link>

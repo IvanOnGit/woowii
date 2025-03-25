@@ -24,6 +24,7 @@ export const LogoColumnSelects = styled.img`
 export const ContainerLogoCompAndUser = styled.div`
     display: flex;
     margin-left: 2.5rem;
+    margin-top: 5.25rem;
     p{
         font-size: 1.25rem;
         font-weight: 700;
@@ -137,6 +138,8 @@ export const ContainerWrapper = styled.div`
   }
   .divLastButton{
     margin: -1.875rem 6.25rem 0 0;
+    margin-left: 19rem;
+    margin-top: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
