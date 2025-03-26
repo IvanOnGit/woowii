@@ -130,7 +130,7 @@ export default function CompanyOverview() {
                     </div>
                 </ContainerColumnDashBoardDownLeft>
                   <ContainerColumnDashBoardDownRight>
-                      <StyledLink to={'/JobCreation'}>
+                      <StyledLink to={'/CompanyOffer'}>
                           <ColumnDashBoardDownRightTitle>Hirings in Progress</ColumnDashBoardDownRightTitle>
                       </StyledLink>
                     <FirstSquareRightDashboard>

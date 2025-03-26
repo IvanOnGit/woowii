@@ -1,0 +1,35 @@
+<svg width="44" height="30" viewBox="0 0 44 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_526_796" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="30" y="0" width="14" height="30">
+<path d="M30.6328 0H43.0334V29.9736H30.6328V0Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_526_796)">
+<mask id="mask1_526_796" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="30" y="0" width="14" height="30">
+<path d="M36.8331 0C40.2562 0 43.0334 2.66178 43.0334 5.94812V24.0056C43.0334 27.2919 40.2562 29.9537 36.8331 29.9537C33.4075 29.9537 30.6328 27.2919 30.6328 24.0056V5.94812C30.6328 2.66178 33.4075 0 36.8331 0Z" fill="white"/>
+</mask>
+<g mask="url(#mask1_526_796)">
+<path d="M30.6328 0H43.0334V29.9736H30.6328V0Z" fill="#CBCBFF"/>
+</g>
+</g>
+<mask id="mask2_526_796" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="15" y="5" width="13" height="25">
+<path d="M15.3594 5.66016H27.76V29.9632H15.3594V5.66016Z" fill="white"/>
+</mask>
+<g mask="url(#mask2_526_796)">
+<mask id="mask3_526_796" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="15" y="5" width="13" height="25">
+<path d="M21.5597 5.66016C24.9828 5.66016 27.76 8.32442 27.76 11.6083V24.0051C27.76 27.2915 24.9828 29.9533 21.5597 29.9533C18.134 29.9533 15.3594 27.2915 15.3594 24.0051V11.6083C15.3594 8.32442 18.134 5.66016 21.5597 5.66016Z" fill="white"/>
+</mask>
+<g mask="url(#mask3_526_796)">
+<path d="M15.3594 5.66016H27.76V29.9632H15.3594V5.66016Z" fill="#CBCBFF"/>
+</g>
+</g>
+<mask id="mask4_526_796" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="14" width="13" height="16">
+<path d="M0 14.9766H12.4006V29.941H0V14.9766Z" fill="white"/>
+</mask>
+<g mask="url(#mask4_526_796)">
+<mask id="mask5_526_796" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="14" width="13" height="16">
+<path d="M6.20032 14.9766C9.62599 14.9766 12.4006 17.6408 12.4006 20.9247V24.0053C12.4006 27.2916 9.62599 29.9534 6.20032 29.9534C2.77723 29.9534 0 27.2916 0 24.0053V20.9247C0 17.6408 2.77723 14.9766 6.20032 14.9766Z" fill="white"/>
+</mask>
+<g mask="url(#mask5_526_796)">
+<path d="M0 14.9766H12.4006V29.941H0V14.9766Z" fill="#460BFF"/>
+</g>
+</g>
+</svg>
