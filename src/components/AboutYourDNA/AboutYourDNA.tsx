@@ -439,7 +439,7 @@ export default function Hardset() {
         </SelectContainer>
       </AboutHardset>
               <TalkWithWoody>¡Chatea con Woody! </TalkWithWoody>
-              <Link to="/SecondGift">
+              <Link to="/CompanyOverview">
               <ContinueButton>Continue</ContinueButton>
               </Link>
     </MainContainer>
