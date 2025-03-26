@@ -28,6 +28,7 @@ import { ColumnDashBoardDownLeftTitle,
   ImageMatchesLeftDashBoard, 
   ImageReviewsLeftDashBoard, 
   SearchContainer, 
+  StyledLink, 
   TextUnderImagesLeftDashBoard,
   TitleCommentAndMessages,
   WoodyChat} from "./styles";
@@ -128,8 +129,10 @@ export default function CompanyOverview() {
                     <VerticalSliderOverview />
                     </div>
                 </ContainerColumnDashBoardDownLeft>
-                <ContainerColumnDashBoardDownRight>
-                    <ColumnDashBoardDownRightTitle>Hirings in Progress</ColumnDashBoardDownRightTitle>
+                  <ContainerColumnDashBoardDownRight>
+                      <StyledLink to={'/JobCreation'}>
+                          <ColumnDashBoardDownRightTitle>Hirings in Progress</ColumnDashBoardDownRightTitle>
+                      </StyledLink>
                     <FirstSquareRightDashboard>
                         <ContainerFirstSquareRightHirings>
                             <VerticalSlider />

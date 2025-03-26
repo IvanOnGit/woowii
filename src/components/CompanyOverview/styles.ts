@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const ContainerCompanyOverviewAll = styled.div`
@@ -73,6 +74,11 @@ export const ColumnDashBoardDownRightTitle = styled.h2`
     font-family: 'Inter', sans-serif;
     margin-left: 1.25rem;
     color: #460BFF;
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
 `;
 
 export const FirstSquareLeftDashboard = styled.div`
