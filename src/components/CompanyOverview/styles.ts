@@ -4,12 +4,13 @@ import styled from "styled-components";
 export const ContainerCompanyOverviewAll = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
-    overflow: hidden;
+    overflow: scroll;
 `;
 
 export const ContainerColumnLogoAndSelects = styled.div`
-    width: 23vw;
-    height: 106vh;
+    position: fixed;
+    width: 20vw;
+    height: 112vh;
     background: #460BFF;
     border-right: 0.125rem solid #000;
     overflow: hidden;
@@ -34,6 +35,7 @@ export const ContainerColumnDashBoardDown = styled.div`
     grid-template-columns: 1fr 1fr;
     width: 80vw;
     height: 85vh;
+    margin-left: 24rem;
     .columnLeftArreglo{
         margin-top: 1.25rem;
         display: block;
@@ -48,18 +50,20 @@ export const ContainerColumnDashBoardDownLeft = styled.div`
     display: block;
     width: 47vw;
     height: 85vh;
+    margin-top: -3rem;
 `;
 
 export const ContainerColumnDashBoardDownRight = styled.div`
     display: block;
     width: 30vw;
-    height: 100vh;
+    height: 106vh;
+    margin-top: -1.5rem;
 `;
 
 export const ColumnDashBoardDownLeftTitle = styled.h2`
     width: 40vw;
     height: 1.875rem;
-    margin-left: 2.5rem;
+    margin: 3rem 0 0 3.5rem;
     font-size: 1.875rem;
     font-weight: 800;
     font-family: 'Inter', sans-serif;
@@ -72,7 +76,7 @@ export const ColumnDashBoardDownRightTitle = styled.h2`
     font-size: 1.875rem;
     font-weight: 800;
     font-family: 'Inter', sans-serif;
-    margin-left: 1.25rem;
+    margin-left: 2.25rem;
     color: #460BFF;
 `;
 
@@ -82,15 +86,14 @@ export const StyledLink = styled(Link)`
 `;
 
 export const FirstSquareLeftDashboard = styled.div`
-    width: 49rem;
+    width: 40rem;
     height: 28.563rem;
-    margin: auto;
-    margin-top: 1.875rem;
+    margin: 0.675rem 0 0 3.5rem;
     border-radius: 0.625rem;
     border: 0.125rem solid #000;
 `
 export const FirstSquareRightDashboard = styled.div`
-    width: 31.063rem;
+    width: 25.063rem;
     height: 50.25rem;
     margin: auto;
     margin-top: 1.875rem;
@@ -110,19 +113,19 @@ export const ContainerMatchesLeftDashBoard = styled.div`
     border-radius: 0.625rem;
 `;
 export const ImageMatchesLeftDashBoard = styled.img`
-    width: 22.5rem;
-    height: 9.375rem;
+    width: 20rem;
+    height: 7.25rem;
     border-radius: 0.625rem;
     margin-top: 1.25rem;
 `
 export const ImageReviewsLeftDashBoard = styled.img`
-    width: 22.5rem;
-    height: 9.375rem;
+    width: 20rem;
+    height: 7.25rem;
     border-radius:  0.625rem;
     margin-top: 1.25rem;
 `
 export const TextUnderImagesLeftDashBoard = styled.h2`
-    margin: 1.25rem 0 0 1.25rem;
+    margin: 4.25rem 0 0 1.25rem;
     font-size: 1.875rem;
     font-weight: 600;
     font-family: 'Inter', sans-serif;
@@ -131,7 +134,7 @@ export const TextUnderImagesLeftDashBoard = styled.h2`
 export const ContainerFirstSquareRightHirings = styled.div`
     display: block;
     width: 30.938rem;
-    height: 31.25rem;
+    height: 51.25rem;
     background: transparent;
     overflow-x: hidden;
 `;
@@ -141,8 +144,8 @@ export const ContainerLogoAndNameCompany = styled.div`
     align-items: center;
     justify-content: space-around;
     p{
-        margin-left: 10px;
-        font-size: 30px;
+        margin-left: 0.625rem;
+        font-size: 1.875rem;
         font-weight: 700;
         font-family: 'Roboto', sans-serif;
         color: #460BFF;
@@ -150,9 +153,9 @@ export const ContainerLogoAndNameCompany = styled.div`
 `;
 
 export const ImageLogoCompany = styled.img`
-    width: 60px;
-    height: 60px;
-    margin-left: 100px;
+    width: 2.813rem;
+    height: 2.813rem;
+    margin-left: 21.75rem;
 `;
 
 export const Header = styled.header`
@@ -167,14 +170,14 @@ export const Header = styled.header`
 export const SearchContainer = styled.div`
   height: 2rem; 
   width: 80%;
-  margin-top: 1rem;
-  margin-left: 12.5rem;
+  margin-top: -1rem;
+  margin-left: 5.5rem;
   input{
     display: flex;
     align-items: center;
     justify-content: left; 
     height: 2rem; 
-    width: 70%; 
+    width: 80%; 
     padding: 0.5rem;
     border-radius: 2.813rem;
     border: 0.063rem solid #000;
@@ -188,19 +191,19 @@ export const HeaderItems = styled.div`
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
-  margin-top: 1rem;
-  margin-right: 1.75rem;
+  margin-top: -0.1rem;
+  margin-right: -19.75rem;
   cursor: pointer;
   p {
     display: flex;
     margin: 0;
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 600;
     font-family: 'Inter', sans-serif;
   }
   img {
-    width: 1.875rem;
-    height: 1.875rem;
+    width: 1.675rem;
+    height: 1.675rem;
     margin-right: 0.5rem;
     margin-top: -0.313rem;
   }
@@ -216,9 +219,9 @@ export const ContainerLogo = styled.div`
 `;
 
 export const ImageLogoWhite = styled.img`
-  margin: auto;
-  width: 16.563rem;
-  height: 5.063rem;
+  margin: 1rem 0 0 1rem;
+  width: 15.563rem;
+  height: 4.063rem;
 `;
 
 export const ContainerGraphs = styled.div`
@@ -228,11 +231,12 @@ export const ContainerGraphs = styled.div`
     height: 20vh;
     margin: auto;
     margin-top: 1.25rem;
+    margin-left: -1.8rem;
 `;
 
 export const Graphics = styled.img`
     width: 15vw;
-    margin-left: 3.125rem;
+    margin-left: 3rem;
     margin-top: 1.25rem;
 `;
 
@@ -240,13 +244,13 @@ export const GraphicsPercentage = styled.div`
     width: 10vw;
     display: block;
     h2{
-        font-size: 3.125rem;
+        font-size: 3rem;
         font-weight: 700;
         font-family: 'Roboto', sans-serif;
         color: #8FFF00;
     }
     h3{
-        font-size: 3.125rem;
+        font-size: 3rem;
         font-weight: 700;
         font-family: 'Roboto', sans-serif;
         color:#ff0000;
@@ -267,12 +271,12 @@ export const GraphicsPercentage = styled.div`
 export const TitleCommentAndMessages = styled.h2`
     width: 40vw;
     height: 1.875rem;
-    margin-left: 2.5rem;
+    margin-left: 3.5rem;
     font-size: 1.875rem;
     font-weight: 800;
     font-family: 'Inter', sans-serif;
     color: #460BFF;
-    margin-top: 2.5rem;
+    margin-top: 2rem;
 `;
 
 export const ContainerCommentsAndMessage = styled.div`
@@ -344,10 +348,17 @@ export const IntroCommentsAndMessageButton = styled.button`
 export const ContainerFirstSquareSelects = styled.div`
     position: fixed;
     display: block;
-    margin-top: 19vh;
+    margin-top: 16vh;
     width: 23vw;
-    height: 45vh;
+    height: 48vh;
     border-bottom: 0.063rem solid #FFF;
+    p{
+       margin-bottom: -1rem;
+    }
+    .chev{
+        margin-right: 4.5rem;
+        margin-bottom: -1rem;
+    }
 `;
 
 export const ContainerSecondSquareSelects = styled.div`
@@ -356,6 +367,13 @@ export const ContainerSecondSquareSelects = styled.div`
     margin-top: 70vh;
     width: 23vw;
     height: 25vh;
+    p{
+       margin-bottom: -1rem;
+    }
+    .chev{
+        margin-right: 4.5rem;
+        margin-bottom: -1rem;
+    }
 `;
 
 export const ContainerSelects = styled.div`
@@ -383,8 +401,8 @@ export const ContainerSelects = styled.div`
 
 export const WoodyChat = styled.img`
     position: fixed;
-    width: 19.688rem;
-    height: 4.813rem;
+    width: 10.688rem;
+    height: 3.813rem;
     margin: 90vh 0 0 3.75rem;
     cursor: pointer;
 `;

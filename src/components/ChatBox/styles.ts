@@ -56,18 +56,18 @@ export const Popup = styled.div<{ disappear?: boolean; slide?: boolean; image: s
 `;
 
 export const Button = styled.button`
-  padding: 15px 25px;
-  font-size: 18px;
+  padding: 0.938rem 1.563rem;
+  font-size: 1.125rem;
   font-weight: 700;
   background: #8FFF00;
   border: none;
-  margin: 280px -300px 0 0;
+  margin: 17.5rem -18.75rem 0 0;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 0.313rem;
   display: flex;
   align-items: center;
   justify-content:center;
-  gap: 10px;
+  gap: 0.625rem;
 `;
 
 export const ChatButton = styled.button`
@@ -78,7 +78,7 @@ export const ChatButton = styled.button`
   color: white;
   padding: 1rem;
   border-radius: 9999px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 0.25rem 0.375rem -0.063rem rgba(0, 0, 0, 0.1), 0 0.125rem 0.25rem -0.063rem rgba(0, 0, 0, 0.06);
   transition: background-color 0.2s;
 
   &:hover {
@@ -89,16 +89,16 @@ export const ChatButton = styled.button`
 export const ChatContainer = styled.div`
   position: fixed;
   bottom: 9rem;
-  left: 3.5rem;
+  left: 0.5rem;
   width: 20rem;
   background: white;
   border-radius: 0.5rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0.625rem 0.938rem -0.188rem rgba(0, 0, 0, 0.1), 0 0.25rem 0.375rem -0.125rem rgba(0, 0, 0, 0.05);
 `;
 
 export const ChatHeader = styled.div`
   padding: 1rem;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 0.063rem solid #e5e7eb;
   display: flex;
   justify-content: space-between;
   align-items: center;

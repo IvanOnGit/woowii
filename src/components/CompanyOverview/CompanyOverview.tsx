@@ -101,13 +101,13 @@ export default function CompanyOverview() {
                     <input type="text" placeholder="Búsqueda" />
                 </SearchContainer>
                 <HeaderItems>
-                    <p><img src="/images/wiibucks.png" alt="wiibucks" />50</p>
+                    <p><img src="/images/wiibucks.png" alt="wiibucks" />100</p>
                     <p><img src="/images/trophy.svg" alt="wiibucks" />00</p>
-                    <Bell stroke="#FFF" fill="#460BFF" width={40} height={40}/>
-                    <Mail stroke="#FFF" fill="#460BFF" width={40} height={40}/>
-                    <BriefcaseBusiness stroke="#FFF" fill="#460BFF" width={40} height={40} />
-                    <Bookmark stroke="#FFF" fill="#460BFF" width={40} height={40}/>
-                    <Menu stroke="#460BFF"width={40} height={40}/>
+                    <Bell stroke="#FFF" fill="#460BFF" width={30} height={30}/>
+                    <Mail stroke="#FFF" fill="#460BFF" width={30} height={30}/>
+                    <BriefcaseBusiness stroke="#FFF" fill="#460BFF" width={30} height={30} />
+                    <Bookmark stroke="#FFF" fill="#460BFF" width={30} height={30}/>
+                    <Menu stroke="#460BFF"width={30} height={30}/>
                 </HeaderItems> 
             </Header>
             </ContainerColumnDashBoardUp>

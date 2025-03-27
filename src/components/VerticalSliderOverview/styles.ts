@@ -24,9 +24,11 @@ export const Overlay = styled.div`
 
 export const Popup = styled.div`
   position: relative;
-  width: 21.875rem;
+  width: 17.875rem;
+  height: 20rem;
   padding: 1.25rem;
-  background: white;
+  background: #460BFF;
+  color: #FFF;
   border-radius: 0.625rem;
   box-shadow: 0px 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
   animation: ${slideIn} 0.5s forwards;
@@ -38,18 +40,19 @@ export const CloseButton = styled.button`
   right: 0.625rem;
   background: none;
   border: none;
-  color: red;
+  color: #8FFF00;
   font-size: 1.25rem;
   cursor: pointer;
 `;
 
 export const TextArea = styled.textarea`
-  width: 100%;
-  height: 6.25rem;
+  width: 95%;
+  height: 14.25rem;
   margin-top: 0.625rem;
   padding: 0.625rem;
   border: 0.063rem solid #ccc;
   border-radius: 0.313rem;
+  font-size: 0.875rem;
   resize: none;
 `;
 
@@ -59,7 +62,8 @@ export const SliderContainer = styled.div`
   overflow-y: auto;
   display: block;
   gap: 0.625rem;
-  margin-top: 2.5rem;
+  margin-top: 1.5rem;
+  margin-left: -1rem;
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
@@ -67,14 +71,14 @@ export const SliderContainer = styled.div`
 `;
 
 export const SlideItem = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    width: 49rem;
-    height: 9.75rem;
-    margin: auto;
-    margin-top: 1.875rem;
-    border-radius: 0.625rem;
-    border: 0.125rem solid #000;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 40rem;
+  height: 9.75rem;
+  margin: auto;
+  margin-top: 1.875rem;
+  border-radius: 0.625rem;
+  border: 0.125rem solid #000;
 `;
 
 export const Avatar = styled.img`
@@ -84,28 +88,32 @@ export const Avatar = styled.img`
 `;
 
 export const IntroCommentsAndMessageText = styled.div`
-    display: block;
+  display: block;
 `;
 export const UserInfo = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: auto;
-    margin-top: 1.875rem;
-    min-width: 25rem;
-    h2{
-        color: #460BFF;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.875rem;
+  min-width: 25rem;
+  h2{
+    color: #460BFF;
+    margin: -1rem 0 0 -1rem;
+
+  }
+  p{
+    margin-right: -5.5rem;
+  }
 `;
 
 export const IntroCommentsAndMessageTextUserComment = styled.p`
-    display: block;
-    margin: auto;
-    margin-top: 0.625rem;
-    min-width: 31.25rem;
-    font-size: 1.25rem;
-    font-weight: 500;
-    font-family: 'Inter', sans-serif;
+  display: block;
+  margin: auto;
+  margin: -1.625rem 0 0 -1rem;
+  min-width: 25.25rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
 `;
 
 export const IntroCommentsAndMessageButton = styled.button`
@@ -121,6 +129,7 @@ export const IntroCommentsAndMessageButton = styled.button`
     font-weight: 500;
     font-family: 'Inter', sans-serif;
     border-radius: 2.813rem;
+    margin: 6rem 0 0 1rem;
     cursor: pointer;
     &:hover{
       background: #8FFF00;
