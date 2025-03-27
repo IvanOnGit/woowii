@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 
@@ -1067,4 +1068,8 @@ export const ButtonFinalMatch = styled.button`
     background: #8FFF00;
     color: #000;
   }
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
 `;

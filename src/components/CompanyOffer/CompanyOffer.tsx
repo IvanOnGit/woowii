@@ -80,6 +80,7 @@ import { ArrowCompanyOffer,
     SecondLineFinalMatchBis, 
     SecondLineSimpleSquare, 
     SpanImageMatch, 
+    StyledLink, 
     TextAreaExplainOffer, 
     TextAreaQueHarasExplainOffer, 
     ThirdLineFinalMatch, 
@@ -466,7 +467,9 @@ export default function CompanyOffer() {
                 <SecondLineFinalMatch>Hagamos <span id="imgMatch"><SpanImageMatch src="/images/blueMatch.svg" alt="Match Azul" /></span></SecondLineFinalMatch><SecondLineFinalMatchBis>y comentamos qué</SecondLineFinalMatchBis>
             </div>
             <ThirdLineFinalMatch>te motiva para unirte a nuestro equipo.</ThirdLineFinalMatch>
+            <StyledLink to="/CompanyCandidatesView">
             <ButtonFinalMatch>Continuar</ButtonFinalMatch>
+            </StyledLink>
         </ContainerFinalMatch>
     </ContainerDataOfferImage>
     </>
