@@ -24,9 +24,11 @@ export const Overlay = styled.div`
 
 export const Popup = styled.div`
   position: relative;
-  width: 21.875rem;
+  width: 17.875rem;
+  height: 20rem;
   padding: 1.25rem;
-  background: white;
+  background: #460BFF;
+  color: #FFF;
   border-radius: 0.625rem;
   box-shadow: 0px 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
   animation: ${slideIn} 0.5s forwards;
@@ -38,18 +40,19 @@ export const CloseButton = styled.button`
   right: 0.625rem;
   background: none;
   border: none;
-  color: red;
+  color: #8FFF00;
   font-size: 1.25rem;
   cursor: pointer;
 `;
 
 export const TextArea = styled.textarea`
-  width: 100%;
-  height: 6.25rem;
+  width: 95%;
+  height: 14.25rem;
   margin-top: 0.625rem;
   padding: 0.625rem;
   border: 0.063rem solid #ccc;
   border-radius: 0.313rem;
+  font-size: 0.875rem;
   resize: none;
 `;
 
@@ -67,13 +70,12 @@ export const SliderContainer = styled.div`
 `;
 
 export const SlideItem = styled.div`
-  width: 28.125rem;
-  min-height: 8.125rem;
+  width: 30.938rem;
+  min-height: 6.125rem;
   display: flex;
   background: transparent;
   align-items: center;
   padding: 0.625rem;
-  margin-left: 2.5rem;
   border-bottom: 0.125rem solid #000;
 `;
 

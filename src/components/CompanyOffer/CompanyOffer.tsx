@@ -273,7 +273,7 @@ export default function CompanyOffer() {
         </QueHarasText>
         <TextAreaQueHarasExplainOffer placeholder="Describe el día a día del rol que estas buscando..."/>
         <QueHarasText>
-            <p>Con quién trabajarás</p>
+            <p id="whywho">Con quién trabajarás</p>
             <div className="BlueRectangle2"></div>
         </QueHarasText>
         <DivCuadriculaEquipo>

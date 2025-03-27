@@ -4,13 +4,14 @@ import styled from "styled-components";
 export const ContainerAllOffer = styled.div`
   display: flex;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-image: url('/images/backgroundOffer.svg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   z-index: -1;
 `;
+
 
 export const ContainerArrow = styled.div`
   width: 8.75rem;
@@ -163,7 +164,7 @@ export const TextAreaExplainOffer = styled.textarea`
 
 export const ContainerDataOfferImage = styled.div`
   width: 100vw;
-  height: 430vh;
+  height: 350vh;
   background: #FFF;
   margin-top: -62.5rem;
   img{
@@ -177,10 +178,7 @@ export const ContainerDataOfferImage = styled.div`
     margin: auto;
     margin-left: 21.875rem;
   }
-  /* span{
-   background: #8FFF00;
-  } */
-`
+`;
 export const BtnAplicarOffer = styled.button`
   width: 18.688rem;
   height: 4.125rem;
@@ -192,7 +190,7 @@ export const BtnAplicarOffer = styled.button`
   font-size: 1.875rem;
   font-weight: 600;
   font-family: 'Inter', sans-serif;
-`
+`;
 export const HeaderItems = styled.div`
   display: flex;
   align-items: center;
@@ -211,8 +209,6 @@ export const HeaderItems = styled.div`
     margin-right: 0.5rem;
   }
 `;
-
-
 
 export const ContainerBars = styled.div`
   position: relative;
@@ -307,7 +303,7 @@ export const ContainerValuesLeft = styled.div`
   height: 10rem;
   background: transparent;
   z-index: 1;
-  left: -12.5rem;
+  left: -14.5rem;
   top: -9.063rem;
 `;
 
@@ -335,8 +331,8 @@ export const ContainerIconsLeft = styled.div`
   height: 10rem;
   background: transparent;
   z-index: 1;
-  left: -22.5rem;
-  top: -19.063rem;
+  left: -27.5rem;
+  top: -18.863rem;
 `;
 
 export const ContainerIconsRight = styled.div`
@@ -349,7 +345,7 @@ export const ContainerIconsRight = styled.div`
   height: 10rem;
   background: transparent;
   z-index: 1;
-  left: -8.125rem;
+  left: -8.825rem;
   top: -39.063rem;
 `;
 
@@ -493,12 +489,15 @@ export const QueHarasText = styled.div`
   height: 2.75rem;
   margin-top: 3.125rem;
   p{
-    margin: auto;
+    margin: 3.125rem 0 0 -9rem;
     text-align: center;
     font-size: 2.25rem;
     font-weight: 900;
     font-family: 'Roboto', sans-serif;
     color: #000;
+  }
+  #whywho{
+    margin-left: 1rem;
   }
   .BlueRectangle1{
     margin: auto;
@@ -519,7 +518,7 @@ export const TextAreaQueHarasExplainOffer = styled.textarea`
   position: relative;
   width: 51.625rem;
   height: 8.813rem;
-  margin: 6.5rem 0 0 20.625rem;
+  margin: 6.5rem 0 0 25.625rem;
   resize: none;
   background: transparent;
   border: 1px solid #000;
@@ -701,7 +700,7 @@ export const DivSelectionProcess = styled.div`
   margin: auto;
   width: 47.5rem;
   height: 28.75rem;
-  margin-top: 9.375rem;
+  margin-top: 16.375rem;
   .BlueRectangle3{
     margin: auto;
     width: 6.875rem;
@@ -987,7 +986,7 @@ export const ContainerFinalMatch = styled.div`
   width: 52.5rem;
   height: 25rem;
   /* margin: auto; */
-  margin-left: 23.75rem;
+  margin-left: 28.75rem;
   /* background: blueviolet; */
   margin-top: 12.5rem;
   #imgMatch{

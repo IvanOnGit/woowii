@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  width: 100%;
+  width: 90%;
   overflow: hidden;
   padding: 0 1.25rem;
   position: relative;
-  margin-top: 1.875rem;
+  margin-top: 0.625rem;
 `;
 
 export const MaskContainer = styled.div`
@@ -26,6 +26,7 @@ export const ImageContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 3rem;
 `;
 
 export const Image = styled.img`
@@ -33,7 +34,7 @@ export const Image = styled.img`
   height: 7.5rem;
   object-fit: contain;
   border-radius: 0.5rem;
-  margin-right: -1.25rem;
+  margin-right: -0.95rem;
 `;
 
 export const Username = styled.div`
@@ -47,14 +48,14 @@ export const Username = styled.div`
 
 export const Button = styled.button`
   position: absolute;
-  top: 50%;
+  top: 58%;
   transform: translateY(-50%);
   background: #FFF;
   color: #000;
   border: none;
   padding: 0.625rem;
   cursor: pointer;
-  z-index: 10;
+  z-index: 0;
   font-size: 1.25rem;
 `;
 
@@ -71,7 +72,7 @@ export const GradientMask = styled.div`
   top: 0;
   width: 1.25rem;
   height: 100%;
-  z-index: 5;
+  z-index: 0;
   pointer-events: none;
   
   &:first-child {
