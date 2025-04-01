@@ -14,7 +14,7 @@ import CongratulationsSteps from './components/CongratulationsSteps/Congratulati
 import JobFinder from './components/JobFinder/JobFinder'
 import JobOpportunity from './components/JobOpportunity/JobOpportunity'
 import MatchFound from './components/MatchFound/MatchFound'
-import StartingPoint from './components/StartingPoint/StartingPoint'
+import StartingPoint from './components/StartingPoint/StartingPoint' 
 import TransformationWelcome from './components/TransformationWelcome/TransformationWelcom'
 import ChooseTalentCompany from './components/ChooseTalentCompany/ChooseTalentCompany'
 import RegisterCompanyForm from './components/RegisterCompanyForm/RegisterCompanyForm'
