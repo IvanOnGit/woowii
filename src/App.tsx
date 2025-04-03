@@ -33,6 +33,7 @@ import CompanyInterviewPage from './components/CompanyInterviewPage/CompanyInter
 import VoiceTextInput from './components/VoiceTextInput/VoiceTextInput'
 import UserLogin from './components/UserLogin/UserLogin'
 import CompanyLogin from './components/CompanyLogin/CompanyLogin'
+import RegisterCompanyProfileFormMobile from './components/RegisterCompanyProfileFormMobile/RegisterCompanyProfileFormMobile'
 
 
 
@@ -51,6 +52,7 @@ function App() {
         <Route path="/CompanyFirstGift" element={<CompanyFirstGift />} />
         <Route path="/CompanyWelcome" element={<CompanyWelcome />} />
         <Route path="/RegisterCompanyProfile" element={<RegisterCompanyProfile />} />
+        <Route path="/RegisterCompanyProfileFormMobile" element={<RegisterCompanyProfileFormMobile />} />
         <Route path="/CompanyHome" element={<CompanyHome />} />
         <Route path="/AboutYourDNA" element={<AboutYourDNA />} />
         <Route path="/CompanyOverview" element={<CompanyOverview />} />

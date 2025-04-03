@@ -1,34 +1,51 @@
+
+
+// import {
+//   ContainerWrapper,
+//   DivContainerLogoTerPage,
+//   LogoTerceraPageStyled,
+//   AvatarWrapper,
+//   AvatarImage,
+//   Button,
+//   ThumbnailsContainer,
+//   Thumbnail,
+//   UsernameInput,
+//   ButtonNextTerceraPage,
+//   ContainerInputs,
+//   ContainerColumns,
+//   TitleAndSetData,
+//   TitleForm,
+//   ParagraphBelowTitle,
+//   FormRegisterCompany
+// } from "./styles";
+// import { ChevronLeft, ChevronRight, Key } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  ContainerWrapper,
-  DivContainerLogoTerPage,
-  LogoTerceraPageStyled,
-  AvatarWrapper,
-  AvatarImage,
-  Button,
-  ThumbnailsContainer,
-  Thumbnail,
-  UsernameInput,
-  ButtonNextTerceraPage,
-  ContainerInputs,
-  ContainerColumns,
-  TitleAndSetData,
-  TitleForm,
-  ParagraphBelowTitle,
-  FormRegisterCompany
-} from "./styles";
 import { ChevronLeft, ChevronRight, Key } from "lucide-react";
+import { AvatarImage, 
+  avatars, 
+  AvatarWrapper, 
+  Button, 
+  ButtonNextTerceraPage, 
+  ButtonOnlyForMobile, 
+  ContainerFormRegisterCompany, 
+  ContainerOnlyForMobile, 
+  ContainerOnlyForUpToMobile, 
+  ContainerRegisterCompanyProfilePage, 
+  ContainerWrapper, 
+  DivContainerLogoProfilePage, 
+  FormRegisterCompany, 
+  LogoProfilePage, 
+  ParagraphBelowTitle, 
+  Thumbnail, 
+  ThumbnailsContainer, 
+  TitleAndSetData, 
+  TitleForm, 
+  UsernameInput, 
+  Wrapper } from "./styles";
+import { Link } from "react-router-dom";
+import useMediaQuery from "../RegisterCompanyForm/CustomHook";
 
-const avatars = [
-  { id: 1, src: "/images/avatarCompany1.svg" },
-  { id: 2, src: "/images/avatarCompany2.svg" },
-  { id: 3, src: "/images/avatarCompany3.svg" },
-  { id: 4, src: "/images/avatarCompany4.svg" },
-  { id: 5, src: "/images/avatarCompany5.svg" },
-  { id: 6, src: "/images/avatarCompany6.svg" },
-  { id: 7, src: "/images/avatarCompany7.svg" },
-];
 
 export default function RegisterCompanyProfile() {
   const navigate = useNavigate();
@@ -197,11 +214,198 @@ export default function RegisterCompanyProfile() {
       setSaving(false);
     }
   };
+  const isTabletOrLarger = useMediaQuery("(min-width: 1024px)");
+  // const [selectedIndex, setSelectedIndex] = useState(0);
 
+  // const handleNext = () => {
+  //   setSelectedIndex((prev) => (prev + 1) % avatars.length);
+  // };
+
+  // const handlePrev = () => {
+  //   setSelectedIndex((prev) => (prev - 1 + avatars.length) % avatars.length);
+  // };
   return (
-    <>
-    <DivContainerLogoTerPage>
-        <LogoTerceraPageStyled src="/images/LogoBlue.svg" />
+    <Wrapper>
+     <ContainerRegisterCompanyProfilePage>
+      <ContainerOnlyForMobile>
+        <DivContainerLogoProfilePage>
+          <LogoProfilePage src="/images/LogoBlue.svg" />
+        </DivContainerLogoProfilePage>
+        <ContainerWrapper>
+          <h2>Elige tu Avatar:</h2>
+          <AvatarWrapper>
+            <Button onClick={handlePrev}><ChevronLeft /></Button>
+            <AvatarImage src={avatars[selectedIndex].src} alt="Selected Avatar" />
+            <Button onClick={handleNext}><ChevronRight /></Button>
+          </AvatarWrapper>
+          <ThumbnailsContainer>
+            {avatars.map((avatar, index) => (
+            <Thumbnail
+              key={avatar.id}
+              src={avatar.src}
+              alt={`Avatar ${index + 1}`}
+              isSelected={index === selectedIndex}
+              onClick={() => setSelectedIndex(index)}
+            />
+            ))}
+          </ThumbnailsContainer>
+          <UsernameInput>
+            <h3>Elige tu usuario:</h3>
+           <input type="text" placeholder="Prueba tu @" />
+            <p><Key />Entre 8 y 20 caracteres.</p>
+            <p><Key />Debe contener letras minúsculas,</p>
+            <p><Key />mayúsculas y números.</p>
+            <p><Key />Recuerda mantener el anonimato.</p>
+            <p><Key />Sugerimos elegir un alias profesional.</p>
+          </UsernameInput>
+        </ContainerWrapper>
+        <Link to={'/RegisterCompanyProfileFormMobile'}>
+          <ButtonOnlyForMobile>
+            Continuar
+          </ButtonOnlyForMobile>
+        </Link>
+      </ContainerOnlyForMobile>
+
+      {isTabletOrLarger &&<ContainerOnlyForUpToMobile>
+        <ContainerFormRegisterCompany>
+         <TitleAndSetData>
+             <TitleForm>REGISTRO</TitleForm>
+             <ParagraphBelowTitle>Establece los datos principales para tu empresa.</ParagraphBelowTitle>
+         </TitleAndSetData>
+         <FormRegisterCompany>
+             <div className="inputsForm">
+                 <label htmlFor="name">Nombre de Empresa:</label>
+                 <input 
+                    type="text" 
+                    name="company_name" 
+                    id="company_name" 
+                    placeholder="Nombre de Empresa "
+                    value={formData.company_name}
+                    onChange={handleChange}
+                  />
+             </div>
+             <div className="inputsForm">
+                 <label htmlFor="rol">Rol del Admistrador/a:</label>
+                 <input 
+                    type="text" 
+                    name="admin_role" 
+                    id="admin_role" 
+                    placeholder="Tu rol dentro de la empresa" 
+                    value={formData.admin_role}
+                    onChange={handleChange}
+                  />
+             </div>
+             <div className="inputsForm">
+                 <label htmlFor="email">Correo electrónico:</label>
+                 <input 
+                    type="email" 
+                    name="company_second_email" 
+                    id="company_second_email" 
+                    placeholder="Email de empresa" 
+                    value={formData.company_second_email}
+                    onChange={handleChange}
+                  />
+             </div>
+             <div className="inputsForm">
+                 <label htmlFor="subs">Subscripción al boletín:</label>
+                 <div className="btnChoose" id="subscription">
+                     {/* <button>SI</button> */}
+                     <button 
+                      type="button"
+                      onClick={() => handleSubscriptionChange("SI")}
+                      style={{ backgroundColor: formData.subscription === "yes" ? "#2563eb" : "#f5f5f5" }}
+                    >
+                      SI
+                    </button>
+                     {/* <button>NO</button> */}
+                     <button 
+                      type="button"
+                      onClick={() => handleSubscriptionChange("NO")}
+                      style={{ backgroundColor: formData.subscription === "no" ? "#2563eb" : "#f5f5f5" }}
+                    >
+                      NO
+                    </button>
+                 </div>
+             </div>
+             <div className="inputsForm">
+                 <label htmlFor="employees_quantity">Cantidad de empleados:</label>
+                 <select name="employees_quantity" id="employees_quantity">
+                     <option value="value1" selected>0 to 10 employees</option>
+                     <option value="value2">10 to 50 employees</option>
+                     <option value="value3">50 to 500 employees</option>
+                     <option value="value4">500 to 1000 employees</option>
+                     <option value="value5">1000 to 5000 employees</option>
+                     <option value="value6">5000 to 10000 employees</option>
+                     <option value="value6">more than 10000 employees</option>
+                 </select>
+             </div>
+             <div className="inputsForm">
+                 <label htmlFor="company_address">Dirección de las oficinas:</label>
+                 <input 
+                    type="text" 
+                    name="company_address" 
+                    id="company_address" 
+                    placeholder="Escribe la dirección de la empresa" 
+                    value={formData.company_address}
+                    onChange={handleChange}
+                  />
+             </div>
+             <div className="inputsForm">
+                 <label htmlFor="industry">Industria:</label>
+                 <select 
+                    name="industry" 
+                    id="industry"
+                    value={formData.employees_quantity}
+                    onChange={handleChange}
+                  >
+                     <option value="value1" selected>Computing</option>
+                     <option value="value2">Health</option>
+                     <option value="value3">Investments</option>
+                     <option value="value4">Automotive</option>
+                     <option value="value5">Pharmaceutical</option>
+                     <option value="value6">Human resources</option>
+                     <option value="value6">Real State</option>
+                 </select>
+             </div>
+             <div className="inputsForm">
+                 <label htmlFor="website">Sitio web:</label>
+                 <input 
+                    type="text" 
+                    name="website" 
+                    id="website" 
+                    placeholder="Copia tu link aquí" 
+                    value={formData.website}
+                    onChange={handleChange}
+                  />
+             </div>
+             {error && <p style={{ color: "red", textAlign: "center" }}>{error}</p>}
+             <div className="inputsForm">
+                <label htmlFor=""></label>
+                <ButtonNextTerceraPage type="button" onClick={saveCompanyProfile} disabled={saving}>
+                    {saving ? "Guardando..." : "Continuar"}
+                </ButtonNextTerceraPage>
+            </div>
+         </FormRegisterCompany>
+         {/* <Link to={"/CompanyOverview"}>
+                 <div className="inputsForm">
+                     <label htmlFor=""></label>
+                     <ButtonNextPage>
+                         Continuar
+                     </ButtonNextPage>
+                 </div>
+          </Link> */}
+        </ContainerFormRegisterCompany>
+        </ContainerOnlyForUpToMobile>}
+    </ContainerRegisterCompanyProfilePage>
+  </Wrapper>
+    
+    
+  );
+}
+
+// <>
+    {/* <DivContainerLogoTerPage>
+      <LogoTerceraPageStyled src="/images/LogoBlue.svg" />
     </DivContainerLogoTerPage>
     <ContainerColumns>
         
@@ -368,6 +572,4 @@ export default function RegisterCompanyProfile() {
         </FormRegisterCompany>
     </ContainerInputs>
     </ContainerColumns>
-    </>
-  );
-}
+    </> */}
