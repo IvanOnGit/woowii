@@ -1,24 +1,4 @@
 
-
-// import {
-//   ContainerWrapper,
-//   DivContainerLogoTerPage,
-//   LogoTerceraPageStyled,
-//   AvatarWrapper,
-//   AvatarImage,
-//   Button,
-//   ThumbnailsContainer,
-//   Thumbnail,
-//   UsernameInput,
-//   ButtonNextTerceraPage,
-//   ContainerInputs,
-//   ContainerColumns,
-//   TitleAndSetData,
-//   TitleForm,
-//   ParagraphBelowTitle,
-//   FormRegisterCompany
-// } from "./styles";
-// import { ChevronLeft, ChevronRight, Key } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ChevronLeft, ChevronRight, Key } from "lucide-react";
@@ -215,15 +195,7 @@ export default function RegisterCompanyProfile() {
     }
   };
   const isTabletOrLarger = useMediaQuery("(min-width: 1024px)");
-  // const [selectedIndex, setSelectedIndex] = useState(0);
-
-  // const handleNext = () => {
-  //   setSelectedIndex((prev) => (prev + 1) % avatars.length);
-  // };
-
-  // const handlePrev = () => {
-  //   setSelectedIndex((prev) => (prev - 1 + avatars.length) % avatars.length);
-  // };
+  
   return (
     <Wrapper>
      <ContainerRegisterCompanyProfilePage>
@@ -309,7 +281,6 @@ export default function RegisterCompanyProfile() {
              <div className="inputsForm">
                  <label htmlFor="subs">Subscripción al boletín:</label>
                  <div className="btnChoose" id="subscription">
-                     {/* <button>SI</button> */}
                      <button 
                       type="button"
                       onClick={() => handleSubscriptionChange("SI")}
@@ -317,7 +288,6 @@ export default function RegisterCompanyProfile() {
                     >
                       SI
                     </button>
-                     {/* <button>NO</button> */}
                      <button 
                       type="button"
                       onClick={() => handleSubscriptionChange("NO")}
@@ -386,14 +356,6 @@ export default function RegisterCompanyProfile() {
                 </ButtonNextTerceraPage>
             </div>
          </FormRegisterCompany>
-         {/* <Link to={"/CompanyOverview"}>
-                 <div className="inputsForm">
-                     <label htmlFor=""></label>
-                     <ButtonNextPage>
-                         Continuar
-                     </ButtonNextPage>
-                 </div>
-          </Link> */}
         </ContainerFormRegisterCompany>
         </ContainerOnlyForUpToMobile>}
     </ContainerRegisterCompanyProfilePage>
@@ -402,174 +364,3 @@ export default function RegisterCompanyProfile() {
     
   );
 }
-
-// <>
-    {/* <DivContainerLogoTerPage>
-      <LogoTerceraPageStyled src="/images/LogoBlue.svg" />
-    </DivContainerLogoTerPage>
-    <ContainerColumns>
-        
-    <ContainerWrapper>
-      
-      <h2>Elige tu Avatar:</h2>
-
-      <AvatarWrapper>
-        <Button onClick={handlePrev}><ChevronLeft /></Button>
-        <AvatarImage src={avatars[selectedIndex].src} alt="Selected Avatar" />
-        <Button onClick={handleNext}><ChevronRight /></Button>
-      </AvatarWrapper>
-
-      <ThumbnailsContainer>
-        {avatars.map((avatar, index) => (
-          <Thumbnail
-          key={avatar.id}
-          src={avatar.src}
-          alt={`Avatar ${index + 1}`}
-          $isSelected={index === selectedIndex} // ✅ Usar el prefijo `$`
-          onClick={() => setSelectedIndex(index)}
-        />
-        ))}
-      </ThumbnailsContainer>
-        <UsernameInput>
-          <h3>Elige tu usuario:</h3>
-          <input 
-            type="text" 
-            placeholder="Prueba tu @" 
-            name="company_username"
-            value={formData.company_username}
-            onChange={handleChange}
-          />
-          <p><Key />Entre 8 y 20 caracteres.</p>
-          <p><Key />Debe contener letras minúsculas, mayúsculas y números.</p>
-          <p><Key />Recuerda mantener el anonimato.</p>
-          <p><Key />Sugerimos elegir un alias profesional.</p>
-      </UsernameInput>
-      
-    </ContainerWrapper>
-    <ContainerInputs>
-        <TitleAndSetData>
-            <TitleForm>REGISTRO</TitleForm>
-            <ParagraphBelowTitle>Establece los datos principales para tu empresa.</ParagraphBelowTitle>
-        </TitleAndSetData>
-        <FormRegisterCompany>
-            <div className="inputsForm">
-                <label htmlFor="company_name">Nombre de Empresa:</label>
-                <input 
-                  type="text" 
-                  name="company_name" 
-                  id="company_name" 
-                  placeholder="Nombre de Empresa"
-                  value={formData.company_name}
-                  onChange={handleChange}
-                />
-            </div>
-            <div className="inputsForm">
-                <label htmlFor="admin_role">Rol del Admistrador/a:</label>
-                <input 
-                  type="text" 
-                  name="admin_role" 
-                  id="admin_role" 
-                  placeholder="Tu rol dentro de la empresa"
-                  value={formData.admin_role}
-                  onChange={handleChange}
-                />
-            </div>
-            <div className="inputsForm">
-                <label htmlFor="company_second_email">Correo electrónico:</label>
-                <input 
-                  type="email" 
-                  name="company_second_email" 
-                  id="company_second_email" 
-                  placeholder="Email de empresa"
-                  value={formData.company_second_email}
-                  onChange={handleChange}
-                />
-            </div>
-            <div className="inputsForm">
-                <label htmlFor="subscription">Subscripción al boletín:</label>
-                <div className="btnChoose" id="subscription">
-                    <button 
-                      type="button"
-                      onClick={() => handleSubscriptionChange("SI")}
-                      style={{ backgroundColor: formData.subscription === "yes" ? "#2563eb" : "#f5f5f5" }}
-                    >
-                      SI
-                    </button>
-                    <button 
-                      type="button"
-                      onClick={() => handleSubscriptionChange("NO")}
-                      style={{ backgroundColor: formData.subscription === "no" ? "#2563eb" : "#f5f5f5" }}
-                    >
-                      NO
-                    </button>
-                </div>
-            </div>
-            <div className="inputsForm">
-                <label htmlFor="employees_quantity">Cantidad de empleados:</label>
-                <select 
-                  name="employees_quantity" 
-                  id="employees_quantity"
-                  value={formData.employees_quantity}
-                  onChange={handleChange}
-                >
-                    <option value="1 to 10 employees">1 to 10 employees</option>
-                    <option value="10 to 50 employees">10 to 50 employees</option>
-                    <option value="50 to 500 employees">50 to 500 employees</option>
-                    <option value="500 to 1000 employees">500 to 1000 employees</option>
-                    <option value="1000 to 5000 employees">1000 to 5000 employees</option>
-                    <option value="5000 to 10000 employees">5000 to 10000 employees</option>
-                    <option value="more than 10000 employees">more than 10000 employees</option>
-                </select>
-            </div>
-            <div className="inputsForm">
-                <label htmlFor="company_address">Dirección de las oficinas:</label>
-                <input 
-                  type="text" 
-                  name="company_address" 
-                  id="company_address" 
-                  placeholder="Escribe la dirección de la empresa"
-                  value={formData.company_address}
-                  onChange={handleChange}
-                />
-            </div>
-            <div className="inputsForm">
-                <label htmlFor="industry">Industria:</label>
-                <select 
-                  name="industry" 
-                  id="industry"
-                  value={formData.industry}
-                  onChange={handleChange}
-                >
-                    <option value="Computing">Computing</option>
-                    <option value="Health">Health</option>
-                    <option value="Investments">Investments</option>
-                    <option value="Automotive">Automotive</option>
-                    <option value="Pharmaceutical">Pharmaceutical</option>
-                    <option value="Human resources">Human resources</option>
-                    <option value="Real State">Real State</option>
-                </select>
-            </div>
-            <div className="inputsForm">
-                <label htmlFor="website">Sitio web:</label>
-                <input 
-                  type="text" 
-                  name="website" 
-                  id="website" 
-                  placeholder="Copia tu link aquí"
-                  value={formData.website}
-                  onChange={handleChange}
-                />
-            </div>
-            
-            {error && <p style={{ color: "red", textAlign: "center" }}>{error}</p>}
-            
-            <div className="inputsForm">
-                <label htmlFor=""></label>
-                <ButtonNextTerceraPage type="button" onClick={saveCompanyProfile} disabled={saving}>
-                    {saving ? "Guardando..." : "Continuar"}
-                </ButtonNextTerceraPage>
-            </div>
-        </FormRegisterCompany>
-    </ContainerInputs>
-    </ContainerColumns>
-    </> */}

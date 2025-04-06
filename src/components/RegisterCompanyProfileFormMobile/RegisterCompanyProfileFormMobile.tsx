@@ -71,7 +71,7 @@ export default function RegisterCompanyProfileFormMobile() {
             <input type="text" name="web" id="web" placeholder="Copia tu link aquí" />
         </div>
     </FormRegisterCompanyProfileMobile>
-    <Link to={"/CompanyOverview"}>
+    <Link to={"/CompanyHome"}>
             <div className="inputsForm">
                 <label htmlFor=""></label>
                 <ButtonNextPageForMobile>
