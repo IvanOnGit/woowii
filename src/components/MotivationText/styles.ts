@@ -8,19 +8,35 @@ export const StyledMotivationText = styled.div`
   font-family: 'Roboto', sans-serif;
   width: 100%;
   text-align: center;
-  margin-left: 7rem;
+
+
+  @media(max-width: 768px){
+    margin-left: 0;
+
+  }
 
   h2 {
     font-size: 1.5rem;
-    width: 60%;
     text-align: left;
     color: #75B300;
+
+    @media(max-width: 768px){
+      margin-left: 0;
+      font-size: 12px;
+    }
   }
 
   p {
-    width: 60%; 
-    text-align: left;
+    text-align: justify;
     margin: 0;
     font-size: 0.8rem;
+    margin-left: 3rem;
+
+    @media(max-width: 768px){
+      margin-left: 0;
+      font-size: 12px;
+      margin-left: 3rem;
+     margin-right: 3rem;
+    }
   }
 `;

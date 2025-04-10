@@ -1,3 +1,4 @@
+import * as React from "react";
 import { ContainerWrapper, StepsContainer, StepCard, StepImage, StepNumber, StepText} from "./styles";
 import step1 from "/images/step1.png";
 import step2 from "/images/step2.png";
@@ -20,7 +21,7 @@ export default function StepsProfileCreation() {
                 ¡Destácate ya! 🚀
               </p>
             </StepText>
-          </StepCard>
+            </StepCard>
 
           <StepCard>
             <StepNumber>2</StepNumber>
@@ -45,6 +46,7 @@ export default function StepsProfileCreation() {
           </StepCard>
         </StepsContainer>
         </ContainerWrapper>
+
       </>
   );
 }

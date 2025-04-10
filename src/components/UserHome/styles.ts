@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const ContainerWrapper = styled.div`
   display: flex;
   width: 100%;
+
+  @media(max-width: 768px){
+  }
+  
 `;
 
 export const Header = styled.header`
@@ -67,6 +71,10 @@ export const MenuAside = styled.div`
   flex-direction: column;
   justify-content: space-between;
   font-family: 'Roboto', sans-serif;
+
+  @media(max-width: 768px){
+    display: none;
+  }
   span {
     height: 1px;
     width: 100%;
@@ -157,4 +165,50 @@ export const MenuItem = styled.div`
   cursor: pointer;
   width: 80%;
   height: 25%;
+`;
+
+
+export const Container = styled.div`
+  
+  @media(max-width: 768px){
+     max-height: 845px;
+      overflow-y: auto;
+  } 
+`;
+
+
+export const HeaderItemsMenu = styled.div`
+  display: flex;
+  
+  @media(max-width: 768px){
+    display: none;
+  }
+   
+`;
+
+export const Avatar = styled.div`
+  
+    flex-shrink: 0;
+    height: 5rem;
+    border-radius: 50%;
+    overflow: hidden;
+
+    @media(max-width: 768px){
+   
+    }
+    
+    img {
+      margin-top: 1rem;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+      @media(max-width: 768px){
+        margin-top: 0rem;
+        width: 50%;
+        height: 60%;
+        object-fit: cover;
+        margin-left: 40px;
+      }
+    }
 `;

@@ -7,16 +7,21 @@ import {
   FirstMenuAsideItem, 
   ThirdMenuAsideItem, 
   MenuItem, 
-  UserAndImageCombo
+  UserAndImageCombo,
+  Container, 
+  HeaderItemsMenu,
+  Avatar
 } from "./styles";
 import NewPost from "../NewPost/NewPost";
 import MotivationText from "../MotivationText/MotivationText";
 import StepsProfileCreation from "../StepsProfileCreation/StepsProfileCreation";
 import { Link } from "react-router-dom";
+import UserMenuFooter from "../UserMenuFooter/UserMenuFooter";
 
 export default function UserHome() {
   return (
     <>
+    <Container>
       <MenuAside>
         <FirstMenuAsideItem>
           <img src="/images/GreenLogoDemo.svg" alt="Avatar" />
@@ -53,12 +58,18 @@ export default function UserHome() {
       <ContainerWrapper>
         <Header>
           <HeaderItems>
+            <Avatar>
+                <img src="/images/Avatar6.png" alt="User Avatar" />
+            </Avatar>
             <p><img src="/images/wiibucks.png" alt="wiibucks" />50</p>
             <p><img src="/images/wiibucks.png" alt="wiibucks" />00</p>
-            <Bell />
-            <Mail />
-            <BriefcaseBusiness />
-            <Bookmark />
+            <HeaderItemsMenu>
+               <Bell />
+              <Mail />
+              <BriefcaseBusiness />
+              <Bookmark />
+            </HeaderItemsMenu>
+           
             <Menu />
           </HeaderItems>
         </Header>
@@ -66,6 +77,8 @@ export default function UserHome() {
       <NewPost />
       <MotivationText />
       <StepsProfileCreation />
+      <UserMenuFooter></UserMenuFooter>
+      </Container>
     </>
   );
 }

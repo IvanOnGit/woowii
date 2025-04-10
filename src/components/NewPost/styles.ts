@@ -14,6 +14,11 @@ export const NewPostContainer = styled.div`
   width: 50%;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   gap: 1rem;
+
+  @media (max-width: 768px){
+    width: 70%;
+  }
+  
 `;
 
 export const Avatar = styled.div`
@@ -55,6 +60,10 @@ export const Actions = styled.div`
     cursor: pointer;
     color: #666;
   }
+  @media (max-width: 768px){
+    display: none;
+  }
+
 `;
 
 export const PublishButton = styled.button`

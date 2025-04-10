@@ -1,13 +1,11 @@
 import { Smile, Image, Calendar, Plus, Clock } from "lucide-react";
-import { NewPostContainer, Avatar, InputContainer, Actions, PublishButton, Container } from "./styles";
+import { NewPostContainer, InputContainer, Actions, PublishButton, Container } from "./styles";
 
 export default function NewPost() {
     return (
         <>
         <Container>
-            <Avatar>
-                <img src="/images/Avatar6.png" alt="User Avatar" />
-            </Avatar>
+            
             <NewPostContainer>
                 <InputContainer>
                     <input type="text" placeholder="Escribe una nueva historia..." />

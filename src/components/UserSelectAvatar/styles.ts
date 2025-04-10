@@ -39,12 +39,12 @@ export const AvatarWrapper = styled.div`
 export const AvatarImage = styled.img`
   width: 160px;
   height: 160px;
-  border: 4px solid #32cd32;
+  border: 4px solid #75B300;
   border-radius: 50%;
 `;
 
 export const Button = styled.button`
-  background-color: #32cd32;
+  background-color: #75B300;
   color: white;
   padding: 8px;
   border-radius: 50%;
@@ -86,6 +86,8 @@ export const Thumbnail = styled.img<{ isSelected: boolean }>`
   &:hover {
     opacity: 0.8;
   }
+
+  
 `;
 
 export const UsernameInput = styled.div`
@@ -119,6 +121,11 @@ export const UsernameInput = styled.div`
     outline: none;
     border: 1px solid black;
     margin-bottom: 1rem;
+
+    @media(max-width: 768px){
+      width: 275.43px;
+      height: 38.27px;
+    }
   }
 
   input::placeholder {
@@ -135,7 +142,10 @@ export const UsernameInput = styled.div`
     font-size: 0.7rem;
 
     @media (max-width: 768px){
-      margin-left: 0rem;
+      margin-left: 2rem;
+      color: #8A8A8A;
+      font-size: 0.6rem;
+
     }
 
     svg {
@@ -149,7 +159,7 @@ export const UsernameInput = styled.div`
 export const ButtonNextTerceraPage = styled.button`
     width: 182px;
     height: 37px;
-    background: #8FFF00;
+    background: #75B300;
     color: #000;
     font-size: 20px;
     font-weight: bold;
@@ -158,4 +168,13 @@ export const ButtonNextTerceraPage = styled.button`
     border: none;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     cursor: pointer;
+
+
+    @media(max-width: 768px){
+      background: #75B300;
+      color: #ffff;
+      font-size: 12px;
+      width: 109px;
+      height: 26px;
+    }
 `
