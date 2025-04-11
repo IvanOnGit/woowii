@@ -2,6 +2,11 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   margin-top: 2rem;
+
+  @media(max-width: 768px){
+    width: 73%;
+
+  }
 `;
 
 export const StyledInput = styled.textarea`
@@ -12,6 +17,8 @@ export const StyledInput = styled.textarea`
   vertical-align: top;
   resize: none;
   border-radius: 1rem;
+
+  
 `;
 
 export const ButtonsContainer = styled.div`
@@ -27,6 +34,10 @@ export const ButtonsContainer = styled.div`
     cursor: pointer;
     padding: 0.2rem;
     width: 8.5rem;
+
+    @media(max-width: 768px){
+      font-size: 11px;
+    }
   }
 
   button:first-of-type {

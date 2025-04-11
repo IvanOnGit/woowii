@@ -16,12 +16,25 @@ export const LogoSecondPageStyled = styled.img`
     width: 18.75rem;
     position: absolute;
     margin-bottom: 35rem;
+
+    @media(max-width: 768px){
+        width: 14rem;
+        margin-bottom: 45rem;
+        margin-left: 8rem;
+    
+    }
 `
 
 export const ImgFondoSecondPage = styled.img`
     position: absolute;
     width: 14rem;
     margin-top: 2rem;
+
+    @media(max-width: 768px){
+        margin-left: 7rem;
+        margin-top: 50rem;
+    
+      }
 `
 export const DivContainerButton = styled.div`
     display: flex;
@@ -29,6 +42,13 @@ export const DivContainerButton = styled.div`
     justify-content: center;
     position: absolute;
     margin-top: 40rem;
+
+    @media(max-width: 768px){
+        margin-top: 70rem;
+        margin-left: 7rem;
+    
+      }
+
 `
 export const ButtonNextSecondPage = styled.button`
     width: 12rem;
@@ -51,6 +71,13 @@ position: absolute;
 text-align: center;
 margin-bottom: 20rem;
 
+@media(max-width: 768px){
+    margin-bottom: 30rem;
+    margin-left: 7rem;
+
+
+}
+
 h1 {
     margin: 0;
     font-size: 1.5rem;
@@ -63,22 +90,34 @@ h1 {
 h2 {
     margin: 0;
     font-size: 1.5rem;
+
+    @media(max-width: 768px){
+        font-size: 1.4rem;
+    }
 }
 `;
 
 export const ContainerProgressBar = styled.div`
-display: flex;
-position: absolute;
-margin-top: 25rem;
+    display: flex;
+    position: absolute;
+    margin-top: 25rem;
 
-
-img {
-    height: 2rem;
-    width: 2rem;
-    background-color: green;
-    border-radius: 50%;
-
+    @media(max-width: 768px){
+        margin-top: 0rem;
+        margin-right: 10rem;
+        transform:rotate(90deg);
     
+    }
+
+
+    img {
+        height: 2rem;
+        width: 2rem;
+        background-color: green;
+        border-radius: 50%;
+        transform:rotate(270deg);
+
+  
 }
 
 span {
@@ -89,6 +128,7 @@ span {
 
     @media(max-width: 768px){
         width: 3rem;
+        
       
       }
     }
@@ -104,7 +144,9 @@ margin-left: 5rem;
 
 @media(max-width: 768px){
     width: 80%;
-    margin-left: 0rem;
+    margin-left: 20rem;
+    display:block;
+    margin-bottom: 24rem;
 
   }
 
@@ -116,34 +158,39 @@ p {
 
     @media(max-width: 768px){
         font-size: 0.7rem;
+        padding-top: 3.6rem;
     
-      }
+    }
 }
 `;
 
 export const ContainerProgressBarText = styled.div`
-display: flex;
-position: absolute;
-font-family: 'Roboto', sans-serif;
-width: 40%;
-margin-top: 32rem;
-margin-left: 5rem;
-
-
-@media(max-width: 768px){
-    margin-left: 3rem;
-    width: 80%;
-  }
-
-p {
-    font-size: 0.8rem;
-    font-weight: bold;
-    width: 25%;
-
-    @media(max-width: 768px){
-        font-size: 0.7rem;
+    display: flex;
+    position: absolute;
+    font-family: 'Roboto', sans-serif;
+    width: 40%;
+    margin-top: 32rem;
+    margin-left: 5rem;
     
+    
+    @media(max-width: 768px){
+        margin-left: 20rem;
+        width: 80%;
+        display: block;
+        margin-top: 3rem;
       }
-}
-`;
+    
+    p {
+        font-size: 0.8rem;
+        font-weight: bold;
+        width: 25%;
+    
+        @media(max-width: 768px){
+            font-size: 1rem;
+            padding-top: 3rem;
+            width: 100%;
+
+          }
+    }
+    `;
 

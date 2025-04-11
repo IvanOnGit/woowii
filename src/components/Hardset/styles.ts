@@ -72,6 +72,11 @@ export const MenuAside = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
 
+  @media(max-width: 768px){
+
+    display: none;
+  }
+
   /* Estilizar el scrollbar */
   &::-webkit-scrollbar {
     width: 6px;
@@ -118,6 +123,8 @@ export const FirstMenuAsideItem = styled.div`
   width: 100%;
   text-align: center;
   height: 12rem;
+
+  
 
   img {
     width: 10rem;
@@ -279,10 +286,26 @@ export const StoryExplanation = styled.div`
   margin-left: 25rem;
   font-family: 'Roboto', sans-serif;
 
+  @media(max-width: 768px){
+    margin-left: 2rem;
+  }
+
+
   h2 {
     font-size: 2rem;
     color: #75B300;
     margin: 0;
+    @media(max-width: 768px){
+      font-size: 1.5rem;
+    }
+
+  }
+  p{
+    @media(max-width: 768px){
+      font-size: 12px;
+      margin-right: 4rem;
+
+    }
   }
 `;
 
@@ -293,12 +316,24 @@ export const StoryForm = styled.div`
   margin-left: 25rem;
   font-family: 'Roboto', sans-serif;
 
+  @media(max-width: 768px){
+    margin-left: 2rem;
+  }
+
   h3 {
     color: #75B300;
+    font-size: 15px;
   }
+
 
   p {
     margin-bottom: 0.5rem;
+    @media(max-width: 768px){
+      font-size: 11px;
+      margin-right: 4rem;
+  
+    }
+
   }
 
   input:last-of-type, textarea {
@@ -310,6 +345,14 @@ export const StoryForm = styled.div`
   border-radius: 1rem;
   border: 1px solid black;
   margin-top: 1rem;
+
+  @media(max-width: 768px){
+    width: 100%;
+    font-size: 10px;
+
+  }
+
+  
 }
 
 input:first-of-type {
@@ -318,6 +361,12 @@ input:first-of-type {
   height: 1rem;
   padding: 0.5rem;
   margin-top: 0;
+
+  @media(max-width: 768px){
+    width: 76%;
+    font-size: 10px;
+
+  }
 }
 `;
 
@@ -328,12 +377,20 @@ export const Container = styled.div`
   gap: 0.5rem;
   margin-left: 25rem;
   margin-top: 2rem;
+
+  @media(max-width: 768px){
+    margin-left: 2rem;
+  }
 `;
 
 export const OptionLabel = styled.label`
   display: flex;
   align-items: center;
   cursor: pointer;
+
+  @media(max-width: 768px){
+    font-size: 12px;
+  }
 `;
 
 export const Checkbox = styled.input`
@@ -346,6 +403,14 @@ export const AboutHardset = styled.div`
   margin-left: 25rem;
   margin-top: 2rem;
   font-family: 'Roboto', sans-serif;
+
+  @media(max-width: 768px){
+    margin-left: 10px;
+  }
+
+  h2{
+    font-size: 15px;
+  }
 `;
 
 export const AboutLines = styled.div`
@@ -381,4 +446,39 @@ color: white;
 border: none;
 padding: 0.6rem;
 cursor: pointer;
+
+@media(max-width: 768px){
+  margin-left: 6rem;
+}
+`;
+
+export const UserMenuFooter = styled.button`
+  display: none;
+
+  @media(max-width: 768px){
+    display: flex;
+  }
+`;
+
+export const Avatar = styled.div`
+  
+    flex-shrink: 0;
+    height: 5rem;
+    border-radius: 50%;
+    overflow: hidden;
+
+    
+    img {
+      margin-top: 1rem;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+      @media(max-width: 768px){
+        width: 50%;
+        height: 60%;
+        object-fit: cover;
+        margin-left: 40px;
+      }
+    }
 `;

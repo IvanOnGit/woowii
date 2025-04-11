@@ -36,6 +36,11 @@ export const DivContainerLogo = styled.div`
   width: 100%;
   margin-bottom: 1rem;
   margin-top: 25rem;
+
+  @media(max-width: 768px){
+    margin-top: 30rem;
+
+  }
 `;
 
 export const LogoSecondPageStyled = styled.img`
@@ -131,8 +136,6 @@ export const DivContainerButton = styled.div`
   @media(max-width: 768px){
     margin-left: 1rem;
     width: 80%;
-
-
   }
 `;
 

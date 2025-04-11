@@ -26,10 +26,12 @@ import {
   AboutLines,
   AboutButtons,
   TalkWithWoody,
-  ContinueButton
+  ContinueButton,
+  Avatar
 } from "./styles";
 import { Link } from "react-router-dom";
 import VoiceTextInput from "../VoiceTextInput/VoiceTextInput";
+import UserMenuFooter from "../UserMenuFooter/UserMenuFooter";
 
 export default function Hardset() {
   const [isFirstDropdownOpen, setIsFirstDropdownOpen] = useState(false);
@@ -229,6 +231,9 @@ export default function Hardset() {
       <ContainerWrapper>
         <Header>
           <HeaderItems>
+          <Avatar>
+                <img src="/images/Avatar6.png" alt="User Avatar" />
+            </Avatar>
             <p><img src="/images/wiibucks.png" alt="wiibucks" />50</p>
             <p><img src="/images/wiibucks.png" alt="wiibucks" />00</p>
             <Bell />
@@ -240,14 +245,14 @@ export default function Hardset() {
         </Header>
       </ContainerWrapper>
       <StoryExplanation>
-            <h2>Historias sobre tu HARDSET:</h2>
-            <p>Aquí explicarás como tu formación o experiencia, definen tus habilidades <br /> duras mediante ejemplos que tu CV no puede contar sólo en bullet points.</p>
+            <h2>Historias sobre tu hardset</h2>
+            <p>Aquí explicarás como tu formación o experiencia, definen tus habilidades duras mediante ejemplos que tu CV no puede contar sólo en bullet points.</p>
       </StoryExplanation>
         <StoryForm>
         <h3>Escojamos un título llamativo para tu historia:</h3>
         <input type="text" placeholder="Cuando la web habla, habla JavaScript, y yo soy su traductor."/>
         <p>✍️ Cuenta tu historia de forma clara dentro de los caracteres permitidos.</p>
-        <p>✍️ Puedes compartir varias experiencias sobre tu trabajo y formación, así <br /> que analiza tu recorrido y usa la imaginación.</p>
+        <p>✍️ Puedes compartir varias experiencias sobre tu trabajo y formación, así que analiza tu recorrido y usa la imaginación.</p>
         <p>🚀 ¿Necesitas ayuda? Nuestra IA está lista para potenciar tu texto.</p>
         <VoiceTextInput />
         </StoryForm>
@@ -326,6 +331,8 @@ export default function Hardset() {
               <TalkWithWoody>¡Chatea con Woody! </TalkWithWoody>
               <Link to="/SecondGift">
               <ContinueButton>Continue</ContinueButton>
+              <UserMenuFooter></UserMenuFooter>
+
               </Link>
     </MainContainer>
     </>

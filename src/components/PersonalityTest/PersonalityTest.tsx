@@ -12,7 +12,7 @@ export default function PersonalityTest() {
               <ImgFondoSecondPage src="/images/PersonalityTestBackgroundLine.png" alt="Fondo Wiibuck" />
               <PersonalityText>
                   <h1>Test de personalidad</h1>
-                  <p>Vamos a realizar un breve Test <br /> para conocerte mejor y ofrecerte <br /> las mejores oportunidades</p>
+                  <p>Vamos a realizar un breve Test para conocerte mejor y ofrecerte las mejores oportunidades</p>
                   <img src="/images/QuestionMarks.png" alt="" />
                   <img src="/images/GreenFade.png" alt="" />
               </PersonalityText>
@@ -20,7 +20,6 @@ export default function PersonalityTest() {
                 <StyledLink to={"/PersonalityTestQuestions"}>
                     <ButtonNextSecondPage>
                           ¡Comencemos!
-                          <Play />
                     </ButtonNextSecondPage>
                 </StyledLink>
             </DivContainerButton>

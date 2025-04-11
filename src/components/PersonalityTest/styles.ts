@@ -9,7 +9,6 @@ export const ContainerWrapper = styled.div`
     height: 100vh;
 
     @media (max-width: 768px){
-        overflow: hidden;
     
     }
 `
@@ -26,10 +25,9 @@ export const LogoSecondPageStyled = styled.img`
 
 
     @media(max-width: 768px){
-        margin-bottom: 20rem;
-        margin-left: 20rem;
-        height: 10rem;
-        width: 30rem;
+        margin-left: 25rem;
+        height: 7.25rem;
+        width: 25.75rem;
 
     }
 `
@@ -38,13 +36,10 @@ export const ImgFondoSecondPage = styled.img`
     width: 100%;
     height: 100%;
     position: absolute;
+    display: flex;
 
     @media(max-width: 768px){
-        position: fixed;
-        margin-top: 165rem;
-        height: 90%;
-        width: 180%;
-
+        display:none;
 
     }
 
@@ -59,9 +54,7 @@ export const DivContainerButton = styled.div`
 
 
     @media(max-width: 768px){
-        margin-top: 250rem;
-        margin-left: 100rem;
-
+        
     }
 
 
@@ -86,10 +79,13 @@ export const ButtonNextSecondPage = styled.button`
     padding-left: 1rem;
 
     @media(max-width: 768px){
-        font-size: 40px;
-        padding: 4rem;
-        width: 40rem;
-
+        margin-top: 115rem;
+        margin-left: 22rem;
+        width: 17rem;
+        height: 4.5rem;
+        border:none;
+        box-shadow: 0px 4px 4px 0px #00000040;
+        font-size: 1.6rem;
 
     }
 
@@ -108,18 +104,18 @@ margin-right: 40rem;
 
 
 @media(max-width: 768px){
-    margin-right: 0rem;
-    margin-top: 70rem;
-    margin-left:70rem;
+    margin-right: 1rem;
+
 }
 
 h1 {
     font-size: 3rem;
-    margin: 0;
+    margin-left: 0rem;
 
     @media(max-width: 768px){
-        font-size: 9rem;
-        margin-right: 30rem;
+        font-size: 5rem;
+        margin-left: 25rem;
+
     }
 }
 
@@ -128,7 +124,9 @@ p {
     margin: 0;
 
     @media(max-width: 768px){
-        font-size: 4rem;
+        font-size: 1.5rem;
+        margin-left: 25rem;
+        font-weight: bold;
     }
 }
 
@@ -138,7 +136,8 @@ img {
 
 
     @media(max-width: 768px){
-        margin-left: 60rem;
+        margin-left: 30rem;
+        margin-top: 40rem;
 
     }
 }
@@ -148,7 +147,6 @@ img:last-of-type {
     position: absolute;
 
     @media(max-width: 768px){
-        height:370vh;
 
     }
 }
