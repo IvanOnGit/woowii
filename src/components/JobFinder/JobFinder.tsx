@@ -40,7 +40,8 @@ export default function JobFinder() {
   const [isSixthDropdownOpen, setIsSixthDropdownOpen] = useState(false);
   const [isSeventhDropdownOpen, setIsSeventhDropdownOpen] = useState(false);
   const userId = localStorage.getItem("userId");
-    const [userData, setUserData] = useState<{ username: string; profile_picture: string } | null>(null);
+  const [userData, setUserData] = useState<{ username: string; profile_picture: string } | null>(null);
+
         useEffect(() => {
           const fetchUserData = async () => {
               if (!userId) return;
@@ -53,6 +54,30 @@ export default function JobFinder() {
     
           fetchUserData();
         }, [userId]);
+  
+        const [jobs, setJobs] = useState([]);
+
+        useEffect(() => {
+          const fetchJobs = async () => {
+            try {
+              const response = await fetch('http://localhost:3000/api/auth/jobs');
+              const data = await response.json();
+              setJobs(data);
+            } catch (error) {
+              console.error("❌ Error al traer los trabajos:", error);
+            }
+          };
+
+          fetchJobs();
+        }, []);
+  
+        interface Job {
+          id: number;
+          title: string;
+          about_us: string;
+          salary: number | null;
+        }
+  
   return (
     <>
       <MenuAside>
@@ -234,38 +259,23 @@ export default function JobFinder() {
         </LastThreeItems>
     </MainContainer>
     <JobsContainer>
-            <h2>Empleos destacados para tí</h2>
-            <p>En función de tu perfil, preferencias <br /> y actividad como solicitudes, <br /> búsquedas y contenido guardado.</p>
-            <hr />
-            <span></span>
-            <hr />
-            <StyledLink to="/JobOpportunity">
-                <h2>Desarrollador Web</h2>
-                <h3>Madrid, España | HomeOffice</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur <br /> adipiscing elit, sed do
-                    eiusmod tempor incididunt <br /> ut labore et dolore magna aliqua.
-                </p>
-            </StyledLink>
-            <hr />
-            <span></span>
-            <hr />
-            <h2>Tester en Software</h2>
-            <h3>Barcelona, España | Presencial</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur <br /> adipiscing elit, sed do eiusmod tempor incididunt <br /> ut labore et dolore magna aliqua.</p>
-            <hr />
-            <span></span>
-            <hr />
-            <h2>.Net Senior</h2>
-            <h3>Barcelona, España | HomeOffice</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur <br /> adipiscing elit, sed do eiusmod tempor incididunt <br /> ut labore et dolore magna aliqua.</p>
-            <hr />
-            <span></span>
-            <hr />
-            <h2>UX Designer</h2>
-            <h3>Madrid, España | HomeOffice</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur <br /> adipiscing elit, sed do eiusmod tempor incididunt <br /> ut labore et dolore magna aliqua.</p>
-            <span></span>
+      <h2>Empleos destacados para ti</h2>
+      <p>
+        En función de tu perfil, preferencias <br /> y actividad como solicitudes,
+        <br /> búsquedas y contenido guardado.
+      </p>
+      <hr />
+      {jobs.map((job: Job) => (
+        <StyledLink to={`/JobOpportunity/${job.id}`} key={job.id}>
+          <h2>{job.title}</h2>
+          <h3>Madrid, España | Modalidad mixta</h3> {/* opcional, podés hacerlo dinámico también */}
+          <p>{job.about_us}</p>
+          <p><strong>Salario: </strong>{job.salary ? `${job.salary} €` : "No especificado"}</p>
+          <hr />
+          <span></span>
+          <hr />
+        </StyledLink>
+      ))}
     </JobsContainer>
     </>
   );
