@@ -1,160 +1,235 @@
-import { useState } from "react";
-import { Bell, Bookmark, BriefcaseBusiness, Mail, Menu, ChevronDown } from "lucide-react";
-import { ColumnDashBoardDownLeftTitle, 
-  ColumnDashBoardDownRightTitle, 
-  ContainerColumnDashBoard, 
-  ContainerColumnDashBoardDown, 
-  ContainerColumnDashBoardDownLeft, 
-  ContainerColumnDashBoardDownRight, 
-  ContainerColumnDashBoardUp, 
-  ContainerColumnLogoAndSelects, 
-  ContainerCompanyOverviewAll, 
-  ContainerFirstSquareRightHirings, 
-  ContainerFirstSquareSelects, 
-  ContainerGraphs,  
-  ContainerLogo, 
-  ContainerLogoAndNameCompany, 
-  ContainerSecondSquareSelects, 
-  ContainerSelects, 
-  ContainerUpFirstSquareLeftDashBoard, 
-  FirstSquareLeftDashboard, 
-  FirstSquareRightDashboard, 
-  Graphics, 
-  GraphicsPercentage, 
+import { useEffect, useState } from "react";
+import { Bell, Bookmark, BriefcaseBusiness, ChevronDown, ChevronUp,  Mail, Menu } from "lucide-react";
+import { 
+  ContainerWrapper, 
+  FirstMenuAsideItem, 
   Header, 
   HeaderItems, 
-  ImageLogoCompany, 
-  ImageLogoWhite, 
-  ImageMatchesLeftDashBoard, 
-  ImageReviewsLeftDashBoard, 
-  SearchContainer, 
-  StyledLink, 
-  TextUnderImagesLeftDashBoard,
-  TitleCommentAndMessages,
-  WoodyChat} from "./styles";
-  import ImageSlider from "../ImageSlider/ImageSlider";
-  import VerticalSlider from "../VerticalSlider/VerticalSlider";
-  import VerticalSliderOverview from "../VerticalSliderOverview/VerticalSliderOverview";
-  import ChatBox from "../ChatBox/ChatBox";
-
+  MenuAside,
+  DropdownContainer, 
+  DropdownButton, 
+  DropdownList,
+  DropdownItem,
+  SecondDropdownContainer,
+  SecondDropdownButton,
+  SecondDropdownList,
+  SecondDropdownItem,
+  HelpButton,
+  SearchBar,
+  ContainerLogoCompAndUser,
+  Avatar,
+  MainContainer,
+  InnerContainerOne,
+  OverviewContainer,
+  InnerContainerTwo,
+} from "./styles";
 
 export default function CompanyOverview() {
-    const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isFirstDropdownOpen, setIsFirstDropdownOpen] = useState(false);
+  const [isSecondDropdownOpen, setIsSecondDropdownOpen] = useState(false);
+  const [isThirdDropdownOpen, setIsThirdDropdownOpen] = useState(false);
+  const [isFourthDropdownOpen, setIsFourthDropdownOpen] = useState(false);
+  const [isFifthDropdownOpen, setIsFifthDropdownOpen] = useState(false);
+  const [isSixthDropdownOpen, setIsSixthDropdownOpen] = useState(false);
+  const [isSeventhDropdownOpen, setIsSeventhDropdownOpen] = useState(false);
+  
+   const id = localStorage.getItem("id");
+    const [companyData, setCompanyData] = useState<{ Company_username: string; Company_avatar: string } | null>(null);
+  
+    useEffect(() => {
+      const fetchCompanyData = async () => {
+        if (!id) {
+          console.error("ID is missing or invalid.");
+          return; // No hacemos la solicitud si la id es inválida
+        }
+  
+        const numericId = Number(id);
+        if (isNaN(numericId) || numericId <= 0) {
+          console.error("ID is not a valid number.");
+          return; // Si no es un número válido, no hacemos la solicitud
+        }
+  
+        // Cambié 'companyId' por 'id' en la URL
+        const url = `http://localhost:3000/api/auth/get-company?id=${numericId}`;
+        console.log("Requesting URL:", url); // Verifica si la URL es correcta
+  
+        try {
+          const response = await fetch(url);
+          const data = await response.json();
+          setCompanyData(data);
+        } catch (error) {
+          console.error("Error fetching company data:", error);
+        }
+      };
+  
+      fetchCompanyData();
+    }, [id]);
+
   return (
-    <ContainerCompanyOverviewAll>
-        <ContainerColumnLogoAndSelects>
-            <ContainerLogo>
-                <ImageLogoWhite src="/images/WhiteLogo.svg" />
-            </ContainerLogo>
-            <ContainerFirstSquareSelects>
-                <ContainerSelects>
-                    <p>DashBoard</p>
-                    <ChevronDown className="chev" stroke="#FFF" />
-                </ContainerSelects>
-                <ContainerSelects>
-                    <p>Interviews</p>
-                    <ChevronDown className="chev" stroke="#FFF" />
-                </ContainerSelects>
-                <ContainerSelects>
-                    <p>Hiring Summary</p>
-                    <ChevronDown className="chev" stroke="#FFF" />
-                </ContainerSelects>
-                <ContainerSelects>
-                    <p>Talent Data</p>
-                    <ChevronDown className="chev" stroke="#FFF" />
-                </ContainerSelects>
-                <ContainerSelects>
-                    <p>Resources</p>
-                    <ChevronDown className="chev" stroke="#FFF" />
-                </ContainerSelects>
-                <ContainerSelects>
-                    <p>Alerts</p>
-                    <ChevronDown className="chev" stroke="#FFF" />
-                </ContainerSelects>
-            </ContainerFirstSquareSelects>
-            <ContainerSecondSquareSelects>
-                <ContainerSelects>
-                    <p>Settings</p>
-                    <ChevronDown className="chev" stroke="#FFF" />
-                </ContainerSelects>
-                <ContainerSelects>
-                    <p>Sign Out</p>
-                    <ChevronDown className="chev" stroke="#FFF" />
-                </ContainerSelects>
-                <ContainerSelects>
-                    <p>Help</p>
-                    <ChevronDown className="chev" stroke="#FFF" />
-                </ContainerSelects>
-            </ContainerSecondSquareSelects>
-            <WoodyChat src="/images/woodyWhiteChat.svg" alt="Woody Chat Image" onClick={() => setIsChatOpen(!isChatOpen)} >
-            </WoodyChat>
-            {isChatOpen && <ChatBox onClose={() => setIsChatOpen(false)} />}
-        </ContainerColumnLogoAndSelects>
-        <ContainerColumnDashBoard>
-            <ContainerColumnDashBoardUp>
-            <Header>
-                <ContainerLogoAndNameCompany>
-                    <ImageLogoCompany src="/images/avatarCompany1.svg" />
-                    <p>@Empresa</p>
-                </ContainerLogoAndNameCompany>
-                <SearchContainer>
-                    <input type="text" placeholder="Búsqueda" />
-                </SearchContainer>
-                <HeaderItems>
-                    <p><img src="/images/wiibucks.png" alt="wiibucks" />100</p>
-                    <p><img src="/images/trophy.svg" alt="wiibucks" />00</p>
-                    <Bell stroke="#FFF" fill="#460BFF" width={30} height={30}/>
-                    <Mail stroke="#FFF" fill="#460BFF" width={30} height={30}/>
-                    <BriefcaseBusiness stroke="#FFF" fill="#460BFF" width={30} height={30} />
-                    <Bookmark stroke="#FFF" fill="#460BFF" width={30} height={30}/>
-                    <Menu stroke="#460BFF"width={30} height={30}/>
-                </HeaderItems> 
-            </Header>
-            </ContainerColumnDashBoardUp>
-            <ContainerColumnDashBoardDown>
-                <ContainerColumnDashBoardDownLeft>
-                    <ColumnDashBoardDownLeftTitle>Overview</ColumnDashBoardDownLeftTitle>
-                    <div className="columnLeftArreglo">
-                    <FirstSquareLeftDashboard>
-                        <ContainerUpFirstSquareLeftDashBoard>
-                            <ImageMatchesLeftDashBoard src="/images/matches.svg" alt="Imagen Matches"/>
-                            <ImageReviewsLeftDashBoard src="/images/reviews.svg" alt="Imagen Reviews"/>
-                        </ContainerUpFirstSquareLeftDashBoard>
-                        <TextUnderImagesLeftDashBoard>
-                            Interviews done     
-                        </TextUnderImagesLeftDashBoard>
-                        <ImageSlider />
-                    </FirstSquareLeftDashboard>
-                    <TitleCommentAndMessages>Comment & Message</TitleCommentAndMessages>
-                    <VerticalSliderOverview />
+    <>
+      <MenuAside>
+        <FirstMenuAsideItem>
+          <img src="/images/WhiteLogo.svg" alt="Avatar" />
+        </FirstMenuAsideItem>
+
+        {/* Primer Dropdown */}
+        <DropdownContainer>
+          <DropdownButton onClick={() => setIsFirstDropdownOpen(!isFirstDropdownOpen)}>
+            Dashboard {isFirstDropdownOpen ? <ChevronUp /> : <ChevronDown />}
+          </DropdownButton>
+          {isFirstDropdownOpen && (
+            <DropdownList>
+              <DropdownItem>Desarrollador Fullstack</DropdownItem>
+              <DropdownItem>UX | UI Designer</DropdownItem>
+              <DropdownItem>Marketing Manager</DropdownItem>
+            </DropdownList>
+          )}
+        </DropdownContainer>
+
+        {/* Segundo Dropdown */}
+        <SecondDropdownContainer>
+          <SecondDropdownButton onClick={() => setIsSecondDropdownOpen(!isSecondDropdownOpen)}>
+            Interviews {isSecondDropdownOpen ? <ChevronUp /> : <ChevronDown />}
+          </SecondDropdownButton>
+          {isSecondDropdownOpen && (
+            <SecondDropdownList>
+              <SecondDropdownItem>0 - 1</SecondDropdownItem>
+              <SecondDropdownItem>2 - 5</SecondDropdownItem>
+              <SecondDropdownItem>6 - 10</SecondDropdownItem>
+              <SecondDropdownItem>+10</SecondDropdownItem>
+            </SecondDropdownList>
+          )}
+        </SecondDropdownContainer>
+              
+        {/* Tercer Dropdown */}
+        <SecondDropdownContainer>
+          <SecondDropdownButton onClick={() => setIsThirdDropdownOpen(!isThirdDropdownOpen)}>
+            Hiring Summary {isThirdDropdownOpen ? <ChevronUp /> : <ChevronDown />}
+          </SecondDropdownButton>
+          {isThirdDropdownOpen && (
+            <SecondDropdownList>
+              <SecondDropdownItem>Full time</SecondDropdownItem>
+              <SecondDropdownItem>Part time</SecondDropdownItem>
+              <SecondDropdownItem>Flexible</SecondDropdownItem>
+              <SecondDropdownItem>Fines de semana</SecondDropdownItem>
+            </SecondDropdownList>
+          )}
+        </SecondDropdownContainer>
+        
+        {/* Cuarto Dropdown */}
+        <SecondDropdownContainer>
+          <SecondDropdownButton onClick={() => setIsFourthDropdownOpen(!isFourthDropdownOpen)}>
+            Talent Data {isFourthDropdownOpen ? <ChevronUp /> : <ChevronDown />}
+          </SecondDropdownButton>
+          {isFourthDropdownOpen && (
+            <SecondDropdownList>
+              <SecondDropdownItem><input type="text" /></SecondDropdownItem>
+              <SecondDropdownItem>Madrid, España</SecondDropdownItem>
+            </SecondDropdownList>
+          )}
+        </SecondDropdownContainer>
+        
+        {/* Quinto Dropdown */}
+        <SecondDropdownContainer>
+          <SecondDropdownButton onClick={() => setIsFifthDropdownOpen(!isFifthDropdownOpen)}>
+            Resources {isFifthDropdownOpen ? <ChevronUp /> : <ChevronDown />}
+          </SecondDropdownButton>
+          {isFifthDropdownOpen && (
+            <SecondDropdownList>
+              <SecondDropdownItem>Si</SecondDropdownItem>
+              <SecondDropdownItem>No</SecondDropdownItem>
+            </SecondDropdownList>
+          )}
+        </SecondDropdownContainer>
+        
+        {/* Sexto Dropdown */}
+        <SecondDropdownContainer>
+          <SecondDropdownButton onClick={() => setIsSixthDropdownOpen(!isSixthDropdownOpen)}>
+            Alerts {isSixthDropdownOpen ? <ChevronUp /> : <ChevronDown />}
+          </SecondDropdownButton>
+          {isSixthDropdownOpen && (
+            <SecondDropdownList>
+              <SecondDropdownItem><input type="text" placeholder="Busca tu idioma aquí"/></SecondDropdownItem>
+              <SecondDropdownItem>ingles</SecondDropdownItem>
+            </SecondDropdownList>
+          )}
+        </SecondDropdownContainer>
+        <span></span>
+        
+        {/* Séptimo Dropdown */}
+        <SecondDropdownContainer>
+          <SecondDropdownButton onClick={() => setIsSeventhDropdownOpen(!isSeventhDropdownOpen)}>
+            Settings {isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
+          </SecondDropdownButton>
+          {isSeventhDropdownOpen && (
+            <SecondDropdownList>
+              <SecondDropdownItem>Rango salarial | <strong>€</strong> $</SecondDropdownItem>
+              <SecondDropdownItem>Minimo</SecondDropdownItem>
+              <SecondDropdownItem>Máximo</SecondDropdownItem>
+            </SecondDropdownList>
+          )}
+        </SecondDropdownContainer>
+        
+         <SecondDropdownContainer>
+          <SecondDropdownButton>
+            Sing Out {isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
+          </SecondDropdownButton>
+        </SecondDropdownContainer>
+        
+        <SecondDropdownContainer>
+          <SecondDropdownButton>
+            Help {isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
+          </SecondDropdownButton>
+        </SecondDropdownContainer>
+        
+        <HelpButton> Chat de ayuda</HelpButton>
+      </MenuAside>
+      <ContainerWrapper>
+        <Header>
+            <ContainerLogoCompAndUser>
+                <Avatar>
+                    <img src={companyData?.Company_avatar || "/images/defaultCompanyAvatar.svg"} alt="Company Avatar" />
+                </Avatar>
+                    <p>@{companyData?.Company_username || "Empresa"}</p>
+            </ContainerLogoCompAndUser>
+          <SearchBar type="Búsqueda" placeholder="Búsqueda" />
+          <HeaderItems>
+            <p><img src="/images/wiibucks.png" alt="wiibucks" />50</p>
+            <p><img src="/images/wiibucks.png" alt="wiibucks" />00</p>
+            <Bell />
+            <Mail />
+            <BriefcaseBusiness />
+            <Bookmark />
+            <Menu />
+          </HeaderItems>
+        </Header>
+      </ContainerWrapper>
+      <MainContainer>
+        <div className="vertical">
+                <InnerContainerOne>
+                    <h2>Overview</h2>
+                    <OverviewContainer>
+                        <p>Matches</p>
+                        <p>Reviews</p>
+                        <h3>Interviews done</h3>
+                    </OverviewContainer>
+                </InnerContainerOne>
+                <InnerContainerTwo>
+                    <div className="duo">
+                        <h2>Open Positions</h2>
+                        <button>Create New Offer</button>
                     </div>
-                </ContainerColumnDashBoardDownLeft>
-                  <ContainerColumnDashBoardDownRight>
-                      <StyledLink to={'/CompanyOffer'}>
-                          <ColumnDashBoardDownRightTitle>Hirings in Progress</ColumnDashBoardDownRightTitle>
-                      </StyledLink>
-                    <FirstSquareRightDashboard>
-                        <ContainerFirstSquareRightHirings>
-                            <VerticalSlider />
-                        </ContainerFirstSquareRightHirings>
-                        <ContainerGraphs>
-                            <Graphics src="/images/matchGraph.svg" alt="Match Graphic" />
-                            <GraphicsPercentage>
-                                <h2>89%</h2>
-                                <p>MATCHES</p>
-                            </GraphicsPercentage>
-                        </ContainerGraphs>    
-                        <ContainerGraphs>
-                            <Graphics src="/images/reviewsGraph.svg" alt="Review Graphic" />
-                            <GraphicsPercentage>
-                            <h3>-10%</h3>
-                            <p id="rev">REVIEWS</p>
-                            </GraphicsPercentage>
-                        </ContainerGraphs>
-                    </FirstSquareRightDashboard>
-                </ContainerColumnDashBoardDownRight>
-            </ContainerColumnDashBoardDown>
-        </ContainerColumnDashBoard>
-    </ContainerCompanyOverviewAll>
-  )
+                    <OverviewContainer>
+                        <p>Matches</p>
+                        <p>Reviews</p>
+                        <h3>Interviews done</h3>
+                    </OverviewContainer>
+                </InnerContainerTwo>
+        </div>
+        <div>
+            <h2>Hirings in progress</h2>
+        </div>
+      </MainContainer>
+    </>
+  );
 }

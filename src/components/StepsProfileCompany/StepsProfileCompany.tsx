@@ -51,7 +51,7 @@ export default function StepsProfileCompany() {
             <img src={companyData?.Company_avatar || "/images/defaultCompanyAvatar.svg"} alt="Company Avatar" />
             </Avatar>
             <p>@{companyData?.Company_username || "Empresa"}</p>
-    </ContainerLogoCompAndUser>
+          </ContainerLogoCompAndUser>
         <ContainerFirstThreeSelects> 
             <label htmlFor="culture">Cultura y Valores</label>
             <select name="culture">
