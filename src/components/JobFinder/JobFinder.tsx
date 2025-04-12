@@ -55,14 +55,15 @@ export default function JobFinder() {
           fetchUserData();
         }, [userId]);
   
-        const [jobs, setJobs] = useState([]);
+        const [allJobs, setAllJobs] = useState([]); // guarda todos
+        const [filteredJobs, setFilteredJobs] = useState<Job[]>([]); // los que vas a mostrar
 
         useEffect(() => {
           const fetchJobs = async () => {
             try {
               const response = await fetch('http://localhost:3000/api/auth/jobs');
               const data = await response.json();
-              setJobs(data);
+              setAllJobs(data);
             } catch (error) {
               console.error("❌ Error al traer los trabajos:", error);
             }
@@ -71,11 +72,47 @@ export default function JobFinder() {
           fetchJobs();
         }, []);
   
+        const [toolset, setToolset] = useState<string[]>([]);
+
+        useEffect(() => {
+          const fetchUserSkills = async () => {
+            if (!userId) return;
+            try {
+              const response = await fetch(`http://localhost:3000/api/auth/get-user-skills?userId=${userId}`);
+              const data = await response.json();
+              console.log("Toolset del usuario:", data.toolset);
+              setToolset(data.toolset || []);
+            } catch (error) {
+              console.error("❌ Error al obtener el toolset del usuario:", error);
+            }
+          };
+
+          fetchUserSkills();
+        }, [userId]);
+  
+        useEffect(() => {
+          if (toolset.length === 0 || allJobs.length === 0) return;
+        
+          const filtered = allJobs.filter((job: Job) => {
+            const kit = Array.isArray(job.survival_kit) ? job.survival_kit : [];
+            const match = kit.some((item: string) => toolset.includes(item));
+            if (match) {
+              console.log("✅ Coincidencia encontrada:", { job, kit, toolset });
+            } else {
+              console.log("❌ Sin coincidencia:", { job, kit, toolset });
+            }
+            return match;
+          });
+        
+          setFilteredJobs(filtered);
+        }, [toolset, allJobs]);
+  
         interface Job {
           id: number;
           title: string;
           about_us: string;
           salary: number | null;
+          survival_kit: string[];
         }
   
   return (
@@ -265,7 +302,7 @@ export default function JobFinder() {
         <br /> búsquedas y contenido guardado.
       </p>
       <hr />
-      {jobs.map((job: Job) => (
+      {filteredJobs.map((job: Job) => (
         <StyledLink to={`/JobOpportunity/${job.id}`} key={job.id}>
           <h2>{job.title}</h2>
           <h3>Madrid, España | Modalidad mixta</h3> {/* opcional, podés hacerlo dinámico también */}
