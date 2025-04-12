@@ -40,21 +40,71 @@ export default function Hardset() {
   const [isFifthDropdownOpen, setIsFifthDropdownOpen] = useState(false);
   const [isSixthDropdownOpen, setIsSixthDropdownOpen] = useState(false);
   const [isSeventhDropdownOpen, setIsSeventhDropdownOpen] = useState(false);
-  const userId = localStorage.getItem("userId");
   const [userData, setUserData] = useState<{ username: string; profile_picture: string } | null>(null);
+  const userId = localStorage.getItem("userId");
+
       useEffect(() => {
         const fetchUserData = async () => {
-            if (!userId) return;
-  
-            const response = await fetch(`http://localhost:3000/api/auth/get-user?userId=${userId}`);
-            const data = await response.json();
-            console.log(data);  // Verifica qué datos estás recibiendo
-            setUserData(data);
+          if (!userId) return;
+      
+          const response = await fetch(`http://localhost:3000/api/auth/get-user?userId=${userId}`);
+          const data = await response.json();
+          setUserData(data);
         };
-  
+      
         fetchUserData();
       }, [userId]);
   
+      useEffect(() => {
+        const fetchUserSkills = async () => {
+          if (!userId) return;
+      
+          try {
+            const response = await fetch(`http://localhost:3000/api/auth/get-user-skills?userId=${userId}`);
+            const data = await response.json();
+            console.log("Skills recuperadas:", data);
+      
+            setSelectedOptions({
+              Hardset: data.hardset || [],
+              Toolset: data.toolset || [],
+              Softset: data.softset || [],
+              Superpower: data.superpower || [],
+              Analysis: data.analysis || [],
+            });
+          } catch (error) {
+            console.error("Error al obtener las habilidades del usuario:", error);
+          }
+        };
+      
+        fetchUserSkills();
+      }, [userId]);
+      
+      const handleSave = async () => {
+        if (!userId) return;
+      
+        try {
+          const response = await fetch(`http://localhost:3000/api/auth/save-user-skills`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              userId,
+              hardset: selectedOptions.Hardset,
+              toolset: selectedOptions.Toolset,
+              softset: selectedOptions.Softset,
+              superpower: selectedOptions.Superpower,
+              analysis: selectedOptions.Analysis,
+            }),
+          });
+      
+          const data = await response.json();
+          console.log("Datos actualizados:", data);
+        } catch (error) {
+          console.error("Error al actualizar los datos:", error);
+        }
+      };
+      
       const [selectedSection, setSelectedSection] = useState("Hardset");
 
       interface SectionContent {
@@ -404,7 +454,7 @@ export default function Hardset() {
       </AboutHardset>
               <TalkWithWoody>¡Chatea con Woody! </TalkWithWoody>
               <Link to="/SecondGift">
-              <ContinueButton>Continue</ContinueButton>
+              <ContinueButton onClick={handleSave}>Guardar y continuar</ContinueButton>
               </Link>
     </MainContainer>
     </>
