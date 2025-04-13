@@ -11,6 +11,7 @@ import {
   FourthContainer,
   Header,
   HeaderItems,
+  InnerSuccessApply,
   Logo,
   ProcessStepsContainer,
   ResponsibilitiesContainer,
@@ -23,6 +24,9 @@ import {
   StepLineContainer,
   StepNumber,
   StepWrapper,
+  StyledLink,
+  SuccessApply,
+  SuccessButton,
   TextContainer,
   ThirdContainer,
   ThirdContainerColumnsContainer,
@@ -48,6 +52,8 @@ export default function JobOpportunityView() {
   const [indispensable, setIndispensable] = useState(["", "", "", ""]);
   const [ideal, setIdeal] = useState(["", "", "", ""]);
   const [plus, setPlus] = useState(["", "", "", ""]);
+  const [showModal, setShowModal] = useState(false);
+  const [hasApplied, setHasApplied] = useState(false);
 
   const steps = [
     { reward: "50 Wiibucts", number: 1 },
@@ -88,6 +94,60 @@ export default function JobOpportunityView() {
     };
 
     fetchJob();
+  }, [jobId]);
+    
+  useEffect(() => {
+    console.log("✅ Qué buscamos:", { indispensable, ideal, plus });
+  }, [indispensable, ideal, plus]);
+    
+  const handleApply = async () => {
+    const userId = localStorage.getItem("userId");
+  
+    if (!userId) {
+      console.error("❌ No se encontró userId en localStorage");
+      return;
+    }
+  
+    try {
+      const response = await fetch("http://localhost:3000/api/auth/apply", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ userId, jobId })
+      });
+  
+      const data = await response.json();
+  
+      if (response.ok) {
+        console.log("✅ Postulación exitosa:", data);
+        setShowModal(true);
+      } else {
+        console.error("❌ Error en la postulación:", data);
+      }
+    } catch (error) {
+      console.error("❌ Error al postularse:", error);
+    }
+  };
+  
+  useEffect(() => {
+    const userId = localStorage.getItem("userId");
+  
+    if (!userId || !jobId) return;
+  
+    const checkApplication = async () => {
+      try {
+        const res = await fetch(
+          `http://localhost:3000/api/auth/has-applied?userId=${userId}&jobId=${jobId}`
+        );
+        const data = await res.json();
+        setHasApplied(data.applied);
+      } catch (err) {
+        console.error("❌ Error al verificar postulación:", err);
+      }
+    };
+  
+    checkApplication();
   }, [jobId]);
 
   return (
@@ -196,27 +256,46 @@ export default function JobOpportunityView() {
       <WhatWeLookingForContainer>
         <h2>Qué buscamos</h2>
         <div className="Needs-Container">
-          {[{ label: "Imprescindible", value: indispensable },
+            {[{ label: "Imprescindible", value: indispensable },
             { label: "Ideal", value: ideal },
             { label: "Es un plus", value: plus }]
             .map((section, i) => (
-              <div key={i}>
+                <div key={i}>
                 <h3>{section.label}</h3>
                 <div className="Needs-Columns">
-                  {section.value.map((val, idx) => (
+                    {section.value.map((val, idx) => (
                     <p key={idx}>{val}</p>
-                  ))}
+                    ))}
                 </div>
-              </div>
-          ))}
+                </div>
+            ))}
         </div>
-      </WhatWeLookingForContainer>
+        </WhatWeLookingForContainer>
 
-      <TextContainer>
+        <TextContainer>
         <h2>¿Sentís que esta oportunidad es para vos?</h2>
         <h3>Contanos qué te motiva a sumarte a este equipo.</h3>
-        {/* Acá podrías poner un botón para aplicar, si querés */}
-      </TextContainer>
+        {hasApplied ? (
+            <p style={{ fontWeight: "bold", color: "#2b8a3e" }}>
+            Ya te postulaste a este trabajo
+            </p>
+        ) : (
+            <button onClick={handleApply}>Postularse</button>
+        )}
+        </TextContainer>
+        
+        {showModal && (
+        <SuccessApply>
+            <InnerSuccessApply>
+            <h2>✅ Postulación enviada con éxito</h2>
+            <StyledLink to={'/JobFinder'}>
+            <SuccessButton onClick={() => setShowModal(false)}>
+                OK
+            </SuccessButton>
+            </StyledLink>
+            </InnerSuccessApply>
+        </SuccessApply>
+        )}
     </>
   );
 }

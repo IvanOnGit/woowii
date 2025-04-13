@@ -13,6 +13,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const Header = styled.header`
@@ -23,6 +24,7 @@ export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const Logo = styled.img`
@@ -36,12 +38,14 @@ export const SearchBar = styled.input`
   border: 1px solid white;
   background-color: transparent;
   text-align: center;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const HeaderItems = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
+  font-family: 'Roboto', sans-serif;
 
   p {
     display: flex;
@@ -63,7 +67,8 @@ export const HeaderItems = styled.div`
 export const BaseQuestions = styled.div`
   display: flex;
   margin-top: 12rem;
-  gap: 1rem;
+  gap: 3rem;
+  font-family: 'Roboto', sans-serif;
 
   img {
     width: 15rem;
@@ -83,12 +88,14 @@ export const BaseQuestionsInputs = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const BaseQuestionsInputsFirstContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  font-family: 'Roboto', sans-serif;
 
   input {
     border: none;
@@ -100,7 +107,7 @@ export const BaseQuestionsInputsFirstContainer = styled.div`
   .questions {
   display: flex;
   flex-direction: row; /* Para que estén uno al lado del otro */
-  gap: 1rem;
+  gap: 3rem;
 }
 
 .input-group {
@@ -120,20 +127,31 @@ export const BaseQuestionsInputsFirstContainer = styled.div`
   background-color: transparent;
   color: white;
 }
+
+h1 {
+  color: white;
+  margin: 0;
+}
+
+p {
+  color: white;
+} 
 `;
 
 export const BaseQuestionsInputsSecondContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  font-family: 'Roboto', sans-serif;
 
   h2 {
     color: white;
+    margin: 0;
   }
 
-  textarea {
+  p {
     padding: 1rem;
     height: 10rem;
+    width: 40rem;
     border-radius: 1rem;
     border: 1px solid white;
     background-color: transparent;
@@ -148,8 +166,9 @@ export const SecondContainer = styled.div`
   gap: 1rem;
   justify-content: center;
   align-items: center;
+  font-family: 'Roboto', sans-serif;
 
-  textarea {
+  p {
     padding: 1rem;
     height: 10rem;
     width: 40rem;
@@ -168,6 +187,8 @@ export const ThirdContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 5rem;
+  margin-bottom: 5rem;
+  font-family: 'Roboto', sans-serif;
 
   p {
     text-align: center;
@@ -187,14 +208,18 @@ export const ThirdContainer = styled.div`
 `;
 
 export const ThirdContainerColumnsContainer = styled.div`
+    border: 1px solid black;
+    border-radius: 1rem;
+    font-family: 'Roboto', sans-serif;
 `;
 
 export const SkillsContainer = styled.div`
-  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  margin-bottom: 5rem;
+  font-family: 'Roboto', sans-serif;
 
   .skills-content {
     display: flex;
@@ -217,8 +242,8 @@ export const SkillsContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0.5rem;
-    width: 100%;
-  }
+    width: 30%;
+}
 
   .tag {
     background-color: #4f46e5;
@@ -236,6 +261,8 @@ export const FourthContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 5rem;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const ProcessStepsContainer = styled.div`
@@ -244,6 +271,7 @@ export const ProcessStepsContainer = styled.div`
   padding: 20px 0;
   width: 100%;
   gap: 2rem; /* Espacio uniforme entre pasos */
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const StepWrapper = styled.div`
@@ -318,6 +346,7 @@ export const ResponsibilitiesContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: 'Roboto', sans-serif;
 
   h2 {
     font-size: 24px;
@@ -328,7 +357,6 @@ export const ResponsibilitiesContainer = styled.div`
 export const ResponsibilityInputGroup = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 12px;
 `;
 
 export const ResponsibilityInput = styled.input`
@@ -355,11 +383,11 @@ export const ResponsibilityButton = styled.button`
 `;
 
 export const WhatWeLookingForContainer = styled.div`
-  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: 'Roboto', sans-serif;
 
   .Needs-Container {
     display: flex;
@@ -377,7 +405,7 @@ export const WhatWeLookingForContainer = styled.div`
         border-radius: 1rem;
         padding: 1rem;
 
-        input {
+        p {
           border: none;
           border-bottom: 1px solid black;
       }
@@ -393,6 +421,7 @@ export const TextContainer = styled.div`
   margin-top: 4rem;
   margin-bottom: 4rem;
   gap: 1.5rem;
+  font-family: 'Roboto', sans-serif;
 
   h2 {
     margin: 0;
@@ -419,4 +448,36 @@ export const TextContainer = styled.div`
 export const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
+`;
+
+export const SuccessApply = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  font-family: 'Roboto', sans-serif;
+`;
+
+export const InnerSuccessApply = styled.div`
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+`;
+
+export const SuccessButton = styled.button`
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
 `;
