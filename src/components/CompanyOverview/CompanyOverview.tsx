@@ -207,6 +207,7 @@ import { AvatarToMobile,
     SearchContainer, 
     SearchUpToMobile, 
     SliderContainerTitle,   
+    StyledLink,   
     TextUnderImagesLeftDashBoard, 
     TextUnderImagesLeftDashBoardUpMobile, 
     TitleCommentAndMessages, 
@@ -394,9 +395,9 @@ export default function NewCompanyOverview() {
                     </div>
                 </ContainerColumnDashBoardDownLeft>
                   <ContainerColumnDashBoardDownRight>
-                      {/* <StyledLink to={'/CompanyOffer'}> */}
+                      <StyledLink to={'/Postulacion'}>
                           <ColumnDashBoardDownRightTitle>Hirings in Progress</ColumnDashBoardDownRightTitle>
-                      {/* </StyledLink> */}
+                      </StyledLink>
                     <FirstSquareRightDashboardUpMobile>
                         <ContainerFirstSquareRightHirings>
                             <VerticalSlider />

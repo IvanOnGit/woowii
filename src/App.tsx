@@ -34,6 +34,7 @@ import VoiceTextInput from './components/VoiceTextInput/VoiceTextInput'
 import UserLogin from './components/UserLogin/UserLogin'
 import CompanyLogin from './components/CompanyLogin/CompanyLogin'
 import RegisterCompanyProfileFormMobile from './components/RegisterCompanyProfileFormMobile/RegisterCompanyProfileFormMobile'
+import Postulacion from './components/Postulacion/Postulacion'
 
 
 
@@ -56,6 +57,7 @@ function App() {
         <Route path="/CompanyHome" element={<CompanyHome />} />
         <Route path="/AboutYourDNA" element={<AboutYourDNA />} />
         <Route path="/CompanyOverview" element={<CompanyOverview />} />
+        <Route path="/Postulacion" element={<Postulacion />} />
         <Route path="/CompanyOffer" element={<CompanyOffer />} />
         <Route path="/CompanyMatchFound" element={<CompanyMatchFound />} />
         <Route path="/CompanyCandidatesView" element={<CompanyCandidatesView />} />
