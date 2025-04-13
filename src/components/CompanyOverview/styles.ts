@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const MainContainer = styled.div`
@@ -45,6 +46,7 @@ export const OverviewContainer = styled.div`
   flex-direction: column;
   padding: 1rem;
   border: 1px solid black;
+  margin-bottom: 1rem;
 `;
 
 export const InnerContainerTwo = styled.div`
@@ -371,4 +373,14 @@ export const Avatar = styled.div`
     height: 100%;
     object-fit: cover;
   }
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+`;
+
+export const HiringsInnerContainer = styled.div`
+    border: 1px solid black;
+    padding: 1rem;
 `;

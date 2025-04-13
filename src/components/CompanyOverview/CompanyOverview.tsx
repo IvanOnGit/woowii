@@ -22,6 +22,8 @@ import {
   InnerContainerOne,
   OverviewContainer,
   InnerContainerTwo,
+  StyledLink,
+  HiringsInnerContainer,
 } from "./styles";
 
 export default function CompanyOverview() {
@@ -63,6 +65,30 @@ export default function CompanyOverview() {
       };
   
       fetchCompanyData();
+    }, [id]);
+  
+    interface Job {
+      id: number;
+      title: string;
+      salary: number;
+    }
+  
+    const [companyJobs, setCompanyJobs] = useState<Job[]>([]);
+
+    useEffect(() => {
+      const fetchCompanyJobs = async () => {
+        if (!id) return;
+
+        try {
+          const response = await fetch(`http://localhost:3000/api/auth/jobs/by-company/${id}`);
+          const data = await response.json();
+          setCompanyJobs(data);
+        } catch (error) {
+          console.error("Error fetching company jobs:", error);
+        }
+      };
+
+      fetchCompanyJobs();
     }, [id]);
 
   return (
@@ -194,7 +220,7 @@ export default function CompanyOverview() {
             </ContainerLogoCompAndUser>
           <SearchBar type="Búsqueda" placeholder="Búsqueda" />
           <HeaderItems>
-            <p><img src="/images/wiibucks.png" alt="wiibucks" />50</p>
+            <p><img src="/images/wiibucks.png" alt="wiibucks" />400</p>
             <p><img src="/images/wiibucks.png" alt="wiibucks" />00</p>
             <Bell />
             <Mail />
@@ -217,17 +243,34 @@ export default function CompanyOverview() {
                 <InnerContainerTwo>
                     <div className="duo">
                         <h2>Open Positions</h2>
-                        <button>Create New Offer</button>
+                        <StyledLink to={"/CompanyOffer"}>
+                          <button>Create New Offer</button>
+                        </StyledLink>
                     </div>
                     <OverviewContainer>
-                        <p>Matches</p>
-                        <p>Reviews</p>
-                        <h3>Interviews done</h3>
-                    </OverviewContainer>
+                      {companyJobs.length === 0 ? (
+                        <p>No open positions yet.</p>
+                      ) : (
+                        companyJobs.map((job) => (
+                          <div key={job.id} style={{ marginBottom: '1rem' }}>
+                            <h3>{job.title}</h3>
+                            <p>€ {job.salary}</p>
+                          </div>
+                        ))
+                      )}
+                  </OverviewContainer>
                 </InnerContainerTwo>
         </div>
         <div>
             <h2>Hirings in progress</h2>
+            <HiringsInnerContainer>
+              <h3>User 1</h3>
+              <p>Software Developer | Madrid</p>
+              <h3>User 2</h3>
+              <p>Data Scientist | Barcelona</p>
+              <h3>User 3</h3>
+              <p>Scrum Master | Valencia</p>
+            </HiringsInnerContainer>
         </div>
       </MainContainer>
     </>
