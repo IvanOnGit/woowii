@@ -381,6 +381,40 @@ export const StyledLink = styled(Link)`
 `;
 
 export const HiringsInnerContainer = styled.div`
-    border: 1px solid black;
-    padding: 1rem;
+  border: 1px solid black;
+  padding: 1rem;
+`;
+
+export const StyledNotification = styled.span`
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: red;
+  border-radius: 50%;
+  color: white;
+  padding: 2px 6px;
+  font-size: 12px;
+`;
+
+export const NotificationContainer = styled.div`
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  padding: 2rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  z-index: 9999;
+  font-family: 'Roboto', sans-serif;
+`;
+
+export const NotificationButton = styled.button`
+  margin-top: 1rem;
+  cursor: pointer;
+  background-color: blue;
+  color: white;
+  border-radius: 1rem;
+  border: none;
+  padding: 0.5rem;
 `;

@@ -24,6 +24,9 @@ import {
   InnerContainerTwo,
   StyledLink,
   HiringsInnerContainer,
+  StyledNotification,
+  NotificationContainer,
+  NotificationButton,
 } from "./styles";
 
 export default function CompanyOverview() {
@@ -34,6 +37,9 @@ export default function CompanyOverview() {
   const [isFifthDropdownOpen, setIsFifthDropdownOpen] = useState(false);
   const [isSixthDropdownOpen, setIsSixthDropdownOpen] = useState(false);
   const [isSeventhDropdownOpen, setIsSeventhDropdownOpen] = useState(false);
+  const [notificationCount, setNotificationCount] = useState(0);
+  const [newApplications, setNewApplications] = useState<{ jobTitle: string }[]>([]);
+  const [showModal, setShowModal] = useState(false);
   
    const id = localStorage.getItem("id");
     const [companyData, setCompanyData] = useState<{ Company_username: string; Company_avatar: string } | null>(null);
@@ -90,6 +96,37 @@ export default function CompanyOverview() {
 
       fetchCompanyJobs();
     }, [id]);
+  
+    useEffect(() => {
+      const fetchNotifications = async () => {
+        if (!id) return;
+        try {
+          const res = await fetch(`http://localhost:3000/api/auth/notifications?companyId=${id}`);
+          const data = await res.json();
+          setNotificationCount(data.total);
+        } catch (error) {
+          console.error("Error fetching notifications", error);
+        }
+      };
+    
+      fetchNotifications();
+    }, [id]);
+  
+    useEffect(() => {
+      const fetchNewApplications = async () => {
+        try {
+          const res = await fetch(`http://localhost:3000/api/auth/new-applications?companyId=${id}`);
+          const data = await res.json();
+          setNewApplications(data);
+        } catch (err) {
+          console.error("Error fetching new applications", err);
+        }
+      };
+    
+      if (showModal) {
+        fetchNewApplications();
+      }
+    }, [id, showModal]);
 
   return (
     <>
@@ -222,7 +259,14 @@ export default function CompanyOverview() {
           <HeaderItems>
             <p><img src="/images/wiibucks.png" alt="wiibucks" />400</p>
             <p><img src="/images/wiibucks.png" alt="wiibucks" />00</p>
-            <Bell />
+            <div style={{ position: 'relative' }}>
+            <Bell onClick={() => setShowModal(true)} style={{ cursor: "pointer" }} />
+            {notificationCount > 0 && (
+              <StyledNotification>
+                {notificationCount}
+              </StyledNotification>
+            )}
+          </div>
             <Mail />
             <BriefcaseBusiness />
             <Bookmark />
@@ -230,6 +274,21 @@ export default function CompanyOverview() {
           </HeaderItems>
         </Header>
       </ContainerWrapper>
+      {showModal && (
+        <NotificationContainer>
+          <h3>📢 Nuevas postulaciones</h3>
+          {newApplications.length === 0 ? (
+            <p>No hay nuevas postulaciones.</p>
+          ) : (
+            <ul>
+              {newApplications.map((item, index) => (
+                <li key={index}>🛎️ Nueva postulación en: <strong>{item.jobTitle}</strong></li>
+              ))}
+            </ul>
+          )}
+          <NotificationButton onClick={() => setShowModal(false)} style={{ marginTop: "1rem" }}>Cerrar</NotificationButton>
+        </NotificationContainer>
+      )}
       <MainContainer>
         <div className="vertical">
                 <InnerContainerOne>
@@ -255,6 +314,7 @@ export default function CompanyOverview() {
                           <div key={job.id} style={{ marginBottom: '1rem' }}>
                             <h3>{job.title}</h3>
                             <p>€ {job.salary}</p>
+                            <p>Number of candidates:</p>
                           </div>
                         ))
                       )}
