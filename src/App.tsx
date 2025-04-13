@@ -12,7 +12,6 @@ import PersonalityTest from './components/PersonalityTest/PersonalityTest'
 import PersonalityTestQuestions from './components/PersonalityTestQuestions/PersonalityTestQuestions'
 import CongratulationsSteps from './components/CongratulationsSteps/CongratulationsSteps'
 import JobFinder from './components/JobFinder/JobFinder'
-import JobOpportunity from './components/JobOpportunity/JobOpportunity'
 import MatchFound from './components/MatchFound/MatchFound'
 import StartingPoint from './components/StartingPoint/StartingPoint'
 import TransformationWelcome from './components/TransformationWelcome/TransformationWelcom'
@@ -33,6 +32,7 @@ import CompanyInterviewPage from './components/CompanyInterviewPage/CompanyInter
 import VoiceTextInput from './components/VoiceTextInput/VoiceTextInput'
 import UserLogin from './components/UserLogin/UserLogin'
 import CompanyLogin from './components/CompanyLogin/CompanyLogin'
+import JobOpportunityView from './components/JobOpportunity/JobOpportunity'
 
 
 
@@ -73,7 +73,7 @@ function App() {
         <Route path="/PersonalityTestQuestions" element={<PersonalityTestQuestions />} />
         <Route path="/CongratulationsSteps" element={<CongratulationsSteps />} />
         <Route path="/JobFinder" element={<JobFinder />} />
-        <Route path="/JobOpportunity" element={<JobOpportunity />} />
+        <Route path="/JobOpportunity/:jobId" element={<JobOpportunityView />} />
         <Route path="/MatchFound" element={<MatchFound />} />
       </Routes>    
     </Router>
