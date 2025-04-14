@@ -1,6 +1,5 @@
-
 import { useEffect, useState } from "react";
-import { ChevronDown, ChevronUp, MoreVertical, Briefcase, GraduationCap, Folder, X } from "lucide-react";
+import { ChevronDown, ChevronUp, MoreVertical, Briefcase, GraduationCap, Folder } from "lucide-react";
 import { 
   FirstMenuAsideItem, 
   MenuAside,
@@ -18,18 +17,9 @@ import {
   SkillTag,
   CandidateInfo,
   DropdownMenu,
-  DropdownItem,
-  ModalOverlay,
-  ModalContainer,
-  ModalHeader,
-  ModalContent,
-  ModalFooter,
-  ModalButton,
-  InputGroup,
-  StyledTextarea,
-  StyledInput
+  DropdownItem
 } from "./styles";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 export default function CompanyCandidatesView() {
   const [dropdowns, setDropdowns] = useState({
@@ -39,6 +29,8 @@ export default function CompanyCandidatesView() {
   interface Candidate {
     id: number;
     name: string;
+    username?: string;
+    profile_picture?: string;
     skills: string[];
     experience: string;
     degree: string;
@@ -48,13 +40,8 @@ export default function CompanyCandidatesView() {
   const [openDropdownId, setOpenDropdownId] = useState<number | null>(null);
   const { jobId } = useParams<{ jobId: string }>();
   const [candidates, setCandidates] = useState<Candidate[]>([]);
-  const [showModal, setShowModal] = useState(false);
-  const [selectedCandidate, setSelectedCandidate] = useState<Candidate | null>(null);
-  const [messageForm, setMessageForm] = useState({
-    subject: '',
-    message: ''
-  });
-
+  const navigate = useNavigate();
+    
   const toggleMenu = (id: number) => {
     setOpenDropdownId(prevId => (prevId === id ? null : id));
   };
@@ -66,33 +53,12 @@ export default function CompanyCandidatesView() {
     }));
   };
   
-  const handleOpenModal = (candidate: Candidate) => {
-    setSelectedCandidate(candidate);
-    setShowModal(true);
+  const handleViewProfile = (candidate: Candidate) => {
+    // Navegar al perfil del candidato con todos los datos
+    navigate(`/candidate/${candidate.id}`, { 
+      state: { candidateData: candidate } 
+    });
     setOpenDropdownId(null);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-    setMessageForm({ subject: '', message: '' });
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setMessageForm(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSendMessage = () => {
-    console.log("Enviando mensaje a:", selectedCandidate?.name);
-    console.log("Asunto:", messageForm.subject);
-    console.log("Mensaje:", messageForm.message);
-    
-    handleCloseModal();
-    
-    alert("Mensaje enviado correctamente");
   };
   
   useEffect(() => {
@@ -117,12 +83,14 @@ export default function CompanyCandidatesView() {
           }
             
           return {
-            id: index + 1,
+            id: candidate.id || index + 1,
             name: candidate.username || 'Usuario sin nombre',
+            username: candidate.username, // Guardamos el username original
+            profile_picture: candidate.profile_picture, // ¡Importante! Guardamos la imagen de perfil
             skills: skills,
-            experience: 'No especificada',
-            degree: 'No especificado',
-            lastProject: 'No especificado'
+            experience: candidate.experience || 'No especificada',
+            degree: candidate.degree || 'No especificado',
+            lastProject: candidate.lastProject || 'No especificado'
           };
         }) : [];
         
@@ -246,7 +214,7 @@ export default function CompanyCandidatesView() {
                 </MoreOptions>
                 {openDropdownId === candidate.id && (
                   <DropdownMenu>
-                    <DropdownItem onClick={() => handleOpenModal(candidate)}>Contactar</DropdownItem>
+                    <DropdownItem onClick={() => handleViewProfile(candidate)}>Ver perfil</DropdownItem>
                   </DropdownMenu>
                 )}
               </CandidateHeader>
@@ -268,49 +236,6 @@ export default function CompanyCandidatesView() {
           <p>No hay candidatos disponibles.</p>
         )}
       </MainContent>
-
-      {showModal && (
-        <ModalOverlay>
-          <ModalContainer>
-            <ModalHeader>
-              <h3>Contactar Candidato</h3>
-              <X onClick={handleCloseModal} style={{ cursor: 'pointer' }} />
-            </ModalHeader>
-            <ModalContent>
-              <InputGroup>
-                <label>Destinatario:</label>
-                <p>{selectedCandidate?.name || 'Usuario'}</p>
-              </InputGroup>
-              <InputGroup>
-                <label htmlFor="subject">Asunto:</label>
-                <StyledInput 
-                  type="text" 
-                  id="subject" 
-                  name="subject" 
-                  value={messageForm.subject} 
-                  onChange={handleInputChange} 
-                  placeholder="Escribe el asunto..."
-                />
-              </InputGroup>
-              <InputGroup>
-                <label htmlFor="message">Mensaje:</label>
-                <StyledTextarea 
-                  id="message" 
-                  name="message" 
-                  value={messageForm.message} 
-                  onChange={handleInputChange} 
-                  placeholder="Escribe tu mensaje..."
-                  rows={6}
-                />
-              </InputGroup>
-            </ModalContent>
-            <ModalFooter>
-              <ModalButton onClick={handleCloseModal} secondary>Cancelar</ModalButton>
-              <ModalButton onClick={handleSendMessage} primary>Enviar</ModalButton>
-            </ModalFooter>
-          </ModalContainer>
-        </ModalOverlay>
-      )}
     </>
   );
 }

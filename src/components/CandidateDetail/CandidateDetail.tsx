@@ -1,106 +1,86 @@
-import { Link } from "react-router-dom";
-import { BackSpiderDiv, 
-    BtnMatchCandidateDetail, 
-    ButtonNextCandidateDetail, 
-    CandidateDetailContainer, 
-    CenterCandidateDetailColumn, 
-    GraphBarCandidateDetail, 
-    HardsetDiv, 
-    ImageVideosCandidateDetail, 
-    LeftCandidateDetailColumn,  
-    LitleBlueDiv,    
-    LitleBlueDivCenterOne,  
-    LitleBlueDivCenterTwo,  
-    MatchAnalysisDiv, 
-    MenuCandidateDetail, 
-    NavigateBarCandidateDetail, 
-    PercentageBigGreen, 
-    RightCandidateDetailColumn, 
-    SoftsetDiv, 
-    SpiderGraph, 
-    SuperpowerDiv, 
-    ToolsetDiv, 
-    TxtUpCandidateDetail, 
-    UserImageCandidateDetail} from "./styles";
-import { ChevronLeft, 
-    Menu, 
-    ChartArea, 
-    Trophy, 
-    Eye, 
-    Wrench, 
-    Rocket} from "lucide-react";
-
+import { useEffect, useState } from "react";
+import { useParams, useLocation } from "react-router-dom";
+import { Container, SideMenu, MainContent, DescriptionContainer } from "./styles";
 
 export default function CandidateDetail() {
-  return (
-    <>
-    <NavigateBarCandidateDetail>
-        <ChevronLeft id="chevron" size={(24)} />
-        <MenuCandidateDetail>
-            <li>Home</li>
-            <li>How</li>
-            <li>Features</li>
-            <li>Payments</li>
-            <li>MVP</li>
-        </MenuCandidateDetail>
-        <Menu id="hambur" size={24} />
-    </NavigateBarCandidateDetail>
-    <CandidateDetailContainer>
-        <LeftCandidateDetailColumn>
-            <UserImageCandidateDetail src="/images/userImgCandidateDetails.svg" />
-                <h2>User_125a3j</h2>
-                <p id="work">Brand Manager</p>
-            <MatchAnalysisDiv>
-                <ChartArea size={24} color="#FFF" />
-                <p>Match Analisys</p>
-            </MatchAnalysisDiv>
-            <h3>ALL MY STORIES</h3>
-            <LitleBlueDiv />
-            <HardsetDiv>
-                <Trophy size={24} color="#FFF" />
-                <p>Hardset</p>
-            </HardsetDiv>
-            <SoftsetDiv>
-                <Eye size={24} color="#FFF" />
-                <p>Softset</p>
-            </SoftsetDiv>
-            <ToolsetDiv>
-                <Wrench size={24} color="#FFF" />
-                <p>Toolset</p>
-            </ToolsetDiv>
-            <SuperpowerDiv>
-                <Rocket size={24} color="#FFF" />
-                <p>Superpower</p>
-            </SuperpowerDiv>
-            <MatchAnalysisDiv>
-                <ChartArea size={24} color="#FFF" />
-                <p>Match Analisys</p>
-            </MatchAnalysisDiv>
-            <PercentageBigGreen src="/images/percentageBig.svg" alt="Porcentaje Grande Verde"/>
-            <BtnMatchCandidateDetail>
-                MATCH
-            </BtnMatchCandidateDetail>
-        </LeftCandidateDetailColumn>
-        <CenterCandidateDetailColumn>
-            <TxtUpCandidateDetail src="/images/textoUpCandDetail.svg" alt="Texto Superior" />
-            <h3>MY SKILLSET</h3>
-            <LitleBlueDivCenterOne />
-            <ImageVideosCandidateDetail src="/images/videosCandDetail.svg" alt="Cuadros de videos"/>
-            <h3 id="tool">MY TOOLSET</h3>
-            <LitleBlueDivCenterTwo />
-        </CenterCandidateDetailColumn>
-        <RightCandidateDetailColumn>
-            <GraphBarCandidateDetail src="/images/barrasCandidateDetail.svg" alt="Graphic Bars" />
-            <BackSpiderDiv>
-                <SpiderGraph src="/images/spiderGraph.svg" alt="Spider Graph" />
-            </BackSpiderDiv>
-            <Link to={'/CompanyInterviewPage'}>
-            <ButtonNextCandidateDetail>
-                Continuar
-            </ButtonNextCandidateDetail>
-            </Link>
-        </RightCandidateDetailColumn>
-    </CandidateDetailContainer>
-    </>
-  )
+    const { candidateId } = useParams<{ candidateId: string }>();
+    const location = useLocation();
+    const [candidate, setCandidate] = useState({
+        name: "User name",
+        title: "Desarrollador",
+        profilePicture: "/placeholder-user.png"
+    });
+    
+    // Para debugging - eliminar en producción
+    useEffect(() => {
+        if (location.state && location.state.candidateData) {
+            console.log("Datos recibidos en CandidateDetail:", location.state.candidateData);
+        }
+    }, [location.state]);
+    
+    useEffect(() => {
+        // Usar los datos pasados por state
+        if (location.state && location.state.candidateData) {
+            const candidateData = location.state.candidateData;
+            console.log("Profile picture:", candidateData.profile_picture);
+            
+            setCandidate({
+                name: candidateData.name || candidateData.username || 'Usuario sin nombre',
+                title: 'Desarrollador',
+                profilePicture: candidateData.profile_picture || "/placeholder-user.png"
+            });
+            return;
+        }
+        
+        // Si no hay state, intentar obtener los datos del API
+        const fetchCandidateDetails = async () => {
+            try {
+                const response = await fetch(`http://localhost:3000/api/auth/candidates/${candidateId}`);
+                
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                setCandidate({
+                    name: data.username || 'Usuario sin nombre',
+                    title: data.title || 'Desarrollador',
+                    profilePicture: data.profile_picture || "/placeholder-user.png"
+                });
+            } catch (error) {
+                console.error("Error fetching candidate details:", error);
+                setCandidate({
+                    name: `Candidato #${candidateId}`,
+                    title: 'Desarrollador',
+                    profilePicture: "/placeholder-user.png"
+                });
+            }
+        };
+        
+        if (candidateId) {
+            fetchCandidateDetails();
+        }
+    }, [candidateId, location.state]);
+
+    return (
+        <Container>
+            <SideMenu>
+                <img 
+                    src={candidate.profilePicture} 
+                    alt={`Foto de perfil de ${candidate.name}`}
+                    onError={(e) => {;
+                        e.currentTarget.src = "/placeholder-user.png";
+                    }}
+                />
+                <h2>{candidate.name}</h2>
+                <h3>{candidate.title}</h3>
+            </SideMenu>
+            <MainContent>
+                <DescriptionContainer>
+                    <h1>Acerca de {candidate.name}</h1>
+                    <p>This is the proper user description that is going to work as a placeholder</p>
+                </DescriptionContainer>
+            </MainContent>
+        </Container>
+    );
 }
