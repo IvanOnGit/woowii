@@ -272,6 +272,43 @@ export const HelpButton = styled.button`
     color: #385500;
 `;
 
+export const Description = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 25rem;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 3rem;
+
+  h1 {
+    font-size: 2rem;
+    color: #75B300;
+  }
+
+  textarea {
+    width: 30rem;
+    height: 5rem;
+    resize: none;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border: 1px solid black;
+  }
+
+  h2 {
+    font-size: 2rem;
+    color: #75B300;
+  }
+
+  input {
+    width: 20rem;
+    height: 2rem;
+    padding: 0.5rem;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+  }
+`;
+
 export const StoryExplanation = styled.div`
   display: flex;
   flex-direction: column;
@@ -325,7 +362,7 @@ export const AboutYou = styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
-  margin-top: -30rem;
+  margin-top: -50rem;
   margin-left: 89rem;
   gap: 0.2rem;
 
