@@ -129,6 +129,7 @@ export const CandidateCard = styled.div`
   padding: 1.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   margin-bottom: 2rem;
+  height: 15rem;
 `;
 export const CandidateHeader = styled.div`
   display: flex;
@@ -189,4 +190,126 @@ export const DropdownItem = styled.div`
 
 export const NoCandidates = styled.p`
   color: white;
+`;
+
+export const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  font-family: 'Roboto', sans-serif;
+`;
+
+export const ModalContainer = styled.div`
+  background-color: white;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+`;
+
+export const ModalHeader = styled.div`
+  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h3 {
+    margin: 0;
+    color: #333;
+  }
+`;
+
+export const ModalContent = styled.div`
+  overflow-y: hidden;
+  overflow-x: hidden;
+`;
+
+export const ModalFooter = styled.div`
+  padding: 16px;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+`;
+
+export const InputGroup = styled.div`
+  margin-bottom: 16px;
+  margin: 1rem;
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  p {
+    margin: 0;
+    color: #666;
+  }
+`;
+
+export const StyledInput = styled.input`
+  width: 96%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  
+  &:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+`;
+
+export const StyledTextarea = styled.textarea`
+  width: 96%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  resize: none;
+  
+  &:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+`;
+
+export const ModalButton = styled.button<{ primary?: boolean; secondary?: boolean }>`
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s;
+  
+  ${({ primary }) => primary && `
+    background-color: #007bff;
+    color: white;
+    
+    &:hover {
+      background-color: #0069d9;
+    }
+  `}
+  
+  ${({ secondary }) => secondary && `
+    background-color: #6c757d;
+    color: white;
+    
+    &:hover {
+      background-color: #5a6268;
+    }
+  `}
 `;

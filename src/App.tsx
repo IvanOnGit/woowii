@@ -26,7 +26,6 @@ import CompanyOverview from './components/CompanyOverview/CompanyOverview'
 import CompanyOffer from './components/CompanyOffer/CompanyOffer'
 import CompanyMatchFound from './components/CompanyMatchFound/CompanyMatchFound'
 import CompanyCandidatesView from './components/CompanyCandidatesView/CompanyCandidatesView'
-import CompanyCandidatesViewContact from './components/CompanyCandidatesViewContact/CompanyCandidatesViewContact'
 import CandidateDetail from './components/CandidateDetail/CandidateDetail'
 import CompanyInterviewPage from './components/CompanyInterviewPage/CompanyInterviewPage'
 import VoiceTextInput from './components/VoiceTextInput/VoiceTextInput'
@@ -57,7 +56,6 @@ function App() {
         <Route path="/CompanyOffer" element={<CompanyOffer />} />
         <Route path="/CompanyMatchFound" element={<CompanyMatchFound />} />
         <Route path="/CompanyCandidatesView/:jobId" element={<CompanyCandidatesView />} />
-        <Route path="/CompanyCandidatesViewContact" element={<CompanyCandidatesViewContact />} />
         <Route path="/CandidateDetail" element={<CandidateDetail />} />
         <Route path="/CompanyInterviewPage" element={<CompanyInterviewPage />} />
         <Route path="/RegisterUserForm" element={<RegistroUsuarioForm />} />
