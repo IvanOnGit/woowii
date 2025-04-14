@@ -7,9 +7,10 @@ export default function CandidateDetail() {
     const location = useLocation();
     const [candidate, setCandidate] = useState({
         name: "User name",
-        title: "Desarrollador",
+        title: "",
         profilePicture: "/placeholder-user.png",
         email: "",
+        description: "",
     });
 
     // Para debugging - eliminar en producción
@@ -20,7 +21,7 @@ export default function CandidateDetail() {
     }, [location.state]);
 
     useEffect(() => {
-        const fetchUserEmail = async (userId: string) => {
+        const fetchUserDetails = async (userId: string) => {
             try {
                 const res = await fetch(`http://localhost:3000/api/auth/get-user?userId=${userId}`);
                 const data = await res.json();
@@ -29,6 +30,8 @@ export default function CandidateDetail() {
                 setCandidate(prev => ({
                     ...prev,
                     email: data.email || "",
+                    title: data.title || "Sin título profesional",
+                    description: data.description || "Sin descripción"
                 }));
             } catch (error) {
                 console.error("Error al obtener detalles del usuario:", error);
@@ -42,12 +45,12 @@ export default function CandidateDetail() {
             setCandidate(prev => ({
                 ...prev,
                 name: candidateData.name || candidateData.username || "Usuario sin nombre",
-                title: "Desarrollador",
+                title: candidateData.title || "Sin título profesional",
                 profilePicture: candidateData.profile_picture || "/placeholder-user.png"
             }));
 
             if (userId) {
-                fetchUserEmail(userId);
+                fetchUserDetails(userId);
             }
             return;
         }
@@ -60,17 +63,19 @@ export default function CandidateDetail() {
 
                 setCandidate({
                     name: data.username || "Usuario sin nombre",
-                    title: data.title || "Desarrollador",
+                    title: data.title || "Sin título profesional",
                     profilePicture: data.profile_picture || "/placeholder-user.png",
                     email: data.email || "",
+                    description: data.description || "Sin descripción",
                 });
             } catch (error) {
                 console.error("Error fetching candidate details:", error);
                 setCandidate({
                     name: `Candidato #${candidateId}`,
-                    title: "Desarrollador",
+                    title: "Sin título profesional",
                     profilePicture: "/placeholder-user.png",
                     email: "",
+                    description: "No se pudo cargar la descripción",
                 });
             }
         };
@@ -97,7 +102,7 @@ export default function CandidateDetail() {
             <MainContent>
                 <DescriptionContainer>
                     <h1>Acerca de {candidate.name}</h1>
-                    <p>This is the proper user description that is going to work as a placeholder</p>
+                    <p>{candidate.description}</p>
                 </DescriptionContainer>
             </MainContent>
         </Container>
