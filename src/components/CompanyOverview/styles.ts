@@ -47,6 +47,16 @@ export const OverviewContainer = styled.div`
   padding: 1rem;
   border: 1px solid black;
   margin-bottom: 1rem;
+
+  button {
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    text-align: center;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
 `;
 
 export const InnerContainerTwo = styled.div`
@@ -68,6 +78,7 @@ export const InnerContainerTwo = styled.div`
       text-align: center;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
     }
   }
 `;

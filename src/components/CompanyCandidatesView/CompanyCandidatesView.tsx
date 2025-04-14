@@ -1,4 +1,5 @@
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
 import { ChevronDown, ChevronUp, MoreVertical, Briefcase, GraduationCap, Folder } from "lucide-react";
 import { 
   FirstMenuAsideItem, 
@@ -17,17 +18,30 @@ import {
   SkillTag,
   CandidateInfo,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
+  NoCandidates
 } from "./styles";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function CompanyCandidatesView() {
   const [dropdowns, setDropdowns] = useState({
     technicalSkills: false,
   });
 
+  interface Candidate {
+    id: number;
+    name: string;
+    skills: string[];
+    experience: string;
+    degree: string;
+    lastProject: string;
+  }
+
   const [openDropdownId, setOpenDropdownId] = useState<number | null>(null);
-  
+  const { jobId } = useParams<{ jobId: string }>();
+  const [candidates, setCandidates] = useState<Candidate[]>([]);
+
+
   const toggleMenu = (id: number) => {
     setOpenDropdownId(prevId => (prevId === id ? null : id));
   };
@@ -38,81 +52,53 @@ export default function CompanyCandidatesView() {
       [dropdown]: !prev[dropdown] 
     }));
   };
-
-  const candidates = [
-    { 
-      id: 1, 
-      name: "Luciana Ferreira", 
-      skills: ["Vue.js", "JavaScript", "Tailwind"], 
-      experience: "4 years of experience", 
-      degree: "B.S in Information Systems", 
-      lastProject: "Real Estate Platform" 
-    },
-    { 
-      id: 2, 
-      name: "Andrés Castro", 
-      skills: ["React", "Redux", "TypeScript"], 
-      experience: "6 years of experience", 
-      degree: "M.S in Computer Science", 
-      lastProject: "Healthcare Management System" 
-    },
-    { 
-      id: 3, 
-      name: "Fernanda Lopes", 
-      skills: ["Angular", "RxJS", "SCSS"], 
-      experience: "5 years of experience", 
-      degree: "B.S in Software Engineering", 
-      lastProject: "Inventory Tracking App" 
-    },
-    { 
-      id: 4, 
-      name: "Javier Morales", 
-      skills: ["Node.js", "Express", "MongoDB"], 
-      experience: "7 years of experience", 
-      degree: "M.S in Information Technology", 
-      lastProject: "CRM System" 
-    },
-    { 
-      id: 5, 
-      name: "Camila Rodríguez", 
-      skills: ["Python", "Django", "PostgreSQL"], 
-      experience: "4 years of experience", 
-      degree: "B.S in Computer Science", 
-      lastProject: "E-Learning Platform" 
-    },
-    { 
-      id: 6, 
-      name: "Diego Fernández", 
-      skills: ["React Native", "JavaScript", "Firebase"], 
-      experience: "3 years of experience", 
-      degree: "B.S in Software Development", 
-      lastProject: "Mobile Banking App" 
-    },
-    { 
-      id: 7, 
-      name: "Laura Méndez", 
-      skills: ["PHP", "Laravel", "MySQL"], 
-      experience: "6 years of experience", 
-      degree: "M.S in Web Development", 
-      lastProject: "Online Booking System" 
-    },
-    { 
-      id: 8, 
-      name: "Mateo Silva", 
-      skills: ["Java", "Spring Boot", "Kafka"], 
-      experience: "5 years of experience", 
-      degree: "B.S in Computer Engineering", 
-      lastProject: "Supply Chain Optimization Tool" 
-    },
-    { 
-      id: 9, 
-      name: "Isabela Ruiz", 
-      skills: ["Flutter", "Dart", "GraphQL"], 
-      experience: "3 years of experience", 
-      degree: "B.S in Mobile Computing", 
-      lastProject: "Fitness Tracking App" 
-    }
-  ];
+  
+  useEffect(() => {
+    const fetchCandidates = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/api/auth/candidates/by-job?jobId=${jobId}`);
+        const data = await response.json();
+        
+        // Imprimir los datos recibidos para debug
+        console.log("Datos recibidos del API:", data);
+        
+        // Transformar los datos recibidos para que coincidan con la estructura que espera el componente
+        const formattedCandidates = Array.isArray(data) ? data.map((candidate, index) => {
+          // Manejar el campo toolset de manera segura
+          let skills: string[] = ['No skills specified'];
+          
+          if (candidate.toolset) {
+            if (typeof candidate.toolset === 'string') {
+              // Si es una cadena, intentamos dividirla
+              skills = candidate.toolset.split(',').map((skill: string) => skill.trim());
+            } else if (Array.isArray(candidate.toolset)) {
+              // Si ya es un array, lo usamos directamente
+              skills = candidate.toolset;
+            } else {
+              // Si es otro tipo (objeto, número, etc.), lo convertimos a string
+              skills = [String(candidate.toolset)];
+            }
+          }
+            
+          return {
+            id: index + 1, // Asignar un ID único basado en el índice
+            name: candidate.username || 'Usuario sin nombre',
+            skills: skills,
+            experience: 'No especificada',
+            degree: 'No especificado',
+            lastProject: 'No especificado'
+          };
+        }) : [];
+        
+        setCandidates(formattedCandidates);
+      } catch (error) {
+        console.error("Error fetching candidates:", error);
+        setCandidates([]); // Establecer un array vacío en caso de error
+      }
+    };
+  
+    if (jobId) fetchCandidates();
+  }, [jobId]);
   
   const navigate = useNavigate();
 
@@ -222,34 +208,38 @@ export default function CompanyCandidatesView() {
 
       {/* Contenedor Principal */}
       <MainContent>
-      {candidates.map(candidate => (
-        <CandidateCard key={candidate.id}>
-          <CandidateHeader>
-            <CandidateName>{candidate.name}</CandidateName>
-            <MoreOptions onClick={() => toggleMenu(candidate.id)}>
-              <MoreVertical />
-            </MoreOptions>
-            {openDropdownId === candidate.id && (
-              <DropdownMenu>
-                <DropdownItem onClick={handleContinueClick}>Contactar</DropdownItem>
-              </DropdownMenu>
-            )}
-          </CandidateHeader>
+        {candidates.length > 0 ? (
+          candidates.map(candidate => (
+            <CandidateCard key={candidate.id}>
+              <CandidateHeader>
+                <CandidateName>{candidate.name}</CandidateName>
+                <MoreOptions onClick={() => toggleMenu(candidate.id)}>
+                  <MoreVertical />
+                </MoreOptions>
+                {openDropdownId === candidate.id && (
+                  <DropdownMenu>
+                    <DropdownItem onClick={handleContinueClick}>Contactar</DropdownItem>
+                  </DropdownMenu>
+                )}
+              </CandidateHeader>
 
-          <SkillsContainer>
-            {candidate.skills.map(skill => (
-              <SkillTag key={skill}>{skill}</SkillTag>
-            ))}
-          </SkillsContainer>
+              <SkillsContainer>
+                {candidate.skills.map((skill: string) => (
+                  <SkillTag key={skill}>{skill}</SkillTag>
+                ))}
+              </SkillsContainer>
 
-          <CandidateInfo>
-            <p><Briefcase size={18} /> {candidate.experience}</p>
-            <p><GraduationCap size={18} /> {candidate.degree}</p>
-            <p><Folder size={18} /> Last Project: {candidate.lastProject}</p>
-          </CandidateInfo>
-        </CandidateCard>
-      ))}
-    </MainContent>
+              <CandidateInfo>
+                <p><Briefcase size={18} /> {candidate.experience}</p>
+                <p><GraduationCap size={18} /> {candidate.degree}</p>
+                <p><Folder size={18} /> Last Project: {candidate.lastProject}</p>
+              </CandidateInfo>
+            </CandidateCard>
+          ))
+        ) : (
+          <NoCandidates>No hay candidatos disponibles.</NoCandidates>
+        )}
+      </MainContent>
     </>
   );
 }

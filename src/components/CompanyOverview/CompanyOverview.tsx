@@ -314,7 +314,9 @@ export default function CompanyOverview() {
                           <div key={job.id} style={{ marginBottom: '1rem' }}>
                             <h3>{job.title}</h3>
                             <p>€ {job.salary}</p>
-                            <p>Number of candidates:</p>
+                            <StyledLink to={`/CompanyCandidatesView/${job.id}`}>  
+                              <button>Candidates</button>
+                            </StyledLink>
                           </div>
                         ))
                       )}

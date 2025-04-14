@@ -186,3 +186,7 @@ export const DropdownItem = styled.div`
     background-color: rgba(255, 255, 255, 0.1);
   }
 `;
+
+export const NoCandidates = styled.p`
+  color: white;
+`;
