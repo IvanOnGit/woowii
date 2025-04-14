@@ -4,7 +4,7 @@ export const NavContainer = styled.div`
     display: none;
     @media(max-width: 768px){
         background: #75B300;
-        width: 393px;
+        width: 100vh;
         height: 62px;
         color:white;
         font-weight: bold;

@@ -6,6 +6,13 @@ export const MainContainer = styled.div`
     overflow-x: hidden;
     height: 100vh;
 
+    @media(max-width: 768px){
+      overflow-y: hidden;
+      overflow-x: hidden;
+      width: 110vh;
+      height: 135vh;
+    }
+
     &::-webkit-scrollbar {
     width: 6px;
   }
@@ -72,6 +79,10 @@ export const MenuAside = styled.div`
   font-family: 'Roboto', sans-serif;
   overflow-y: auto;
   overflow-x: hidden;
+
+  @media(max-width: 768px){
+    display: none;
+  }
 
   &::-webkit-scrollbar {
     width: 6px;
@@ -274,6 +285,10 @@ export const SearchBar = styled.div`
     margin-left: 45rem;
     position: absolute;
     margin-top: 2rem;
+
+    @media(max-width: 768px){
+      margin-left: 1rem;
+    }
     
     input {
       border-radius: 1rem;
@@ -292,6 +307,12 @@ export const MainTitleAndSubtitle = styled.div`
     margin-top: 1rem;
     margin-left: 25rem;
     gap: 1rem;
+
+    @media(max-width: 768px){
+      margin-left: 0rem;
+    }
+
+
 
     h1 {
       font-size: 3rem;
@@ -321,13 +342,38 @@ export const GreenCentralContainer = styled.div`
     text-align: left;
     width: 40%;
 
+    @media(max-width: 768px){
+      margin-left: 13rem;
+      width: 60vh;
+      display: block;
+      border-radius: 3rem;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+
     h2 {
       font-size: 2rem;
       line-height: 2rem;
-    }
 
+      @media(max-width: 768px){
+        margin-left: 4rem;
+
+      } 
+    }
+    p{
+
+      @media(max-width: 768px){
+        font-size: 1.5rem;
+        margin-left: 4rem;
+      }
+    }
+  
     h3 {
       margin: 0;
+      @media(max-width: 768px){
+        font-size: 1.5rem;
+        margin-left: 4rem;
+      }
     }
 `;
 
@@ -337,6 +383,12 @@ export const LastParragraph = styled.div`
   margin-top: 1rem;
   font-family: 'Roboto', sans-serif;
   font-size: 1.2rem;
+
+  @media(max-width: 768px){
+    font-size: 2rem;
+    margin-left: 12rem;
+
+  }
 
   p {
     font-weight: 500;
@@ -348,6 +400,14 @@ export const LastThreeItems = styled.div`
   margin-left: 25rem;
   font-family: 'Roboto', sans-serif;
   gap: 2rem;
+
+  @media(max-width: 768px){
+    font-size: 2rem;
+    margin-left: 12rem;
+
+  }
+  
+
 `;
 
 export const LastThreeGreenImages = styled.div`
@@ -385,6 +445,16 @@ export const JobsContainer = styled.div`
   padding: 1rem;
   font-family: 'Roboto', sans-serif;
   overflow-y: auto;
+
+
+  @media(max-width: 768px){
+    position: relative;
+    overflow-y: unset;
+    margin-top: 16rem;
+    margin-bottom: 3rem;
+
+  }
+  
 
   &::-webkit-scrollbar {
     width: 6px;
@@ -429,4 +499,14 @@ export const JobsContainer = styled.div`
 export const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
+`;
+
+export const UserMenuFooter = styled(Link)`
+  display: none;
+
+  @media(max-width: 768px){
+    display: flex;
+
+  }
+
 `;

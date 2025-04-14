@@ -29,6 +29,7 @@ import {
   JobsContainer,
   StyledLink,
 } from "./styles";
+import UserMenuFooter from "../UserMenuFooter/UserMenuFooter";
 
 export default function JobFinder() {
   const [isFirstDropdownOpen, setIsFirstDropdownOpen] = useState(false);
@@ -252,6 +253,8 @@ export default function JobFinder() {
             <p>Lorem ipsum dolor sit amet, consectetur <br /> adipiscing elit, sed do eiusmod tempor incididunt <br /> ut labore et dolore magna aliqua.</p>
             <span></span>
     </JobsContainer>
+
+    <UserMenuFooter></UserMenuFooter>
     </>
   );
 }
