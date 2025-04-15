@@ -83,7 +83,8 @@ export default function CompanyCandidatesView() {
           }
             
           return {
-            id: candidate.id || index + 1,
+            id: candidate.userId || index + 1, // Ahora usamos el userId real
+            applicationId: candidate.applicationId,
             name: candidate.username || 'Usuario sin nombre',
             username: candidate.username, // Guardamos el username original
             profile_picture: candidate.profile_picture, // ¡Importante! Guardamos la imagen de perfil

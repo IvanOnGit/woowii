@@ -5,6 +5,7 @@ import { Container, SideMenu, MainContent, DescriptionContainer } from "./styles
 export default function CandidateDetail() {
     const { candidateId } = useParams<{ candidateId: string }>();
     const location = useLocation();
+
     const [candidate, setCandidate] = useState({
         name: "User name",
         title: "",
@@ -13,12 +14,15 @@ export default function CandidateDetail() {
         description: "",
     });
 
-    // Para debugging - eliminar en producción
+    const applicationId = location.state?.candidateData?.applicationId;
+
+    // Para debugging
     useEffect(() => {
         if (location.state && location.state.candidateData) {
             console.log("Datos recibidos en CandidateDetail:", location.state.candidateData);
+            console.log("Application ID:", applicationId);
         }
-    }, [location.state]);
+    }, [applicationId, location.state]);
 
     useEffect(() => {
         const fetchUserDetails = async (userId: string) => {
@@ -85,6 +89,34 @@ export default function CandidateDetail() {
         }
     }, [candidateId, location.state]);
 
+    const handleAcceptCandidate = async () => {
+        if (!applicationId) {
+            console.error("No se encontró el applicationId");
+            return;
+        }
+
+        try {
+            const response = await fetch(`http://localhost:3000/api/auth/applications/${applicationId}/match`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ status: "matched" })
+            });
+
+            if (!response.ok) {
+                throw new Error(`Error al aceptar candidato: ${response.status}`);
+            }
+
+            const result = await response.json();
+            console.log("Candidato aceptado:", result);
+            alert("Candidato aceptado correctamente ✅");
+        } catch (error) {
+            console.error("Error al aceptar candidato:", error);
+            alert("Hubo un error al aceptar al candidato ❌");
+        }
+    };
+
     return (
         <Container>
             <SideMenu>
@@ -103,6 +135,7 @@ export default function CandidateDetail() {
                 <DescriptionContainer>
                     <h1>Acerca de {candidate.name}</h1>
                     <p>{candidate.description}</p>
+                    <button onClick={handleAcceptCandidate}>Aceptar Candidato</button>
                 </DescriptionContainer>
             </MainContent>
         </Container>
