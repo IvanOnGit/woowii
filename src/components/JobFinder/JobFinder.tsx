@@ -28,6 +28,7 @@ import {
   MainContainer,
   JobsContainer,
   StyledLink,
+  Container
 } from "./styles";
 import UserMenuFooter from "../UserMenuFooter/UserMenuFooter";
 
@@ -160,7 +161,8 @@ export default function JobFinder() {
         </Published>
         <HelpButton> Chat de ayuda</HelpButton>
       </MenuAside>
-    <MainContainer>
+    <Container>
+      <MainContainer>
         <ContainerWrapper>
             <Header>
             <HeaderItems>
@@ -178,7 +180,7 @@ export default function JobFinder() {
         </SearchBar>
         </ContainerWrapper>
         <MainTitleAndSubtitle>
-            <h1>¡Encontramos tu siguiente<br /> experiencia profesional!</h1>
+            <h1>¡Encontramos tu siguiente experiencia profesional!</h1>
             <p>Tu futuro profesional comienza aquí. Descubre ofertas de empleo <br /> personalizadas y herramientas para impulsar tu carrera.</p>
         </MainTitleAndSubtitle>
         <GreenCentralContainer>
@@ -255,6 +257,8 @@ export default function JobFinder() {
     </JobsContainer>
 
     <UserMenuFooter></UserMenuFooter>
+    </Container>
+    
     </>
   );
 }

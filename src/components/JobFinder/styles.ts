@@ -2,15 +2,12 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const MainContainer = styled.div`
-    overflow-y: auto;
-    overflow-x: hidden;
     height: 100vh;
 
     @media(max-width: 768px){
-      overflow-y: hidden;
-      overflow-x: hidden;
       width: 110vh;
-      height: 135vh;
+      height: 105vh;
+
     }
 
     &::-webkit-scrollbar {
@@ -43,6 +40,13 @@ export const Header = styled.header`
   height: 10%;
   padding: 1rem;
   justify-content: flex-end;
+
+
+  @media(max-width: 768px){
+    display: block;
+
+  }
+
 `;
 
 export const HeaderItems = styled.div`
@@ -51,6 +55,12 @@ export const HeaderItems = styled.div`
   justify-content: center;
   gap: 1rem;
   margin-top: 1rem;
+
+  @media(max-width: 768px){
+    margin-right: 0rem;
+    gap: 0.4rem;
+
+  }
 
   p {
     display: flex;
@@ -288,6 +298,10 @@ export const SearchBar = styled.div`
 
     @media(max-width: 768px){
       margin-left: 1rem;
+      position: relative;
+      margin-right: 36rem;
+
+
     }
     
     input {
@@ -296,6 +310,12 @@ export const SearchBar = styled.div`
       padding: 0.5rem;
       width: 20rem;
       text-align: center;
+
+      @media(max-width: 768px){
+        width: 6rem;
+        height: 1rem;
+    
+      }
     }
 `;
 
@@ -312,19 +332,29 @@ export const MainTitleAndSubtitle = styled.div`
       margin-left: 0rem;
     }
 
-
-
     h1 {
       font-size: 3rem;
       margin: 0;
       background: linear-gradient(90deg, #6ABF4B, #37A139);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+
+      @media(max-width: 768px){
+        font-size: 1rem;
+        margin-left: 1rem;
+
+      }
     }
 
     p {
       font-size: 1.3rem;
       margin: 0;
+
+      @media(max-width: 768px){
+        font-size: 0.7rem;
+        margin-left: 1rem;
+
+      }
     }
 `;
 
@@ -343,17 +373,19 @@ export const GreenCentralContainer = styled.div`
     width: 40%;
 
     @media(max-width: 768px){
-      margin-left: 13rem;
-      width: 60vh;
+      margin-left: 2rem;
+      width: 40vh;
       display: block;
       border-radius: 3rem;
-      padding-top: 4rem;
-      padding-bottom: 4rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      display: block;
+
     }
 
     h2 {
-      font-size: 2rem;
-      line-height: 2rem;
+      font-size: 1rem;
+      line-height: 1.5rem;
 
       @media(max-width: 768px){
         margin-left: 4rem;
@@ -363,7 +395,7 @@ export const GreenCentralContainer = styled.div`
     p{
 
       @media(max-width: 768px){
-        font-size: 1.5rem;
+        font-size: 1rem;
         margin-left: 4rem;
       }
     }
@@ -371,7 +403,7 @@ export const GreenCentralContainer = styled.div`
     h3 {
       margin: 0;
       @media(max-width: 768px){
-        font-size: 1.5rem;
+        font-size: 1rem;
         margin-left: 4rem;
       }
     }
@@ -385,9 +417,9 @@ export const LastParragraph = styled.div`
   font-size: 1.2rem;
 
   @media(max-width: 768px){
-    font-size: 2rem;
-    margin-left: 12rem;
-
+    font-size: 0.8rem;
+    margin-left: 2rem;
+    margin-right: 33rem;
   }
 
   p {
@@ -402,12 +434,10 @@ export const LastThreeItems = styled.div`
   gap: 2rem;
 
   @media(max-width: 768px){
-    font-size: 2rem;
-    margin-left: 12rem;
-
+    font-size: 0.8rem;
+    margin-left: 2rem;
+    margin-right: 33rem;
   }
-  
-
 `;
 
 export const LastThreeGreenImages = styled.div`
@@ -448,10 +478,12 @@ export const JobsContainer = styled.div`
 
 
   @media(max-width: 768px){
-    position: relative;
     overflow-y: unset;
-    margin-top: 16rem;
-    margin-bottom: 3rem;
+    margin-top: 4rem;
+    margin-right: 2rem;
+    margin-bottom: 15rem;
+    position: relative;
+
 
   }
   
@@ -506,7 +538,17 @@ export const UserMenuFooter = styled(Link)`
 
   @media(max-width: 768px){
     display: flex;
+  }
 
+`;
+
+export const Container = styled.div`
+
+  @media(max-width: 768px){
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 107vh;
+    width: 49vh;
   }
 
 `;
