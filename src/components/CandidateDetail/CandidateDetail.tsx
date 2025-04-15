@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { Container, SideMenu, MainContent, DescriptionContainer } from "./styles";
 
 export default function CandidateDetail() {
@@ -89,31 +89,58 @@ export default function CandidateDetail() {
         }
     }, [candidateId, location.state]);
 
-    const handleAcceptCandidate = async () => {
-        if (!applicationId) {
-            console.error("No se encontró el applicationId");
-            return;
-        }
+    const navigate = useNavigate();
 
+    const handleAcceptCandidate = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/api/auth/applications/${applicationId}/match`, {
+            const res = await fetch(`http://localhost:3000/api/auth/applications/${applicationId}/match`, {
                 method: "PATCH",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ status: "matched" })
             });
-
-            if (!response.ok) {
-                throw new Error(`Error al aceptar candidato: ${response.status}`);
-            }
-
-            const result = await response.json();
-            console.log("Candidato aceptado:", result);
-            alert("Candidato aceptado correctamente ✅");
+        
+            if (!res.ok) throw new Error("Error al aceptar candidato");
+        
+            // Fetch de datos extra para el match
+            const userDetails = await fetch(`http://localhost:3000/api/auth/get-user?userId=${candidateId}`);
+            const userData = await userDetails.json();
+        
+            const companyId = localStorage.getItem("id");
+            const companyDetails = await fetch(`http://localhost:3000/api/auth/get-company?id=${companyId}`);
+            const companyData = await companyDetails.json();
+        
+            // Agregar logs más detallados para depuración
+            console.log("Datos del usuario completos:", userData);
+            console.log("Datos de la empresa completos:", companyData);
+            console.log("Propiedades del usuario:", Object.keys(userData));
+            console.log("Propiedades de la empresa:", Object.keys(companyData));
+            
+            // Determinar los valores correctos para pasar
+            const userFullname = userData.name || userData.username || userData.fullname || candidate.name || "Usuario sin nombre";
+            const userImage = userData.profile_picture || candidate.profilePicture || "/placeholder-user.png";
+            const companyFullname = companyData.Company_fullname;
+            const companyImage = companyData.Company_avatar;
+            
+            // Log de los valores finales que se pasarán
+            console.log("Valores que voy a pasar:", {
+                userFullname,
+                userImage,
+                companyFullname,
+                companyImage
+            });
+        
+            // Navegación con los valores corregidos
+            navigate("/match-found", {
+                state: {
+                    userFullname,
+                    userImage,
+                    companyFullname,
+                    companyImage,
+                },
+            });
         } catch (error) {
             console.error("Error al aceptar candidato:", error);
-            alert("Hubo un error al aceptar al candidato ❌");
         }
     };
 

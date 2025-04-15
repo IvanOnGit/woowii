@@ -148,7 +148,7 @@ export default function CompanyOffer() {
 
       if (!response.ok) throw new Error(data.message || "Error al crear el trabajo");
 
-      navigate("/CompanyCandidatesView");
+      navigate("/CompanyOverview");
     } catch (err) {
         console.error(err);
         setErrorMessage("Error al conectar con el servidor");

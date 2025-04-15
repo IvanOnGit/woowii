@@ -1,31 +1,22 @@
-import { useNavigate } from 'react-router-dom';
-import { BackgroundZigZag, BlueLogoWoowii, Container, ItsAMatch, MatchHandShake, WhatWooWiiConnects } from "./styles";
+import { useLocation } from "react-router-dom";
+import { Container, HandShakeContainer, ItsaMatch } from "./styles";
 
 export default function CompanyMatchFound() {
-    const navigate = useNavigate();
+  const location = useLocation();
+  const { userFullname, userImage, companyFullname, companyImage } = location.state || {};
+  
+  console.log("Datos recibidos en match:", location.state);
 
-    const handleKeyDown = (event: { key: string; }) => {
-        if (event.key === 'Enter') {
-            
-            navigate('/CandidateDetail');
-        }
-    };
-
-    return (
-        <>
-        <Container>
-                <BackgroundZigZag src="/images/ZigZagWhite.png" alt="" />
-                <ItsAMatch src="/images/ItsAMatch.png" alt="" />
-                <MatchHandShake src="/images/MatchHandShake.png" alt="" />
-                <h1>La <strong>Desarrolladora</strong> y la <strong>recruiter</strong></h1>
-                <WhatWooWiiConnects src="/images/WhatWoowiiConnects.png" alt="" />
-                <input 
-                    type="text" 
-                    placeholder="¡Hora de romper el hielo!" 
-                    onKeyDown={handleKeyDown}
-                />
-                <BlueLogoWoowii src="/images/BlueLogoWoowii.png" alt="" />
-        </Container>
-        </>
-    );
+  return (
+    <Container>
+      <ItsaMatch src="/images/ItsAMatch.png" alt="It's a Match" />
+      <HandShakeContainer>
+        <img src={userImage} alt={userFullname} />
+        <img src={companyImage} alt={companyFullname} />
+      </HandShakeContainer>
+      <h1>
+        <strong>{userFullname}</strong> y <strong>{companyFullname}</strong>
+      </h1>
+    </Container>
+  );
 }

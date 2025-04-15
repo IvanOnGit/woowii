@@ -54,7 +54,7 @@ function App() {
         <Route path="/AboutYourDNA" element={<AboutYourDNA />} />
         <Route path="/CompanyOverview" element={<CompanyOverview />} />
         <Route path="/CompanyOffer" element={<CompanyOffer />} />
-        <Route path="/CompanyMatchFound" element={<CompanyMatchFound />} />
+        <Route path="/match-found" element={<CompanyMatchFound />} />
         <Route path="/CompanyCandidatesView/:jobId" element={<CompanyCandidatesView />} />
         <Route path="/candidate/:candidateId" element={<CandidateDetail />} />
         <Route path="/CompanyInterviewPage" element={<CompanyInterviewPage />} />
