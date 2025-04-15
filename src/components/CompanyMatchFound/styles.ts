@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components"
 
 export const Container = styled.div`
@@ -25,8 +26,43 @@ export const ItsaMatch = styled.img`
 export const HandShakeContainer = styled.div`
     display: flex;
     img {
-        width: 10rem;
-        height: 10rem;
+        width: 12rem;
         border-radius: 50%;
     }
+`;
+
+export const NamesContainer = styled.div`
+    display: flex;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+
+    h1 {
+        font-size: 2.5rem;
+    }
+`;
+
+export const HandShake = styled.img`
+    width: 8rem;
+    position: absolute;
+    margin-top: 9rem;
+`;
+
+export const ButtonsContainer = styled.div`
+    display: flex;
+    gap: 1rem;
+
+    button {
+        background-color: white;
+        border: none;
+        border-radius: 1rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        width: 8.5rem;
+        color: black;
+    }
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
 `;

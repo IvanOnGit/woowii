@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { Container, HandShakeContainer, ItsaMatch } from "./styles";
+import { ButtonsContainer, Container, HandShake, HandShakeContainer, ItsaMatch, NamesContainer, StyledLink } from "./styles";
 
 export default function CompanyMatchFound() {
   const location = useLocation();
@@ -10,13 +10,20 @@ export default function CompanyMatchFound() {
   return (
     <Container>
       <ItsaMatch src="/images/ItsAMatch.png" alt="It's a Match" />
+      <HandShake src="/images/Handshake.svg" alt="" />
       <HandShakeContainer>
         <img src={userImage} alt={userFullname} />
         <img src={companyImage} alt={companyFullname} />
       </HandShakeContainer>
-      <h1>
-        <strong>{userFullname}</strong> y <strong>{companyFullname}</strong>
-      </h1>
+      <NamesContainer>
+        <h1><strong>{userFullname}</strong> y <strong>{companyFullname}</strong></h1>
+      </NamesContainer>
+      <ButtonsContainer>
+        <StyledLink to={"/CompanyOverview"}>
+          <button>Salir</button>
+        </StyledLink>
+        <button>Contactar</button>
+      </ButtonsContainer>
     </Container>
   );
 }

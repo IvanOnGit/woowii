@@ -117,7 +117,7 @@ export default function CandidateDetail() {
             console.log("Propiedades de la empresa:", Object.keys(companyData));
             
             // Determinar los valores correctos para pasar
-            const userFullname = userData.fullname || userData.username ||"Usuario sin nombre";
+            const userFullname = userData.fullname || userData.username || "Usuario sin nombre";
             const userImage = userData.profile_picture || candidate.profilePicture || "/placeholder-user.png";
             const companyFullname = companyData.Company_fullname;
             const companyImage = companyData.Company_avatar;
