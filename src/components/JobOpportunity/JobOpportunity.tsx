@@ -1,5 +1,6 @@
 import { Bell, Bookmark, BriefcaseBusiness, Mail, Menu } from "lucide-react";
 import {  BackgroundImage, Container, ContainerLogo, HeaderContainerWrapper, Header, HeaderItems, SearchBar, MainContainer, MainContainerImage, MainContainerText, MainContainerFirstText, MainContainerSecondText, MatchDetailsContainer, MatchDetailsText, MatchDetailsTextItems, CompatibilityContainer, WhatWillYouDoContainer, WhoWillYouWorkWithContainer, SurvivalKit, OurSelectionProcess, ResponsabilitiesContainer, ResponsabilitiesItems, GreenUnderline, WhatAreWeLookingFor, IfYouGotHere, ApplyNowButton, StyledLink } from "./styles";
+import UserMenuFooter from "../UserMenuFooter/UserMenuFooter";
 
 export default function JobOpportunity() {
     return (
@@ -143,6 +144,7 @@ export default function JobOpportunity() {
                         <button>¡Aplicar ahora!</button>
                     </StyledLink>
                 </ApplyNowButton>
+                <UserMenuFooter></UserMenuFooter>
         </Container>
         </>
   );

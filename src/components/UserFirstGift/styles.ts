@@ -24,7 +24,6 @@ export const LogoSecondPageStyled = styled.img`
 `
 
 export const ImgFondoSecondPage = styled.img`
-    width: 100%;
     height: 70%
     display: block;
 

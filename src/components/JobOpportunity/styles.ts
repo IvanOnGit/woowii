@@ -96,6 +96,12 @@ export const BackgroundImage = styled.div`
     top: 0;
     left: 0;
     z-index: -1; // Asegúrate de que esté detrás del contenido
+    
+    @media(max-width: 768px){
+        height: 35rem; 
+    
+    }
+
 `;
 
 
@@ -106,6 +112,11 @@ export const MainContainer = styled.div`
     margin-top: 5rem;
     margin-left: 10rem;
     gap: 3rem;
+
+
+    @media(max-width: 768px){
+        display: none;
+    }
 `;
 
 export const MainContainerImage = styled.div`
@@ -172,9 +183,19 @@ export const MatchDetailsContainer = styled.div`
     margin-top: 2rem;
     margin-left: 15rem;
 
+    @media(max-width: 768px){
+        margin-left: 1rem;
+        display: block;
+
+    }
+
     img {
         width: 7rem;
         height: 7rem;
+
+        @media(max-width: 768px){
+            width: 6rem;
+        }
     }
 `;
 
@@ -184,15 +205,28 @@ export const MatchDetailsText = styled.div`
     font-family: 'Roboto', sans-serif;
     color: white;
     margin-left: 9rem;
+
+    @media(max-width: 768px){
+        margin-left: 4rem;
+    }
 `;
 
 export const MatchDetailsTextItems = styled.div`
     display: flex;
     gap: 3rem;
 
+    @media(max-width: 768px){
+        gap: 1rem;
+    }
+
     p {
         font-size: 1.2rem;
         margin: 0;
+
+        @media(max-width: 768px){
+            font-size: 1rem;
+        }
+
     }
 
     img {
@@ -224,25 +258,56 @@ export const WhatWillYouDoContainer = styled.div`
     margin-left: 44rem;
     margin-top: 3rem;
     font-family: 'Roboto', sans-serif;
+
+    @media(max-width: 768px){
+        margin-left: 5rem;
+        margin-top: 2rem;
+
+    }
     h2 {
         margin: 0;
         font-size: 2rem;
+
+        @media(max-width: 768px){
+            margin-left: 3rem;
+        }
+    }
+    img{
+        @media(max-width: 768px){
+            margin-left: 3rem;
+        }
+    }
     }
 
     p {
         margin: 0;
         margin-top: 4rem;
         margin-left: -12rem;
+
+
+        @media(max-width: 768px){
+            margin-left: -4rem;
+            font-size: 0.6rem;
+            margin-top: 0rem;
+
+        }
     }
 `;
 
 export const WhoWillYouWorkWithContainer = styled.div`
-     width: 100%;
+    width: 100%;
     margin-left: 40rem;
     margin-top: 3rem;
     font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
+
+
+    @media(max-width: 768px){
+        margin-left: 3rem;
+
+    }
+
     h2 {
         margin: 0;
         font-size: 2rem;
@@ -268,14 +333,28 @@ export const SurvivalKit = styled.div`
     font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
+
+    @media(max-width: 768px){
+        margin-left: 1rem;
+
+    }
     h2 {
         margin: 0;
         font-size: 2rem;
+
+        @media(max-width: 768px){
+            font-size: 1.5rem;
+        }
     }
 
     img:first-of-type {
         margin-top: 3rem;
         width: 35rem;
+
+        @media(max-width: 768px){
+            width: 22rem;
+
+        }
     }
 `;
 
@@ -286,6 +365,15 @@ export const OurSelectionProcess = styled.div`
     font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
+
+    @media(max-width: 768px){
+        margin-left: 1rem;
+        flex-direction: row;
+        display: block;
+
+
+
+    }
     h2 {
         margin: 0;
         font-size: 2rem;
@@ -301,6 +389,12 @@ export const OurSelectionProcess = styled.div`
         margin-top: 2rem;
         margin-left: -8rem;
         width: 45rem;
+
+        @media(max-width: 768px){
+            width: 23rem;
+            margin-left: 0rem;
+
+        }
     }
 `;
 
@@ -311,6 +405,11 @@ export const ResponsabilitiesContainer = styled.div`
     font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
+
+    @media(max-width: 768px){
+        margin-left: 1rem;
+
+    }
     h2 {
         margin: 0;
         font-size: 2rem;
@@ -331,6 +430,12 @@ export const ResponsabilitiesItems = styled.div`
         width: 1rem;
         height: 1rem;
     }
+    p{
+        @media(max-width: 768px){
+            margin-left: 8rem;
+    
+        }
+    }
 `;
 
 export const WhatAreWeLookingFor = styled.div`
@@ -340,6 +445,11 @@ export const WhatAreWeLookingFor = styled.div`
     font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
+
+    @media(max-width: 768px){
+        margin-left: 1rem;
+
+    }
     h2 {
         margin: 0;
         font-size: 2rem;
@@ -349,6 +459,13 @@ export const WhatAreWeLookingFor = styled.div`
         margin-top: 2rem;
         width: 45rem;
         margin-left: -15rem;
+
+        @media(max-width: 768px){
+            width: 22rem; 
+            margin-left: 0rem;
+
+        }
+        
     }
 `;
 
@@ -356,6 +473,14 @@ export const IfYouGotHere = styled.img`
     width: 35rem;
     margin-left: 30rem;
     margin-top: 3rem;
+
+    @media(max-width: 768px){
+        margin-left: 0rem;
+        width: 24rem;
+
+
+    }
+
 `;
 
 export const ApplyNowButton = styled.button`
@@ -364,6 +489,12 @@ export const ApplyNowButton = styled.button`
     margin-bottom: 3rem;
     border-radius: 2rem;
     background-color: #8FFF00;
+
+    @media(max-width: 768px){
+        margin-left: 6rem;
+        box-shadow: 0px 4px 0px 0px #75B300;
+        border:none;
+    }
     
     button {
         color: black;
