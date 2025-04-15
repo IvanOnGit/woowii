@@ -30,6 +30,13 @@ export const Container = styled.div`
 export const BackgroundZigZag = styled.img`
     width: 100%;
     z-index: 1;
+    display: flex;
+
+
+    @media(max-width: 768px){
+        display: none;
+    }
+       
 `;
 
 export const ItsAMatch = styled.img`
@@ -59,3 +66,12 @@ export const BlueLogoWoowii = styled.img`
     margin-top: 42rem;
     position: absolute;
 `;
+
+export const BackgroundZigZagMobile = styled.img`
+    display: none;
+    
+    @media(max-width: 768px){
+        display: flex;
+    }
+        
+    `;
