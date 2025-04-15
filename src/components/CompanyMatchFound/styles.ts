@@ -9,6 +9,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     color: white;
+    gap: 1rem;
 
     h1 {
         font-size: 3rem;
@@ -23,4 +24,9 @@ export const ItsaMatch = styled.img`
 
 export const HandShakeContainer = styled.div`
     display: flex;
+    img {
+        width: 10rem;
+        height: 10rem;
+        border-radius: 50%;
+    }
 `;
