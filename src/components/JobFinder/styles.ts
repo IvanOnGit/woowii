@@ -298,7 +298,7 @@ export const MainTitleAndSubtitle = styled.div`
       font-size: 3rem;
       margin: 0;
       background: linear-gradient(90deg, #6ABF4B, #37A139);
-      -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
