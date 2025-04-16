@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronDown, ChevronUp, MoreVertical, Briefcase, GraduationCap, Folder } from "lucide-react";
 import { 
   FirstMenuAsideItem, 
@@ -19,15 +19,29 @@ import {
   DropdownMenu,
   DropdownItem
 } from "./styles";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 export default function CompanyCandidatesView() {
   const [dropdowns, setDropdowns] = useState({
     technicalSkills: false,
   });
 
+  interface Candidate {
+    id: number;
+    name: string;
+    username?: string;
+    profile_picture?: string;
+    skills: string[];
+    experience: string;
+    degree: string;
+    lastProject: string;
+  }
+
   const [openDropdownId, setOpenDropdownId] = useState<number | null>(null);
-  
+  const { jobId } = useParams<{ jobId: string }>();
+  const [candidates, setCandidates] = useState<Candidate[]>([]);
+  const navigate = useNavigate();
+    
   const toggleMenu = (id: number) => {
     setOpenDropdownId(prevId => (prevId === id ? null : id));
   };
@@ -38,91 +52,61 @@ export default function CompanyCandidatesView() {
       [dropdown]: !prev[dropdown] 
     }));
   };
-
-  const candidates = [
-    { 
-      id: 1, 
-      name: "Luciana Ferreira", 
-      skills: ["Vue.js", "JavaScript", "Tailwind"], 
-      experience: "4 years of experience", 
-      degree: "B.S in Information Systems", 
-      lastProject: "Real Estate Platform" 
-    },
-    { 
-      id: 2, 
-      name: "Andrés Castro", 
-      skills: ["React", "Redux", "TypeScript"], 
-      experience: "6 years of experience", 
-      degree: "M.S in Computer Science", 
-      lastProject: "Healthcare Management System" 
-    },
-    { 
-      id: 3, 
-      name: "Fernanda Lopes", 
-      skills: ["Angular", "RxJS", "SCSS"], 
-      experience: "5 years of experience", 
-      degree: "B.S in Software Engineering", 
-      lastProject: "Inventory Tracking App" 
-    },
-    { 
-      id: 4, 
-      name: "Javier Morales", 
-      skills: ["Node.js", "Express", "MongoDB"], 
-      experience: "7 years of experience", 
-      degree: "M.S in Information Technology", 
-      lastProject: "CRM System" 
-    },
-    { 
-      id: 5, 
-      name: "Camila Rodríguez", 
-      skills: ["Python", "Django", "PostgreSQL"], 
-      experience: "4 years of experience", 
-      degree: "B.S in Computer Science", 
-      lastProject: "E-Learning Platform" 
-    },
-    { 
-      id: 6, 
-      name: "Diego Fernández", 
-      skills: ["React Native", "JavaScript", "Firebase"], 
-      experience: "3 years of experience", 
-      degree: "B.S in Software Development", 
-      lastProject: "Mobile Banking App" 
-    },
-    { 
-      id: 7, 
-      name: "Laura Méndez", 
-      skills: ["PHP", "Laravel", "MySQL"], 
-      experience: "6 years of experience", 
-      degree: "M.S in Web Development", 
-      lastProject: "Online Booking System" 
-    },
-    { 
-      id: 8, 
-      name: "Mateo Silva", 
-      skills: ["Java", "Spring Boot", "Kafka"], 
-      experience: "5 years of experience", 
-      degree: "B.S in Computer Engineering", 
-      lastProject: "Supply Chain Optimization Tool" 
-    },
-    { 
-      id: 9, 
-      name: "Isabela Ruiz", 
-      skills: ["Flutter", "Dart", "GraphQL"], 
-      experience: "3 years of experience", 
-      degree: "B.S in Mobile Computing", 
-      lastProject: "Fitness Tracking App" 
-    }
-  ];
   
-  const navigate = useNavigate();
-
-  const handleContinueClick = () => {
-    navigate("/CompanyCandidatesViewContact");
+  const handleViewProfile = (candidate: Candidate) => {
+    // Navegar al perfil del candidato con todos los datos
+    navigate(`/candidate/${candidate.id}`, { 
+      state: { candidateData: candidate } 
+    });
+    setOpenDropdownId(null);
   };
+  
+  useEffect(() => {
+    const fetchCandidates = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/api/auth/candidates/by-job?jobId=${jobId}`);
+        const data = await response.json();
+        
+        console.log("Datos recibidos del API:", data);
+        
+        const formattedCandidates = Array.isArray(data) ? data.map((candidate, index) => {
+          let skills: string[] = ['No skills specified'];
+          
+          if (candidate.toolset) {
+            if (typeof candidate.toolset === 'string') {
+              skills = candidate.toolset.split(',').map((skill: string) => skill.trim());
+            } else if (Array.isArray(candidate.toolset)) {
+              skills = candidate.toolset;
+            } else {
+              skills = [String(candidate.toolset)];
+            }
+          }
+            
+          return {
+            id: candidate.userId || index + 1, // Ahora usamos el userId real
+            applicationId: candidate.applicationId,
+            name: candidate.username || 'Usuario sin nombre',
+            username: candidate.username, // Guardamos el username original
+            profile_picture: candidate.profile_picture, // ¡Importante! Guardamos la imagen de perfil
+            skills: skills,
+            experience: candidate.experience || 'No especificada',
+            degree: candidate.degree || 'No especificado',
+            lastProject: candidate.lastProject || 'No especificado'
+          };
+        }) : [];
+        
+        setCandidates(formattedCandidates);
+      } catch (error) {
+        console.error("Error fetching candidates:", error);
+        setCandidates([]);
+      }
+    };
+  
+    if (jobId) fetchCandidates();
+  }, [jobId]);
 
   return (
     <>
-      {/* Menú Lateral */}
       <MenuAside>
         <FirstMenuAsideItem>
           <img src="/images/WhiteLogo.png" alt="Avatar" /> 
@@ -220,36 +204,39 @@ export default function CompanyCandidatesView() {
         <Separator />
       </MenuAside>
 
-      {/* Contenedor Principal */}
       <MainContent>
-      {candidates.map(candidate => (
-        <CandidateCard key={candidate.id}>
-          <CandidateHeader>
-            <CandidateName>{candidate.name}</CandidateName>
-            <MoreOptions onClick={() => toggleMenu(candidate.id)}>
-              <MoreVertical />
-            </MoreOptions>
-            {openDropdownId === candidate.id && (
-              <DropdownMenu>
-                <DropdownItem onClick={handleContinueClick}>Contactar</DropdownItem>
-              </DropdownMenu>
-            )}
-          </CandidateHeader>
+        {candidates.length > 0 ? (
+          candidates.map(candidate => (
+            <CandidateCard key={candidate.id}>
+              <CandidateHeader>
+                <CandidateName>{candidate.name}</CandidateName>
+                <MoreOptions onClick={() => toggleMenu(candidate.id)}>
+                  <MoreVertical />
+                </MoreOptions>
+                {openDropdownId === candidate.id && (
+                  <DropdownMenu>
+                    <DropdownItem onClick={() => handleViewProfile(candidate)}>Ver perfil</DropdownItem>
+                  </DropdownMenu>
+                )}
+              </CandidateHeader>
 
-          <SkillsContainer>
-            {candidate.skills.map(skill => (
-              <SkillTag key={skill}>{skill}</SkillTag>
-            ))}
-          </SkillsContainer>
+              <SkillsContainer>
+                {candidate.skills.map((skill: string) => (
+                  <SkillTag key={skill}>{skill}</SkillTag>
+                ))}
+              </SkillsContainer>
 
-          <CandidateInfo>
-            <p><Briefcase size={18} /> {candidate.experience}</p>
-            <p><GraduationCap size={18} /> {candidate.degree}</p>
-            <p><Folder size={18} /> Last Project: {candidate.lastProject}</p>
-          </CandidateInfo>
-        </CandidateCard>
-      ))}
-    </MainContent>
+              <CandidateInfo>
+                <p><Briefcase size={18} /> {candidate.experience}</p>
+                <p><GraduationCap size={18} /> {candidate.degree}</p>
+                <p><Folder size={18} /> Last Project: {candidate.lastProject}</p>
+              </CandidateInfo>
+            </CandidateCard>
+          ))
+        ) : (
+          <p>No hay candidatos disponibles.</p>
+        )}
+      </MainContent>
     </>
   );
 }

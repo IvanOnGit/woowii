@@ -1,83 +1,389 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const ContainerCompanyOverviewAll = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    overflow: scroll;
+export const MainContainer = styled.div`
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    gap: 13rem;
+
+    &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  .vertical {
+      gap: 1rem;
+  }
+
+  h2 {
+    color: blue;
+    font-family: 'Inter', sans-serif;
+  }
 `;
 
-export const ContainerColumnLogoAndSelects = styled.div`
-    position: fixed;
-    width: 20vw;
-    height: 112vh;
-    background: #460BFF;
-    border-right: 0.125rem solid #000;
-    overflow: hidden;
+export const InnerContainerOne = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
-export const ContainerColumnDashBoard = styled.div`
-    width: 77vw;
-    height: 106vh;
-    background: #FFF;
+export const OverviewContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border: 1px solid black;
+  margin-bottom: 1rem;
+
+  button {
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    text-align: center;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
 `;
 
-export const ContainerColumnDashBoardUp = styled.div`
+export const InnerContainerTwo = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  .duo {
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+    margin-top: 4rem;
+
+    button {
+      height: 2.5rem;
+      background-color: blue;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+`;
+
+export const ContainerWrapper = styled.div`
+  display: flex;
+  width: 100%;
+`;
+
+export const Header = styled.header`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+  padding: 1rem;
+  justify-content: center;
+  gap: 3rem;
+  margin-left: 18rem;
+`;
+
+export const HeaderItems = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+
+  p {
+    display: flex;
+    margin: 0; 
+  }
+
+  img {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+  }
+`;
+
+export const MenuAside = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 19rem;
+  height: 100vh;
+  background-color: blue;
+  border-right: 1px solid black;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  font-family: 'Roboto', sans-serif;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  /* Estilizar el scrollbar */
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  span {
+    width: 100%;
+    background-color: white;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    padding: 0.02rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    width: 77vw;
-    height: 15vh;
+    justify-content: space-between;
+    width: 100%;
+  }
 `;
 
-export const ContainerColumnDashBoardDown = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 80vw;
-    height: 85vh;
-    margin-left: 24rem;
-    .columnLeftArreglo{
-        margin-top: 1.25rem;
-        display: block;
-        width: 47vw;
-        height: 85vh;
-        overflow-y: scroll;
-        overflow-x: hidden;
+export const FirstMenuAsideItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  height: 12rem;
+
+  img {
+    width: 10rem;
+    height: 4rem;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  span {
+    margin-top: 1rem;
+  }
+`;
+
+export const UserAndImageCombo = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+`;
+
+export const ThirdMenuAsideItem = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 25%;
+
+  button {
+    width: 80%;
+    padding: 0.5rem;
+    border: 1px solid black;
+    background-color: transparent;
+    border-radius: 1rem;
+    color: black;
+    cursor: pointer;
+    font-size: 0.8rem;
+  }
+
+  button:hover {
+    background-color: #f0f0f0;
+  }
+`;
+
+export const DropdownContainer = styled.div`
+  width: 80%;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  color: white;
+`;
+
+export const DropdownButton = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+  font-size: 1rem;
+  background: transparent;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+`;
+
+export const DropdownList = styled.div`
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  border-radius: 5px;
+  margin-top: 5px;
+  gap: 1rem;
+  font-weight: initial;
+`;
+
+export const DropdownItem = styled.div`
+  padding: 0.5rem;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 1rem;
+  color: white;
+
+  &:hover {
+    background: #f0f0f0;
+  }
+`;
+
+export const SecondDropdownContainer = styled.div`
+  width: 80%;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+`;
+
+export const SecondDropdownButton = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+  font-size: 1rem;
+  background: transparent;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+`;
+
+export const SecondDropdownList = styled.div`
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  border-radius: 5px;
+  margin-top: 5px;
+  gap: 1rem;
+  font-weight: initial;
+`;
+
+export const SecondDropdownItem = styled.div`
+  padding: 0.5rem;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 1rem;
+
+  input {
+    border: none;
+  }
+
+  &:hover {
+    background: #f0f0f0;
+  }
+`;
+
+export const HelpButton = styled.button`
+    background-color: white;
+    width: 50%;
+    margin-left: 5rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    border: none;
+    color: blue;
+    padding: 0.5rem;
+`;
+
+export const Container = styled.div`
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-left: 25rem;
+  margin-top: 2rem;
+`;
+
+export const SearchBar = styled.input`
+  padding: 0.5rem;
+  border-radius: 1rem;
+  width: 20rem;
+  border: 1px solid black;
+  background-color: transparent;
+  text-align: center;
+  margin-top: 1rem;
+  margin-right: 2rem;
+`;
+
+export const ContainerLogoCompAndUser = styled.div`
+    display: flex;
+    margin-top: 1rem;
+    margin-right: 2rem;
+    p{
+        font-size: 1.25rem;
+        font-weight: 700;
+        font-family: 'Roboto', sans-serif;
+        color: #460BFF;
+        margin-top: 1.875rem;
     }
 `;
 
-export const ContainerColumnDashBoardDownLeft = styled.div`
-    display: block;
-    width: 47vw;
-    height: 85vh;
-    margin-top: -3rem;
-`;
+export const Avatar = styled.div`
+  flex-shrink: 0;
+  height: 5rem;
+  border-radius: 50%;
+  overflow: hidden;
 
-export const ContainerColumnDashBoardDownRight = styled.div`
-    display: block;
-    width: 30vw;
-    height: 106vh;
-    margin-top: -1.5rem;
-`;
-
-export const ColumnDashBoardDownLeftTitle = styled.h2`
-    width: 40vw;
-    height: 1.875rem;
-    margin: 3rem 0 0 3.5rem;
-    font-size: 1.875rem;
-    font-weight: 800;
-    font-family: 'Inter', sans-serif;
-    color: #460BFF;
-`;
-
-export const ColumnDashBoardDownRightTitle = styled.h2`
-    width: 20vw;
-    height: 1.875rem;
-    font-size: 1.875rem;
-    font-weight: 800;
-    font-family: 'Inter', sans-serif;
-    margin-left: 2.25rem;
-    color: #460BFF;
+  img {
+    margin-top: 1rem;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `;
 
 export const StyledLink = styled(Link)`
@@ -85,324 +391,41 @@ export const StyledLink = styled(Link)`
   color: inherit;
 `;
 
-export const FirstSquareLeftDashboard = styled.div`
-    width: 40rem;
-    height: 28.563rem;
-    margin: 0.675rem 0 0 3.5rem;
-    border-radius: 0.625rem;
-    border: 0.125rem solid #000;
-`
-export const FirstSquareRightDashboard = styled.div`
-    width: 25.063rem;
-    height: 50.25rem;
-    margin: auto;
-    margin-top: 1.875rem;
-    border-radius: 0.625rem;
-    border: 0.125rem solid #000;
-    overflow-y: scroll;
-    overflow-x: hidden;
-`
-export const ContainerUpFirstSquareLeftDashBoard = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-`;
-export const ContainerMatchesLeftDashBoard = styled.div`
-    width: 15rem;
-    height: 6.25rem;
-    border-radius: 0.625rem;
-`;
-export const ImageMatchesLeftDashBoard = styled.img`
-    width: 20rem;
-    height: 7.25rem;
-    border-radius: 0.625rem;
-    margin-top: 1.25rem;
-`
-export const ImageReviewsLeftDashBoard = styled.img`
-    width: 20rem;
-    height: 7.25rem;
-    border-radius:  0.625rem;
-    margin-top: 1.25rem;
-`
-export const TextUnderImagesLeftDashBoard = styled.h2`
-    margin: 4.25rem 0 0 1.25rem;
-    font-size: 1.875rem;
-    font-weight: 600;
-    font-family: 'Inter', sans-serif;
-`;
-
-export const ContainerFirstSquareRightHirings = styled.div`
-    display: block;
-    width: 30.938rem;
-    height: 51.25rem;
-    background: transparent;
-    overflow-x: hidden;
-`;
-
-export const ContainerLogoAndNameCompany = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    p{
-        margin-left: 0.625rem;
-        font-size: 1.875rem;
-        font-weight: 700;
-        font-family: 'Roboto', sans-serif;
-        color: #460BFF;
-    }
-`;
-
-export const ImageLogoCompany = styled.img`
-    width: 2.813rem;
-    height: 2.813rem;
-    margin-left: 21.75rem;
-`;
-
-export const Header = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 10%;
+export const HiringsInnerContainer = styled.div`
+  border: 1px solid black;
   padding: 1rem;
 `;
 
-export const SearchContainer = styled.div`
-  height: 2rem; 
-  width: 80%;
-  margin-top: -1rem;
-  margin-left: 5.5rem;
-  input{
-    display: flex;
-    align-items: center;
-    justify-content: left; 
-    height: 2rem; 
-    width: 80%; 
-    padding: 0.5rem;
-    border-radius: 2.813rem;
-    border: 0.063rem solid #000;
-    font-size: 0.75rem;
-    font-family: 'Roboto', sans-serif;
-  }
+export const StyledNotification = styled.span`
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: red;
+  border-radius: 50%;
+  color: white;
+  padding: 2px 6px;
+  font-size: 12px;
 `;
 
-export const HeaderItems = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: -0.1rem;
-  margin-right: -19.75rem;
+export const NotificationContainer = styled.div`
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  padding: 2rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  z-index: 9999;
+  font-family: 'Roboto', sans-serif;
+`;
+
+export const NotificationButton = styled.button`
+  margin-top: 1rem;
   cursor: pointer;
-  p {
-    display: flex;
-    margin: 0;
-    font-size: 1rem;
-    font-weight: 600;
-    font-family: 'Inter', sans-serif;
-  }
-  img {
-    width: 1.675rem;
-    height: 1.675rem;
-    margin-right: 0.5rem;
-    margin-top: -0.313rem;
-  }
-`;
-
-export const ContainerLogo = styled.div`
-    position: fixed;
-  display: flex;
-  width: 23vw;
-  height: 12vh;
-  background: transparent;
-  border-bottom: 0.125rem solid #FFF;
-`;
-
-export const ImageLogoWhite = styled.img`
-  margin: 1rem 0 0 1rem;
-  width: 15.563rem;
-  height: 4.063rem;
-`;
-
-export const ContainerGraphs = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 25vw;
-    height: 20vh;
-    margin: auto;
-    margin-top: 1.25rem;
-    margin-left: -1.8rem;
-`;
-
-export const Graphics = styled.img`
-    width: 15vw;
-    margin-left: 3rem;
-    margin-top: 1.25rem;
-`;
-
-export const GraphicsPercentage = styled.div`
-    width: 10vw;
-    display: block;
-    h2{
-        font-size: 3rem;
-        font-weight: 700;
-        font-family: 'Roboto', sans-serif;
-        color: #8FFF00;
-    }
-    h3{
-        font-size: 3rem;
-        font-weight: 700;
-        font-family: 'Roboto', sans-serif;
-        color:#ff0000;
-    }
-    p{
-        font-size: 1.25rem;
-        font-weight: 500;
-        font-family: 'Roboto', sans-serif;
-    }
-    #rev{
-        font-size: 1.25rem;
-        font-weight: 500;
-        font-family: 'Roboto', sans-serif;
-        padding-left: 1.25rem;
-    }
-`;
-
-export const TitleCommentAndMessages = styled.h2`
-    width: 40vw;
-    height: 1.875rem;
-    margin-left: 3.5rem;
-    font-size: 1.875rem;
-    font-weight: 800;
-    font-family: 'Inter', sans-serif;
-    color: #460BFF;
-    margin-top: 2rem;
-`;
-
-export const ContainerCommentsAndMessage = styled.div`
-    display: block;
-    width: 47vw;
-    height: 85vh;
-    margin-top: 2.5rem;
-`;
-
-export const ContainerIntroCommentsAndMessage = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    width: 49rem;
-    height: 9.75;
-    margin: auto;
-    margin-top: 1.875rem;
-    border-radius: 0.625rem;
-    border: 0.125rem solid #000;
-`;
-
-export const IntroCommentsAndMessageImage = styled.img`
-    width: 6.25rem;
-    height: 6.25rem;
-    margin: auto;
-`;
-
-export const IntroCommentsAndMessageText = styled.div`
-    display: block;
-`;
-
-export const IntroCommentsAndMessageTextUserInfo = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: auto;
-    margin-top: 1.875rem;
-    min-width: 25rem;
-    h2{
-        color: #460BFF;
-    }
-`;
-
-export const IntroCommentsAndMessageTextUserComment = styled.p`
-    display: block;
-    margin: auto;
-    margin-top: 0.625rem;
-    min-width: 31.25;
-    font-size: 1.25rem;
-    font-weight: 500;
-    font-family: 'Inter', sans-serif;
-`;
-
-export const IntroCommentsAndMessageButton = styled.button`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 5.25rem;
-    height: 1.813rem;
-    background: #460BFF;
-    color: #FFF;
-    margin: auto;
-    font-size: 0.938rem;
-    font-weight: 500;
-    font-family: 'Inter', sans-serif;
-    border-radius: 2.813rem;
-    cursor: pointer;
-`;
-
-export const ContainerFirstSquareSelects = styled.div`
-    position: fixed;
-    display: block;
-    margin-top: 16vh;
-    width: 23vw;
-    height: 48vh;
-    border-bottom: 0.063rem solid #FFF;
-    p{
-       margin-bottom: -1rem;
-    }
-    .chev{
-        margin-right: 4.5rem;
-        margin-bottom: -1rem;
-    }
-`;
-
-export const ContainerSecondSquareSelects = styled.div`
-    position: fixed;
-    display: block;
-    margin-top: 70vh;
-    width: 23vw;
-    height: 25vh;
-    p{
-       margin-bottom: -1rem;
-    }
-    .chev{
-        margin-right: 4.5rem;
-        margin-bottom: -1rem;
-    }
-`;
-
-export const ContainerSelects = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 20vw;
-    margin: auto;
-    margin-bottom: 3.125rem;
-    gap: 3.125rem;
-    padding: 0 1.875rem;
-    cursor: pointer;
-    
-    p{
-        font-size: 0.938rem;
-        font-weight: 500;
-        font-family: 'Inter', sans-serif;
-        color: #FFF;
-        min-width: 10vw;
-        &:hover{
-            color: #8FFF00;
-        }
-    }
-`;
-
-export const WoodyChat = styled.img`
-    position: fixed;
-    width: 10.688rem;
-    height: 3.813rem;
-    margin: 90vh 0 0 3.75rem;
-    cursor: pointer;
+  background-color: blue;
+  color: white;
+  border-radius: 1rem;
+  border: none;
+  padding: 0.5rem;
 `;

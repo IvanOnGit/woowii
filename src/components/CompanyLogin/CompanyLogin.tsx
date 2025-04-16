@@ -27,7 +27,7 @@ export default function CompanyLogin() {
   
       if (response.status === 200) {
         // Guarda el token y el id en localStorage
-        localStorage.setItem("companyToken", data.token);
+        localStorage.setItem("token", data.token);
         localStorage.setItem("id", data.id);
         
         console.log('id guardado en localStorage:', data.id);

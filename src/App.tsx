@@ -12,7 +12,6 @@ import PersonalityTest from './components/PersonalityTest/PersonalityTest'
 import PersonalityTestQuestions from './components/PersonalityTestQuestions/PersonalityTestQuestions'
 import CongratulationsSteps from './components/CongratulationsSteps/CongratulationsSteps'
 import JobFinder from './components/JobFinder/JobFinder'
-import JobOpportunity from './components/JobOpportunity/JobOpportunity'
 import MatchFound from './components/MatchFound/MatchFound'
 import StartingPoint from './components/StartingPoint/StartingPoint'
 import TransformationWelcome from './components/TransformationWelcome/TransformationWelcom'
@@ -27,12 +26,12 @@ import CompanyOverview from './components/CompanyOverview/CompanyOverview'
 import CompanyOffer from './components/CompanyOffer/CompanyOffer'
 import CompanyMatchFound from './components/CompanyMatchFound/CompanyMatchFound'
 import CompanyCandidatesView from './components/CompanyCandidatesView/CompanyCandidatesView'
-import CompanyCandidatesViewContact from './components/CompanyCandidatesViewContact/CompanyCandidatesViewContact'
 import CandidateDetail from './components/CandidateDetail/CandidateDetail'
 import CompanyInterviewPage from './components/CompanyInterviewPage/CompanyInterviewPage'
 import VoiceTextInput from './components/VoiceTextInput/VoiceTextInput'
 import UserLogin from './components/UserLogin/UserLogin'
 import CompanyLogin from './components/CompanyLogin/CompanyLogin'
+import JobOpportunityView from './components/JobOpportunity/JobOpportunity'
 
 
 
@@ -55,10 +54,9 @@ function App() {
         <Route path="/AboutYourDNA" element={<AboutYourDNA />} />
         <Route path="/CompanyOverview" element={<CompanyOverview />} />
         <Route path="/CompanyOffer" element={<CompanyOffer />} />
-        <Route path="/CompanyMatchFound" element={<CompanyMatchFound />} />
-        <Route path="/CompanyCandidatesView" element={<CompanyCandidatesView />} />
-        <Route path="/CompanyCandidatesViewContact" element={<CompanyCandidatesViewContact />} />
-        <Route path="/CandidateDetail" element={<CandidateDetail />} />
+        <Route path="/match-found" element={<CompanyMatchFound />} />
+        <Route path="/CompanyCandidatesView/:jobId" element={<CompanyCandidatesView />} />
+        <Route path="/candidate/:candidateId" element={<CandidateDetail />} />
         <Route path="/CompanyInterviewPage" element={<CompanyInterviewPage />} />
         <Route path="/RegisterUserForm" element={<RegistroUsuarioForm />} />
         <Route path="/UserLogin" element={<UserLogin />} />
@@ -73,7 +71,7 @@ function App() {
         <Route path="/PersonalityTestQuestions" element={<PersonalityTestQuestions />} />
         <Route path="/CongratulationsSteps" element={<CongratulationsSteps />} />
         <Route path="/JobFinder" element={<JobFinder />} />
-        <Route path="/JobOpportunity" element={<JobOpportunity />} />
+        <Route path="/JobOpportunity/:jobId" element={<JobOpportunityView />} />
         <Route path="/MatchFound" element={<MatchFound />} />
       </Routes>    
     </Router>

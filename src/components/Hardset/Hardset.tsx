@@ -27,7 +27,8 @@ import {
   ContinueButton,
   AboutYou,
   SelectContainer,
-  SelectOption
+  SelectOption,
+  Description
 } from "./styles";
 import { Link } from "react-router-dom";
 import VoiceTextInput from "../VoiceTextInput/VoiceTextInput";
@@ -40,86 +41,203 @@ export default function Hardset() {
   const [isFifthDropdownOpen, setIsFifthDropdownOpen] = useState(false);
   const [isSixthDropdownOpen, setIsSixthDropdownOpen] = useState(false);
   const [isSeventhDropdownOpen, setIsSeventhDropdownOpen] = useState(false);
+  const [userData, setUserData] = useState<{ 
+    username: string; 
+    profile_picture: string;
+    title: string;
+    description: string;
+    email: string;
+  } | null>(null);
+  
+  const [editingTitle, setEditingTitle] = useState(false);
+  const [editingDescription, setEditingDescription] = useState(false);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  
   const userId = localStorage.getItem("userId");
-  const [userData, setUserData] = useState<{ username: string; profile_picture: string } | null>(null);
-      useEffect(() => {
-        const fetchUserData = async () => {
-            if (!userId) return;
-  
-            const response = await fetch(`http://localhost:3000/api/auth/get-user?userId=${userId}`);
-            const data = await response.json();
-            console.log(data);  // Verifica qué datos estás recibiendo
-            setUserData(data);
-        };
-  
-        fetchUserData();
-      }, [userId]);
-  
-      const [selectedSection, setSelectedSection] = useState("Hardset");
 
-      interface SectionContent {
-        [key: string]: { title: string } & { about: string };
+  useEffect(() => {
+    const fetchUserData = async () => {
+      if (!userId) return;
+  
+      try {
+        const response = await fetch(`http://localhost:3000/api/auth/get-user?userId=${userId}`);
+        const data = await response.json();
+        setUserData(data);
+        setTitle(data.title || "");
+        setDescription(data.description || "");
+      } catch (error) {
+        console.error("Error al obtener datos del usuario:", error);
       }
+    };
+  
+    fetchUserData();
+  }, [userId]);
+
+  useEffect(() => {
+    const fetchUserSkills = async () => {
+      if (!userId) return;
+  
+      try {
+        const response = await fetch(`http://localhost:3000/api/auth/get-user-skills?userId=${userId}`);
+        const data = await response.json();
+        console.log("Skills recuperadas:", data);
+  
+        setSelectedOptions({
+          Hardset: data.hardset || [],
+          Toolset: data.toolset || [],
+          Softset: data.softset || [],
+          Superpower: data.superpower || [],
+          Analysis: data.analysis || [],
+        });
+      } catch (error) {
+        console.error("Error al obtener las habilidades del usuario:", error);
+      }
+    };
+  
+    fetchUserSkills();
+  }, [userId]);
+  
+  const handleSave = async () => {
+    if (!userId) return;
+  
+    try {
+      const response = await fetch('http://localhost:3000/api/auth/save-user-skills', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId,
+          hardset: selectedOptions.Hardset,
+          toolset: selectedOptions.Toolset,
+          softset: selectedOptions.Softset,
+          superpower: selectedOptions.Superpower,
+          analysis: selectedOptions.Analysis,
+        }),
+      });
+  
+      const data = await response.json();
+      console.log("Datos actualizados:", data);
+    } catch (error) {
+      console.error("Error al actualizar los datos:", error);
+    }
+  };
+
+  interface UpdateUserInfoRequest {
+    userId: string;
+    title?: string;
+    description?: string;
+  }
+
+  const handleUpdateUserInfo = async (field: string) => {
+    if (!userId) return;
+    
+    // Create the request body with only the required fields
+    const requestBody: UpdateUserInfoRequest = { userId };
+    
+    // Add only the field being updated
+    if (field === 'title') {
+      requestBody.title = title;
+    } else if (field === 'description') {
+      requestBody.description = description;
+    }
+    
+    try {
+      const response = await fetch('http://localhost:3000/api/auth/update-user-info', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestBody),
+      });
       
-      const sectionContent: SectionContent = {
-        Analysis: { title: 'Historia sobre tu Analysis', about: 'Sobre tu Analysis' },
-        Hardset: { title: 'Historia sobre tu Hardset', about: 'Sobre tu Hardset' },
-        Softset: { title: 'Historia sobre tu Softset', about: 'Sobre tu Softset' },
-        Toolset: { title: 'Historia sobre tu Toolset', about: 'Sobre tu Toolset' },
-        Superpower: { title: 'Historia sobre tu Superpower', about: 'Sobre tu Superpower' },
-      };
+      const data = await response.json();
       
-      const [selectedOptions, setSelectedOptions] = useState<{ [key: string]: string[] }>({});
+      if (response.ok) {
+        console.log("Información actualizada correctamente:", data);
+        // Actualizar el userData con los nuevos valores
+        setUserData(prev => prev ? {...prev, [field]: field === 'title' ? title : description} : null);
+        
+        // Salir del modo edición
+        if (field === 'title') {
+          setEditingTitle(false);
+        } else {
+          setEditingDescription(false);
+        }
+      } else {
+        console.error("Error al actualizar la información:", data);
+      }
+    } catch (error) {
+      console.error("Error en la petición:", error);
+    }
+  };
       
-      const sectionOptions: { [key: string]: string[] } = {
-        Hardset: [
-          "Análisis de Datos",
-          "Ciberseguridad",
-          "Desarrollo Web",
-          "Soporte Técnico",
-          "Testing de Software",
-          "Infraestructura",
-          "Diseño UX | UI",
-          "Gestión de Proyectos",
-        ],
-        Toolset: [
-          "React",
-          "Node.js",
-          "Figma",
-          "Docker",
-          "AWS",
-          "Python",
-          "Kubernetes",
-          "SQL",
-        ],
-        Softset: [
-          "Trabajo en equipo",
-          "Comunicación efectiva",
-          "Resolución de problemas",
-          "Liderazgo",
-          "Gestión del tiempo",
-          "Empatía",
-          "Pensamiento crítico",
-          "Creatividad",
-        ],
-        Superpower: [
-          "Pensamiento analítico",
-          "Aprendizaje rápido",
-          "Adaptabilidad",
-          "Innovación",
-          "Atención al detalle",
-          "Resiliencia",
-          "Habilidades de negociación",
-        ],
-        Analysis: [
-          "Análisis de tendencias",
-          "Visualización de datos",
-          "Predicción de mercado",
-          "Segmentación de clientes",
-          "Optimización de procesos",
-          "Estrategia de negocio",
-        ],
-      };
+  const [selectedSection, setSelectedSection] = useState("Hardset");
+
+  interface SectionContent {
+    [key: string]: { title: string } & { about: string };
+  }
+  
+  const sectionContent: SectionContent = {
+    Analysis: { title: 'Historia sobre tu Analysis', about: 'Sobre tu Analysis' },
+    Hardset: { title: 'Historia sobre tu Hardset', about: 'Sobre tu Hardset' },
+    Softset: { title: 'Historia sobre tu Softset', about: 'Sobre tu Softset' },
+    Toolset: { title: 'Historia sobre tu Toolset', about: 'Sobre tu Toolset' },
+    Superpower: { title: 'Historia sobre tu Superpower', about: 'Sobre tu Superpower' },
+  };
+  
+  const [selectedOptions, setSelectedOptions] = useState<{ [key: string]: string[] }>({});
+  
+  const sectionOptions: { [key: string]: string[] } = {
+    Hardset: [
+      "Análisis de Datos",
+      "Ciberseguridad",
+      "Desarrollo Web",
+      "Soporte Técnico",
+      "Testing de Software",
+      "Infraestructura",
+      "Diseño UX | UI",
+      "Gestión de Proyectos",
+    ],
+    Toolset: [
+      "React",
+      "Node.js",
+      "Figma",
+      "Docker",
+      "AWS",
+      "Python",
+      "Kubernetes",
+      "SQL",
+    ],
+    Softset: [
+      "Trabajo en equipo",
+      "Comunicación efectiva",
+      "Resolución de problemas",
+      "Liderazgo",
+      "Gestión del tiempo",
+      "Empatía",
+      "Pensamiento crítico",
+      "Creatividad",
+    ],
+    Superpower: [
+      "Pensamiento analítico",
+      "Aprendizaje rápido",
+      "Adaptabilidad",
+      "Innovación",
+      "Atención al detalle",
+      "Resiliencia",
+      "Habilidades de negociación",
+    ],
+    Analysis: [
+      "Análisis de tendencias",
+      "Visualización de datos",
+      "Predicción de mercado",
+      "Segmentación de clientes",
+      "Optimización de procesos",
+      "Estrategia de negocio",
+    ],
+  };
   return (
     <>
       <MenuAside>
@@ -319,6 +437,47 @@ export default function Hardset() {
           </HeaderItems>
         </Header>
       </ContainerWrapper>
+      <Description>
+        <div>
+        <h1>Describite como profesional para las empresas</h1>
+        {editingDescription ? (
+          <textarea 
+            maxLength={250} 
+            value={description} 
+            onChange={(e) => setDescription(e.target.value)} 
+            placeholder="Utilizá una descripción clara y directa."
+          />
+        ) : (
+          <p>{userData?.description || "Sin descripción. Haz clic en editar para agregar una."}</p>
+        )}
+        <div>
+          <button onClick={() => setEditingDescription(true)}>editar</button>
+          {editingDescription && (
+            <button onClick={() => handleUpdateUserInfo('description')}>guardar</button>
+          )}
+        </div>
+        </div>
+        <div>
+        <h2>Cuál es tu título cómo profesional</h2>
+        {editingTitle ? (
+          <input 
+            maxLength={30} 
+            type="text" 
+            value={title} 
+            onChange={(e) => setTitle(e.target.value)} 
+            placeholder='Por ejemplo "Desarrollador Frontend"'
+          />
+        ) : (
+          <p>{userData?.title || "Sin título. Haz clic en editar para agregar uno."}</p>
+        )}
+        <div>
+          <button onClick={() => setEditingTitle(true)}>editar</button>
+          {editingTitle && (
+            <button onClick={() => handleUpdateUserInfo('title')}>guardar</button>
+          )}
+        </div>
+        </div>
+      </Description>
       <StoryExplanation>
             <h2>{sectionContent[selectedSection].title}</h2>
             <p>Aquí explicarás como tu formación o experiencia, definen tus habilidades <br /> duras mediante ejemplos que tu CV no puede contar sólo en bullet points.</p>
@@ -404,7 +563,7 @@ export default function Hardset() {
       </AboutHardset>
               <TalkWithWoody>¡Chatea con Woody! </TalkWithWoody>
               <Link to="/SecondGift">
-              <ContinueButton>Continue</ContinueButton>
+              <ContinueButton onClick={handleSave}>Guardar y continuar</ContinueButton>
               </Link>
     </MainContainer>
     </>

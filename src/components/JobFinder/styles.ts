@@ -44,6 +44,7 @@ export const HeaderItems = styled.div`
   justify-content: center;
   gap: 1rem;
   margin-top: 1rem;
+  z-index: 999;
 
   p {
     display: flex;
@@ -297,7 +298,7 @@ export const MainTitleAndSubtitle = styled.div`
       font-size: 3rem;
       margin: 0;
       background: linear-gradient(90deg, #6ABF4B, #37A139);
-      -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
@@ -429,4 +430,80 @@ export const JobsContainer = styled.div`
 export const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
+`;
+
+export const StyledNotification = styled.span`
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #ff4757;
+  color: white;
+  font-size: 12px;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+`;
+
+// Estilo para el contenedor del modal de notificaciones
+export const NotificationContainer = styled.div`
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  width: 350px;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  padding: 16px;
+  z-index: 1000;
+  font-family: 'Roboto', sans-serif;
+
+  
+  h3 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+  }
+
+  p {
+    margin: 0;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+`;
+
+// Estilo para el botón de cerrar notificaciones
+export const NotificationButton = styled.button`
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+  margin-top: 10px;
+  
+  &:hover {
+    background-color: #45a049;
+  }
 `;
