@@ -42,7 +42,7 @@ export default function CompanyOverview() {
   const [showModal, setShowModal] = useState(false);
   
    const id = localStorage.getItem("id");
-    const [companyData, setCompanyData] = useState<{ Company_username: string; Company_avatar: string } | null>(null);
+   const [companyData, setCompanyData] = useState<{ Company_username: string; Company_avatar: string } | null>(null);
   
     useEffect(() => {
       const fetchCompanyData = async () => {

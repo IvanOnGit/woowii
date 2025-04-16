@@ -40,20 +40,37 @@ export default function Hardset() {
   const [isFifthDropdownOpen, setIsFifthDropdownOpen] = useState(false);
   const [isSixthDropdownOpen, setIsSixthDropdownOpen] = useState(false);
   const [isSeventhDropdownOpen, setIsSeventhDropdownOpen] = useState(false);
-  const userId = localStorage.getItem("userId");
-  const [userData, setUserData] = useState<{ username: string; profile_picture: string } | null>(null);
-      useEffect(() => {
-        const fetchUserData = async () => {
-            if (!userId) return;
-  
-            const response = await fetch(`http://localhost:3000/api/auth/get-user?userId=${userId}`);
-            const data = await response.json();
-            console.log(data);  // Verifica qué datos estás recibiendo
-            setUserData(data);
-        };
-  
-        fetchUserData();
-      }, [userId]);
+  const id = localStorage.getItem("id");
+  const [companyData, setCompanyData] = useState<{ Company_username: string; Company_avatar: string } | null>(null);
+
+  useEffect(() => {
+    const fetchCompanyData = async () => {
+      if (!id) {
+        console.error("ID is missing or invalid.");
+        return; // No hacemos la solicitud si la id es inválida
+      }
+
+      const numericId = Number(id);
+      if (isNaN(numericId) || numericId <= 0) {
+        console.error("ID is not a valid number.");
+        return; // Si no es un número válido, no hacemos la solicitud
+      }
+
+      // Cambié 'companyId' por 'id' en la URL
+      const url = `http://localhost:3000/api/auth/get-company?id=${numericId}`;
+      console.log("Requesting URL:", url); // Verifica si la URL es correcta
+
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        setCompanyData(data);
+      } catch (error) {
+        console.error("Error fetching company data:", error);
+      }
+    };
+
+    fetchCompanyData();
+  }, [id]);
   
       const [selectedSection, setSelectedSection] = useState<keyof SectionContent>("Cultura");
 
@@ -162,8 +179,8 @@ export default function Hardset() {
         <FirstMenuAsideItem>
           <img src="/images/GreenLogoDemo.svg" alt="Avatar" />
           <UserAndImageCombo>
-          <img src={userData?.profile_picture || "/images/Avatar1.png"} alt="Avatar" />
-          <h3>@{userData?.username || "Usuario"}</h3>
+          <img src={companyData?.Company_avatar || "/images/defaultCompanyAvatar.svg"} alt="Company Avatar" />
+          <h3>@{companyData?.Company_username || "Empresa"}</h3>
           </UserAndImageCombo>  
         </FirstMenuAsideItem>
         <span>COMPLETA TUS DATOS BÁSICOS</span>
