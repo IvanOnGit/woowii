@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Bell, Bookmark, BriefcaseBusiness, ChevronDown, ChevronUp,  Mail, Menu } from "lucide-react";
+import { Bell, Bookmark, BriefcaseBusiness, ChevronDown, ChevronUp, Mail, Menu } from "lucide-react";
 import { 
   ContainerWrapper, 
   FirstMenuAsideItem, 
@@ -30,10 +30,11 @@ import {
   SelectOption,
   Description
 } from "./styles";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import VoiceTextInput from "../VoiceTextInput/VoiceTextInput";
 
 export default function Hardset() {
+  const navigate = useNavigate();
   const [isFirstDropdownOpen, setIsFirstDropdownOpen] = useState(false);
   const [isSecondDropdownOpen, setIsSecondDropdownOpen] = useState(false);
   const [isThirdDropdownOpen, setIsThirdDropdownOpen] = useState(false);
@@ -98,10 +99,25 @@ export default function Hardset() {
     fetchUserSkills();
   }, [userId]);
   
+  // Función para verificar si el usuario tiene un test de personalidad
+  const checkPersonalityTest = async () => {
+    if (!userId) return false;
+
+    try {
+      const response = await fetch(`http://localhost:3000/api/auth/check-personality-test?userId=${userId}`);
+      const data = await response.json();
+      return data.hasTest || false;
+    } catch (error) {
+      console.error("Error al verificar test de personalidad:", error);
+      return false;
+    }
+  };
+
   const handleSave = async () => {
     if (!userId) return;
   
     try {
+      // Guardar las habilidades del usuario
       const response = await fetch('http://localhost:3000/api/auth/save-user-skills', {
         method: "POST",
         headers: {
@@ -119,6 +135,16 @@ export default function Hardset() {
   
       const data = await response.json();
       console.log("Datos actualizados:", data);
+      
+      // Verificar si el usuario tiene un test de personalidad y redirigir adecuadamente
+      const hasPersonalityTest = await checkPersonalityTest();
+      
+      if (hasPersonalityTest) {
+        navigate("/JobFinder");
+      } else {
+        navigate("/SecondGift");
+      }
+      
     } catch (error) {
       console.error("Error al actualizar los datos:", error);
     }
@@ -562,9 +588,8 @@ export default function Hardset() {
         </SelectContainer>
       </AboutHardset>
               <TalkWithWoody>¡Chatea con Woody! </TalkWithWoody>
-              <Link to="/SecondGift">
+              {/* Reemplazamos el Link con un botón que ejecuta handleSave */}
               <ContinueButton onClick={handleSave}>Guardar y continuar</ContinueButton>
-              </Link>
     </MainContainer>
     </>
   );
