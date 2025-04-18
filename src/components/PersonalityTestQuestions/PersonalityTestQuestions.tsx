@@ -110,6 +110,8 @@ export default function PersonalityTestQuestions() {
   const [showCongratulations, setShowCongratulations] = useState(false);
   const [showIntermediatePopup, setShowIntermediatePopup] = useState(false);
   const [showValidationMessage, setShowValidationMessage] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const navigate = useNavigate();
   const titleRef = useRef<HTMLDivElement>(null);
 
@@ -155,6 +157,43 @@ export default function PersonalityTestQuestions() {
     );
   };
 
+  // Nueva función para enviar resultados al servidor
+  const submitPersonalityTest = async () => {
+    try {
+      setIsSubmitting(true);
+      setSubmitError("");
+      
+      const userId = localStorage.getItem("userId");
+      
+      if (!userId) {
+        throw new Error("No se encontró ID de usuario");
+      }
+  
+      const response = await fetch('http://localhost:3000/api/auth/submit-personality-test', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId: parseInt(userId),
+          answers: selectedRatings
+        }),
+      });
+  
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Error al guardar el test");
+      }
+  
+      setShowCongratulations(true);
+    } catch (error) {
+      console.error("Error al enviar el test:", error);
+      setSubmitError(error instanceof Error ? error.message : "Error desconocido");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const handleSendClick = () => {
     // Check if all questions have been answered
     if (!areAllQuestionsAnswered()) {
@@ -168,7 +207,8 @@ export default function PersonalityTestQuestions() {
     } else if (currentStep === 2) {
       setShowIntermediatePopup(true);
     } else if (currentStep === 3) {
-      setShowCongratulations(true);
+      // En lugar de mostrar felicitaciones directamente, enviamos datos al servidor
+      submitPersonalityTest();
     }
   };
 
@@ -226,6 +266,21 @@ export default function PersonalityTestQuestions() {
         </div>
       )}
       
+      {/* Error message for API submission */}
+      {submitError && (
+        <div style={{ 
+          color: '#ff0000', 
+          textAlign: 'center', 
+          margin: '10px 0',
+          padding: '10px',
+          backgroundColor: '#ffe6e6',
+          borderRadius: '5px',
+          fontWeight: 'bold'
+        }}>
+          Error: {submitError}. Por favor intenta nuevamente.
+        </div>
+      )}
+      
       <PersonalityQuestions>
         {questionsToShow.map((question, index) => (
           <PersonalityQuestionsItems key={index}>
@@ -235,8 +290,10 @@ export default function PersonalityTestQuestions() {
         ))}
       </PersonalityQuestions>
       <DivContainerButton>
-        <ButtonNextSecondPage onClick={handleBackClick}>Volver atrás</ButtonNextSecondPage>
-        <ButtonNextSecondPage onClick={handleSendClick}>Continuar</ButtonNextSecondPage>
+        <ButtonNextSecondPage onClick={handleBackClick} disabled={isSubmitting}>Volver atrás</ButtonNextSecondPage>
+        <ButtonNextSecondPage onClick={handleSendClick} disabled={isSubmitting}>
+          {isSubmitting ? "Enviando..." : "Continuar"}
+        </ButtonNextSecondPage>
       </DivContainerButton>
 
       {/* Popup para los primeros 3 pasos */}
