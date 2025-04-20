@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronDown, ChevronUp, MoreVertical, Briefcase, GraduationCap, Folder } from "lucide-react";
+import { ChevronDown, ChevronUp, Briefcase, GraduationCap, Folder, Menu, House, BriefcaseBusiness, Mail, Bell} from "lucide-react";
 import { 
   FirstMenuAsideItem, 
   MenuAside,
@@ -12,25 +12,35 @@ import {
   CandidateCard, 
   CandidateHeader,
   CandidateName,
-  MoreOptions,
   SkillsContainer,
   SkillTag,
   CandidateInfo,
-  DropdownMenu,
-  DropdownItem
+  ContainerUpSearhAndItemsMobile,
+  AvatarToMobile,
+  SearchUpToMobile,
+  HeaderItemsToMobile,
+  Overlay,
+  Popup,
+  CloseButton,
+  TextArea,
+  CardContact,
+  ContainerFooterToMobile,
+  BtnNextPage
 } from "./styles";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 export default function CompanyCandidatesView() {
+  const [showPopup, setShowPopup] = useState(false);
+  const [selectedUser, setSelectedUser] = useState<string | null>(null);
   const [dropdowns, setDropdowns] = useState({
     technicalSkills: false,
   });
 
-  const [openDropdownId, setOpenDropdownId] = useState<number | null>(null);
+  // const [openDropdownId, setOpenDropdownId] = useState<number | null>(null);
   
-  const toggleMenu = (id: number) => {
-    setOpenDropdownId(prevId => (prevId === id ? null : id));
-  };
+  // const toggleMenu = (id: number) => {
+  //   setOpenDropdownId(prevId => (prevId === id ? null : id));
+  // };
     
   const toggleDropdown = (dropdown: keyof typeof dropdowns) => {
     setDropdowns(prev => ({ 
@@ -114,23 +124,22 @@ export default function CompanyCandidatesView() {
     }
   ];
   
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const handleContinueClick = () => {
-    navigate("/CompanyCandidatesViewContact");
-  };
+  // const handleContinueClick = () => {
+  //   navigate("/CompanyCandidatesViewContact");
+  // };
 
   return (
+    
     <>
       {/* Menú Lateral */}
       <MenuAside>
         <FirstMenuAsideItem>
           <img src="/images/WhiteLogo.png" alt="Avatar" /> 
         </FirstMenuAsideItem>
-
         <h1>Filtrar por</h1>
         <Separator />
-
         <SecondDropdownContainer>
           <SecondDropdownButton onClick={() => toggleDropdown("technicalSkills")}>
             Herramientas técnicas {dropdowns.technicalSkills ? <ChevronUp /> : <ChevronDown />}
@@ -155,7 +164,6 @@ export default function CompanyCandidatesView() {
               </SecondDropdownItem>
             </SecondDropdownList>
           )}
-          
           <SecondDropdownButton onClick={() => toggleDropdown("technicalSkills")}>
            Habilidades blandas {dropdowns.technicalSkills ? <ChevronUp /> : <ChevronDown />}
           </SecondDropdownButton>
@@ -179,7 +187,6 @@ export default function CompanyCandidatesView() {
               </SecondDropdownItem>
             </SecondDropdownList>
           )}
-          
           <SecondDropdownButton onClick={() => toggleDropdown("technicalSkills")}>
             Experiencia previa {dropdowns.technicalSkills ? <ChevronUp /> : <ChevronDown />}
           </SecondDropdownButton>
@@ -216,24 +223,40 @@ export default function CompanyCandidatesView() {
             </SecondDropdownList>
           )}
         </SecondDropdownContainer>
-
         <Separator />
+        <BtnNextPage>Continuar</BtnNextPage>
       </MenuAside>
-
       {/* Contenedor Principal */}
       <MainContent>
+      <ContainerUpSearhAndItemsMobile>
+        <AvatarToMobile>
+            <img src="/images/BusinessCubeLogo.png" alt="Company Avatar" />
+        </AvatarToMobile>
+        <SearchUpToMobile>
+            <input type="text" placeholder="Búsqueda" />
+        </SearchUpToMobile>
+          <HeaderItemsToMobile>
+              <p><img src="/images/wiibucks.png" alt="wiibucks" />100</p>
+              <p><img src="/images/TrophyWiibucks.svg" alt="wiibucks" />00</p>
+              <Menu id="menu" stroke="#FFF" width={20} height={20}/>
+          </HeaderItemsToMobile> 
+      </ContainerUpSearhAndItemsMobile>
       {candidates.map(candidate => (
         <CandidateCard key={candidate.id}>
           <CandidateHeader>
             <CandidateName>{candidate.name}</CandidateName>
-            <MoreOptions onClick={() => toggleMenu(candidate.id)}>
+            {/* <MoreOptions onClick={() => toggleMenu(candidate.id)}>
               <MoreVertical />
-            </MoreOptions>
-            {openDropdownId === candidate.id && (
+            </MoreOptions> */}
+            {/* {openDropdownId === candidate.id && (
               <DropdownMenu>
                 <DropdownItem onClick={handleContinueClick}>Contactar</DropdownItem>
               </DropdownMenu>
-            )}
+            )} */}
+            <CardContact onClick={() => {
+              setSelectedUser(candidate.name);
+              setShowPopup(true);
+              }}>Contacto</CardContact>
           </CandidateHeader>
 
           <SkillsContainer>
@@ -249,6 +272,25 @@ export default function CompanyCandidatesView() {
           </CandidateInfo>
         </CandidateCard>
       ))}
+      <ContainerFooterToMobile>
+        <House className="items" fill="#FFF"  width={26} height={26}/>
+        <BriefcaseBusiness className="items" fill="#FFF" width={26} height={26} />
+        {/* <Link to="/CompanyOverview"> */}
+          <img src="/images/rocketFooter.svg" alt="Rocket Footer Image" />
+        {/* </Link> */}
+        <Mail className="items" fill="#FFF" width={26} height={26}/>
+        <Bell className="items" fill="#FFF" width={26} height={26}/>
+      </ContainerFooterToMobile>
+      {showPopup && selectedUser && (
+        <Overlay onClick={() => setShowPopup(false)}>
+          <Popup onClick={(e) => e.stopPropagation()}>
+            <CloseButton onClick={() => setShowPopup(false)}>×</CloseButton>
+            <h3>Contacto con {selectedUser}</h3>
+            <TextArea placeholder="Escribe tu mensaje aquí..."></TextArea>
+          </Popup>
+        </Overlay>
+      )}
+
     </MainContent>
     </>
   );
