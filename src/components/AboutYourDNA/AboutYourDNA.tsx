@@ -37,8 +37,6 @@ export default function Hardset() {
   const [isSecondDropdownOpen, setIsSecondDropdownOpen] = useState(false);
   const [isThirdDropdownOpen, setIsThirdDropdownOpen] = useState(false);
   const [isFourthDropdownOpen, setIsFourthDropdownOpen] = useState(false);
-  const [isFifthDropdownOpen, setIsFifthDropdownOpen] = useState(false);
-  const [isSixthDropdownOpen, setIsSixthDropdownOpen] = useState(false);
   const [isSeventhDropdownOpen, setIsSeventhDropdownOpen] = useState(false);
   const id = localStorage.getItem("id");
   const [companyData, setCompanyData] = useState<{ Company_username: string; Company_avatar: string } | null>(null);
@@ -176,188 +174,126 @@ export default function Hardset() {
   return (
     <>
       <MenuAside>
-        <FirstMenuAsideItem>
-          <img src="/images/GreenLogoDemo.svg" alt="Avatar" />
-          <UserAndImageCombo>
-          <img src={companyData?.Company_avatar || "/images/defaultCompanyAvatar.svg"} alt="Company Avatar" />
-          <h3>@{companyData?.Company_username || "Empresa"}</h3>
-          </UserAndImageCombo>  
-        </FirstMenuAsideItem>
-        <span>COMPLETA TUS DATOS BÁSICOS</span>
-
-        {/* Primer Dropdown */}
-        <DropdownContainer>
-          <DropdownButton onClick={() => setIsFirstDropdownOpen(!isFirstDropdownOpen)}>
-            Área profesional {isFirstDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </DropdownButton>
-          {isFirstDropdownOpen && (
-            <DropdownList>
-              <DropdownItem>Desarrollador Fullstack</DropdownItem>
-              <DropdownItem>UX | UI Designer</DropdownItem>
-              <DropdownItem>Marketing Manager</DropdownItem>
-            </DropdownList>
-          )}
-        </DropdownContainer>
-
-        {/* Segundo Dropdown */}
-        <SecondDropdownContainer>
-          <SecondDropdownButton onClick={() => setIsSecondDropdownOpen(!isSecondDropdownOpen)}>
-            Años de experiencia {isSecondDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </SecondDropdownButton>
-          {isSecondDropdownOpen && (
-            <SecondDropdownList>
-              <SecondDropdownItem>0 - 1</SecondDropdownItem>
-              <SecondDropdownItem>2 - 5</SecondDropdownItem>
-              <SecondDropdownItem>6 - 10</SecondDropdownItem>
-              <SecondDropdownItem>+10</SecondDropdownItem>
-            </SecondDropdownList>
-          )}
-        </SecondDropdownContainer>
-              
-        {/* Tercer Dropdown */}
-        <SecondDropdownContainer>
-          <SecondDropdownButton onClick={() => setIsThirdDropdownOpen(!isThirdDropdownOpen)}>
-            Disponibilidad horaria {isThirdDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </SecondDropdownButton>
-          {isThirdDropdownOpen && (
-            <SecondDropdownList>
-              <SecondDropdownItem>Full time</SecondDropdownItem>
-              <SecondDropdownItem>Part time</SecondDropdownItem>
-              <SecondDropdownItem>Flexible</SecondDropdownItem>
-              <SecondDropdownItem>Fines de semana</SecondDropdownItem>
-            </SecondDropdownList>
-          )}
-        </SecondDropdownContainer>
-        
-        {/* Cuarto Dropdown */}
-        <SecondDropdownContainer>
-          <SecondDropdownButton onClick={() => setIsFourthDropdownOpen(!isFourthDropdownOpen)}>
-            Ubicación {isFourthDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </SecondDropdownButton>
-          {isFourthDropdownOpen && (
-            <SecondDropdownList>
-              <SecondDropdownItem><input type="text" /></SecondDropdownItem>
-              <SecondDropdownItem>Madrid, España</SecondDropdownItem>
-            </SecondDropdownList>
-          )}
-        </SecondDropdownContainer>
-        
-        {/* Quinto Dropdown */}
-        <SecondDropdownContainer>
-          <SecondDropdownButton onClick={() => setIsFifthDropdownOpen(!isFifthDropdownOpen)}>
-            Posibilidad de mudanza {isFifthDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </SecondDropdownButton>
-          {isFifthDropdownOpen && (
-            <SecondDropdownList>
-              <SecondDropdownItem>Si</SecondDropdownItem>
-              <SecondDropdownItem>No</SecondDropdownItem>
-            </SecondDropdownList>
-          )}
-        </SecondDropdownContainer>
-        
-        {/* Sexto Dropdown */}
-        <SecondDropdownContainer>
-          <SecondDropdownButton onClick={() => setIsSixthDropdownOpen(!isSixthDropdownOpen)}>
-            Idiomas y nivel {isSixthDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </SecondDropdownButton>
-          {isSixthDropdownOpen && (
-            <SecondDropdownList>
-              <SecondDropdownItem><input type="text" placeholder="Busca tu idioma aquí"/></SecondDropdownItem>
-              <SecondDropdownItem>ingles</SecondDropdownItem>
-            </SecondDropdownList>
-          )}
-        </SecondDropdownContainer>
-        <span>ASPIRACIONES Y PREFERENCIAS</span>
-        
-        {/* Séptimo Dropdown */}
-        <SecondDropdownContainer>
-          <SecondDropdownButton onClick={() => setIsSeventhDropdownOpen(!isSeventhDropdownOpen)}>
-            Interes de rol {isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </SecondDropdownButton>
-          {isSeventhDropdownOpen && (
-            <SecondDropdownList>
-              <SecondDropdownItem>Rango salarial | <strong>€</strong> $</SecondDropdownItem>
-              <SecondDropdownItem>Minimo</SecondDropdownItem>
-              <SecondDropdownItem>Máximo</SecondDropdownItem>
-            </SecondDropdownList>
-          )}
-        </SecondDropdownContainer>
-        
-         <SecondDropdownContainer>
-          <SecondDropdownButton>
-            Contrato {isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </SecondDropdownButton>
-        </SecondDropdownContainer>
-        
-        <SecondDropdownContainer>
-          <SecondDropdownButton>
-            Modalidad {isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </SecondDropdownButton>
-        </SecondDropdownContainer>
-        
-        <SecondDropdownContainer>
-          <SecondDropdownButton>
-            Tamaño de empresa {isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </SecondDropdownButton>
-        </SecondDropdownContainer>
-        
-        <SecondDropdownContainer>
-          <SecondDropdownButton>
-            Incorporación {isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </SecondDropdownButton>
-        </SecondDropdownContainer>
-        <span>HABILIDADES Y EXPERIENCIA</span>
-        
-        <SecondDropdownContainer>
-          <SecondDropdownButton>
-            Metodologías {isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </SecondDropdownButton>
-        </SecondDropdownContainer>
-        
-        <SecondDropdownContainer>
-          <SecondDropdownButton>
-            Cursos | Certificados {isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </SecondDropdownButton>
-        </SecondDropdownContainer>
-        
-        <SecondDropdownContainer>
-          <SecondDropdownButton>
-            IA | Big Data {isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </SecondDropdownButton>
-        </SecondDropdownContainer>
-        <span>DATOS CLAVE PARA EL MATCHING</span>
-        
-        <SecondDropdownContainer>
-          <SecondDropdownButton>
-            Posibilidad de ascenso{isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </SecondDropdownButton>
-        </SecondDropdownContainer>
-        
-        <SecondDropdownContainer>
-          <SecondDropdownButton>
-            Impacto social{isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </SecondDropdownButton>
-        </SecondDropdownContainer>
-        
-        <SecondDropdownContainer>
-          <SecondDropdownButton>
-            Tu autonomía{isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </SecondDropdownButton>
-        </SecondDropdownContainer>
-        
-        <SecondDropdownContainer>
-          <SecondDropdownButton>
-            Tu liderazgo{isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </SecondDropdownButton>
-        </SecondDropdownContainer>
-        
-        <SecondDropdownContainer>
-          <SecondDropdownButton>
-            Tu principal motivación{isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </SecondDropdownButton>
-        </SecondDropdownContainer>
-        <HelpButton> Chat de ayuda</HelpButton>
-      </MenuAside>
+                  <FirstMenuAsideItem>
+                    <img src="/images/LogoBlue.svg" alt="Avatar" />
+                  <span></span>
+                    <UserAndImageCombo>
+                    <img src={companyData?.Company_avatar || "/images/defaultCompanyAvatar.svg"} alt="Company Avatar" />
+                    <h3>@{companyData?.Company_username || "Empresa"}</h3>
+                    </UserAndImageCombo>  
+                  </FirstMenuAsideItem>
+          
+                  {/* Primer Dropdown */}
+                  <DropdownContainer>
+                    <DropdownButton onClick={() => setIsFirstDropdownOpen(!isFirstDropdownOpen)}>
+                      Cultura y valores {isFirstDropdownOpen ? <ChevronUp /> : <ChevronDown />}
+                    </DropdownButton>
+                    {isFirstDropdownOpen && (
+                      <DropdownList>
+                        <DropdownItem>Desarrollador Fullstack</DropdownItem>
+                        <DropdownItem>UX | UI Designer</DropdownItem>
+                        <DropdownItem>Marketing Manager</DropdownItem>
+                      </DropdownList>
+                    )}
+                  </DropdownContainer>
+          
+                  {/* Segundo Dropdown */}
+                  <SecondDropdownContainer>
+                    <SecondDropdownButton onClick={() => setIsSecondDropdownOpen(!isSecondDropdownOpen)}>
+                      Estructura organizacional {isSecondDropdownOpen ? <ChevronUp /> : <ChevronDown />}
+                    </SecondDropdownButton>
+                    {isSecondDropdownOpen && (
+                      <SecondDropdownList>
+                        <SecondDropdownItem>0 - 1</SecondDropdownItem>
+                        <SecondDropdownItem>2 - 5</SecondDropdownItem>
+                        <SecondDropdownItem>6 - 10</SecondDropdownItem>
+                        <SecondDropdownItem>+10</SecondDropdownItem>
+                      </SecondDropdownList>
+                    )}
+                  </SecondDropdownContainer>
+                        
+                  {/* Tercer Dropdown */}
+                  <SecondDropdownContainer>
+                    <SecondDropdownButton onClick={() => setIsThirdDropdownOpen(!isThirdDropdownOpen)}>
+                      Ambiente laboral {isThirdDropdownOpen ? <ChevronUp /> : <ChevronDown />}
+                    </SecondDropdownButton>
+                    {isThirdDropdownOpen && (
+                      <SecondDropdownList>
+                        <SecondDropdownItem>Full time</SecondDropdownItem>
+                        <SecondDropdownItem>Part time</SecondDropdownItem>
+                        <SecondDropdownItem>Flexible</SecondDropdownItem>
+                        <SecondDropdownItem>Fines de semana</SecondDropdownItem>
+                      </SecondDropdownList>
+                    )}
+                  </SecondDropdownContainer>
+                  
+                  {/* Cuarto Dropdown */}
+                  <SecondDropdownContainer>
+                    <SecondDropdownButton onClick={() => setIsFourthDropdownOpen(!isFourthDropdownOpen)}>
+                      Tipo de liderazgo {isFourthDropdownOpen ? <ChevronUp /> : <ChevronDown />}
+                    </SecondDropdownButton>
+                    {isFourthDropdownOpen && (
+                      <SecondDropdownList>
+                        <SecondDropdownItem><input type="text" /></SecondDropdownItem>
+                        <SecondDropdownItem>Madrid, España</SecondDropdownItem>
+                      </SecondDropdownList>
+                    )}
+                  </SecondDropdownContainer>
+                  <span></span>
+                  
+                  {/* Séptimo Dropdown */}
+                  <SecondDropdownContainer>
+                    <SecondDropdownButton onClick={() => setIsSeventhDropdownOpen(!isSeventhDropdownOpen)}>
+                      Beneficios {isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
+                    </SecondDropdownButton>
+                    {isSeventhDropdownOpen && (
+                      <SecondDropdownList>
+                        <SecondDropdownItem>Rango salarial | <strong>€</strong> $</SecondDropdownItem>
+                        <SecondDropdownItem>Minimo</SecondDropdownItem>
+                        <SecondDropdownItem>Máximo</SecondDropdownItem>
+                      </SecondDropdownList>
+                    )}
+                  </SecondDropdownContainer>
+                  
+                   <SecondDropdownContainer>
+                    <SecondDropdownButton>
+                      Diversidad e inclusión {isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
+                    </SecondDropdownButton>
+                  </SecondDropdownContainer>
+                  
+                  <SecondDropdownContainer>
+                    <SecondDropdownButton>
+                      Comunicación {isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
+                    </SecondDropdownButton>
+                  </SecondDropdownContainer>
+                  
+                  <SecondDropdownContainer>
+                    <SecondDropdownButton>
+                      Colaboraciones {isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
+                    </SecondDropdownButton>
+                  </SecondDropdownContainer>
+                  
+                  <span></span>
+                  
+                  <SecondDropdownContainer>
+                    <SecondDropdownButton>
+                      Mis datos {isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
+                    </SecondDropdownButton>
+                  </SecondDropdownContainer>
+                  
+                  <SecondDropdownContainer>
+                    <SecondDropdownButton>
+                      Cuenta {isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
+                    </SecondDropdownButton>
+                  </SecondDropdownContainer>
+                  
+                  <SecondDropdownContainer>
+                    <SecondDropdownButton>
+                      Preguntas {isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
+                    </SecondDropdownButton>
+                  </SecondDropdownContainer>
+                  <HelpButton> Chat de ayuda</HelpButton>
+          </MenuAside>
     <MainContainer>
       <ContainerWrapper>
         <Header>
