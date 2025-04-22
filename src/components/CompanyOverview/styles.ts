@@ -8,6 +8,7 @@ export const MainContainer = styled.div`
     display: flex;
     justify-content: center;
     gap: 13rem;
+    font-family: 'Roboto', sans-serif;
 
     &::-webkit-scrollbar {
     width: 6px;
@@ -32,7 +33,7 @@ export const MainContainer = styled.div`
 
   h2 {
     color: blue;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
 `;
 
@@ -428,4 +429,29 @@ export const NotificationButton = styled.button`
   border-radius: 1rem;
   border: none;
   padding: 0.5rem;
+`;
+
+export const HiringsInProgress = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  h3 {
+    text-align: center;
+    width: 5rem;
+    text-align: left;
+  }
+
+  button {
+    height: 2rem;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 5rem;
+  }
 `;

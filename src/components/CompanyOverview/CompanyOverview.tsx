@@ -27,9 +27,23 @@ import {
   StyledNotification,
   NotificationContainer,
   NotificationButton,
+  HiringsInProgress,
 } from "./styles";
 
 export default function CompanyOverview() {
+
+  interface MatchedUser {
+    id: number;
+    username: string;
+    profile_picture: string;
+    job_title: string;
+  }
+  
+  interface Application {
+    user_id: number;
+    job_title?: string;
+  }
+
   const [isFirstDropdownOpen, setIsFirstDropdownOpen] = useState(false);
   const [isSecondDropdownOpen, setIsSecondDropdownOpen] = useState(false);
   const [isThirdDropdownOpen, setIsThirdDropdownOpen] = useState(false);
@@ -40,9 +54,10 @@ export default function CompanyOverview() {
   const [notificationCount, setNotificationCount] = useState(0);
   const [newApplications, setNewApplications] = useState<{ jobTitle: string }[]>([]);
   const [showModal, setShowModal] = useState(false);
+  const [matchedUsers, setMatchedUsers] = useState<MatchedUser[]>([]);
+  const [companyData, setCompanyData] = useState<{ Company_username: string; Company_avatar: string } | null>(null);
+  const id = localStorage.getItem("id");
   
-   const id = localStorage.getItem("id");
-   const [companyData, setCompanyData] = useState<{ Company_username: string; Company_avatar: string } | null>(null);
   
     useEffect(() => {
       const fetchCompanyData = async () => {
@@ -127,6 +142,43 @@ export default function CompanyOverview() {
         fetchNewApplications();
       }
     }, [id, showModal]);
+  
+    useEffect(() => {
+      const fetchMatchedUsers = async () => {
+        if (!id) return;
+        
+        try {
+          // Primero, obtenemos las aplicaciones con status "matched" para esta empresa
+          const applicationsRes = await fetch(`http://localhost:3000/api/auth/applications/matched?companyId=${id}`);
+          const applicationsData = await applicationsRes.json();
+          
+          if (!applicationsData.length) {
+            setMatchedUsers([]);
+            return;
+          }
+          
+          // Para cada aplicación, obtenemos los datos del usuario
+            const users = await Promise.all(applicationsData.map(async (app: Application) => {
+            // Obtener datos del usuario
+            const userRes = await fetch(`http://localhost:3000/api/auth/get-user?userId=${app.user_id}`);
+            const userData = await userRes.json();
+            
+            return {
+              id: app.user_id,
+              username: userData.username || "Usuario",
+              profile_picture: userData.profile_picture || "/images/defaultUserAvatar.svg",
+              job_title: app.job_title || "Posición desconocida",
+            };
+          }));
+          
+          setMatchedUsers(users);
+        } catch (error) {
+          console.error("Error fetching matched users:", error);
+        }
+      };
+    
+      fetchMatchedUsers();
+    }, [id]);
 
   return (
     <>
@@ -324,15 +376,19 @@ export default function CompanyOverview() {
                 </InnerContainerTwo>
         </div>
         <div>
-            <h2>Hirings in progress</h2>
-            <HiringsInnerContainer>
-              <h3>User 1</h3>
-              <p>Software Developer | Madrid</p>
-              <h3>User 2</h3>
-              <p>Data Scientist | Barcelona</p>
-              <h3>User 3</h3>
-              <p>Scrum Master | Valencia</p>
-            </HiringsInnerContainer>
+          <h2>Hirings in progress</h2>
+          <HiringsInnerContainer>
+            {matchedUsers.length === 0 ? (
+              <p>No hay contrataciones en progreso.</p>
+            ) : (
+              matchedUsers.map((user) => (
+                <HiringsInProgress key={user.id}>
+                  <h3>{user.username}</h3>
+                  <button>Contactar</button>
+                </HiringsInProgress>
+              ))
+            )}
+          </HiringsInnerContainer>
         </div>
       </MainContainer>
     </>
