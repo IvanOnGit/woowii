@@ -159,7 +159,9 @@ export default function CompanyHome() {
             </ContainerImageAndTextDown>
         </ContainerImageAndTextThree>
         <ContainerButtonStartToMobile>
+            <Link to={'/AboutYourDNA'}>
             <ButtonStartToMobile>COMENZAR</ButtonStartToMobile>
+            </Link>
         </ContainerButtonStartToMobile>
         <ContainerFooterToMobile>
             <House className="items" fill="#FFF"  width={26} height={26}/>
@@ -232,7 +234,7 @@ export default function CompanyHome() {
                             <option value="value5">Ritmo Acelerado</option>
                         </select>
                         <label htmlFor="culture">Estructura Organizativa</label>
-                        <select  name="culture">
+                        <select name="culture">
                             <option value="" selected>Elige una opción</option>
                             <hr></hr>
                             <option value="value1">Jerárquica</option>
@@ -396,7 +398,9 @@ export default function CompanyHome() {
                             <option value="value10">Servicio al Cliente</option>
                         </select>
                     </ContainerThirdThreeSelects>
-                    <BtnChatColumnSelects>Ayuda</BtnChatColumnSelects>
+                    <Link to={'/AboutYourDNA'}>
+                        <BtnChatColumnSelects>Continuar</BtnChatColumnSelects>
+                    </Link>
         </ContainerColumnSelects>
         <ContainerMotivationAll>
                 <ContainerMotivationText>

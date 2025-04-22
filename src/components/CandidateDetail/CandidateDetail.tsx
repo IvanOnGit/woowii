@@ -165,7 +165,7 @@ export default function CandidateDetail() {
       setData(generateRandomData())
     }
     const [activeItems, setActiveItems] = useState<{ id: number; title: string }[]>([]);
-    const imageSrc = "Images/botonRepro.svg";
+    const imageSrc = "images/botonRepro.svg";
     const addItem = (title: string) => {
       if (!activeItems.some((item) => item.title === title)) {
         setActiveItems([...activeItems, { id: Date.now(), title }]);
@@ -213,7 +213,7 @@ export default function CandidateDetail() {
     </NavigateBarCandidateDetail>
     <CandidateDetailContainer>
         <LeftCandidateDetailColumn>
-            <UserImageCandidateDetail src="/Images/userImgCandidateDetails.svg" />
+            <UserImageCandidateDetail src="/images/userImgCandidateDetails.svg" />
                 <h2>User_125a3j</h2>
                 <p id="work">Brand Manager</p>
             <MatchAnalysisDiv>
@@ -241,12 +241,8 @@ export default function CandidateDetail() {
                 <ChartArea size={24} color="#FFF" />
                 <p>Match Analysis</p>
             </MatchAnalysisDiv>
-            {/* <PercentageBigGreen src="/Images/percentageBig.svg" alt="Porcentaje Grande Verde"/>
-            <BtnMatchCandidateDetail>
-                MATCH
-            </BtnMatchCandidateDetail> */}
             <DivContainerBigLogo>
-                <LogoBigCompany src="/Images/avatarCompany1.svg"  alt="Company Big Logo"/>
+                <LogoBigCompany src="/images/avatarCompany1.svg"  alt="Company Big Logo"/>
             </DivContainerBigLogo>
         </LeftCandidateDetailColumn>
         <CenterCandidateDetailColumn>
@@ -287,7 +283,7 @@ export default function CandidateDetail() {
                 <RadarChartComponent data={data} />
                 <button id="newGenerate" onClick={regenerateData}>Generar Nuevos Datos</button>
             </BackSpiderDiv>
-            <Link to={'/oneHUndred'}>
+            <Link to={'/CompanyMatchFound'}>
               <ButtonNextCandidateDetail>
                 Continuar
               </ButtonNextCandidateDetail>
@@ -313,18 +309,18 @@ export default function CandidateDetail() {
       <ExpandableText />
       <Sidebar isOpen={sidebarOpen}>
         <ContainerLogo>
-          <ImageLogoBlue src="/Images/LogoBlue.svg" alt="Blue Woowii's Logo" />
+          <ImageLogoBlue src="/images/LogoBlue.svg" alt="Blue Woowii's Logo" />
           <SidebarCloseButton onClick={toggleSidebar}>
             <X />
           </SidebarCloseButton>
         </ContainerLogo>
         <ContainerLabelsColumnLogo>
-          <UserImageCandidateDetail src="/Images/userImgCandidateDetails.svg" />
+          <UserImageCandidateDetail src="/images/userImgCandidateDetails.svg" />
                 <h2>User_125a3j</h2>
                 <p id="work">Brand Manager</p>
             <MatchAnalysisDiv>
                 <ChartArea size={24} color="#460BFF" />
-                <p>Match Analysis</p>
+                <p id="match">Match Analysis</p>
             </MatchAnalysisDiv>
             <h3>ALL MY STORIES</h3>
             <HardsetDiv onClick={() => {
@@ -365,7 +361,7 @@ export default function CandidateDetail() {
                 <p>Match Analysis</p>
             </MatchAnalysisDiv>
             <DivContainerBigLogo>
-                <LogoBigCompany src="/Images/avatarCompany1.svg"  alt="Company Big Logo"/>
+                <LogoBigCompany src="/images/avatarCompany1.svg"  alt="Company Big Logo"/>
             </DivContainerBigLogo>
         </ContainerLabelsColumnLogo>
       </Sidebar>
@@ -403,7 +399,7 @@ export default function CandidateDetail() {
         <RadarChartComponent data={data} />
         <button id="newGenerate" onClick={regenerateData}>Generar Nuevos Datos</button>
       </BackSpiderDiv>
-      <Link to={'/oneHUndred'}>
+      <Link to={'/CompanyMatchFound'}>
         <ButtonNextCandidateDetail>
           Continuar
         </ButtonNextCandidateDetail>
@@ -411,9 +407,9 @@ export default function CandidateDetail() {
       <ContainerFooterToMobile>
         <House className="items" fill="#FFF"  width={26} height={26}/>
         <BriefcaseBusiness className="items" fill="#FFF" width={26} height={26} />
-        {/* <Link to="/CompanyOverview"> */}
-            <img src="/Images/rocketFooter.svg" alt="Rocket Footer Image" />
-        {/* </Link> */}
+        <Link to='/CompanyMatchFound'>
+            <img src="/images/rocketFooter.svg" alt="Rocket Footer Image" />
+        </Link>
         <Mail className="items" fill="#FFF" width={26} height={26}/>
         <Bell className="items" fill="#FFF" width={26} height={26}/>
       </ContainerFooterToMobile>

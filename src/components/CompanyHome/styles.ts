@@ -116,6 +116,9 @@ export const ContainerUpSearhAndItemsMobile = styled.div`
   width: 100vw;
   height: 10vh;
   background: #FFF;
+  ${mobileLittle}{
+    top: -0.5rem;
+  }
   ${tablet}{
     justify-content: space-around;
   }
@@ -210,17 +213,22 @@ export const HeaderItemsToMobile = styled.div`
         }
     }
     #menu{
+      ${mobileLittle}{
+        margin-top: 0.7rem;
+      }
         ${mobileLarge}{
-            width: 1.563rem;
-            height: 1.563rem;
+          margin-top: 0.9rem;
+          width: 1.563rem;
+          height: 1.563rem;
         }
         ${tablet}{
-            width: 1.688rem;
-            height: 1.688rem;
+          width: 1.688rem;
+          height: 1.688rem;
         }
     }
     ${tablet}{
-        margin-left: 1rem;
+      margin-top: 0.9rem;
+      margin-left: 1rem;
     }
 `;
 export const PrincipalTitleToMobile= styled.div`
@@ -259,11 +267,14 @@ export const ContainerTextBelowPrincipalTitle = styled.div`
     grid-template-columns: 1fr 1fr;
     width: 100vw;
     height: 15vh;
+    ${mobileLittle}{
+      top: -3%;
+    }
     ${mobileMedium}{
         left: 2%;
     }
     ${tablet}{
-        top: 3%;
+        top: 0.5%;
         left: 18%;
     }
 `;
@@ -273,6 +284,9 @@ export const ContainerGhostDiv = styled.div`
     height: 12vh;
     margin-left: 1rem;
     border-right: 2px solid #460BFF;
+    ${mobileLittle}{
+      margin-top: 1rem;
+    }
     ${tablet}{
         height: 13.5vh;
     }
@@ -307,13 +321,14 @@ export const ContainerImageBlueDegradedBars = styled.div`
     left: -1%;
     height: 11rem;
     ${mobileLarge}{
-        content: url("/Images/DegradedBarsToLargeMobile.svg");
+        content: url("/images/DegradedBarsToLargeMobile.svg");
+        top: 1%;
         left: -2%;
     }
     ${tablet}{
-        content: url("/Images/DegradedBarsToTablet.svg");
+        content: url("/images/DegradedBarsToTablet.svg");
         /* left: -2%; */
-        top: 4%;
+        top: 5%;
     }
 `;
 export const ContainerTextBelowDegradedBars = styled.div`
@@ -363,6 +378,7 @@ export const ContainerImageAndTextOne = styled.div`
             width: 5.074rem;
             height: 5.513rem;
             margin-top: 0.85rem;
+
         }
     }
     p{
@@ -391,28 +407,28 @@ export const ContainerImageAndTextOne = styled.div`
     }
 `;
 export const ContainerImageAndTextTwo = styled(ContainerImageAndTextOne)`
-    top: 5%;
-    left: 12%;
-    p{
-        min-width: 9rem;
-        margin-left: 2rem;
-        ${mobileLarge}{
-            font-size: 1.3rem;
-            min-width: 11rem;
-        }
-        ${tablet}{
-            font-size: 1.6rem;
-            min-width: 17rem;
-        }
-    }
-    ${mobileMedium}{
-        top: 3%;
-        left: 14%;
+  top: 5%;
+  left: 12%;
+  p{
+    min-width: 9rem;
+    margin-left: 2rem;  
+    ${mobileLarge}{
+      font-size: 1.3rem;
+      min-width: 11rem;
     }
     ${tablet}{
-        top: 8%;
-        left: 27%;
+      font-size: 1.6rem;
+      min-width: 17rem;
     }
+  }
+  ${mobileMedium}{
+    top: 3%;
+    left: 14%;
+  }
+  ${tablet}{
+    top: 8%;
+    left: 27%;
+  }
 `;
 export const ContainerImageAndTextThree = styled(ContainerImageAndTextOne)`
     top: 9%;
@@ -724,7 +740,7 @@ export const InputContainerHome = styled.div`
         outline: none;
         font-size: 1rem;
         ${desktop}{
-            width: 58rem;
+            width: 55rem;
         }
         ${bigdesk}{
             width: 63rem;
@@ -991,7 +1007,7 @@ export const StyledMotivationText = styled.div`
   margin-left: 1rem;
   margin-top: 3.75rem;
   ${desktop}{
-    margin-top: 6.75rem;
+    margin-top: 3.75rem;
   }
   h2 {
     font-size: 1.125rem;
@@ -1018,6 +1034,7 @@ export const StyledMotivationText = styled.div`
         font-size: 1.25rem;
         width: 42rem;
         margin-left: 3rem;
+        margin-top: -1rem;
     }
   }
 `;
@@ -1119,7 +1136,7 @@ export const ContainerMotivationImages = styled.div`
   top: 2rem;
   filter: drop-shadow(0 0.25rem 0.5rem rgba(0, 0, 0, 0.3));
   ${desktop}{
-    left: 2rem;
+    left: -0.5rem;
     top: 3rem;
   }
 `;
@@ -1135,8 +1152,12 @@ export const ContainerMotivationImagesUpBlueText = styled.div`
     font-weight: 700;
     font-family: 'Roboto', sans-serif;
     color: #460BFF;
+    ${laptop}{
+      margin-top: -0.5rem;
+    }
     ${desktop}{
-        font-size: 1.438rem;
+      font-size: 1.438rem;
+      margin-bottom: -0.5rem;
     }
   }
   #first{
@@ -1146,7 +1167,7 @@ export const ContainerMotivationImagesUpBlueText = styled.div`
     color: #460BFF;
     letter-spacing: 0.063rem;
     ${desktop}{
-        font-size: 1.438rem;
+      font-size: 1.438rem;
     }
   }
 `;
@@ -1165,15 +1186,25 @@ export const ContainerNumberOneUp = styled.div`
   .textOne{
     display: block;
     margin-left: -1rem;
+    ${laptop}{
+      margin-top: -0.5rem;
+    }
+    ${desktop}{
+      margin-top: -0.5rem;
+    }
     p{
       font-size: 0.813rem;
       font-weight: 700;
       font-family: 'Roboto', sans-serif;
       color: #460BFF;
+      ${laptop}{
+        margin-bottom: -0.5rem;
+      }
       ${desktop}{
         font-size: 1.25rem;
         margin-left: -1.5rem;
         min-width: 10rem;
+        margin-bottom: -1rem;
       }
     }
   }
@@ -1185,6 +1216,7 @@ export const ImageContainerNumberOne = styled.img`
   ${desktop}{
     width: 5.274rem;
     height: 5.713rem;
+    margin-top: 0.5rem;
   }
 `;
 export const ContainerNumberOneDown = styled.div`
@@ -1192,6 +1224,10 @@ export const ContainerNumberOneDown = styled.div`
   width: 20vw;
   height: 7vh;
   padding: 0 1.25rem 0 1.25rem;
+  ${laptop}{
+    margin-top: -1rem ;
+    margin-left: -1rem;
+  }
   h6{
     font-size: 0.75rem;
     font-weight: 400;
@@ -1211,15 +1247,25 @@ export const ContainerNumberTwoUp = styled.div`
   .textTwo{
     display: block;
     margin-left: -1rem;
+    ${laptop}{
+      margin-top: -0.8rem;
+    }
+    ${desktop}{
+      margin-top: -1.5rem;
+    }
     p{
       font-size: 0.813rem;
       font-weight: 700;
       font-family: 'Roboto', sans-serif;
       color: #460BFF;
+      ${laptop}{
+        margin-bottom: -0.5rem;
+      }
       ${desktop}{
         font-size: 1.25rem;
         margin-left: -1.5rem;
         min-width: 10rem;
+        margin-bottom: -1rem;
       }
     }
   }
@@ -1239,6 +1285,10 @@ export const ContainerNumberTwoDown = styled.div`
   height: 7vh;
   padding: 0 1.25rem 0 1.25rem;
   margin-top: 0.125rem;
+  ${laptop}{
+    margin-top: -1rem ;
+    margin-left: -1rem;
+  }
   h6{
     font-size: 0.75rem;
     font-weight: 400;
@@ -1261,15 +1311,22 @@ export const ContainerNumberThreeUp = styled.div`
   .textTwo{
     display: block;
     margin-left: -1rem;
+    ${laptop}{
+      margin-top: -0.8rem;
+    }
     p{
       font-size: 0.813rem;
       font-weight: 700;
       font-family: 'Roboto', sans-serif;
       color: #460BFF;
+      ${laptop}{
+        margin-bottom: -0.5rem;
+      }
       ${desktop}{
         font-size: 1.25rem;
         margin-left: -1.5rem;
         min-width: 10rem;
+        margin-bottom: -1rem;
       }
     }
   }
@@ -1289,6 +1346,10 @@ export const ContainerNumberThreeDown = styled.div`
   height: 7vh;
   padding: 0 1.25rem 0 1.25rem;
   margin-top: 0.125rem;
+  ${laptop}{
+    margin-top: -1rem ;
+    margin-left: -1rem;
+  }
   h6{
     font-size: 0.75rem;
     font-weight: 400;

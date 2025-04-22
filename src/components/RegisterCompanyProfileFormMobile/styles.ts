@@ -194,7 +194,7 @@ export const ButtonNextPageForMobile = styled.button`
   cursor: pointer;
   border: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  margin: 20rem 0 1.5rem 7rem;
+  margin: 19rem 0 1.5rem 7rem;
   ${mobileMedium}{
     margin-left: 9rem;
   }

@@ -398,6 +398,7 @@ export const LeftCandidateDetailColumn = styled.div`
         font-family: 'Roboto', sans-serif;
         margin-top: 3.125rem;
         text-decoration: 0.625rem underline #460BFF;
+        
         ${mobileLarge}{
             margin-top: 4rem;
         }
@@ -408,6 +409,7 @@ export const MatchAnalysisDiv = styled.div`
     margin: 1.875rem 0 0 3.75rem;
     gap: 0.313rem;
     ${mobileLittle}{
+        margin-top: -1rem;
         padding-bottom: 1rem;
     }
     ${mobileMedium}{
@@ -437,6 +439,9 @@ export const HardsetDiv = styled.div`
     margin: 1.875rem 0 0 3.75rem;
     gap: 0.625rem;
     cursor: pointer;
+    ${mobileLittle}{
+        margin-bottom: -0.5rem;
+    }
     ${mobileMedium}{
         margin-left: 7rem;
     }
@@ -464,6 +469,9 @@ export const SoftsetDiv = styled.div`
     margin: 0.625rem 0 0 3.75rem;
     gap: 0.625rem;
     cursor: pointer;
+    ${mobileLittle}{
+        margin-bottom: -0.5rem;
+    }
     ${mobileMedium}{
         margin-left: 7rem;
     }
@@ -491,6 +499,9 @@ export const ToolsetDiv = styled.div`
     margin: 0.625rem 0 0 3.75rem;
     gap: 0.625rem;
     cursor: pointer;
+    ${mobileLittle}{
+        margin-bottom: -0.5rem;
+    }
     ${mobileMedium}{
         margin-left: 7rem;
     }
@@ -518,6 +529,9 @@ export const SuperpowerDiv = styled.div`
     margin: 0.625rem 0 0 3.75rem;
     gap: 0.625rem;
     cursor: pointer;
+    ${mobileLittle}{
+        margin-bottom: 0.5rem;
+    }
     ${mobileMedium}{
         margin-left: 7rem;
     }
@@ -562,7 +576,7 @@ export const DivContainerBigLogo = styled.div`
     margin-left: -1.875rem;
     margin-top: 1.875rem;
     ${mobileLittle}{
-        margin-top: 1rem;
+        margin-top: -1rem;
         margin-left: 0.5rem; 
     }
 `;
@@ -570,6 +584,14 @@ export const LogoBigCompany = styled.img`
     width: 8.75rem;
     height: 10rem;
     margin: auto;
+    ${mobileLittle}{
+        width: 7.75rem;
+        height: 9rem;
+    }
+    ${mobileLarge}{
+        width: 5.75rem;
+        height: 7rem;
+    }
 `;
 export const UserImageCandidateDetail = styled.img`
     display: flex;
@@ -684,6 +706,7 @@ export const BackSpiderDiv = styled.div`
     margin-left: -1rem;
     border: 0.125rem solid #8FFF00;
     border-radius: 0.938rem;
+
     ${tablet}{
         border: none;
     }
@@ -755,6 +778,12 @@ export const ButtonNextCandidateDetail = styled.button`
     font-weight: 900;
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
+    ${mobileLittle}{
+        margin-top: 6rem;
+    }
+    ${laptop}{
+        margin-top: 1.5rem;
+    }
     &:hover{
         background: #8FFF00;
         color: #000;
@@ -831,7 +860,7 @@ export const ContentContainer = styled.div`
   margin-top: 0.625rem;
   border-radius: 1.875rem;
   ${mobileLittle}{
-    width: 17.313rem;
+    width: 16.313rem;
     height: 27.375rem;
     margin-left: 1.5rem;
     background: #FFF;
@@ -849,7 +878,6 @@ export const ContentContainer = styled.div`
     height: 15.375rem;
   }
   h3{
-    /* margin: auto; */
     color: #FFF;
     font-size: 1.125rem;
     font-weight: 300;
@@ -1018,6 +1046,9 @@ export const MenuMobile = styled.ul`
     font-size: 0.875rem;
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
+    ${mobileLittle}{
+        margin-left: -1.7rem;
+    }
     li:hover{
         text-decoration: underline 0.125rem #8FFF00;
         font-size: 0.938rem;
@@ -1069,7 +1100,6 @@ export const ContainerLabelsColumnLogo = styled.div`
   h2{
     ${mobileLittle}{
         font-size: 1.25rem;
-        /* margin: 1rem 0 0 5.3rem; */
         text-align: center;
         color: #460BFF;
     }
@@ -1079,10 +1109,8 @@ export const ContainerLabelsColumnLogo = styled.div`
   }
   p{
     ${mobileLittle}{
-        font-size: 1rem;
-        /* margin: 1rem 0 0 5.3rem; */
+        font-size: 1.125rem;
         text-align: center;
-        /* color: #460BFF; */
     }
     ${tablet}{
         font-size: 1.75rem;
@@ -1091,6 +1119,7 @@ export const ContainerLabelsColumnLogo = styled.div`
   h3{
     ${mobileLittle}{
         text-align: center;
+        margin-top: -1.5rem;
     }
     ${tablet}{
         font-size: 2rem;
@@ -1125,17 +1154,7 @@ export const LabelsColumnLogo = styled.label`
     height: 2.5rem;
   }
 `;
-export const ContainerCalendar = styled.div`
-  width: 23vw;
-  height: 18.75rem;
-  margin: auto;
-  margin-top: 6.25rem;
-  background: #FFF;
-  @media (max-width: 768px) {
-    width: 90%;
-    margin-top: 2rem;
-  }
-`;
+
 export const SidebarCloseButton = styled.button`
    display: none;
    position: absolute;
@@ -1190,7 +1209,7 @@ export const ContainerFooterToMobile = styled.div`
     top: 10rem;
   }
   ${tablet}{
-    top: 24rem;
+    top: 14rem;
   }
   ${laptop}{
     top: 45.85rem;

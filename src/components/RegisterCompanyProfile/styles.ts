@@ -144,6 +144,9 @@ export const ContainerWrapper = styled.div`
   gap: 1rem;
   h2 {
     font-family: 'Roboto', sans-serif;
+    ${mobileMedium}{
+      margin-top: -3rem;
+    }
   }
   ${mobileLittle}{
     width: 70%;
@@ -209,18 +212,23 @@ export const AvatarWrapper = styled.div`
   gap: 1rem;
   ${mobileLittle}{
     top: 30%;
-    left: 17%;
+    left: 10%;
   }
   ${mobileMedium}{
-    left: 21%;
+    left: 15%;
+    top: 25%;
+  }
+  ${mobileLarge}{
+    left: 15%;
+    top: 26%;
   }
   ${tablet}{
-    top: 24%;
+    top: 22%;
     left: 33%;
   }
   ${laptop}{
-    top: 32%;
-    left: 11%;
+    top: 28%;
+    left: 9%;
   }
 `;
 export const AvatarImage = styled.img`
@@ -241,9 +249,13 @@ export const AvatarImage = styled.img`
     width: 10.25rem;
     height: 10.25rem;
   }
+  ${mobileLarge}{
+    width: 10.25rem;
+    height: 10.25rem;
+  }
   ${tablet}{
-    width: 11rem;
-    height: 11rem;
+    width: 10rem;
+    height: 10rem;
   }
   ${laptop}{
     width: 10rem;
@@ -404,7 +416,7 @@ export const UsernameInput = styled.div`
     margin-bottom: 1rem;
     ${mobileLittle}{
       left: 12%;
-      top: 68%;
+      top: 67%;
       width: 15.214rem;
       height: 2.392rem;
       margin-bottom: 1.25rem;
@@ -466,10 +478,12 @@ export const UsernameInput = styled.div`
     ${tablet}{
       font-size: 1rem;
       margin-left: 32rem;
+      
     }
     ${laptop}{
       font-size: 1rem;
       margin-left: 6rem;
+      padding-top: 0.5rem;
     }
     ${desktop}{
       font-size: 1rem;
@@ -519,6 +533,11 @@ export const ButtonOnlyForMobile =styled.button`
   ${mobileLittle}{
     top: 91%;
     left: 35%;
+  }
+  ${mobileMedium}{
+    width: 8.813rem;
+    height: 1.825rem;
+    font-size: 0.938rem;
   }
   ${tablet}{
     top: 88%;
@@ -748,4 +767,11 @@ export const ButtonNextTerceraPage = styled.button`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   margin-bottom: 1.5rem;
-`
+  margin-top: -10rem;
+  ${laptop}{
+    margin-top: -0.5rem;
+  }
+  ${desktop}{
+    margin-top: 1rem;
+  }
+`;

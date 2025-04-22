@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { BackgroundZigZag, BlueLogoWoowii, Container, ContainerFooterToMobile, ContainerUpNav, ItsAMatch, MatchHandShake, WhatWooWiiConnects } from "./styles";
 import { Bell, BriefcaseBusiness, CircleChevronLeft, House, Mail, Menu } from 'lucide-react';
 
@@ -33,9 +33,9 @@ export default function CompanyMatchFound() {
                 <ContainerFooterToMobile>
                     <House className="items" fill="#FFF"  width={26} height={26}/>
                     <BriefcaseBusiness className="items" fill="#FFF" width={26} height={26} />
-                    {/* <Link to="/CompanyOverview"> */}
+                    <Link to="/CompanyInterviewPage">
                         <img src="/images/rocketFooter.svg" alt="Rocket Footer Image" />
-                    {/* </Link> */}
+                    </Link>
                     <Mail className="items" fill="#FFF" width={26} height={26}/>
                     <Bell className="items" fill="#FFF" width={26} height={26}/>
                 </ContainerFooterToMobile>

@@ -87,9 +87,12 @@ export const SearchUpToMobile = styled.div`
         font-size: 0.75rem;
         font-weight: 500;
         font-family: 'Inter', sans-serif;
+        ${mobileLittle}{
+            width: 8rem;
+        }
         ${mobileLarge}{
           font-size: 0.85rem;
-          width: 11rem;
+          width: 9rem;
           height: 1.5rem;
         }
         ${tablet}{
@@ -144,13 +147,20 @@ export const HeaderItemsToMobile = styled.div`
     }
   }
   #menu{
+    ${mobileLittle}{
+        margin-top: 0.7rem;
+    }
     ${mobileLarge}{
       width: 1.563rem;
       height: 1.563rem;
+      margin-top: 0.9rem;
     }
     ${tablet}{
       width: 1.688rem;
       height: 1.688rem;
+    }
+    ${laptop}{
+        margin-top: 1rem;
     }
   }
 `;

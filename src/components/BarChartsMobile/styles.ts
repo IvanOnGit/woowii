@@ -28,7 +28,7 @@ export const Container = styled.div`
   ${mobileLittle}{
     flex-direction: column;
     width: 20rem;
-    margin-top: 13rem;
+    margin-top: 18rem;
     margin-left: 1rem;
     margin-bottom: 12rem;
   }
@@ -72,6 +72,7 @@ export const ChartContainer = styled.div`
   h3{
     text-align: center;
     margin-left:-6.25rem;
+    margin-bottom: -1rem;
   }
   h2{
     text-align: center;

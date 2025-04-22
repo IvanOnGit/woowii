@@ -27,7 +27,7 @@ import {
   ContainerFooterToMobile,
   BtnNextPage
 } from "./styles";
-// import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function CompanyCandidatesView() {
   const [showPopup, setShowPopup] = useState(false);
@@ -36,11 +36,6 @@ export default function CompanyCandidatesView() {
     technicalSkills: false,
   });
 
-  // const [openDropdownId, setOpenDropdownId] = useState<number | null>(null);
-  
-  // const toggleMenu = (id: number) => {
-  //   setOpenDropdownId(prevId => (prevId === id ? null : id));
-  // };
     
   const toggleDropdown = (dropdown: keyof typeof dropdowns) => {
     setDropdowns(prev => ({ 
@@ -123,12 +118,6 @@ export default function CompanyCandidatesView() {
       lastProject: "Fitness Tracking App" 
     }
   ];
-  
-  // const navigate = useNavigate();
-
-  // const handleContinueClick = () => {
-  //   navigate("/CompanyCandidatesViewContact");
-  // };
 
   return (
     
@@ -224,7 +213,9 @@ export default function CompanyCandidatesView() {
           )}
         </SecondDropdownContainer>
         <Separator />
-        <BtnNextPage>Continuar</BtnNextPage>
+        <Link to={"/CandidateDetail"}>
+          <BtnNextPage>Continuar</BtnNextPage>
+        </Link>
       </MenuAside>
       {/* Contenedor Principal */}
       <MainContent>
@@ -245,14 +236,6 @@ export default function CompanyCandidatesView() {
         <CandidateCard key={candidate.id}>
           <CandidateHeader>
             <CandidateName>{candidate.name}</CandidateName>
-            {/* <MoreOptions onClick={() => toggleMenu(candidate.id)}>
-              <MoreVertical />
-            </MoreOptions> */}
-            {/* {openDropdownId === candidate.id && (
-              <DropdownMenu>
-                <DropdownItem onClick={handleContinueClick}>Contactar</DropdownItem>
-              </DropdownMenu>
-            )} */}
             <CardContact onClick={() => {
               setSelectedUser(candidate.name);
               setShowPopup(true);
@@ -275,9 +258,9 @@ export default function CompanyCandidatesView() {
       <ContainerFooterToMobile>
         <House className="items" fill="#FFF"  width={26} height={26}/>
         <BriefcaseBusiness className="items" fill="#FFF" width={26} height={26} />
-        {/* <Link to="/CompanyOverview"> */}
+        <Link to={"/CandidateDetail"}>
           <img src="/images/rocketFooter.svg" alt="Rocket Footer Image" />
-        {/* </Link> */}
+        </Link>
         <Mail className="items" fill="#FFF" width={26} height={26}/>
         <Bell className="items" fill="#FFF" width={26} height={26}/>
       </ContainerFooterToMobile>

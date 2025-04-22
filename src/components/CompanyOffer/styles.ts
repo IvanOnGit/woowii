@@ -1109,8 +1109,11 @@ export const ContainerIntroOffer = styled.div`
     background-size: cover;
     background-repeat: no-repeat;
     z-index: 0;
+    ${mobileLittle}{
+      height: 70vh;
+    }
     ${mobileLarge}{
-        height: 65vh;  
+        height: 72vh;  
     }
 `;
 export const ContainerExplainPage = styled.div`
@@ -1118,21 +1121,26 @@ export const ContainerExplainPage = styled.div`
     display: block;
     margin-top: 0;
     width: 100vw;
-    height: 420vh;
+    height: 428vh;
     background: linear-gradient(to bottom ,#0B0B0B, #D9D9D9);
     z-index: 0;
-    
+    ${mobileLittle}{
+      margin-top: -3rem;
+    }
     ${mobileMedium}{
         height: 430vh;
     }
     ${mobileLarge}{
-        height: 440vh;
+        height: 460vh;
+    }
+    ${tablet}{
+      height: 460vh;
     }
     ${laptop}{
-        height: 320vh;
+        height: 360vh;
     }
     ${desktop}{
-        height: 270vh;
+        height: 295vh;
     }
     ${bigdesk}{
         height: 250vh;
@@ -1187,8 +1195,9 @@ export const SearchUpToMobile = styled.div`
     display: flex;
     width: 10rem;
     height: 1rem;
+    
     ${mobileLarge}{
-      margin-left: 2rem;
+      margin-left: -1rem;
     }
     ${tablet}{
       width: 18rem;
@@ -1204,6 +1213,9 @@ export const SearchUpToMobile = styled.div`
         font-family: 'Inter', sans-serif;
         background: #000;
         border: 0.063rem solid #FFF;
+        ${mobileLittle}{
+          width: 8rem;
+        }
         ${mobileLarge}{
           font-size: 0.85rem;
           width: 11rem;
@@ -1265,6 +1277,9 @@ export const HeaderItemsToMobile = styled.div`
     }
   }
   #menu{
+    ${mobileLittle}{
+      margin-top: 0.9rem;
+    }
     ${mobileLarge}{
       width: 1.563rem;
       height: 1.563rem;
@@ -1479,12 +1494,15 @@ export const TextAreaExplainOffer = styled.textarea`
   &::placeholder{
     font-size: 1rem;
   }
+  ${mobileLittle}{
+    width: 16.5rem;
+  }
   ${mobileMedium}{
     margin-left: 0.6rem;
   }
   ${mobileLarge}{
     width: 21.5rem;
-    margin-left: 0.8rem;
+    margin-left: -0.1rem;
   }
   ${tablet}{
     width: 35.5rem;
@@ -1600,7 +1618,7 @@ export const QueHarasText = styled.div`
   .BlueRectangle1{
     width: 3.063rem;
     height: 0.425rem;
-    margin: 0.325rem 0 0 7rem;
+    margin: -0.625rem 0 0 7rem;
     background: #460BFF;
     ${mobileMedium}{
         margin-left: 8.7rem;
@@ -1613,6 +1631,7 @@ export const QueHarasText = styled.div`
     }
     ${laptop}{
         margin-left: 27rem;
+        margin-top: -1rem;
     }
     ${desktop}{
         margin-left: 40rem;
@@ -1625,7 +1644,7 @@ export const QueHarasText = styled.div`
     margin: auto;
     width: 6.063rem;
     height: 0.625rem;
-    margin: 0.625rem 0 0 42.5rem;
+    margin: -0.325rem 0 0 42.5rem;
     background: #460BFF;
   }
 `;
@@ -1644,11 +1663,15 @@ export const TextAreaQueHarasExplainOffer = styled.textarea`
   color: #000;
   padding: 0.625rem;
   z-index: 2;
+  ${mobileLittle}{
+    width: 16.5rem;
+  }
   ${mobileMedium}{
     margin-left: 2.5rem;
   }
   ${mobileLarge}{
     width: 21.5rem;
+    margin-left: 1.8rem;
   }
   ${tablet}{
     width: 35.5rem;
@@ -1677,7 +1700,7 @@ export const TextAreaQueHarasExplainOffer = styled.textarea`
 `;
 export const WithWhoWork = styled(QueHarasText)`
     .BlueRectangle1{
-        margin: 0.325rem 0 0 4rem;
+        margin: -0.625rem 0 0 4rem;
         ${mobileMedium}{
             margin-left: 5.7rem;
         }
@@ -1689,6 +1712,7 @@ export const WithWhoWork = styled(QueHarasText)`
         }
         ${laptop}{
             margin-left: 23rem;
+            margin-top: -1rem;
         }
         ${desktop}{
             margin-left: 35rem;
@@ -1765,7 +1789,7 @@ export const WithWhoWorkInput = styled.div`
 
 export const SurvivorKit = styled(QueHarasText)`
     .BlueRectangle1{
-        margin: 0.325rem 0 0 4rem;
+        margin: -0.625rem 0 0 4rem;
         ${mobileMedium}{
             margin-left: 5.7rem;
         }
@@ -1777,6 +1801,7 @@ export const SurvivorKit = styled(QueHarasText)`
         }
         ${laptop}{
             margin-left: 22.5rem;
+            margin-top: -1rem;
             margin-bottom: 1rem;
         }
         ${desktop}{
@@ -1886,7 +1911,7 @@ export const AddCircleBelowBlueInput = styled.div`
 export const OurProcessTitle = styled(QueHarasText)`
     margin-top: 3rem;
     .BlueRectangle1{
-        margin: 0.325rem 0 0 5.2rem;
+        margin: -0.625rem 0 0 5.2rem;
         ${mobileMedium}{
             margin-left: 6.8rem;
         }
@@ -1898,6 +1923,7 @@ export const OurProcessTitle = styled(QueHarasText)`
         }
         ${laptop}{
             margin-left: 24rem;
+            margin-top: -1rem;
         }
         ${desktop}{
             margin-left: 37rem;
@@ -1994,7 +2020,7 @@ export const ContainerInputsBelowOurProcess = styled.div`
 export const ResponsibilitiesTitle = styled(QueHarasText)`
     margin-top: 1rem;
     .BlueRectangle1{
-        margin: 0.325rem 0 0 4.6rem;
+        margin: -0.625rem 0 0 4.6rem;
         ${mobileMedium}{
             margin-left: 6rem;
         }
@@ -2006,6 +2032,7 @@ export const ResponsibilitiesTitle = styled(QueHarasText)`
         }
         ${laptop}{
             margin-left: 23.5rem;
+            margin-top: -1rem;
         }
         ${desktop}{
             margin-left: 35.5rem;
@@ -2099,7 +2126,7 @@ export const WhatSearchTitle = styled(QueHarasText)`
         }
     }
     .BlueRectangle1{
-        margin: 0.325rem 0 0 4rem;
+        margin: -0.625rem 0 0 4rem;
         ${mobileMedium}{
             margin-left: 5.3rem;
         }
@@ -2111,6 +2138,7 @@ export const WhatSearchTitle = styled(QueHarasText)`
         }
         ${laptop}{
             margin-left: 24.5rem;
+            margin-top: -1rem;
         }
         ${desktop}{
             margin-left: 37.5rem;
@@ -2424,7 +2452,7 @@ export const ThirdLineFinalMatch = styled.h3`
   ${mobileMedium}{
     margin-left: 2rem;
   }
-  ${mobileMedium}{
+  ${mobileLarge}{
     margin-left: 4rem;
   }
   ${tablet}{
@@ -2475,20 +2503,23 @@ export const ContainerFooterToMobile = styled.div`
   width: 100vw;
   height: 8vh;
   background: #460BFF;
+  ${mobileLittle}{
+    top: -2%;
+  }
   ${mobileMedium}{
-    top: -1.5%;
+    top: -2.5%;
     margin-left: 0rem;
   }
   ${mobileLarge}{
     top: 2%;
   }
   ${tablet}{
-    top: -0.5%;
+    top: 1.5%;
     height: 10vh;
     margin-left: 0rem;
   }
   ${laptop}{
-    top: 0.5%;
+    top: 3.5%;
     height: 10vh;
     margin-left: 0rem;
   }

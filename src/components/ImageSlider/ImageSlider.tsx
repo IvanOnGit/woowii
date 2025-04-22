@@ -85,7 +85,7 @@ import { GradientMask,
   Username, 
   Wrapper } from "./styles";
 
-const infiniteImages = [...images, ...images, ...images, ...images];
+const infiniteImages = [...images, ...images, ...images, ...images, ...images];
 
 const ImageSlider: React.FC = () => {
   const imageWidth = 160; 

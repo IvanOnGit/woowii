@@ -137,6 +137,7 @@ export const ContainerFooterToMobile = styled.div`
   width: 100vw;
   height: 8vh;
   background: #460BFF;
+  z-index: 1;
   ${mobileLittle}{
     top: 46rem;
     left: -10rem;

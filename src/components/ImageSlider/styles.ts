@@ -163,7 +163,7 @@ export const Image = styled.img`
   ${mobileLittle}{
     width: 3.875rem;
     height: 3.875rem;
-    margin-right: -0.625rem;
+    margin-right: 0.325rem;
   }
 `;
 export const Username = styled.div`
@@ -174,7 +174,7 @@ export const Username = styled.div`
   color: #333;
   font-weight: bold;
   ${mobileLittle}{
-    font-size: 0.931rem;
+    font-size: 0.75rem;
   }
 `;
 export const Button = styled.button`
@@ -194,6 +194,9 @@ export const PrevButton = styled(Button)`
 `;
 export const NextButton = styled(Button)`
   right: 0;
+  ${mobileLittle}{
+    right: 2.5rem;
+  }
 `;
 export const GradientMask = styled.div`
   position: absolute;
@@ -209,6 +212,9 @@ export const GradientMask = styled.div`
   &:last-child {
     right: 0;
     background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    ${mobileLittle}{
+      right: 0.5rem;
+    }
   }
 `;
 export const images = [

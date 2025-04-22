@@ -32,6 +32,9 @@ export const ContainerRadarToMobile = styled.div`
   width: 70%;
   height: 250px;
   margin-left: 2rem;
+  ${mobileLittle}{
+    margin-top: 7rem;
+  }
   ${mobileMedium}{
     margin-left: 2.8rem;
   }
@@ -41,7 +44,7 @@ export const ContainerRadarToMobile = styled.div`
   ${tablet}{
     width: 100%;
     height: 350px;
-    margin: 20rem 0 0 11rem;
+    margin: 25rem 0 0 11rem;
   }
   ${laptop}{
     width: 100%;

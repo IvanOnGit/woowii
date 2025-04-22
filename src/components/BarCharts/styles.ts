@@ -24,12 +24,12 @@ export const Container = styled.div`
   align-items: flex-start;
   width: 28rem;
   height: 26rem;
-  margin-top: 0.625rem;
+  margin-top: -0.325rem;
 `;
 
 export const Button = styled.button`
   padding: 0.313rem 0.625rem;
-  margin: -0.625rem 0 0 -3.125rem;
+  margin: 0.325rem 0 0 -3.125rem;
   font-size: 1rem;
   cursor: pointer;
   background-color: #460BFF;
@@ -47,10 +47,12 @@ export const ChartContainer = styled.div`
   max-width: 25rem;
   text-align: center;
   display: block;
-  
+  margin-bottom: -1rem;
   h3{
     text-align: center;
     margin-left:-6.25rem;
+    margin-bottom: -1rem;
+    font-size: 0.938rem;
   }
   h2{
     text-align: center;
@@ -63,6 +65,7 @@ export const ChartContainer = styled.div`
     align-items: center;
     justify-content: space-evenly;
     margin-left: -4.375rem;
+    margin-bottom: -1rem;
     h4{
         font-weight: 300;
     }

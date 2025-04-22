@@ -423,7 +423,8 @@ export const ContainerAllMobile = styled.div`
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
   ${laptop}{
     display: none;
   }
@@ -477,8 +478,7 @@ export const AvatarToMobile = styled.div`
     }
     ${tablet}{
       margin-left: -1rem;
-    }
-    
+    } 
 `;
 export const SearchUpToMobile = styled.div`
     display: flex;
@@ -557,6 +557,9 @@ export const HeaderItemsToMobile = styled.div`
     }
   }
   #menu{
+    ${mobileLittle}{
+      margin-top: 0.7rem;
+    }
     ${mobileLarge}{
       width: 1.563rem;
       height: 1.563rem;
@@ -564,6 +567,7 @@ export const HeaderItemsToMobile = styled.div`
     ${tablet}{
       width: 1.688rem;
       height: 1.688rem;
+      margin-top: 1rem;
     }
   }
 `;
@@ -606,7 +610,7 @@ export const ContainerParagrafBelowTitle = styled.div`
   }
   ${tablet}{
     left: 8.7rem;
-    top: -0.5rem;
+    top: 1rem;
   }
 `;
 export const ParagrafBelowTitle = styled.p`
@@ -634,13 +638,14 @@ export const ContainerSubtitleBelowParagraf = styled.div`
   height: 1.125rem;
   ${mobileMedium}{
     left: 1rem;
+    top: -0.5rem;
   }
   ${mobileLarge}{
     top: 0.5rem;
     left: 1rem;
   }
   ${tablet}{
-    top: -1.2rem;
+    top: 1.5rem;
     left: 8.5rem;
   }
 `;
@@ -662,6 +667,7 @@ export const SubtitleBelowParagraf = styled.h3`
   ${tablet}{
     font-size: 1.25rem;
     min-width: 26.625rem;
+    margin-top: 1.5rem;
   }
 `; 
 export const ContainerInputBelowSubtitle = styled.div`
@@ -671,6 +677,9 @@ export const ContainerInputBelowSubtitle = styled.div`
   height: 0.938rem;
   left: 2rem;
   top: 3rem;
+  ${mobileLittle}{
+    top: 2rem;
+  }
   ${mobileMedium}{
     left: 3rem;
   }
@@ -680,7 +689,7 @@ export const ContainerInputBelowSubtitle = styled.div`
     width: 20.375rem;
   }
   ${tablet}{
-    top: 1.7rem;
+    top: 3.5rem;
     left: 10.5rem;
     width: 26.305rem;
   }
@@ -694,6 +703,7 @@ export const ContainerInputBelowSubtitle = styled.div`
     }
     ${tablet}{
       width: 26.305rem;
+      top: 3rem;
     }
     &::placeholder{
       font-size: 0.625rem;
@@ -716,16 +726,19 @@ export const ContainerTextsWithStar = styled.div`
   width: 17.75rem;
   height: 6.875rem;
   margin: 3.5rem 0 0 2rem;
+  ${mobileLittle}{
+    margin-top: 2rem;
+  }
   ${mobileMedium}{
     margin-left: 3rem;
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
   }
   ${mobileLarge}{
     margin-top: 2.2rem;
   }
   ${tablet}{
     margin-left: 11.5rem;
-    margin-top: 1rem;
+    margin-top: 3rem;
   }
 `;
 export const TextWithStar = styled.div`
@@ -733,10 +746,18 @@ export const TextWithStar = styled.div`
   width: 18.75rem;
   height: 0.75rem;
   margin-top: 1rem;
-  ${mobileLarge}{
-    margin-top: 1.5rem;
+  ${mobileLittle}{
+    margin-bottom: 1.5rem;
     .star{
      margin-left: -0.4rem;
+     margin-top: 0.7rem;
+    }
+  }
+  ${mobileLarge}{
+    margin-top: 1.2rem;
+    .star{
+     margin-left: -0.4rem;
+     margin-top: 1rem;
     }
   }
   ${tablet}{
@@ -747,13 +768,13 @@ export const TextWithStar = styled.div`
   .last{
     margin-top: 0.75rem;
     ${mobileMedium}{
-      margin-top: 1.7rem;
-    }
-    ${mobileLarge}{
       margin-top: 2rem;
     }
+    ${mobileLarge}{
+      margin-top: 3rem;
+    }
     ${tablet}{
-      margin-top: 2.2rem;
+      margin-top: 3.3rem;
     }
   }
   p{
@@ -785,18 +806,19 @@ export const ContainerVoiceToText = styled.div`
     width: 20.438rem;
     height: 7.063rem;
     left: 0.75rem;
+    top: 1rem;
   }
   ${mobileLarge}{
     width: 24.438rem;
     height: 9.063rem;
     left: 2rem;
-    top: 2rem;
+    top: 3rem;
   }
   ${tablet}{
     width: 28.438rem;
     height: 7.063rem;
     left: 10rem;
-    top: 2rem;
+    top: 4rem;
   }
   ${laptop}{
     width: 35.313rem;
@@ -863,7 +885,7 @@ export const ContainerTextAndMicro = styled.div`
   }
   ${tablet}{
     left: 23.3rem;
-    top: 1rem;
+    top: 2.5rem;
   }
   ${laptop}{
     left: -43.3rem;
@@ -910,6 +932,9 @@ export const ContainerMicro = styled.div`
     width: 1rem;
     height: 1rem;
   }
+  ${tablet}{
+    margin-top: 0.5rem;
+  }
   ${laptop}{
     width: 1.3rem;
     height: 1.3rem;
@@ -939,7 +964,7 @@ export const ContainerChecks = styled.div`
   }
   ${tablet}{
     left: 11rem;
-    top: 2.4rem;
+    top: 4.4rem;
   }
   ${laptop}{
     left: -61rem;
@@ -982,22 +1007,25 @@ export const CheckAndText = styled.div`
   }
 `;
 export const ContainerThreeLargeSelect = styled.div`
-  position: fixed;
+  position: relative;
   display: block;
   width: 18.438rem;
   height: 6.25rem;
   top: 38rem;
   left: 1rem;
+  ${mobileLittle}{
+    top: 10rem;
+  }
   ${mobileMedium}{
-    top: 39rem;
+    top: 10rem;
     left: 1.5rem;
   }
   ${mobileLarge}{
-    top: 39.7rem;
+    top: 10.7rem;
     left: 2.7rem;
   }
   ${tablet}{
-    top: 38.7rem;
+    top: 10.7rem;
     left: 10.5rem;
   }
 `;
@@ -1036,8 +1064,11 @@ export const ContainerFooterToMobile = styled.div`
   width: 100vw;
   height: 8vh;
   background: #460BFF;
-  ${mobileMedium}{
+  ${mobileLittle}{
     top: 28%;
+  }
+  ${mobileMedium}{
+    top: 33%;
   }
   ${mobileLarge}{
     top: 26%;
@@ -1351,8 +1382,9 @@ export const ContainerBlueLabels = styled.div`
   display: block;
   width: 39.75rem;
   height: 7.938rem;
-  top: 21rem;
+  top: 22rem;
   left: -61rem;
+
   ${desktop}{
     left: -85rem;
   }
@@ -1365,7 +1397,7 @@ export const ContainerBlueLabelsTwo = styled.div`
   display: block;
   width: 39.75rem;
   height: 7.938rem;
-  top: 23rem;
+  top: 24rem;
   left: -61rem;
   ${desktop}{
     left: -85rem;
@@ -1379,7 +1411,7 @@ export const ContainerBlueLabelsThree = styled.div`
   display: block;
   width: 39.75rem;
   height: 7.938rem;
-  top: 25rem;
+  top: 26rem;
   left: -61rem;
   ${desktop}{
     left: -85rem;
