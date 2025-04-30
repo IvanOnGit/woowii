@@ -274,7 +274,7 @@ export default function Hardset() {
           <h3>@{userData?.username || "Usuario"}</h3>
           </UserAndImageCombo>  
         </FirstMenuAsideItem>
-        <span>COMPLETA TUS DATOS BÁSICOS</span>
+        <span></span>
 
         {/* Primer Dropdown */}
         <DropdownContainer>
@@ -358,7 +358,7 @@ export default function Hardset() {
             </SecondDropdownList>
           )}
         </SecondDropdownContainer>
-        <span>ASPIRACIONES Y PREFERENCIAS</span>
+        <span></span>
         
         {/* Séptimo Dropdown */}
         <SecondDropdownContainer>
@@ -388,63 +388,13 @@ export default function Hardset() {
         
         <SecondDropdownContainer>
           <SecondDropdownButton>
-            Tamaño de empresa {isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </SecondDropdownButton>
-        </SecondDropdownContainer>
-        
-        <SecondDropdownContainer>
-          <SecondDropdownButton>
             Incorporación {isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
           </SecondDropdownButton>
         </SecondDropdownContainer>
-        <span>HABILIDADES Y EXPERIENCIA</span>
         
         <SecondDropdownContainer>
           <SecondDropdownButton>
-            Metodologías {isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </SecondDropdownButton>
-        </SecondDropdownContainer>
-        
-        <SecondDropdownContainer>
-          <SecondDropdownButton>
-            Cursos | Certificados {isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </SecondDropdownButton>
-        </SecondDropdownContainer>
-        
-        <SecondDropdownContainer>
-          <SecondDropdownButton>
-            IA | Big Data {isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </SecondDropdownButton>
-        </SecondDropdownContainer>
-        <span>DATOS CLAVE PARA EL MATCHING</span>
-        
-        <SecondDropdownContainer>
-          <SecondDropdownButton>
-            Posibilidad de ascenso{isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </SecondDropdownButton>
-        </SecondDropdownContainer>
-        
-        <SecondDropdownContainer>
-          <SecondDropdownButton>
-            Impacto social{isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </SecondDropdownButton>
-        </SecondDropdownContainer>
-        
-        <SecondDropdownContainer>
-          <SecondDropdownButton>
-            Tu autonomía{isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </SecondDropdownButton>
-        </SecondDropdownContainer>
-        
-        <SecondDropdownContainer>
-          <SecondDropdownButton>
-            Tu liderazgo{isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
-          </SecondDropdownButton>
-        </SecondDropdownContainer>
-        
-        <SecondDropdownContainer>
-          <SecondDropdownButton>
-            Tu principal motivación{isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
+            Expectativa salarial {isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
           </SecondDropdownButton>
         </SecondDropdownContainer>
         <HelpButton> Chat de ayuda</HelpButton>

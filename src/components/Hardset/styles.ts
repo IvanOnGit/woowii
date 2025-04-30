@@ -92,12 +92,12 @@ export const MenuAside = styled.div`
 
   span {
     width: 100%;
-    background-color: #75B300;
+    background-color: grey;
     color: white;
     text-align: center;
     justify-content: center;
     align-content: center;
-    padding: 0.3rem;
+    padding: 0.005rem;
   }
 
   a {
