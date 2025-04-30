@@ -46,7 +46,8 @@ export const OverviewContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 1rem;
   margin-bottom: 1rem;
 
   button {
@@ -393,7 +394,8 @@ export const StyledLink = styled(Link)`
 `;
 
 export const HiringsInnerContainer = styled.div`
-  border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 1rem;
   padding: 1rem;
 `;
 
@@ -416,7 +418,7 @@ export const NotificationContainer = styled.div`
   background: #fff;
   padding: 2rem;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  border-radius: 12px;
+  border-radius: 1rem;
   z-index: 9999;
   font-family: 'Roboto', sans-serif;
 `;
