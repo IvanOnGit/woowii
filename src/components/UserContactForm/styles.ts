@@ -70,3 +70,47 @@ export const Button = styled.button`
     background-color: #005ad3;
   }
 `;
+
+export const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+`;
+
+export const ModalContent = styled.div<{ type: "success" | "error" }>`
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  border-left: 6px solid ${({ type }) => (type === "success" ? "#28a745" : "#dc3545")};
+
+  p {
+    margin-bottom: 1rem;
+    color: #333;
+    font-size: 1.1rem;
+  }
+
+  button {
+    padding: 0.5rem 1rem;
+    background: ${({ type }) => (type === "success" ? "#28a745" : "#dc3545")};
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  button:hover {
+    opacity: 0.9;
+  }
+`;
