@@ -28,7 +28,8 @@ import {
   AboutYou,
   SelectContainer,
   SelectOption,
-  Description
+  Description,
+  StyledLink
 } from "./styles";
 import { useNavigate } from "react-router-dom";
 import VoiceTextInput from "../VoiceTextInput/VoiceTextInput";
@@ -397,7 +398,9 @@ export default function Hardset() {
             Expectativa salarial {isSeventhDropdownOpen ? <ChevronUp /> : <ChevronDown />}
           </SecondDropdownButton>
         </SecondDropdownContainer>
-        <HelpButton> Chat de ayuda</HelpButton>
+        <StyledLink to="/UserContactForm">
+          <HelpButton> Chat de ayuda</HelpButton>
+        </StyledLink>
       </MenuAside>
     <MainContainer>
       <ContainerWrapper>

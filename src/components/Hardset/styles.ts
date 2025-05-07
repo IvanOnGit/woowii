@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const MainContainer = styled.div`
@@ -263,13 +264,24 @@ export const SecondDropdownItem = styled.div`
 `;
 
 export const HelpButton = styled.button`
-    background-color: transparent;
-    width: 50%;
-    margin-left: 5rem;
-    margin-bottom: 1rem;
-    border-radius: 1rem;
-    border-color: #385500;
-    color: #385500;
+background-color: white;
+width: 50%;
+margin-left: 5rem;
+margin-bottom: 1rem;
+border-radius: 1rem;
+border: 2px solid #385500; /* Asegúrate de usar 'border' en lugar de 'border-color' */
+color: #385500;
+cursor: pointer;
+transition: all 0.3s ease-in-out; /* Mover aquí */
+&:hover {
+  background-color: #75B300;
+  color: white;
+}
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
 `;
 
 export const Description = styled.div`

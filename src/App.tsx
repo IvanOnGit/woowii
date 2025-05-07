@@ -32,6 +32,7 @@ import VoiceTextInput from './components/VoiceTextInput/VoiceTextInput'
 import UserLogin from './components/UserLogin/UserLogin'
 import CompanyLogin from './components/CompanyLogin/CompanyLogin'
 import JobOpportunityView from './components/JobOpportunity/JobOpportunity'
+import UserContactForm from './components/UserContactForm/UserContactForm'
 
 
 
@@ -65,6 +66,7 @@ function App() {
         <Route path="/SelectAvatar" element={<SelectAvatar />} />
         <Route path="/UserHome" element={<UserHome />} />
         <Route path="/Hardset" element={<Hardset />} />
+        <Route path="/UserContactForm" element={<UserContactForm />} />
         <Route path="/VoiceTextInput" element={<VoiceTextInput />} />
         <Route path="/SecondGift" element={<UserSecondGift />} />
         <Route path="/PersonalityTest" element={<PersonalityTest />} />
