@@ -2,31 +2,24 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const MainContainer = styled.div`
-    overflow-y: auto;
-    overflow-x: hidden;
-    height: 100vh;
-
-    &::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 3px;
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden; /* Esta propiedad es esencial */
+    
+    @media (max-width: 768px) {
+      overflow-x: hidden;
+      width: 100vw;
+    }
 `;
 
 export const ContainerWrapper = styled.div`
   display: flex;
   width: 100%;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const Header = styled.header`
@@ -108,6 +101,10 @@ export const MenuAside = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 
@@ -345,6 +342,14 @@ export const Container = styled.div`
   gap: 4rem;
   margin-left: 21rem;
   margin-top: 2rem;
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+    padding: 1rem;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+  }
 `;
 
 export const OptionLabel = styled.label`
@@ -405,6 +410,31 @@ export const IdealTalent = styled.div`
   display: flex;
   flex-direction: column;
   width: 35rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+    color: #460BFF;
+    font-size: 1.2rem;
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  p {
+    font-size: 0.8rem;
+    text-align: justify;
+    width: 100%;
+  }
+
+  span {
+    width: 100%;
+    align-self: center;
+  }
+  }
 `;
 
 export const SpanContainer = styled.div`
@@ -436,25 +466,51 @@ export const StepByStep = styled.div`
   display: flex;
   flex-direction: column;
   width: 30rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+
+    h2 {
+      color: #460BFF;
+      font-size: 1.5rem;
+      display: flex;
+      text-align: center;
+      margin: 0;
+      justify-content: center;
+    }
+  }
 `;
 
 export const Steps = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    align-self: center;
+  }
 `;
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
   color: #460BFF;
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
 
   button {
-    margin-left: 21rem;
+    margin-left: 0;
     background-color: blue;
     color: white;
     padding: 1rem;
     border: none;
     border-radius: 2rem;
     cursor: pointer;
+
+    @media (max-width: 768px) {
+      padding: 0.7rem;
+      width: 12rem;
+    }
   }
 `;
