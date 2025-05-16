@@ -2,6 +2,11 @@ import styled from "styled-components";
 
 export const ContainerColumns = styled.div`
     display: flex;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      overflow-x: hidden ;
+    }
 `
 export const ContainerInputs = styled.div`
     margin-right: 1.25rem;
@@ -20,6 +25,10 @@ export const ContainerWrapper = styled.div`
 
   h2 {
     font-family: 'Roboto', sans-serif;
+  }
+
+  @media (max-width: 768px) {
+    width: 96%;
   }
 `;
 
@@ -103,6 +112,11 @@ export const UsernameInput = styled.div`
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     margin-bottom: 0.5rem;
+    
+    @media (max-width: 768px) {
+      width: 100%;
+      margin-left: 16rem;
+    }
   }
 
   input {
@@ -125,6 +139,11 @@ export const UsernameInput = styled.div`
     align-items: center;
     font-family: 'Roboto', sans-serif;
     font-size: 0.7rem;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      margin-left: 5rem;
+    }
 
     svg {
       height: 0.8rem;
@@ -153,6 +172,11 @@ export const TitleAndSetData = styled.div`
     display: flex;
     flex-direction: column;
     text-align: left;
+
+    @media (max-width: 768px) {
+        margin-top: -10rem;
+        text-align: center;
+    }
 `
 export const TitleForm = styled.h3`
     font-size: 1.875rem;
@@ -166,6 +190,11 @@ export const ParagraphBelowTitle = styled.p`
     font-weight: 400;
     font-family: "Roboto", sans-serif;
     padding-bottom: 2rem;
+
+    @media (max-width: 768px) {
+        margin-top: 0;
+        margin-bottom: 10rem;
+    }
 `
 
 export const FormRegisterCompany = styled.form`
@@ -181,6 +210,11 @@ export const FormRegisterCompany = styled.form`
         display: flex;
         justify-content:space-between;
         gap: 2rem;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: center;
+        }
     }
     label{
         font-size: 1.125rem;
@@ -216,5 +250,9 @@ export const FormRegisterCompany = styled.form`
     input {
         border: none;
         border-bottom: 1px solid grey;
+    }
+
+    @media (max-width: 768px) {
+        height: 55rem;
     }
 `
