@@ -6,13 +6,20 @@ export const Container = styled.div`
     align-items: center;
     flex-direction: column;
     height: 100vh;
-    background: #2020B3 ;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #2020B3;
     background-image: url(/images/FirstBackgroundLine.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 
-    img {
+    @media (max-width: 768px) {
+        img {
+            width: 23rem;
+            max-width: 90%;
+        }
     }
 `;
 
@@ -24,6 +31,11 @@ export const Button = styled.button`
     cursor: pointer;
     border-radius: 0.5rem;
     position: absolute;
-    margin-left: 35rem;
-    margin-top: 10rem;
+    bottom: 25%;
+    right: 15%;
+    
+    @media (max-width: 768px) {
+        bottom: 15%;
+        right: 10%;
+    }
 `;
