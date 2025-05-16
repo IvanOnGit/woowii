@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom"
-import { WrapperImageInit, ButtonNext, BackInitialScreen } from "./styles"
+import {  Button, Container } from "./styles"
+import { ChevronRight } from "lucide-react"
 
 export default function StartingPoint() {
   return (
     <>
-        <BackInitialScreen>
-            <WrapperImageInit />
+        <Container>
+            <img src="/images/PerfectCandidate.svg" alt="" />
             <Link to={'/TransformationWelcome'}>
-                <ButtonNext />
+                <Button><ChevronRight /></Button>
             </Link>
-        </BackInitialScreen>
+        </Container>
 
     </>
   )
