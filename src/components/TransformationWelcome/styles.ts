@@ -1,57 +1,81 @@
 import styled from "styled-components";
 
-export const BackSecondScreen = styled.div`
-    width: 100vw;
+export const Container = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     height: 100vh;
-    background: #2020B3; 
-`
-export const LateralBlueCover = styled.div`
+    width: 100%;
     position: relative;
-    left: 1375px;
-    width: 1.25rem;
-    height: 100vh;
+    overflow: hidden;
     background: #2020B3;
-`
-export const WrapperImageSecond = styled.img`
-  position: fixed;
-  top: -3.125rem;
-  left: -9.375rem;
-  width: 100vw;
-  height: 102vh;
-  margin-top: 3.125rem; 
-  background-image: url("/images/secondScreen.svg"); 
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 0;  
-`
-export const DivContainerLogo = styled.div`
-    position: relative;
-    display: flex;
-    top: -50rem;
-    justify-content: center;
-    z-index: 1;
-`
-export const LogoInitSecondStyled = styled.img`
-    width: 18.75rem;
-    height: 5.25rem;
-`
-export const DivContainerButton = styled.div`
-    position: relative;
+    background-image: url(/images/SecondBackgroundLine.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+
+    h1 {
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+
+    @media (max-width: 768px) {
+        img {
+            width: 23rem;
+            max-width: 90%;
+        }
+    }
+`;
+
+export const CardsContainer = styled.div`
     display: flex;
     justify-content: center;
-    top: -10.625rem;
-`
-export const ButtonNextInitSecond = styled.button`
-    width: 14.313rem;
-    height: 3.375rem;
-    background: #8FFF00;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+`;
+
+export const LeftToRightCard = styled.div`
+    background: linear-gradient(to left, rgba(217, 217, 217, 0.62), #2020B3);
+    padding: 1rem;
+    color: white;
+    width: 30rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+
+    p {
+        margin: 0;
+        padding-left: 5rem;
+    }
+`;
+
+export const RightToLeftCard = styled.div`
+    background: linear-gradient(to right,rgba(217, 217, 217, 0.62), #2020B3);
+    padding: 1rem;
+    color: white;
+    width: 30rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+
+    p {
+        margin: 0;
+        padding-left: 5rem;
+
+    }
+`;
+
+export const Button = styled.button`
+    background-color: #8FFF00;
+    border: none;
     color: #2020B3;
-    font-size: 1.25rem;
-    font-weight: bold;
-    font-family: 'Inter', sans-serif;
-    border-radius: 2.813rem;
+    padding: 0.5rem;
     cursor: pointer;
-    position: absolute;
-    margin-left: -5rem;
-    margin-top: 5rem;
-`
+    border-radius: 1rem;
+    margin-top: 2rem;
+    font-weight: bold;
+`;
