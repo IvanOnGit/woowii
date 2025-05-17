@@ -293,7 +293,7 @@ export default function Hardset() {
                     </SecondDropdownButton>
                   </SecondDropdownContainer>
                   <HelpButton> Chat de ayuda</HelpButton>
-          </MenuAside>
+      </MenuAside>
     <MainContainer>
       <ContainerWrapper>
         <Header>
