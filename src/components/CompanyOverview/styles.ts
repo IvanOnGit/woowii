@@ -9,6 +9,7 @@ export const MainContainer = styled.div`
     justify-content: center;
     gap: 13rem;
     font-family: 'Roboto', sans-serif;
+    padding-left: 19rem; /* Añadir un padding izquierdo igual al ancho del menú */
 
     &::-webkit-scrollbar {
     width: 6px;
@@ -34,6 +35,15 @@ export const MainContainer = styled.div`
   h2 {
     color: blue;
     font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Ajustes responsive */
+  @media (max-width: 768px) {
+    padding-left: 0; /* Eliminar el padding en dispositivos móviles */
+    gap: 2rem; /* Reducir el espacio entre columnas */
+    flex-direction: column; /* Cambiar a dirección columna */
+    padding: 1rem; /* Añadir padding general */
+    height: 110rem;
   }
 `;
 
@@ -82,6 +92,12 @@ export const InnerContainerTwo = styled.div`
       align-items: center;
       cursor: pointer;
     }
+    
+    @media (max-width: 768px) {
+      gap: 4rem;
+      align-items: center;
+      margin-top: 2rem;
+    }
   }
 `;
 
@@ -99,6 +115,14 @@ export const Header = styled.header`
   justify-content: center;
   gap: 3rem;
   margin-left: 18rem;
+  
+  @media (max-width: 768px) {
+    margin-left: 0;
+    flex-direction: column;
+    gap: 1rem;
+    height: auto;
+    align-items: center;
+  }
 `;
 
 export const HeaderItems = styled.div`
@@ -118,6 +142,12 @@ export const HeaderItems = styled.div`
     height: 1rem;
     margin-right: 0.5rem;
   }
+  
+  @media (max-width: 768px) {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 `;
 
 export const MenuAside = styled.div`
@@ -135,6 +165,7 @@ export const MenuAside = styled.div`
   font-family: 'Roboto', sans-serif;
   overflow-y: auto;
   overflow-x: hidden;
+  z-index: 1000; /* Asegurar que esté por encima de otros elementos */
 
   /* Estilizar el scrollbar */
   &::-webkit-scrollbar {
@@ -171,6 +202,17 @@ export const MenuAside = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    width: 0; /* Colapsar el menú */
+    transform: translateX(-100%); /* Mover fuera de la vista */
+    transition: transform 0.3s ease;
+    
+    &.open {
+      width: 19rem;
+      transform: translateX(0); /* Mostrar cuando esté abierto */
+    }
   }
 `;
 
@@ -348,6 +390,10 @@ export const Container = styled.div`
   gap: 0.5rem;
   margin-left: 25rem;
   margin-top: 2rem;
+  
+  @media (max-width: 768px) {
+    margin-left: 1rem;
+  }
 `;
 
 export const SearchBar = styled.input`
@@ -359,6 +405,11 @@ export const SearchBar = styled.input`
   text-align: center;
   margin-top: 1rem;
   margin-right: 2rem;
+  
+  @media (max-width: 768px) {
+    width: 90%;
+    margin-right: 0;
+  }
 `;
 
 export const ContainerLogoCompAndUser = styled.div`
@@ -371,6 +422,16 @@ export const ContainerLogoCompAndUser = styled.div`
         font-family: 'Roboto', sans-serif;
         color: #460BFF;
         margin-top: 1.875rem;
+    }
+    
+    @media (max-width: 768px) {
+      margin-right: 0;
+      flex-direction: column;
+      align-items: center;
+      
+      p {
+        margin-top: 0.5rem;
+      }
     }
 `;
 
@@ -386,6 +447,14 @@ export const Avatar = styled.div`
     height: 100%;
     object-fit: cover;
   }
+  
+  @media (max-width: 768px) {
+    height: 3.5rem;
+    
+    img {
+      margin-top: 0;
+    }
+  }
 `;
 
 export const StyledLink = styled(Link)`
@@ -397,6 +466,10 @@ export const HiringsInnerContainer = styled.div`
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 1rem;
   padding: 1rem;
+  
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `;
 
 export const StyledNotification = styled.span`
@@ -421,6 +494,11 @@ export const NotificationContainer = styled.div`
   border-radius: 1rem;
   z-index: 9999;
   font-family: 'Roboto', sans-serif;
+  
+  @media (max-width: 768px) {
+    width: 80%;
+    padding: 1rem;
+  }
 `;
 
 export const NotificationButton = styled.button`
@@ -455,5 +533,34 @@ export const HiringsInProgress = styled.div`
     align-items: center;
     cursor: pointer;
     width: 5rem;
+  }
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    
+    h3 {
+      width: 100%;
+    }
+  }
+`;
+
+/* Nuevo botón para controlar el menú en móvil */
+export const MenuToggle = styled.button`
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.5rem;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  z-index: 1001;
+  cursor: pointer;
+  
+  @media (max-width: 768px) {
+    display: block;
   }
 `;
