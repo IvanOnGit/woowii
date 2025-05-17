@@ -18,6 +18,14 @@ export const SideMenu = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media (max-width: 768px) {
+        img {
+            width: 7rem;
+        }
+        
+        width: 9rem;
+    }
 `;
 
 export const MainContent = styled.div`
@@ -29,4 +37,14 @@ export const MainContent = styled.div`
 
 export const DescriptionContainer = styled.div`
     text-align: left;
+
+    button {
+        background-color: blue;
+        color: white;
+        border: none;
+        border-radius: 0.5rem;
+        text-align: center;
+        padding: 0.5rem;
+        cursor: pointer;
+    }
 `;
