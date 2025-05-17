@@ -39,6 +39,11 @@ export const NamesContainer = styled.div`
     h1 {
         font-size: 2.5rem;
     }
+
+    @media (max-width: 768px) {
+        margin-top: 3rem;
+        text-align: center;
+    }
 `;
 
 export const HandShake = styled.img`
