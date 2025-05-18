@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Bell, Bookmark, BriefcaseBusiness, ChevronDown, ChevronUp, Mail, Menu } from "lucide-react";
+import { Bell, Bookmark, BriefcaseBusiness, ChevronDown, ChevronUp, House, Mail, Menu, Mic, Star } from "lucide-react";
 import { 
   ContainerWrapper, 
   FirstMenuAsideItem, 
@@ -29,9 +29,33 @@ import {
   SelectContainer,
   SelectOption,
   Description,
-  StyledLink
+  StyledLink,
+  ContainerAllMobile,
+  ContainerUpSearhAndItemsMobile,
+  AvatarToMobile,
+  SearchUpToMobile,
+  HeaderItemsToMobile,
+  ContainerADNHistoryTitle,
+  ADNHistoryTitle,
+  ContainerParagrafBelowTitle,
+  ParagrafBelowTitle,
+  ContainerSubtitleBelowParagraf,
+  SubtitleBelowParagraf,
+  ContainerInputBelowSubtitle,
+  ContainerTextsWithStar,
+  TextWithStar,
+  ContainerVoiceToText,
+  VoiceToTextArea,
+  ContainerTextAndMicro,
+  TextAndMicro,
+  ContainerMicro,
+  ContainerChecks,
+  CheckAndText,
+  ContainerThreeLargeSelect,
+  LargeSelect,
+  ContainerFooterToMobile
 } from "./styles";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import VoiceTextInput from "../VoiceTextInput/VoiceTextInput";
 
 export default function Hardset() {
@@ -544,6 +568,96 @@ export default function Hardset() {
               {/* Reemplazamos el Link con un botón que ejecuta handleSave */}
               <ContinueButton onClick={handleSave}>Guardar y continuar</ContinueButton>
     </MainContainer>
+    <ContainerAllMobile>
+        <ContainerUpSearhAndItemsMobile>
+                <AvatarToMobile>
+                    <img src="/images/avatarCompany1.svg" alt="Company Avatar" />
+                </AvatarToMobile>
+                <SearchUpToMobile>
+                    <input type="text" placeholder="Búsqueda" />
+                </SearchUpToMobile>
+                <HeaderItemsToMobile>
+                    <p><img src="/images/wiibucks.png" alt="wiibucks" />50</p>
+                    <p><img src="/images/TrophyWiibucks.svg" alt="wiibucks" />00</p>
+                    <Menu id="menu" fill="#000"width={20} height={20}/>
+                </HeaderItemsToMobile> 
+        </ContainerUpSearhAndItemsMobile>
+        <ContainerADNHistoryTitle>
+          <ADNHistoryTitle>Historias sobre tu hardset</ADNHistoryTitle>
+        </ContainerADNHistoryTitle>
+        <ContainerParagrafBelowTitle>
+          <ParagrafBelowTitle>
+            Aquí explicarás como tu formación o experiencia, definen tus habilidades duras mediante ejemplos que tu CV no puede contar sólo en bullet points.
+          </ParagrafBelowTitle>
+        </ContainerParagrafBelowTitle>
+        <ContainerSubtitleBelowParagraf>
+          <SubtitleBelowParagraf>Escojamos un título llamativo para tu historia:</SubtitleBelowParagraf>
+        </ContainerSubtitleBelowParagraf>
+        <ContainerInputBelowSubtitle>
+          <input type="text" id="choose" name="çhoose" placeholder="Aquí la palabra 'lunes' no es un insulto."/>
+        </ContainerInputBelowSubtitle>
+        <ContainerTextsWithStar>
+          <TextWithStar>
+            <Star className="star" width={12} height={12}/>
+            <p>Cuenta tu historia de forma clara dentro de los caracteres permitidos.</p>
+          </TextWithStar>
+          <TextWithStar>
+            <Star className="star" width={12} height={12}/>
+            <p>Puedes compartir varias experiencias sobre tu empresa, así que analiza todo lo que habéis logrado, que os diferencia y usa tu imaginación.</p>
+          </TextWithStar>
+          <TextWithStar >
+            <Star className="last star " width={12} height={12}/>
+            <p className="last">¿Necesitas ayuda? Nuestra IA está lista para potenciar tu texto.</p>
+          </TextWithStar>
+        </ContainerTextsWithStar>
+        <ContainerVoiceToText>
+          <VoiceToTextArea
+            placeholder="Mi relación con JavaScript va más allá del simple uso de ES6. Hemos vivido juntos todos los cambios del ecosistema web: desde la época de jQuery hasta los días dorados de React y Node.js."
+          >
+          </VoiceToTextArea>
+        </ContainerVoiceToText>
+        <ContainerTextAndMicro>
+          <TextAndMicro>Cuéntalo con voz y edita lo que quieras</TextAndMicro>
+          <ContainerMicro><Mic width={10} height={10} stroke="#75B300"/></ContainerMicro>
+        </ContainerTextAndMicro>
+        <ContainerChecks >
+          <CheckAndText >
+              <p ><input type="checkbox" name="one" id="one" />  Priorizamos el fit cultural.</p>
+          </CheckAndText>
+          <CheckAndText id="first">
+            <p><input type="checkbox" name="two" id="two" />  Buscamos un cambio de estructuras en los sectores.</p>
+          </CheckAndText>
+          <CheckAndText>
+            <p><input type="checkbox" name="three" id="three" />  Valoramos más las habilidades blandas que las técnicas.</p>
+          </CheckAndText>
+          <CheckAndText>
+            <p><input type="checkbox" name="four" id="four" />  Queremos abrir nuevos departamentos.</p>
+          </CheckAndText>
+        </ContainerChecks>
+        <ContainerThreeLargeSelect>
+          <LargeSelect>
+            <option value="" selected>RECONOCIMIENTO</option>
+            <hr></hr>
+          </LargeSelect>
+          <LargeSelect>
+            <option value="" selected>INCENTIVOS</option>
+            <hr></hr>
+          </LargeSelect>
+          <LargeSelect>
+           <option value="" selected>BENEFICIOS</option>
+           <hr></hr>
+          </LargeSelect>
+        </ContainerThreeLargeSelect>
+        <ContainerFooterToMobile>
+            <House className="items" fill="#FFF"  width={26} height={26}/>
+            <BriefcaseBusiness className="items" fill="#FFF" width={26} height={26} />
+            <Link to="/SecondGift">
+              <img src="/images/greenRocket.svg" alt="Rocket Footer Image" />
+            </Link>
+            <Mail className="items" fill="#FFF" width={26} height={26}/>
+            <Bell className="items" fill="#FFF" width={26} height={26}/>
+        </ContainerFooterToMobile>
+    </ContainerAllMobile>
     </>
   );
 }

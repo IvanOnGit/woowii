@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useRef, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import {
   ContainerWrapper,
   DivContainerLogoTerPage,
@@ -10,7 +10,19 @@ import {
   ThumbnailsContainer,
   Thumbnail,
   UsernameInput,
-  ButtonNextTerceraPage
+  ButtonNextTerceraPage,
+  SliderNavButton,
+  ThumbnailsSlider,
+  ContainerWrapperMobile,
+  DivContainerLogoTerPageMobile,
+  LogoTerceraPageStyledMobile,
+  AvatarWrapperMobile,
+  AvatarImageMobile,
+  ButtonMobile,
+  ThumbnailsContainerMobile,
+  ThumbnailMobile,
+  UsernameInputMobile,
+  ButtonNextTerceraPageMobile
 } from "./styles";
 import { ChevronLeft, ChevronRight, Key } from "lucide-react";
 
@@ -36,9 +48,49 @@ export default function SelectAvatar() {
   const [username, setUsername] = useState("");
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
+  const [sliderPosition, setSliderPosition] = useState(0)
+  const [visibleThumbnails, setVisibleThumbnails] = useState(5)
+  const sliderRef = useRef<HTMLDivElement>(null)
   const navigate = useNavigate();
 
   const userId = localStorage.getItem("userId");
+
+   // Update visible thumbnails based on screen size
+   useEffect(() => {
+    const updateVisibleThumbnails = () => {
+      if (window.innerWidth < 480) {
+        setVisibleThumbnails(3)
+      } else if (window.innerWidth < 768) {
+        setVisibleThumbnails(5)
+      } else {
+        setVisibleThumbnails(7)
+      }
+    }
+
+    updateVisibleThumbnails()
+    window.addEventListener("resize", updateVisibleThumbnails)
+
+    return () => {
+      window.removeEventListener("resize", updateVisibleThumbnails)
+    }
+  }, [])
+
+  // Ensure selected avatar is visible in slider
+  useEffect(() => {
+    if (selectedIndex < sliderPosition) {
+      setSliderPosition(selectedIndex)
+    } else if (selectedIndex >= sliderPosition + visibleThumbnails) {
+      setSliderPosition(selectedIndex - visibleThumbnails + 1)
+    }
+  }, [selectedIndex, visibleThumbnails, sliderPosition])
+
+  const handlePrevSlide = () => {
+    setSliderPosition(Math.max(0, sliderPosition - 1))
+  }
+
+  const handleNextSlide = () => {
+    setSliderPosition(Math.min(avatars.length - visibleThumbnails, sliderPosition + 1))
+  }
 
   const saveAvatarAndUsername = async () => {
     if (!userId) {
@@ -80,6 +132,7 @@ export default function SelectAvatar() {
   };
 
   return (
+    <>
     <ContainerWrapper>
       <DivContainerLogoTerPage>
         <LogoTerceraPageStyled src="/images/GreenLogoDemo.svg" />
@@ -127,5 +180,87 @@ export default function SelectAvatar() {
         {saving ? "Guardando..." : "Continuar"}
       </ButtonNextTerceraPage>
     </ContainerWrapper>
+    {/* ---------------------------------mobile---------------------------------------- */}
+    <ContainerWrapperMobile>
+      <DivContainerLogoTerPageMobile>
+        <LogoTerceraPageStyledMobile src="/images/GreenLogoDemo.svg" />
+      </DivContainerLogoTerPageMobile>
+      <h2>Elige tu Avatar:</h2>
+      <AvatarWrapperMobile>
+        <ButtonMobile onClick={() => setSelectedIndex((prev) => (prev - 1 + avatars.length) % avatars.length)}>
+          <ChevronLeft />
+        </ButtonMobile>
+        <AvatarImageMobile src={avatars[selectedIndex].src || "/placeholder.svg"} alt="Selected Avatar" />
+        <ButtonMobile onClick={() => setSelectedIndex((prev) => (prev + 1) % avatars.length)}>
+          <ChevronRight />
+        </ButtonMobile>
+      </AvatarWrapperMobile>
+      <ThumbnailsContainerMobile>
+        <SliderNavButton direction="left" onClick={handlePrevSlide} disabled={sliderPosition === 0}>
+          <ChevronLeft />
+        </SliderNavButton>
+        <ThumbnailsSlider ref={sliderRef}>
+          <div
+            style={{
+              display: "flex",
+              transform: `translateX(-${sliderPosition * 56}px)`,
+              transition: "transform 0.3s ease",
+            }}
+          >
+            {avatars.map((avatar, index) => (
+              <ThumbnailMobile
+                key={avatar.id}
+                src={avatar.src}
+                alt={`Avatar ${index + 1}`}
+                isSelected={index === selectedIndex}
+                onClick={() => setSelectedIndex(index)}
+              />
+            ))}
+          </div>
+        </ThumbnailsSlider>
+        <SliderNavButton
+          direction="right"
+          onClick={handleNextSlide}
+          disabled={sliderPosition >= avatars.length - visibleThumbnails}
+        >
+          <ChevronRight />
+        </SliderNavButton>
+      </ThumbnailsContainerMobile>
+      <UsernameInputMobile>
+        <h3>Elige tu usuario:</h3>
+        <input
+          type="text"
+          placeholder="Ejemplo: ProUser23"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <p>
+          <Key />
+          Entre 8 y 20 caracteres.
+        </p>
+        <p>
+          <Key />
+          Debe contener letras y números.
+        </p>
+        <p>
+          <Key />
+          Recuerda mantener el anonimato.{" "}
+        </p>
+        <p>
+          <Key />
+          Sugerimos elegir un alias profesional.
+        </p>
+      </UsernameInputMobile>
+      {error && <p style={{ color: "red" }}>{error}</p>}
+      <ButtonNextTerceraPageMobile onClick={saveAvatarAndUsername} disabled={saving}>
+        {saving ? "Grabando..." : "GUARDAR"}
+      </ButtonNextTerceraPageMobile>
+      <Link to={"/UserHome"}>
+        <ButtonNextTerceraPageMobile>
+          SIGUIENTE
+        </ButtonNextTerceraPageMobile>
+      </Link>
+    </ContainerWrapperMobile>
+    </>
   );
 }
