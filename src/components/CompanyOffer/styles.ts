@@ -23,6 +23,11 @@ export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 2rem;
+  }
 `;
 
 export const Logo = styled.img`
@@ -36,6 +41,10 @@ export const SearchBar = styled.input`
   border: 1px solid white;
   background-color: transparent;
   text-align: center;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const HeaderItems = styled.div`
@@ -76,6 +85,10 @@ export const BaseQuestions = styled.div`
     border-bottom-right-radius: 1rem;
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 `;
 
@@ -83,6 +96,10 @@ export const BaseQuestionsInputs = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  @media (max-width: 768px) {
+    width: 20rem;
+  }
 `;
 
 export const BaseQuestionsInputsFirstContainer = styled.div`
@@ -101,6 +118,10 @@ export const BaseQuestionsInputsFirstContainer = styled.div`
   display: flex;
   flex-direction: row; /* Para que estén uno al lado del otro */
   gap: 1rem;
+
+  @media (max-width: 768px) {
+  flex-direction: column;
+}
 }
 
 .input-group {
@@ -158,6 +179,10 @@ export const SecondContainer = styled.div`
     background-color: transparent;
     color: black; 
     resize: none;
+
+    @media (max-width: 768px) {
+    width: 70%;
+  }
   }
 `;
 
@@ -229,6 +254,12 @@ export const SkillsContainer = styled.div`
     font-size: 0.9rem;
     font-weight: 500;
   }
+
+  h2 {
+    @media (max-width: 768px) {
+      text-align: center;
+    }
+  }
 `;
 
 export const FourthContainer = styled.div`
@@ -236,6 +267,10 @@ export const FourthContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const ProcessStepsContainer = styled.div`
@@ -244,6 +279,11 @@ export const ProcessStepsContainer = styled.div`
   padding: 20px 0;
   width: 100%;
   gap: 2rem; /* Espacio uniforme entre pasos */
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const StepWrapper = styled.div`
@@ -289,6 +329,10 @@ export const ConnectingLine = styled.div`
   margin-left: 2rem;
   width: 100%;
   z-index: 1;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const StepNumber = styled.div`
@@ -329,6 +373,10 @@ export const ResponsibilityInputGroup = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 12px;
+
+  @media (max-width: 768px) {
+    width: 50%;
+  }
 `;
 
 export const ResponsibilityInput = styled.input`
@@ -382,6 +430,10 @@ export const WhatWeLookingForContainer = styled.div`
           border-bottom: 1px solid black;
       }
     }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
   }
 `;
 
@@ -393,6 +445,7 @@ export const TextContainer = styled.div`
   margin-top: 4rem;
   margin-bottom: 4rem;
   gap: 1.5rem;
+  font-family: 'Roboto', sans-serif;
 
   h2 {
     margin: 0;
@@ -413,6 +466,10 @@ export const TextContainer = styled.div`
     cursor: pointer;
     font-size: 1.2rem;
     font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    text-align: center;
   }
 `;
 

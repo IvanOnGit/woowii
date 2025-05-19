@@ -36,7 +36,7 @@ export default function CompanyLogin() {
         if (data.company_username) {
           navigate("/CompanyHome");
         } else {
-          navigate("/CompanyFirstGift");
+          navigate("/CompanyWelcome");
         }
       } else {
         setError(data.message); // Muestra el error en caso de credenciales inválidas

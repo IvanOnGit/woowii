@@ -30,6 +30,10 @@ export const MenuAside = styled.div`
   &::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const FirstMenuAsideItem = styled.div`
@@ -119,6 +123,11 @@ export const MainContent = styled.div`
 
 &::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+@media (max-width: 768px) {
+  margin-left: 0;
+  padding: 1rem;
 }
 `;
 
