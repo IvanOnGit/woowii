@@ -3,7 +3,7 @@ import { createGlobalStyle, keyframes } from "styled-components";
 
 export const AppContainer = styled.div`
   min-height: 100vh;
-`;
+`
 export const fadeIn = keyframes`
   from { opacity: 0; }
   to { opacity: 1; }
@@ -80,7 +80,7 @@ export const ChatButton = styled.button`
   border-radius: 9999px;
   box-shadow: 0 0.25rem 0.375rem -0.063rem rgba(0, 0, 0, 0.1), 0 0.125rem 0.25rem -0.063rem rgba(0, 0, 0, 0.06);
   transition: background-color 0.2s;
-  cursor: pointer;
+
   &:hover {
     background-color: #1d4ed8;
   }
@@ -89,12 +89,11 @@ export const ChatButton = styled.button`
 export const ChatContainer = styled.div`
   position: fixed;
   bottom: 9rem;
-  left: 2rem;
+  left: 0.5rem;
   width: 20rem;
   background: white;
   border-radius: 0.5rem;
   box-shadow: 0 0.625rem 0.938rem -0.188rem rgba(0, 0, 0, 0.1), 0 0.25rem 0.375rem -0.125rem rgba(0, 0, 0, 0.05);
-  z-index: 1;
 `;
 
 export const ChatHeader = styled.div`
@@ -112,7 +111,6 @@ export const Title = styled.h3`
 
 export const CloseButton = styled.button`
   color: #6b7280;
-  cursor: pointer;
   &:hover {
     color: #374151;
   }
@@ -171,7 +169,6 @@ export const SendButton = styled.button`
   align-items: center;
   justify-content: center;
   transition: background-color 0.2s;
-  cursor: pointer;
   &:hover {
     background-color: #1d4ed8;
   }

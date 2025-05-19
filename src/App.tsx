@@ -59,7 +59,7 @@ function App() {
         <Route path="/CompanyCandidatesView/:jobId" element={<CompanyCandidatesView />} />
         <Route path="/candidate/:candidateId" element={<CandidateDetail />} />
         <Route path="/CompanyInterviewPage" element={<CompanyInterviewPage />} />
-        <Route path="/RegistroUsarioForm" element={<RegistroUsuarioForm />} />
+        <Route path="/RegisterUserForm" element={<RegistroUsuarioForm />} />
         <Route path="/UserLogin" element={<UserLogin />} />
         <Route path="/FirstGift" element={<UserFirstGift />} />
         <Route path="/Welcome" element={<TerceraPagina />} />

@@ -1,11 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const WidthMeasurementIphone12Pro = 24.375;
-const WidthMeasurementDesktop = 90;
-export const mobile = `@media(min-width:${WidthMeasurementIphone12Pro}rem)`
-export const desktop = `@media(min-width:${WidthMeasurementDesktop}rem)`
-
 export const MainContainer = styled.div`
     overflow-y: auto;
     overflow-x: hidden;
@@ -26,12 +21,6 @@ export const MainContainer = styled.div`
 
   &::-webkit-scrollbar-thumb:hover {
     background: #555;
-  }
-  ${mobile}{
-    display: none;
-  }
-  ${desktop}{
-    display: block;
   }
 `;
 
@@ -119,12 +108,6 @@ export const MenuAside = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-  }
-  ${mobile}{
-    display: none;
-  }
-  ${desktop}{
-    display: flex;
   }
 `;
 
@@ -392,7 +375,7 @@ export const AboutYou = styled.div`
   flex-direction: column;
   position: absolute;
   margin-top: -50rem;
-  margin-left: 97rem;
+  margin-left: 89rem;
   gap: 0.2rem;
 
   button {
@@ -465,288 +448,4 @@ export const SelectOption = styled.div`
   font-size: 1rem;
   padding: 5px 10px;
   cursor: pointer;
-`;
-
-// ------------------------------------------------MOBILE------------------------------------------------
-
-export const ContainerAllMobile = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  ${mobile}{
-    display: flex;
-  }
-  ${desktop}{
-    display: none;
-  }
-`;
-export const ContainerUpSearhAndItemsMobile = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  top: -1rem;
-  left: 1rem;
-  width: 100vw;
-  height: 10vh;
-  background: #FFF;
-`;
-export const AvatarToMobile = styled.div`
-  display: flex;
-  width: 2rem;
-  height: 2rem;
-  margin-left: -2rem;
-  img{
-    width: 2rem;
-    height: 2rem;
-  }
-`;
-export const SearchUpToMobile = styled.div`
-  display: flex;
-  width: 10rem;
-  height: 1rem;
-  input{
-    width: 10rem;
-    height: 1.3rem;
-    border-radius: 2.813rem;
-    padding-left: 0.25rem;
-    font-size: 0.75rem;
-    font-weight: 500;
-    font-family: 'Inter', sans-serif;
-  }
-  &::placeholder{
-    font-size: 0.75rem;
-  }
-    
-`;
-export const HeaderItemsToMobile = styled.div`
-  display: flex;
-  gap: 0.25rem;
-  margin-top: 0.5rem;
-  cursor: pointer;
-  img{
-    width: 1rem;
-    height: 1rem;
-  }
-  p{
-    font-size: 0.875rem;
-    font-weight: 700;
-    font-family: 'Roboto', sans-serif;
-  }
-  #menu{
-    margin-top: 0.8rem;
-  }
-`;
-export const ContainerADNHistoryTitle = styled.div`
-  position: relative;
-  display: flex;
-  width: 18.625rem;
-  height: 1.313rem;
-  top: -1.5rem;
-  left: 3rem;
-`;
-export const ADNHistoryTitle = styled.h2`
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  font-size: 1.375rem;
-  font-weight: 500;
-  font-family: 'Roboto', sans-serif;
-  color: #75B300;
-`;
-export const ContainerParagrafBelowTitle = styled.div`
-  position: relative;
-  display: flex;
-  width: 18.438rem;
-  height: 2.188rem;
-  left: 1.7rem;
-`;
-export const ParagrafBelowTitle = styled.p`
-  font-size: 0.8rem;
-  font-weight: 400;
-  font-family: 'Roboto', sans-serif;
-  margin: -0.75rem 0 0 2rem;
-  min-width: 15.625rem;
-`;
-export const ContainerSubtitleBelowParagraf = styled.div`
-  position: relative;
-  display: flex;
-  width: 18.438rem;
-  height: 1.125rem;
-  left: 1rem;
-  top: -0.5rem;
-`;
-export const SubtitleBelowParagraf = styled.h3`
-  font-size: 0.8rem;
-  font-weight: 700;
-  font-family: 'Roboto', sans-serif;
-  margin: 2.5rem 0 0 2rem;
-  color: #75B300;
-  min-width: 15.625rem;
-`; 
-export const ContainerInputBelowSubtitle = styled.div`
-  position: relative;
-  display: flex;
-  width: 18.375rem;
-  height: 0.938rem;
-  left: 3rem;
-  top: 2.8rem;
-  input{
-    width: 15.375rem;
-    height: 0.938rem;
-    border: none;
-    border-bottom: 1px solid #000;
-    &::placeholder{
-      font-size: 0.75rem;
-      font-weight: 400;
-      font-family: 'Roboto', sans-serif;
-    }
-  }
-`;
-export const ContainerTextsWithStar = styled.div`
-  display: block;
-  width: 17.75rem;
-  height: 6.875rem;
-  margin: 1.8rem 0 0 3rem;
-`;
-export const TextWithStar = styled.div`
-  display: flex;
-  width: 18.75rem;
-  height: 0.75rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  .star{
-    margin-left: -0.4rem;
-    margin-top: 0.7rem;
-  }
-  .last{
-    margin-top: 2rem;
-  }
-  p{
-    margin-left: 0.3rem;
-    max-width: 15.375rem;
-    font-size: 0.75rem;
-    font-weight: 400;
-    font-family: 'Roboto', sans-serif;
-  }
-`;
-export const ContainerVoiceToText = styled.div`
-  position: relative;
-  display: flex;
-  width: 20.438rem;
-  height: 7.063rem;
-  margin: 4.5rem 0 0 1.75rem;
-`;
-export const VoiceToTextArea = styled.textarea`
-  width: 20.438rem;
-  height: 7.063rem;
-  border: 1px solid #75B300;
-  border-radius: 0.625rem;
-  text-transform: none;
-  padding: 0.2rem;
-  &::placeholder{
-    font-size: 0.75rem;
-    font-weight: 400;
-    font-family: 'Roboto', sans-serif;
-    color: #000;
-  }
-`;
-export const ContainerTextAndMicro = styled.div`
-  position: relative;
-  display: flex;
-  left: 11.7rem;
-  top: -1rem;
-  gap: 0.3rem;
-`;
-export const TextAndMicro = styled.p`
-  font-size: 0.5rem;
-  font-weight: 400;
-  font-family: 'Roboto', sans-serif;
-  color: #000;
-`;
-export const ContainerMicro = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: -0.3rem;
-  width: 1rem;
-  height: 1rem;
-  border-radius: 100%;
-  border: 2px solid #000;
-  cursor: pointer;
-`;
-export const ContainerChecks = styled.div`
-  position: relative;
-  display: block;
-  width: 18.75rem;
-  height: 3.5rem;
-  top: 1.5rem;
-  left: 3rem;
-  #first{
-    margin-top: -1rem;
-  }
-`;
-export const CheckAndText = styled.div`
-  display: flex;
-  width: 18.75rem;
-  height: 0.511rem;
-  margin-bottom: 1.8rem;
-  p{
-    font-size: 0.931rem;
-    font-weight: 400;
-    font-family: 'Roboto', sans-serif;
-    max-width: 17.5rem;
-    input{
-      width: 0.663rem;
-      height: 0.663rem;
-      color: #75B300;
-    }
-  }
-`;
-export const ContainerThreeLargeSelect = styled.div`
-  position: relative;
-  display: block;
-  width: 18.438rem;
-  height: 6.25rem;
-  top: 10rem;
-  left: 1.5rem;
-`;
-export const LargeSelect = styled.select`
-  width: 20.438rem;
-  height: 2.063rem;
-  margin-bottom: 0.5rem;
-  border: 2px solid #75B300;
-  border-radius: 2.813rem;
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  font-size: 0.75rem;
-  font-weight: 500;
-  font-family: 'Roboto', sans-serif;
-  padding-left: 1rem;
-  color: #75B300;
-  cursor: pointer;
-`;
-export const ContainerFooterToMobile = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  top: 33%;
-  width: 100vw;
-  height: 8vh;
-  background: #75B300;
-  img{
-    margin-top: -3rem;
-    width: 4.438rem;
-    height: 4.438rem;
-    cursor: pointer;
-  }
-  .items{
-    cursor: pointer;
-  }
 `;

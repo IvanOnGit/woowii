@@ -1,4 +1,4 @@
-import { ButtonInit, ButtonNextSecondPage, ContainerAllMobile, ContainerButtonInit, ContainerImageQuestiosMobile, ContainerLogoNobile, ContainerTextBelowTitle, ContainerTitleQuestions, ContainerWrapper, DivContainerButton, DivContainerLogo,   ImgFondoSecondPage,   LogoMobile,   LogoSecondPageStyled, PersonalityText, StyledLink, TextBelowTitle, TitleQuestions } from "./styles"
+import { ButtonNextSecondPage, ContainerWrapper, DivContainerButton, DivContainerLogo,   ImgFondoSecondPage,   LogoSecondPageStyled, PersonalityText, StyledLink } from "./styles"
 import { Play } from "lucide-react"
 
 
@@ -25,32 +25,6 @@ export default function PersonalityTest() {
                 </StyledLink>
             </DivContainerButton>
         </ContainerWrapper>
-        {/* ----------------------------------------mobile---------------------------------------------- */}
-        <ContainerAllMobile>
-          <ContainerLogoNobile>
-            <LogoMobile src="/images/LogoGreen.svg" alt="Woowii Green Logo" />
-          </ContainerLogoNobile>
-          <ContainerTitleQuestions>
-            <TitleQuestions>
-              Test de personalidad
-            </TitleQuestions>
-          </ContainerTitleQuestions>
-          <ContainerTextBelowTitle>
-            <TextBelowTitle>
-              Realicemos un breve Test para concerte mejor y ofrecerte las mejores oportunidades.
-            </TextBelowTitle>
-          </ContainerTextBelowTitle>
-          <ContainerImageQuestiosMobile>
-            <img src="/images/QuestionsMobile.svg" alt="Questions Mobile Image" />
-          </ContainerImageQuestiosMobile>
-          <ContainerButtonInit>
-          <StyledLink to={"/PersonalityTestQuestions"}>
-            <ButtonInit>
-              ¡Comencemos!
-            </ButtonInit>
-            </StyledLink>
-          </ContainerButtonInit>
-        </ContainerAllMobile>
     </>
   )
 }
