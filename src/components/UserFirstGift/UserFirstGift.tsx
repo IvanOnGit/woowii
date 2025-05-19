@@ -1,24 +1,11 @@
 import { Link } from "react-router-dom"
-import { ButtonNextSecondPage, ContainerWrapper, ContainerWrapperDesktop, DivContainerButton, DivContainerLogo,   ImgFondoSecondPage,   LogoSecondPageStyled } from "./styles"
+import { ButtonNextSecondPage, ContainerWrapper, DivContainerButton, DivContainerLogo,   ImgFondoSecondPage,   LogoSecondPageStyled } from "./styles"
 
 
 export default function UserFirstGift() {
   return (
       <>
           <ContainerWrapper>
-            <DivContainerLogo>
-                <LogoSecondPageStyled src="/images/GreenLogoDemo.svg" />
-            </DivContainerLogo>
-            <ImgFondoSecondPage src="/images/firstGift.svg" alt="Fondo Wiibuck" />
-            <DivContainerButton>
-                <Link to={"/Welcome"}>
-                    <ButtonNextSecondPage>
-                        Continuar
-                    </ButtonNextSecondPage>
-                </Link>
-            </DivContainerButton>
-        </ContainerWrapper>
-        <ContainerWrapperDesktop>
             <DivContainerLogo>
                 <LogoSecondPageStyled src="/images/GreenLogoDemo.svg" />
             </DivContainerLogo>
@@ -30,7 +17,7 @@ export default function UserFirstGift() {
                     </ButtonNextSecondPage>
                 </Link>
             </DivContainerButton>
-        </ContainerWrapperDesktop>
+        </ContainerWrapper>
     </>
   )
 }

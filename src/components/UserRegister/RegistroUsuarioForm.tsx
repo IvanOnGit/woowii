@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { 
-    BtnLinksSocialStyled, ButtonNext, Buttons, DivContainerStyled, FormRegistroUsuario, 
+    BtnLinksSocialStyled, Buttons, DivContainerStyled, FormRegistroUsuario, 
     IniciaSesionStyled, LinkAccountButtons, LogoAndTitleWrapper, 
-    LogoRegistroUsuarioStyled, OnlyForMobile, SemiCircleStyled, StyledSpan, 
+    LogoRegistroUsuarioStyled, SemiCircleStyled, StyledSpan, 
     TextoMiniInfoRegUser, TxtInfoRegistroUsuarioStyled, WrapperImage 
 } from "./styles";
 
@@ -104,68 +104,6 @@ export default function RegistroUsuarioForm() {
                     </TextoMiniInfoRegUser>
                 </DivContainerStyled>
             </SemiCircleStyled>
-            {/* --------------------------------MOBILE----------------------------------------------- */}
-            <OnlyForMobile>
-                <DivContainerStyled>
-                    <LogoAndTitleWrapper>
-                        <LogoRegistroUsuarioStyled src="/images/GreenLogoDemo.svg" />
-                        <TxtInfoRegistroUsuarioStyled>
-                            INGRESO EN SIMPLES PASOS
-                        </TxtInfoRegistroUsuarioStyled>
-                    </LogoAndTitleWrapper>
-                    <LinkAccountButtons>
-                        <Buttons>Conectar con Google</Buttons>
-                        <Buttons>Conectar con LinkedIn</Buttons>
-                    </LinkAccountButtons>
-                    <StyledSpan></StyledSpan>
-                    <FormRegistroUsuario onSubmit={handleRegister}>
-                        {error && <p style={{ color: "red" }}>{error}</p>}
-                        <label htmlFor="mail">EMAIL DE USUARIO</label>
-                        <input 
-                            type="email" 
-                            name="mail" 
-                            id="mail" 
-                            placeholder="Introduzca su email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required 
-                        />
-                        <label htmlFor="fullname">NOMBRE COMPLETO</label>
-                        <input 
-                            type="text" 
-                            name="fullname"  // Cambié 'name' a 'fullname'
-                            id="fullname" 
-                            placeholder="Introduzca nombre y apellido"
-                            value={fullname} // Ahora se guarda 'fullname' en lugar de 'username'
-                            onChange={(e) => setFullname(e.target.value)} // Actualizado para 'fullname'
-                            required 
-                        />
-                        <label htmlFor="pass">CONTRASEÑA</label>
-                        <input 
-                            type="password" 
-                            name="pass" 
-                            id="pass" 
-                            placeholder="Elija contraseña"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required 
-                        />
-                        <input type="submit" value="CREAR CUENTA" />
-                    </FormRegistroUsuario>
-                    <IniciaSesionStyled>
-                        ¿Ya tienes cuenta? <a onClick={() => navigate("/UserLogin")}>Inicia sesión</a>
-                    </IniciaSesionStyled>
-                    <BtnLinksSocialStyled>
-                        <img id="one" src="/images/linkedinGrey.svg" alt="Linkedin icon" />
-                        <img id="two" src="/images/instagramgrey.svg" alt="Instagram icon" />
-                        <img id="three" src="/images/twittergrey.svg" alt="Twitter icon" />
-                        <img id="four" src="/images/spotifygrey.svg" alt="Spotify icon" />
-                    </BtnLinksSocialStyled>
-                    <Link to={"/FirstGift"}>
-                        <ButtonNext>NEXT</ButtonNext>
-                    </Link>
-                </DivContainerStyled>
-                </OnlyForMobile>
         </>
     );
 }
