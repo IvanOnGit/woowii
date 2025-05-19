@@ -66,7 +66,6 @@ export const MenuAside = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
 
-  /* Estilizar el scrollbar */
   &::-webkit-scrollbar {
     width: 6px;
   }

@@ -1,4 +1,11 @@
+
 import styled from "styled-components"
+
+const WidthMeasurementIphone12Pro = 24.375;
+const WidthMeasurementDesktop = 90;
+export const mobile = `@media(min-width:${WidthMeasurementIphone12Pro}rem)`
+export const desktop = `@media(min-width:${WidthMeasurementDesktop}rem)`
+
 
 export const ContainerWrapper = styled.div`
     display: flex;
@@ -6,30 +13,37 @@ export const ContainerWrapper = styled.div`
     justify-content: center;
     flex-direction: column;
     height: 100vh;
-`
+`;
 export const DivContainerLogo = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-`
+`;
 export const LogoSecondPageStyled = styled.img`
-    width: 18.75rem;
-    position: absolute;
-    margin-bottom: 35rem;
-`
-
+    width: 16.75rem;
+    position: relative;
+    margin-top: -31rem;
+    ${desktop}{
+        width: 20rem;
+        margin-top: -35rem;
+    }
+`;
 export const ImgFondoSecondPage = styled.img`
     position: absolute;
     width: 14rem;
-    margin-top: 2rem;
-`
+    margin-top: 31rem;
+    ${desktop}{
+        width: 20rem;
+        margin-top: 26rem;
+    }
+`;
 export const DivContainerButton = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
-    margin-top: 40rem;
-`
+    margin-top: 38rem;
+`;
 export const ButtonNextSecondPage = styled.button`
     width: 12rem;
     height: 2rem;
@@ -41,82 +55,62 @@ export const ButtonNextSecondPage = styled.button`
     border-radius: 2rem;
     border: none;
     cursor: pointer;
-`
-
-export const ContainerText = styled.div`
-display: flex;
-flex-direction: column;
-font-family: 'Roboto', sans-serif;
-position: absolute;
-text-align: center;
-margin-bottom: 20rem;
-
-h1 {
-    margin: 0;
-    font-size: 1.5rem;
-    background: linear-gradient(90deg, #F4BE19, #654C00);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-h2 {
-    margin: 0;
-    font-size: 1.5rem;
-}
+    margin-top: 11rem;
 `;
-
-export const ContainerProgressBar = styled.div`
-display: flex;
-position: absolute;
-margin-top: 25rem;
-
-
-img {
-    height: 2rem;
-    width: 2rem;
-    background-color: green;
-    border-radius: 50%;
-}
-
-span {
-    height: 0.5rem;
-    width: 8rem;
-    background-color: #8FFF00;
-    margin-top: 1rem;
+export const ContainerText = styled.div`
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    text-align: center;
+    margin-top: -32rem;
+    ${desktop}{
+        margin-top: -27rem;
+    }
+    h1 {
+        margin: 0;
+        font-size: 1.5rem;
+        background: linear-gradient(90deg, #F4BE19, #654C00);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    h2 {
+        margin: 0;
+        font-size: 1.5rem;
     }
 `;
-
-export const ContainerProgressBarBucks = styled.div`
-display: flex;
-position: absolute;
-font-family: 'Roboto', sans-serif;
-width: 41%;
-margin-top: 20rem;
-margin-left: 1rem;
-margin-left: 5rem;
-
-p {
-    font-size: 0.8rem;
-    font-weight: bold;
-    width: 25%;
-    color: #8FFF00;
-}
+export const ContainerVerticalChecks = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18.75rem;
+    height: 18.063rem;
+    margin-top: -5rem;
+    ${desktop}{
+        display: none;
+        content: url("/images/CongratHorizontalChecks.svg");
+    }
 `;
-
-export const ContainerProgressBarText = styled.div`
-display: flex;
-position: absolute;
-font-family: 'Roboto', sans-serif;
-width: 40%;
-margin-top: 32rem;
-margin-left: 1rem;
-margin-left: 5rem;
-
-p {
-    font-size: 0.8rem;
-    font-weight: bold;
-    width: 25%;
-}
+export const VerticalChecks = styled.img`
+    width: 18.75rem;
+    height: 18.063rem;
 `;
-
+export const ContalnerHorizontalChecks = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 51.938rem;
+    height: 10.938rem;
+    margin-top: -6rem;
+    ${mobile}{
+        display: none;
+    }
+    ${desktop}{
+        display: flex;
+    }
+`;
+export const HorizontalChecks = styled.img`
+    width: 51.938rem;
+    height: 10.938rem;
+`;
