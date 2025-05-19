@@ -4,28 +4,23 @@ export const MainContainer = styled.div`
     overflow-y: auto;
     overflow-x: hidden;
     height: 100vh;
-    margin-left: 19rem; /* Add margin equal to sidebar width */
 
     &::-webkit-scrollbar {
-      width: 6px;
-    }
+    width: 6px;
+  }
 
-    &::-webkit-scrollbar-track {
-      background: #f1f1f1;
-    }
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
 
-    &::-webkit-scrollbar-thumb {
-      background: #888;
-      border-radius: 3px;
-    }
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+  }
 
-    &::-webkit-scrollbar-thumb:hover {
-      background: #555;
-    }
-    
-    @media (max-width: 768px) {
-      margin-left: 0; /* Remove margin on mobile */
-    }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 `;
 
 export const ContainerWrapper = styled.div`
@@ -40,10 +35,6 @@ export const Header = styled.header`
   height: 10%;
   padding: 1rem;
   justify-content: flex-end;
-
-  @media (max-width: 768px) {
-    justify-content: center;
-  }
 `;
 
 export const HeaderItems = styled.div`
@@ -80,7 +71,6 @@ export const MenuAside = styled.div`
   font-family: 'Roboto', sans-serif;
   overflow-y: auto;
   overflow-x: hidden;
-  z-index: 1000; /* Ensure sidebar appears above other content */
 
   &::-webkit-scrollbar {
     width: 6px;
@@ -116,10 +106,6 @@ export const MenuAside = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-  }
-
-  @media (max-width: 768px) {
-    display: none;
   }
 `;
 
@@ -289,8 +275,7 @@ export const StoryExplanation = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 800px;
-  padding: 0 2rem;
+  margin-left: 25rem;
   font-family: 'Roboto', sans-serif;
 
   h2 {
@@ -298,26 +283,13 @@ export const StoryExplanation = styled.div`
     color: #460BFF;
     margin: 0;
   }
-  
-  @media (max-width: 768px) {
-    padding: 0 1rem;
-    
-    h2 {
-      font-size: 1.5rem;
-    }
-    p {
-      width: 90%;
-      text-align: justify;
-    }
-  }
 `;
 
 export const StoryForm = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 800px;
-  padding: 0 2rem;
+  margin-left: 25rem;
   font-family: 'Roboto', sans-serif;
 
   h3 {
@@ -329,39 +301,32 @@ export const StoryForm = styled.div`
   }
 
   input:last-of-type, textarea {
-    height: 9rem;
-    width: 100%;
-    max-width: 500px;
-    resize: none;
-    white-space: pre-line;
-    padding: 0.5rem;
-    border-radius: 1rem;
-    border: 1px solid black;
-    margin-top: 1rem;
-  }
+  height: 9rem;
+  width: 35%;
+  resize: none;
+  white-space: pre-line;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: 1px solid black;
+  margin-top: 1rem;
+}
 
-  input:first-of-type {
-    width: 100%;
-    max-width: 500px;
-    padding: 0.5rem;
-    height: auto;
-    margin-top: 0;
-  }
-  
-  @media (max-width: 768px) {
-    padding: 0 1rem;
-    width: 90%;
-  }
+input:first-of-type {
+  width: 35%;
+  padding: 0;
+  height: 1rem;
+  padding: 0.5rem;
+  margin-top: 0;
+}
 `;
 
 export const AboutYou = styled.div`
   display: flex;
   flex-direction: column;
-  position: fixed;
-  top: 10rem;
-  right: 2rem;
+  position: absolute;
+  margin-top: -30rem;
+  margin-left: 89rem;
   gap: 0.2rem;
-  z-index: 100;
 
   button {
     width: 8rem;
@@ -370,20 +335,6 @@ export const AboutYou = styled.div`
     background-color: transparent;
     cursor: pointer;
   }
-  
-  @media (max-width: 1200px) {
-    position: static;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 2rem 0;
-    
-    button {
-      width: auto;
-      padding: 0.5rem;
-      margin: 0.25rem;
-    }
-  }
 `;
 
 export const Container = styled.div`
@@ -391,14 +342,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  width: 100%;
-  max-width: 800px;
-  padding: 0 2rem;
+  margin-left: 25rem;
   margin-top: 2rem;
-  
-  @media (max-width: 768px) {
-    padding: 0 1rem;
-  }
 `;
 
 export const OptionLabel = styled.label`
@@ -414,49 +359,28 @@ export const Checkbox = styled.input`
 
 export const AboutHardset = styled.div`
   width: 100%;
-  max-width: 800px;
-  padding: 0 2rem;
+  margin-left: 25rem;
   margin-top: 2rem;
   font-family: 'Roboto', sans-serif;
-  
-  select {
-    width: 100%;
-    max-width: 500px;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-  }
-  
-  @media (max-width: 768px) {
-    padding: 0 1rem;
-    width: 90%;
-  }
 `;
 
 export const TalkWithWoody = styled.p`
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-  max-width: 800px;
-  padding: 0 2rem;
-  color: #460BFF;
-  margin: 2rem 0;
-  
-  @media (max-width: 768px) {
-    justify-content: center;
-    padding: 0rem;
-  }
+width: 100%;
+display: flex;
+margin-left: 85rem;
+color: #460BFF;
 `;
 
 export const ContinueButton = styled.button`
-  display: block;
-  width: 13rem;
-  margin: 2rem auto;
-  background-color: #460BFF;
-  border-radius: 1rem;
-  color: white;
-  border: none;
-  padding: 0.6rem;
-  cursor: pointer;
+width: 13rem;
+margin-left: 39rem;
+margin-bottom: 2rem;
+background-color: #460BFF;
+border-radius: 1rem;
+color: white;
+border: none;
+padding: 0.6rem;
+cursor: pointer;
 `;
 
 export const SelectContainer = styled.div`
@@ -464,8 +388,7 @@ export const SelectContainer = styled.div`
   gap: 0.5rem;
   flex-wrap: wrap;
   margin-top: 1rem;
-  width: 100%;
-  max-width: 500px;
+  width: 40%;
 `;
 
 export const SelectOption = styled.div`
