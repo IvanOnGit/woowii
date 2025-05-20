@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { ButtonNextSecondPage, ContainerWrapper, DivContainerButton, DivContainerLogo,   ImgFondoSecondPage,   LogoSecondPageStyled } from "./styles"
+import { ButtonNextSecondPage, ContainerWrapper, DivContainerButton, DivContainerLogo,   ImgFondoSecondPage, LogoSecondPageStyled } from "./styles"
 
 
 export default function UserFirstGift() {
