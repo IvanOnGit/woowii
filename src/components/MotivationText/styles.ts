@@ -23,4 +23,16 @@ export const StyledMotivationText = styled.div`
     margin: 0;
     font-size: 0.8rem;
   }
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+
+    h2 {
+      width: 90%;
+    }
+
+    p {
+      width: 90%;
+    }
+  }
 `;

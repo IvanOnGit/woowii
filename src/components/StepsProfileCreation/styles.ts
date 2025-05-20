@@ -11,6 +11,13 @@ export const ContainerWrapper = styled.div`
     font-size: 1.5rem;
     color: #75B300;
   }
+
+  @media (max-width: 768px) {
+    margin-right: 1rem;
+    h2 {
+      font-size: 1rem;
+    }
+  }
 `;
 
 export const StepsContainer = styled.div`
@@ -19,12 +26,21 @@ export const StepsContainer = styled.div`
   gap: 20px;
   flex-wrap: wrap;
   margin-top: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const StepCard = styled.div`
   position: relative;
   width: 10rem;
   text-align: center;
+
+  @media (max-width: 768px) {
+    width: 13rem;
+  }
 `;
 
 export const StepNumber = styled.div`
@@ -61,5 +77,14 @@ export const StepText = styled.div`
     font-size: 0.7rem;
     color: #333;
     text-align: left;
+  }
+
+  @media (max-width: 768px) {
+    h3 {
+      font-size: 1.5rem;
+    }
+    p {
+      font-size: 1rem;
+    }
   }
 `;

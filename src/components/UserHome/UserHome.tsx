@@ -17,7 +17,7 @@ import {
   SecondDropdownButton,
   SecondDropdownList,
   SecondDropdownItem,
-  HelpButton
+  HelpButton,
 } from "./styles";
 import MotivationText from "../MotivationText/MotivationText";
 import StepsProfileCreation from "../StepsProfileCreation/StepsProfileCreation";

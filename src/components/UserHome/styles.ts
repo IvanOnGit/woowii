@@ -4,6 +4,10 @@ import styled from "styled-components";
 export const ContainerWrapper = styled.div`
   display: flex;
   width: 100%;
+
+  @media (max-width: 768px) {
+    overflow: hidden;
+  }
 `;
 
 export const Header = styled.header`
@@ -14,6 +18,11 @@ export const Header = styled.header`
   height: 10%;
   padding: 1rem;
   justify-content: flex-end;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    overflow: hidden;
+  }
 `;
 
 export const SearchContainer = styled.div`
@@ -105,6 +114,10 @@ export const MenuAside = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 
@@ -286,6 +299,18 @@ export const WelcomeContainer = styled.div`
     color: white;
     font-size: 1.5rem;
   }
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+    padding-left: 1rem;
+    overflow: hidden;
+    width: 100%;
+
+    h1 {
+      font-size: 1rem;
+      text-align: center;
+    }
+  }
 `;
 
 export const ChevronIcon = styled.div`
@@ -319,10 +344,19 @@ export const StyledButton = styled.button`
   border-radius: 1rem;
   position: absolute;
   margin-top: -1rem;
+
+  @media (max-width: 768px) {
+    margin-top: 2rem;
+    margin-left: 7.5rem;
+  }
 `;
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
   display: inline-block;
+
+  @media (max-width: 768px) {
+    height: 5rem;
+  }
 `;
