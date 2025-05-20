@@ -1,76 +1,65 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const ContainerChoose = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-`
-export const ContainerChooseLeft = styled.div`
-    width: 100%;
-    height: 100vh;
+export const Container = styled.div`
     display: flex;
-    flex-direction: column;
-`
-export const ContainerChooseCenter = styled.div`
-    width: 100%;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-`
-export const ContainerChooseRight = styled.div`
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-`
-export const MobileUserInit = styled.img`
-   margin: 180px 0 0 280px;
-   display: block;
-   width: 72%;
-   /* margin: auto; */
-   z-index: 1;
-`
-export const MobileCompanyInit = styled.img`
-   margin: 200px 0 0 -160px;
-   /* display: block; */
-   width: 75%;
-   /* margin: auto; */
-   z-index: 1;
-`
-export const DivContainerLogoChoose = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 70px;
 `;
 
-export const LogoChoose = styled.img`
-  width: 18.75rem;
-  height: 5.25rem;
+export const ButtonContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+
+    button {
+        width: 100%;
+        padding: 1rem;
+        cursor: pointer;
+        font-size: 1.5rem;
+        font-weight: bold;
+
+        &.talent {
+            background-color: white;
+            color: #75B300;
+            border-color: #75B300;
+            border: none;
+            border-top: 2px solid;
+            border-right: 2px solid;
+            border-bottom: 7px solid;
+            border-left: 2px solid;
+            border-top-right-radius: 1.5rem;
+            border-bottom-right-radius: 1.5rem;
+            border-bottom-left-radius: 1.5rem;
+        }
+
+        &.company {
+            background-color: white;
+            color: #2020B3;
+            border-color: #2020B3;
+            border: none;
+            border-top: 2px solid;
+            border-right: 2px solid;
+            border-bottom: 7px solid;
+            border-left: 2px solid;
+            border-top-left-radius: 1.5rem;
+            border-bottom-right-radius: 1.5rem;
+            border-bottom-left-radius: 1.5rem;
+        }
+    }
 `;
 
-export const ContainerButtonsChoose = styled.div`
-    display: block;
-    flex-direction: column;
-    margin: 200px 0 0 120px;
-    
-`
-export const BtnTalentChoose = styled.img`
-    width: 70%;
-    margin: auto;
-    padding-bottom: 20px;
-    cursor: pointer;
-`
-export const BtnCompanyChoose = styled.img`
-    width: 70%;
-    margin: auto;
-    cursor: pointer;
-`
-export const ContainerDegradado = styled.div`
-    display: block;
-    flex-direction: column;
-`
-export const DegradadoChoose = styled.img`
-    width: 130%;
-    margin: auto;
-    margin-left: -80px;
-    z-index: -1;
-`
+export const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+`;
+
+export const StyledImage = styled.img`
+    width: 20rem;
+    position: absolute;
+    margin-bottom: 35rem;
+`;
