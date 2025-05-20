@@ -22,6 +22,10 @@ export const MainContainer = styled.div`
   &::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+
+  @media (max-width: 768px) {
+      margin-left: 0; /* Remove margin on mobile */
+    }
 `;
 
 export const ContainerWrapper = styled.div`
@@ -36,6 +40,10 @@ export const Header = styled.header`
   height: 10%;
   padding: 1rem;
   justify-content: flex-end;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
 `;
 
 export const HeaderItems = styled.div`
@@ -108,6 +116,10 @@ export const MenuAside = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 
@@ -319,6 +331,22 @@ export const Description = styled.div`
     border-bottom: 1px solid black;
     outline: none;
   }
+
+  button {
+    width: 10rem;
+    height: 2rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: #75B300;
+    color: white;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    margin-left: 0rem;
+    text-align: center;
+  }
 `;
 
 export const StoryExplanation = styled.div`
@@ -332,6 +360,19 @@ export const StoryExplanation = styled.div`
     font-size: 2rem;
     color: #75B300;
     margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+    margin-left: 0rem;
+    
+    h2 {
+      font-size: 1.5rem;
+    }
+    p {
+      width: 90%;
+      text-align: justify;
+    }
   }
 `;
 
@@ -361,13 +402,29 @@ export const StoryForm = styled.div`
   margin-top: 1rem;
 }
 
+textarea {
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
 input:first-of-type {
   width: 35%;
   padding: 0;
   height: 1rem;
   padding: 0.5rem;
   margin-top: 0;
+
+  @media (max-width: 768px) {
+    width: 95%;
+  }
 }
+
+@media (max-width: 768px) {
+    padding: 0 1rem;
+    width: 90%;
+    margin-left: 0rem;
+  }
 `;
 
 export const AboutYou = styled.div`
@@ -385,6 +442,20 @@ export const AboutYou = styled.div`
     background-color: transparent;
     cursor: pointer;
   }
+
+  @media (max-width: 1200px) {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 2rem 0;
+    
+    button {
+      width: auto;
+      padding: 0.5rem;
+      margin: 0.25rem;
+    }
+  }
 `;
 
 export const Container = styled.div`
@@ -394,6 +465,11 @@ export const Container = styled.div`
   gap: 0.5rem;
   margin-left: 25rem;
   margin-top: 2rem;
+
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+    margin-left: 0rem;
+  }
 `;
 
 export const OptionLabel = styled.label`
@@ -412,6 +488,15 @@ export const AboutHardset = styled.div`
   margin-left: 25rem;
   margin-top: 2rem;
   font-family: 'Roboto', sans-serif;
+
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+    width: 100%;
+    margin-left: 0rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const TalkWithWoody = styled.p`
@@ -419,6 +504,11 @@ width: 100%;
 display: flex;
 margin-left: 85rem;
 color: #75B300;
+
+@media (max-width: 768px) {
+    justify-content: center;
+    padding: 0rem;
+  }
 `;
 
 export const ContinueButton = styled.button`
@@ -431,6 +521,10 @@ color: white;
 border: none;
 padding: 0.6rem;
 cursor: pointer;
+
+@media (max-width: 768px) {
+    margin-left: 6.5rem;
+  }
 `;
 
 export const SelectContainer = styled.div`
@@ -439,6 +533,10 @@ export const SelectContainer = styled.div`
   flex-wrap: wrap;
   margin-top: 1rem;
   width: 40%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const SelectOption = styled.div`
