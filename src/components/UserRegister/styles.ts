@@ -18,6 +18,10 @@ export const LogoAndTitleWrapper = styled.div`
 export const LogoRegistroUsuarioStyled = styled.img`
     width: 40%;
     height: 80%;
+
+    @media (max-width: 768px) {
+        width: 80%;
+    }
 `
 export const TxtInfoRegistroUsuarioStyled = styled.p`
     text-align: center;
@@ -44,6 +48,10 @@ export const Buttons = styled.button`
     margin-bottom: 1rem;
     color: blue;
     cursor: pointer;
+
+    @media (max-width: 768px) {
+        width: 40%;
+    }
 `
 
 export const StyledSpan = styled.span`
@@ -141,6 +149,10 @@ export const TextoMiniInfoRegUser = styled.p`
     width: 100%;
     margin-left: 50rem;
     margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
 `
 
 export const SemiCircleStyled = styled.div`
@@ -152,6 +164,11 @@ export const SemiCircleStyled = styled.div`
     background: #FFF;
     border-radius: 50% 0 0 50%;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+
+    @media (max-width: 768px) {
+        filter: none;
+        width: 100%;
+    }
 `
 
 export const WrapperImage = styled.img`
@@ -163,5 +180,9 @@ export const WrapperImage = styled.img`
   background-image: url("/images/fondo_lila.svg");
   background-size: cover;
   background-position: center;
-  z-index: -1;  
+  z-index: -1;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
