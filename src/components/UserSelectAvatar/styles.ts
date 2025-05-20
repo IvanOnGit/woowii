@@ -11,6 +11,10 @@ export const ContainerWrapper = styled.div`
   h2 {
     font-family: 'Roboto', sans-serif;
   }
+
+  @media (max-width: 768px) {
+    overflow: hidden;
+  }
 `;
 
 export const DivContainerLogoTerPage = styled.div`
@@ -64,6 +68,10 @@ export const Button = styled.button`
 export const ThumbnailsContainer = styled.div`
   display: flex;
   gap: 8px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const Thumbnail = styled.img<{ isSelected: boolean }>`
@@ -92,6 +100,11 @@ export const UsernameInput = styled.div`
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     margin-bottom: 0.5rem;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      text-align: center;
+    }
   }
 
   input {
