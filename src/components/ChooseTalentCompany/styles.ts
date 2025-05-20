@@ -6,6 +6,19 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     height: 100vh;
+
+    @media (max-width: 768px) {
+        img {
+           &.user {
+                display: none;
+            }
+
+            &.business {
+                display: none;
+            }
+        }
+        
+    }
 `;
 
 export const ButtonContainer = styled.div`

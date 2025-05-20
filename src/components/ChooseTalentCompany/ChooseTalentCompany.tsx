@@ -5,7 +5,7 @@ const ChooseTalentCompany = () => {
   return (
     <Container>
       <StyledImage src="/images/GreenLogoDemo.svg" alt="" />
-      <img src="/images/mobileUser.svg" alt="" />
+      <img className="user" src="/images/mobileUser.svg" alt="" />
       <ButtonContainer>
         <StyledLink to="/RegisterUserForm">
             <button className="talent">Soy talento</button>
@@ -14,7 +14,7 @@ const ChooseTalentCompany = () => {
             <button className="company">Soy empresa</button>
         </StyledLink>
       </ButtonContainer>
-      <img src="/images/mobileCompany.svg" alt="" />
+      <img className="business" src="/images/mobileCompany.svg" alt="" />
     </Container>
   );
 };
