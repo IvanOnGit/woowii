@@ -64,7 +64,7 @@ export default function CompanyCandidatesView() {
   useEffect(() => {
     const fetchCandidates = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/auth/candidates/by-job?jobId=${jobId}`);
+        const response = await fetch(`http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/candidates/by-job?jobId=${jobId}`);
         const data = await response.json();
         
         console.log("Datos recibidos del API:", data);

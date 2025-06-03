@@ -158,7 +158,7 @@ export default function RegisterCompanyProfile() {
         website: formData.website
       }, null, 2));
   
-      const response = await fetch("http://localhost:3000/api/auth/update-avatar-company", {
+      const response = await fetch("http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/update-avatar-company", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

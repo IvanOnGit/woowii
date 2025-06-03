@@ -48,7 +48,7 @@ export default function CompanyHome() {
         return;
       }
 
-      const url = `http://localhost:3000/api/auth/get-company?id=${numericId}`;
+      const url = `http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/get-company?id=${numericId}`;
       console.log("Requesting URL:", url);
 
       try {

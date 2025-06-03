@@ -27,7 +27,7 @@ export default function CandidateDetail() {
     useEffect(() => {
         const fetchUserDetails = async (userId: string) => {
             try {
-                const res = await fetch(`http://localhost:3000/api/auth/get-user?userId=${userId}`);
+                const res = await fetch(`http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/get-user?userId=${userId}`);
                 const data = await res.json();
                 console.log("Detalles completos del usuario:", data);
 
@@ -61,7 +61,7 @@ export default function CandidateDetail() {
 
         const fetchCandidateDetails = async () => {
             try {
-                const response = await fetch(`http://localhost:3000/api/auth/candidates/${candidateId}`);
+                const response = await fetch(`http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/candidates/${candidateId}`);
                 if (!response.ok) throw new Error(`Error: ${response.status}`);
                 const data = await response.json();
 
@@ -93,7 +93,7 @@ export default function CandidateDetail() {
 
     const handleAcceptCandidate = async () => {
         try {
-            const res = await fetch(`http://localhost:3000/api/auth/applications/${applicationId}/match`, {
+            const res = await fetch(`http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/applications/${applicationId}/match`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -103,11 +103,11 @@ export default function CandidateDetail() {
             if (!res.ok) throw new Error("Error al aceptar candidato");
         
             // Fetch de datos extra para el match
-            const userDetails = await fetch(`http://localhost:3000/api/auth/get-user?userId=${candidateId}`);
+            const userDetails = await fetch(`http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/get-user?userId=${candidateId}`);
             const userData = await userDetails.json();
         
             const companyId = localStorage.getItem("id");
-            const companyDetails = await fetch(`http://localhost:3000/api/auth/get-company?id=${companyId}`);
+            const companyDetails = await fetch(`http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/get-company?id=${companyId}`);
             const companyData = await companyDetails.json();
         
             // Agregar logs más detallados para depuración

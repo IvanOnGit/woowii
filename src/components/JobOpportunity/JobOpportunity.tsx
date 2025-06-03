@@ -65,7 +65,7 @@ export default function JobOpportunityView() {
   useEffect(() => {
     const fetchJob = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/auth/job/${jobId}`);
+        const response = await fetch(`http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/job/${jobId}`);
         const data = await response.json();
 
         setTitle(data.title);
@@ -109,7 +109,7 @@ export default function JobOpportunityView() {
     }
   
     try {
-      const response = await fetch("http://localhost:3000/api/auth/apply", {
+      const response = await fetch("http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/apply", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -138,7 +138,7 @@ export default function JobOpportunityView() {
     const checkApplication = async () => {
       try {
         const res = await fetch(
-          `http://localhost:3000/api/auth/has-applied?userId=${userId}&jobId=${jobId}`
+          `http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/has-applied?userId=${userId}&jobId=${jobId}`
         );
         const data = await res.json();
         setHasApplied(data.applied);

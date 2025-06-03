@@ -18,7 +18,7 @@ export default function RegistroUsuarioForm() {
         e.preventDefault();
 
         try {
-            const response = await fetch("http://localhost:3000/api/auth/register", {
+            const response = await fetch("http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

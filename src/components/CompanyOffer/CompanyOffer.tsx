@@ -120,7 +120,7 @@ export default function CompanyOffer() {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/api/auth/create-job", {
+      const response = await fetch("http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/create-job", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

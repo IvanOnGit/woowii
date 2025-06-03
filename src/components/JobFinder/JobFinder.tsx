@@ -83,7 +83,7 @@ export default function JobFinder() {
     const fetchUserData = async () => {
       if (!userId) return;
 
-      const response = await fetch(`http://localhost:3000/api/auth/get-user?userId=${userId}`);
+      const response = await fetch(`http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/get-user?userId=${userId}`);
       const data = await response.json();
       console.log(data);
       setUserData(data);
@@ -98,7 +98,7 @@ export default function JobFinder() {
       if (!userId) return;
       
       try {
-        const response = await fetch(`http://localhost:3000/api/auth/user-matches?userId=${userId}`);
+        const response = await fetch(`http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/user-matches?userId=${userId}`);
         const data = await response.json();
         console.log("🔔 Notificaciones de matches:", data);
         setMatchNotifications(data);
@@ -118,7 +118,7 @@ export default function JobFinder() {
     try {
       const notificationIds = matchNotifications.map(match => match.applicationId);
       
-      await fetch('http://localhost:3000/api/auth/mark-notifications-viewed', {
+      await fetch('http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/mark-notifications-viewed', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -151,7 +151,7 @@ export default function JobFinder() {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/auth/jobs');
+        const response = await fetch('http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/jobs');
         const data = await response.json();
         setAllJobs(data);
       } catch (error) {
@@ -167,7 +167,7 @@ export default function JobFinder() {
     const fetchUserSkills = async () => {
       if (!userId) return;
       try {
-        const response = await fetch(`http://localhost:3000/api/auth/get-user-skills?userId=${userId}`);
+        const response = await fetch(`http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/get-user-skills?userId=${userId}`);
         const data = await response.json();
         console.log("Toolset del usuario:", data.toolset);
         setToolset(data.toolset || []);

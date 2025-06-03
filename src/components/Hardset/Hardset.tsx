@@ -63,7 +63,7 @@ export default function Hardset() {
       if (!userId) return;
   
       try {
-        const response = await fetch(`http://localhost:3000/api/auth/get-user?userId=${userId}`);
+        const response = await fetch(`http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/get-user?userId=${userId}`);
         const data = await response.json();
         setUserData(data);
         setTitle(data.title || "");
@@ -81,7 +81,7 @@ export default function Hardset() {
       if (!userId) return;
   
       try {
-        const response = await fetch(`http://localhost:3000/api/auth/get-user-skills?userId=${userId}`);
+        const response = await fetch(`http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/get-user-skills?userId=${userId}`);
         const data = await response.json();
         console.log("Skills recuperadas:", data);
   
@@ -105,7 +105,7 @@ export default function Hardset() {
     if (!userId) return false;
 
     try {
-      const response = await fetch(`http://localhost:3000/api/auth/check-personality-test?userId=${userId}`);
+      const response = await fetch(`http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/check-personality-test?userId=${userId}`);
       const data = await response.json();
       return data.hasTest || false;
     } catch (error) {
@@ -119,7 +119,7 @@ export default function Hardset() {
   
     try {
       // Guardar las habilidades del usuario
-      const response = await fetch('http://localhost:3000/api/auth/save-user-skills', {
+      const response = await fetch('http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/save-user-skills', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -171,7 +171,7 @@ export default function Hardset() {
     }
     
     try {
-      const response = await fetch('http://localhost:3000/api/auth/update-user-info', {
+      const response = await fetch('http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/update-user-info', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
