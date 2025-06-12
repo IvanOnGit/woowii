@@ -285,19 +285,19 @@ export default function RegisterCompanyProfile() {
                 <label htmlFor="subscription">Subscripción al boletín:</label>
                 <div className="btnChoose" id="subscription">
                     <button 
-                      type="button"
-                      onClick={() => handleSubscriptionChange("SI")}
-                      style={{ backgroundColor: formData.subscription === "yes" ? "#2563eb" : "#f5f5f5" }}
-                    >
-                      SI
-                    </button>
-                    <button 
-                      type="button"
-                      onClick={() => handleSubscriptionChange("NO")}
-                      style={{ backgroundColor: formData.subscription === "no" ? "#2563eb" : "#f5f5f5" }}
-                    >
-                      NO
-                    </button>
+                    type="button"
+                    onClick={() => handleSubscriptionChange("yes")}
+                    style={{ backgroundColor: formData.subscription === "yes" ? "#2563eb" : "#f5f5f5" }}
+                  >
+                    SI
+                  </button>
+                  <button 
+                    type="button"
+                    onClick={() => handleSubscriptionChange("no")}
+                    style={{ backgroundColor: formData.subscription === "no" ? "#2563eb" : "#f5f5f5" }}
+                  >
+                    NO
+                  </button>
                 </div>
             </div>
             <div className="inputsForm">
