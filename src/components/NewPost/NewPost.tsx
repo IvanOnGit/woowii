@@ -10,7 +10,7 @@ export default function NewPost() {
           const fetchUserData = async () => {
               if (!userId) return;
     
-              const response = await fetch(`http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/get-user?userId=${userId}`);
+              const response = await fetch(`https://api.woowiihr.com/api/auth/get-user?userId=${userId}`);
               const data = await response.json();
               console.log(data);  // Verifica qué datos estás recibiendo
               setUserData(data);

@@ -12,7 +12,7 @@ export default function CompanyLogin() {
     e.preventDefault();
     
     try {
-      const response = await fetch("http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/login-company", {
+      const response = await fetch("https://api.woowiihr.com/api/auth/login-company", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

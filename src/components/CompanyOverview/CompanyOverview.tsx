@@ -73,7 +73,7 @@ export default function CompanyOverview() {
         }
   
         // Cambié 'companyId' por 'id' en la URL
-        const url = `http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/get-company?id=${numericId}`;
+        const url = `https://api.woowiihr.com/api/auth/get-company?id=${numericId}`;
         console.log("Requesting URL:", url); // Verifica si la URL es correcta
   
         try {
@@ -101,7 +101,7 @@ export default function CompanyOverview() {
         if (!id) return;
 
         try {
-          const response = await fetch(`http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/jobs/by-company/${id}`);
+          const response = await fetch(`https://api.woowiihr.com/api/auth/jobs/by-company/${id}`);
           const data = await response.json();
           setCompanyJobs(data);
         } catch (error) {
@@ -116,7 +116,7 @@ export default function CompanyOverview() {
       const fetchNotifications = async () => {
         if (!id) return;
         try {
-          const res = await fetch(`http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/notifications?companyId=${id}`);
+          const res = await fetch(`https://api.woowiihr.com/api/auth/notifications?companyId=${id}`);
           const data = await res.json();
           setNotificationCount(data.total);
         } catch (error) {
@@ -130,7 +130,7 @@ export default function CompanyOverview() {
     useEffect(() => {
       const fetchNewApplications = async () => {
         try {
-          const res = await fetch(`http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/new-applications?companyId=${id}`);
+          const res = await fetch(`https://api.woowiihr.com/api/auth/new-applications?companyId=${id}`);
           const data = await res.json();
           setNewApplications(data);
         } catch (err) {
@@ -149,7 +149,7 @@ export default function CompanyOverview() {
         
         try {
           // Primero, obtenemos las aplicaciones con status "matched" para esta empresa
-          const applicationsRes = await fetch(`http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/applications/matched?companyId=${id}`);
+          const applicationsRes = await fetch(`https://api.woowiihr.com/api/auth/applications/matched?companyId=${id}`);
           const applicationsData = await applicationsRes.json();
           
           if (!applicationsData.length) {
@@ -160,7 +160,7 @@ export default function CompanyOverview() {
           // Para cada aplicación, obtenemos los datos del usuario
             const users = await Promise.all(applicationsData.map(async (app: Application) => {
             // Obtener datos del usuario
-            const userRes = await fetch(`http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/get-user?userId=${app.user_id}`);
+            const userRes = await fetch(`https://api.woowiihr.com/api/auth/get-user?userId=${app.user_id}`);
             const userData = await userRes.json();
             
             return {

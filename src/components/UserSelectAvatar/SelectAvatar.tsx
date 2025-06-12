@@ -54,7 +54,7 @@ export default function SelectAvatar() {
     setError("");
 
     try {
-      const response = await fetch(`http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/update-avatar`, {
+      const response = await fetch(`https://api.woowiihr.com/api/auth/update-avatar`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

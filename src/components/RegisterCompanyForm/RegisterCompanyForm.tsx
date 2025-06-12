@@ -36,7 +36,7 @@ export default function RegisterCompanyForm() {
     console.log("Datos enviados:", formData); // 👀 Verifica qué se está enviando
   
     try {
-      const response = await fetch("http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/register-company", {
+      const response = await fetch("https://api.woowiihr.com/api/auth/register-company", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

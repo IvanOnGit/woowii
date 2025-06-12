@@ -169,7 +169,7 @@ export default function PersonalityTestQuestions() {
         throw new Error("No se encontró ID de usuario");
       }
   
-      const response = await fetch('http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/auth/submit-personality-test', {
+      const response = await fetch('https://api.woowiihr.com/api/auth/submit-personality-test', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -24,7 +24,7 @@ export default function UserContactForm() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://ec2-52-47-198-73.eu-west-3.compute.amazonaws.com:3000/api/contact", {
+      const res = await fetch("https://api.woowiihr.com/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
